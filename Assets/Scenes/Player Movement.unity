@@ -102574,7 +102574,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7365448177290923975}
         m_TargetAssemblyTypeName: DeathMenu, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
@@ -103431,6 +103431,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7365448177290923972}
+  - component: {fileID: 7365448177290923975}
   m_Layer: 5
   m_Name: DeathMenu
   m_TagString: Untagged
@@ -103438,6 +103439,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &7365448177290923975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7365448177290923973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &7365448177297227588
 CanvasRenderer:
   m_ObjectHideFlags: 0
