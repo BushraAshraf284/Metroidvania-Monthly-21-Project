@@ -40,8 +40,8 @@ public class HelpMenu : MonoBehaviour
         dash = GameObject.Find("Dash").GetComponent<Image>();
         interact = GameObject.Find("Interact").GetComponent<Image>();
         attack = GameObject.Find("Attack").GetComponent<Image>();
-        leftweaponmenu = GameObject.Find("Leftweaponmenu").GetComponent<Image>();
-        rightweaponmenu = GameObject.Find("Rightweaponmenu").GetComponent<Image>();
+        leftweaponmenu = GameObject.Find("LeftWeaponMenu").GetComponent<Image>();
+        rightweaponmenu = GameObject.Find("RightWeaponMenu").GetComponent<Image>();
         errTxt = GameObject.Find("ErrorText");
         promptTxt = GameObject.Find("PromptText");
         rebindTxt = GameObject.Find("RebindText");
@@ -140,16 +140,16 @@ public class HelpMenu : MonoBehaviour
         KeyCode dashKey = controls.keys["dash"];
         KeyCode interKey = controls.keys["interact"];
         KeyCode attackKey = controls.keys["attack"];
-        KeyCode leftweaponmenuKey = controls.keys["leftweaponmenu"];
-        KeyCode rightweaponmenuKey = controls.keys["rightweaponmenu"];
+        KeyCode leftWeaponMenuKey = controls.keys["leftWeaponMenu"];
+        KeyCode rightWeaponMenuKey = controls.keys["rightWeaponMenu"];
 
         errTxt.SetActive(false);
         promptTxt.SetActive(false);
         rebindTxt.SetActive(true);
 
         //Set images to associated key sprite, or blank if associated sprite doesn't exist
-        leftweaponmenu.sprite = Resources.Load<Sprite>(leftweaponmenuKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(leftweaponmenuKey.ToString()); 
-        rightweaponmenu.sprite = Resources.Load<Sprite>(rightweaponmenuKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(rightweaponmenuKey.ToString()); 
+        leftweaponmenu.sprite = Resources.Load<Sprite>(leftWeaponMenuKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(leftWeaponMenuKey.ToString()); 
+        rightweaponmenu.sprite = Resources.Load<Sprite>(rightWeaponMenuKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(rightWeaponMenuKey.ToString()); 
         aim.sprite = Resources.Load<Sprite>(aimKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(aimKey.ToString()); 
         moveLeft.sprite = Resources.Load<Sprite>(leftKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(leftKey.ToString());
         moveRight.sprite = Resources.Load<Sprite>(rightKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(rightKey.ToString());

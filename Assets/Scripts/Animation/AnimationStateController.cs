@@ -15,6 +15,7 @@ public class AnimationStateController : MonoBehaviour
     int isJumpingHash;
     int onGroundHash;
     int isOnWallHash;
+    int isWalkingHash;
 
     int isFallingHash;
     bool isOnGround;
@@ -29,18 +30,20 @@ public class AnimationStateController : MonoBehaviour
     [Tooltip("how long you need to be in the air before the 'onGround' bool triggers")]
     float OnGroundBuffer = .5f;
     [SerializeField]
-    [Tooltip("how long isJumping stays true after pressing it ( maybe should be in movingsphere?)")]
+    [Tooltip("how long isJumping stays true after pressing it")]
     float JumpBuffer = .5f;
     bool JumpSwitch = true;
     float Groundstopwatch = 0;
     float Jumpstopwatch = 0;
+    MovementSpeedController speed;
 
 
     void JumpAnimEvent(){
 		sphere.JumpTrigger();
 	}
 
-    void Start() { 
+    void Start() {
+        speed = player.GetComponent<MovementSpeedController>(); 
         sphere = player.GetComponent<Movement>();
         animator = GetComponent<Animator>();
 		isRunningHash = Animator.StringToHash("isRunning");
@@ -48,6 +51,7 @@ public class AnimationStateController : MonoBehaviour
         onGroundHash = Animator.StringToHash("OnGround");
         isOnWallHash = Animator.StringToHash("isOnWall");
         isFallingHash = Animator.StringToHash("isFalling");
+        isWalkingHash = Animator.StringToHash("isWalking");
 
     }
 
@@ -80,6 +84,7 @@ public class AnimationStateController : MonoBehaviour
         bool isOnWall = animator.GetBool(isOnWallHash);
 		bool isRunning = animator.GetBool(isRunningHash);
         bool isJumping = animator.GetBool(isJumpingHash);
+        bool isWalking = animator.GetBool(isWalkingHash);
         bool forwardPressed = Input.GetKey(sphere.controls.keys["walkUp"]);
         bool leftPressed = Input.GetKey(sphere.controls.keys["walkLeft"]);
         bool rightPressed = Input.GetKey(sphere.controls.keys["walkRight"]);
@@ -147,10 +152,20 @@ public class AnimationStateController : MonoBehaviour
             animator.SetBool(isOnWallHash, false);
         }
 
-        if (!isRunning && movementPressed && sphere.velocity.magnitude > 0 ){
+        if ((!isRunning && movementPressed && sphere.velocity.magnitude > 0 )&& !speed.slowed){
             animator.SetBool(isRunningHash, true);
         }
-        if ((isRunning && !movementPressed) || sphere.velocity.magnitude <= 0.08f){
+        if (((isRunning && !movementPressed) || sphere.velocity.magnitude <= 0.08f ) && !speed.slowed){
+            animator.SetBool(isRunningHash, false);
+        }
+        if(speed.slowed && isOnGround && movementPressed && sphere.velocity.magnitude > 0) {
+            animator.SetBool(isWalkingHash, true);
+        }
+        if (((isWalking && !movementPressed) || sphere.velocity.magnitude <= 0.01f )){
+            animator.SetBool(isWalkingHash, false);
+        }
+        if(!movementPressed){
+            animator.SetBool(isWalkingHash, false);
             animator.SetBool(isRunningHash, false);
         }
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //updates what direction the player model is facing
+//should make it diffeerentiate between normal rotations and gravity shift rotations so I can assign them different values
 public class UpdateRotation : MonoBehaviour
 
 {

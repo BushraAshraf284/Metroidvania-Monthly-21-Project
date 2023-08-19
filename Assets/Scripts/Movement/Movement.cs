@@ -39,9 +39,9 @@ public class Movement : MonoBehaviour {
 	[Tooltip("character's jump height")]
 	float jumpHeight = 2f;
 
-	[SerializeField, Range(0, 5)]
-	[Tooltip("controls the amount of jumps you can do while in the air")]
-	int maxAirJumps = 1;
+	//[SerializeField, Range(0, 5)]
+	//[Tooltip("controls the amount of jumps you can do while in the air")]
+	//int maxAirJumps = 1;
 
 	//all the masks that determine what interactions are valid with the player
 
@@ -268,17 +268,17 @@ public class Movement : MonoBehaviour {
 			if (OnGround) {
 				jumpDirection = contactNormal;
 			}
-			else if (OnSteep) {
-				jumpDirection = steepNormal;
+			//else if (OnSteep) {
+				//jumpDirection = steepNormal;
 				// this was originally 0 but i changed it so that wall jumping doesnt count as one of your air jumps
-				jumpPhase -= 1;
-			}
-			else if (maxAirJumps > 0 && jumpPhase <= maxAirJumps) {
-				if (jumpPhase == 0) {
-				jumpPhase = 1;
-				}
-				jumpDirection = contactNormal;
-				}
+				//jumpPhase -= 0;
+			//}
+			//else if (maxAirJumps > 0 && jumpPhase <= maxAirJumps) {
+			//	if (jumpPhase == 0) {
+			//	jumpPhase = 1;
+			//	}
+			//	jumpDirection = contactNormal;
+			//	}
 			else {
 				return;
 			}
