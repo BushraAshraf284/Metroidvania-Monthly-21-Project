@@ -102,6 +102,7 @@ public class Movement : MonoBehaviour {
 		transform.GetChild(4).gameObject.SetActive(false);
 	}
     public Controls controls;
+	float boost;
 	//runs when object becomes active
 	void Awake () {
         controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
@@ -262,7 +263,8 @@ public class Movement : MonoBehaviour {
 		}
 	}
 
-	public void JumpTrigger(){
+	public void JumpTrigger(float boos){
+		boost = boos;
 		desiredJump = true;
 	}
 	
@@ -295,7 +297,7 @@ public class Movement : MonoBehaviour {
 				if (alignedSpeed > 0f) {
 					jumpSpeed = Mathf.Max(jumpSpeed - alignedSpeed, 0f);
 				}
-				velocity += jumpDirection * jumpSpeed;
+				velocity += (jumpDirection * jumpSpeed) * boost;
 			}
 			else{
 				skip = true;
