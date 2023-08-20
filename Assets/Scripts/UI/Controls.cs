@@ -33,8 +33,8 @@ public class Controls : MonoBehaviour
                 {"interact",KeyCode.F},
                 {"attack",KeyCode.Mouse0},
                 {"aim",KeyCode.Mouse1},
-                {"leftweaponmenu",KeyCode.E},
-                {"rightweaponmenu",KeyCode.Q}
+                {"leftWeaponMenu",KeyCode.E},
+                {"rightWeaponMenu",KeyCode.Q}
             };
 
             //Dictionary for what keys on the keyboard are in use

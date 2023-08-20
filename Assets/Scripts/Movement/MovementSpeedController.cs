@@ -17,7 +17,7 @@ public class MovementSpeedController : MonoBehaviour
     float factor = 1f;
     float lastFactor;
     [SerializeField]
-    bool slowed = false;
+    public bool slowed = false;
 
     //this will determine how severely speed is impacted
 

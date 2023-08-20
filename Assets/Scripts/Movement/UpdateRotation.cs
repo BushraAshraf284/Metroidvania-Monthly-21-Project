@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //updates what direction the player model is facing
+//should make it diffeerentiate between normal rotations and gravity shift rotations so I can assign them different values
+//this script also handles the aiming logic, controlling how fast hte player rotates, what they rotate around, etc. 
 public class UpdateRotation : MonoBehaviour
 
 {
@@ -12,63 +14,106 @@ public class UpdateRotation : MonoBehaviour
 	[SerializeField]
 	float airRotationSpeed = 240f;
 	[SerializeField]
+	float gravRotationSpeed = 240f;
+	[SerializeField]
+	float camRotationSpeed = 240f;
+	[SerializeField]
     GameObject player = default;
     Movement sphere; 
     Rigidbody body;
     Vector3 DummyGrav;
     bool Gate = true;
     bool gravSwap;
+	[SerializeField]
+	public bool isAiming;
+	[SerializeField]
+	GameObject aimingCamera;
+	[SerializeField]
+	Transform aimPoint;
+	[SerializeField]
+	Transform basePoint;
+	Camera controllingCam;
+	[SerializeField]
+	float cameraBlendRate = 500f;
     // Start is called before the first frame update
     void Start()
     {
+		if(aimingCamera.GetComponent<OrbitCamera>() != null){
+			controllingCam = aimingCamera.GetComponent<OrbitCamera>().controllingCam.GetComponent<Camera>();
+		}
 		transform.rotation = Quaternion.LookRotation( transform.forward , CustomGravity.GetUpAxis(transform.position));
         sphere = player.GetComponent<Movement>();
         body = player.GetComponent<Rigidbody>();
     }
+//	void resetGate(){
+	//	Gate = false;
+	//}
 
     void Update() {
         //transform.Rotate(0,5,0);
-        UpdateSpins();
-    }
+		if(aimingCamera.GetComponent<OrbitCamera>() != null){
+			if(isAiming){
+				if(controllingCam.fieldOfView > aimingCamera.GetComponent<OrbitCamera>().aimFOV){
+					controllingCam.fieldOfView -= Time.deltaTime * cameraBlendRate;
+				}
+				if(controllingCam.fieldOfView < aimingCamera.GetComponent<OrbitCamera>().aimFOV){
+					controllingCam.fieldOfView += Time.deltaTime * cameraBlendRate;
+				}
+				if(aimingCamera.GetComponent<OrbitCamera>().focus != aimPoint){
+					aimingCamera.GetComponent<OrbitCamera>().focus = aimPoint;
+				}
 
-	void gravFlip(){
-			//Debug.Log("rotating...");
-            Quaternion toRotation = Quaternion.LookRotation( transform.forward , CustomGravity.GetUpAxis(this.transform.position) );
-			this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, (rotationSpeed) * Time.deltaTime);
-			Gate = true;
-	}
+				if(this.transform.up != CustomGravity.GetUpAxis(this.transform.position)){
+					//Debug.Log("Gravity Mismatch!");
+					//if(Gate == false){
+						Quaternion toRotation = Quaternion.LookRotation( transform.forward , CustomGravity.GetUpAxis(this.transform.position) );
+						this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, (gravRotationSpeed) * Time.deltaTime);
+					//}
+					//else{
+					//	Invoke("resetGate", .3f);
+					//}
+				}
+				else{
+					Quaternion toRotation2 = Quaternion.LookRotation(ProjectDirectionOnPlane(aimingCamera.transform.forward, CustomGravity.GetUpAxis(this.transform.position)), CustomGravity.GetUpAxis(this.transform.position));
+					this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation2, (camRotationSpeed) * Time.deltaTime);
+				}
+			}
+			else{
+				if(controllingCam.fieldOfView < aimingCamera.GetComponent<OrbitCamera>().baseFOV){
+					controllingCam.fieldOfView += Time.deltaTime * cameraBlendRate;
+				}
+				if(controllingCam.fieldOfView > aimingCamera.GetComponent<OrbitCamera>().baseFOV){
+					controllingCam.fieldOfView -= Time.deltaTime * cameraBlendRate;
+				}
+				if(aimingCamera.GetComponent<OrbitCamera>().focus != basePoint){
+					aimingCamera.GetComponent<OrbitCamera>().focus = basePoint;
+				}
+				
+				UpdateSpins();
+			}
+		}
+
+
+    }
     void UpdateSpins()
     {
 		Vector3 player2Pointer = sphere.ProjectDirectionOnPlane(point.transform.position - transform.parent.gameObject.transform.position, CustomGravity.GetUpAxis(transform.position));
 		Debug.DrawRay(this.transform.position, player2Pointer, Color.gray, 3f);
         Vector3 gravity = CustomGravity.GetUpAxis(this.transform.position);
-		//the "gravSwap" logic is works in the sence that the bool represents if gravity is changing or not but this not creates an issue with priority, if it is before the 
-		// connected body check, it overwrites it and forces its orientation    , which causes issues when standing on moving platforms. however, if it is after the connected body check,
-		//standing on rigid bodies causes you to not update your rotation anymore. this comes back to the root issue of needing to be able to have a way to change the up vector without changing the forward vector. 
-		// this is only an issue for constantly changing gravity, however. 
-
-		if(DummyGrav == gravity){
-			if(Gate){
-				gravSwap = false;
-			}
+		if(this.transform.up != CustomGravity.GetUpAxis(this.transform.position)){
+			Debug.Log("Gravity Mismatch!");
+		//	if(Gate == false){
+				Quaternion toRotation = Quaternion.LookRotation( transform.forward , CustomGravity.GetUpAxis(this.transform.position) );
+				this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, (gravRotationSpeed) * Time.deltaTime);
+		//	}
+		//	else{
+		//		Invoke("resetGate", .3f);
+		//	}
 		}
 		else{
-            //Debug.Log("Gravity is changing!");
-			gravSwap = true;
-			DummyGrav = gravity;
-			Gate = false;
+			Gate = true;
 		}
-		// is gravity changing? 
-		if (gravSwap){
-				Invoke("gravFlip", .6f);
-		}
-		//else if (sphere.isAiming){
-			//Debug.Log("Aiming");
-		//	Quaternion toRotation = Quaternion.LookRotation(sphere.forwardAxis, gravity);
-		//	transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
-		//}
-		//SHOULD MAKE IT SO THAT ROTATING IN AIR IS SLOWER
-		else if (sphere.velocity.magnitude > .2f && (sphere.playerInput != Vector3.zero)){
+		if (sphere.velocity.magnitude > .2f && (sphere.playerInput != Vector3.zero)){
 			if(!sphere.OnGround){
 				Quaternion toRotation = Quaternion.LookRotation(ProjectDirectionOnPlane(player2Pointer, gravity), gravity);
 				transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, airRotationSpeed * Time.deltaTime);

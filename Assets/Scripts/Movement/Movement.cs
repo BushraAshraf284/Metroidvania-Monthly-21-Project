@@ -39,9 +39,9 @@ public class Movement : MonoBehaviour {
 	[Tooltip("character's jump height")]
 	float jumpHeight = 2f;
 
-	[SerializeField, Range(0, 5)]
-	[Tooltip("controls the amount of jumps you can do while in the air")]
-	int maxAirJumps = 1;
+	//[SerializeField, Range(0, 5)]
+	//[Tooltip("controls the amount of jumps you can do while in the air")]
+	//int maxAirJumps = 1;
 
 	//all the masks that determine what interactions are valid with the player
 
@@ -52,7 +52,7 @@ public class Movement : MonoBehaviour {
 	public Rigidbody body, connectedBody; 
 	Rigidbody previousConnectedBody;
 	
-	bool desiredJump;
+	public bool desiredJump;
 
 	[HideInInspector]
 	public int groundContactCount, steepContactCount;
@@ -87,6 +87,7 @@ public class Movement : MonoBehaviour {
 	Vector3 connectionVelocity;
 
 	bool skip = true;
+	AnimationStateController controller;
 
 	public bool moveBlocked;
 	public void blockMovement(){
@@ -104,7 +105,7 @@ public class Movement : MonoBehaviour {
 	//runs when object becomes active
 	void Awake () {
         controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
-        
+        controller = GetComponentInChildren<AnimationStateController>();
 		speedController = GetComponent<MovementSpeedController>();
 		body = GetComponent<Rigidbody>();
 		//turn gravity off for the rigid body
@@ -115,7 +116,7 @@ public class Movement : MonoBehaviour {
 	//runs every frame
 	void Update () {
 		//responds to the jump keybind to allow jumping
-		desiredJump |= Input.GetKeyDown(controls.keys["jump"]) && !FindObjectOfType<PauseMenu>().isPaused && !moveBlocked;
+		//desiredJump |= Input.GetKeyDown(controls.keys["jump"]) && !FindObjectOfType<PauseMenu>().isPaused && !moveBlocked;
 
 		//stores the horizontal and vertical input axes
 		if(!moveBlocked){
@@ -130,7 +131,7 @@ public class Movement : MonoBehaviour {
 				ProjectDirectionOnPlane(playerInputSpace.forward, upAxis);
 		}
 		//if there is no playerinputspace object it will just be relative to the world
-		else	{
+		else{
 			rightAxis = ProjectDirectionOnPlane(Vector3.right, upAxis);
 			forwardAxis = ProjectDirectionOnPlane(Vector3.forward, upAxis);
 		}
@@ -142,6 +143,7 @@ public class Movement : MonoBehaviour {
 		AdjustVelocity();
 		if (desiredJump) {
 			desiredJump = false;
+			//instead of just jumping straight up, play the jump animation that then triggers the jump method. this way jumping has a slight delay
 			Jump(gravity);
 		}
 		else if (OnGround && velocity.sqrMagnitude < 0.01f) {
@@ -264,21 +266,22 @@ public class Movement : MonoBehaviour {
 		desiredJump = true;
 	}
 	
-	void Jump(Vector3 gravity) {
+	public void Jump(Vector3 gravity) {
+		
 			if (OnGround) {
 				jumpDirection = contactNormal;
 			}
-			else if (OnSteep) {
-				jumpDirection = steepNormal;
+			//else if (OnSteep) {
+				//jumpDirection = steepNormal;
 				// this was originally 0 but i changed it so that wall jumping doesnt count as one of your air jumps
-				jumpPhase -= 1;
-			}
-			else if (maxAirJumps > 0 && jumpPhase <= maxAirJumps) {
-				if (jumpPhase == 0) {
-				jumpPhase = 1;
-				}
-				jumpDirection = contactNormal;
-				}
+				//jumpPhase -= 0;
+			//}
+			//else if (maxAirJumps > 0 && jumpPhase <= maxAirJumps) {
+			//	if (jumpPhase == 0) {
+			//	jumpPhase = 1;
+			//	}
+			//	jumpDirection = contactNormal;
+			//	}
 			else {
 				return;
 			}
@@ -287,10 +290,6 @@ public class Movement : MonoBehaviour {
 				stepsSinceLastJump = 0;
 				jumpPhase += 1;
 				float jumpSpeed = Mathf.Sqrt(2f * gravity.magnitude * jumpHeight);
-				//This slows down your jump speed based on how far you are in water, Im gonna comment it out for now so that water jumps work better
-				//if (InWater) {
-				//jumpSpeed *= Mathf.Max(0f, 1f - submergence / swimThreshold);
-				//}
 				jumpDirection = (jumpDirection + upAxis).normalized;
 				float alignedSpeed = Vector3.Dot(velocity, jumpDirection);
 				if (alignedSpeed > 0f) {

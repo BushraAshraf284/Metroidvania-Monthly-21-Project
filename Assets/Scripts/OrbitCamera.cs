@@ -4,6 +4,12 @@ using UnityEngine;
 //script that makes the camera movement more dynamic and less messy 
 public class OrbitCamera : MonoBehaviour {
 	[SerializeField]
+	public float baseFOV;
+	[SerializeField]
+	public float aimFOV;
+	[SerializeField]
+	public GameObject controllingCam;
+	[SerializeField]
 	bool camAutoTurn;
     bool cursorLock = false;
 
@@ -51,7 +57,7 @@ public class OrbitCamera : MonoBehaviour {
 	float focusRadius = 1f;
 
     [SerializeField]
-	Transform focus = default;
+	public Transform focus = default;
 	Transform Prevfocus = default;
 
 	[SerializeField, Range(1f, 20f)]
