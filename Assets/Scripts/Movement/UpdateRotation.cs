@@ -101,7 +101,7 @@ public class UpdateRotation : MonoBehaviour
 		Debug.DrawRay(this.transform.position, player2Pointer, Color.gray, 3f);
         Vector3 gravity = CustomGravity.GetUpAxis(this.transform.position);
 		if(this.transform.up != CustomGravity.GetUpAxis(this.transform.position)){
-			Debug.Log("Gravity Mismatch!");
+			//Debug.Log("Gravity Mismatch!");
 		//	if(Gate == false){
 				Quaternion toRotation = Quaternion.LookRotation( transform.forward , CustomGravity.GetUpAxis(this.transform.position) );
 				this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, (gravRotationSpeed) * Time.deltaTime);
