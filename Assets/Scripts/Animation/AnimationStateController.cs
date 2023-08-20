@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 //I need to properly use hashes, im kinda half assing it here
-// is on wall stays true after bumping into a ridigbody in water
 
 public class AnimationStateController : MonoBehaviour
 {
@@ -16,10 +18,13 @@ public class AnimationStateController : MonoBehaviour
     int onGroundHash;
     int isOnWallHash;
     int isWalkingHash;
-
     int isFallingHash;
+    int speedHash;
+    int isAimingHash;
+    int movementZHash;
+    int movementXHash;
+
     bool isOnGround;
-    bool isOnWall;
 
     [HideInInspector]
     public bool isOnGroundADJ;
@@ -36,23 +41,37 @@ public class AnimationStateController : MonoBehaviour
     float Groundstopwatch = 0;
     float Jumpstopwatch = 0;
     MovementSpeedController speed;
+    Rigidbody body;
+    float speedometer;
+    UpdateRotation rot;
+    public Controls controls;
+    float movementZ;
+    float movementX;
+    [SerializeField]
+    [Tooltip("how quickly the animator blender between different directions when strafing")]
+    float XZBlend = 100f;
 
-
-    void JumpAnimEvent(){
+    public void JumpAnimEvent(){
 		sphere.JumpTrigger();
 	}
 
     void Start() {
+        controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
+        rot = player.GetComponentInChildren<UpdateRotation>();
+        body = player.GetComponent<Rigidbody>();
         speed = player.GetComponent<MovementSpeedController>(); 
         sphere = player.GetComponent<Movement>();
         animator = GetComponent<Animator>();
+        speedHash = Animator.StringToHash("Speed");
 		isRunningHash = Animator.StringToHash("isRunning");
         isJumpingHash = Animator.StringToHash("isJumping");
         onGroundHash = Animator.StringToHash("OnGround");
         isOnWallHash = Animator.StringToHash("isOnWall");
         isFallingHash = Animator.StringToHash("isFalling");
         isWalkingHash = Animator.StringToHash("isWalking");
-
+        isAimingHash = Animator.StringToHash("isAiming");
+        movementZHash = Animator.StringToHash("Movement Z");
+        movementXHash = Animator.StringToHash("Movement X");
     }
 
     //this is meant to allow a sort of buffer, so bools stay true for a set amount of time
@@ -75,10 +94,82 @@ public class AnimationStateController : MonoBehaviour
     }
     float jumpCount;
     float jumpCap = .2f;
+
     void Update() {
-        //Debug.Log(sphere.velocity.magnitude);
+        speedometer = body.velocity.magnitude / speed.baseSpeed;
+
+        
+        
+        if(speedometer < .001f) {
+            speedometer = 0f;
+        }
+        else if( speedometer > .980){
+            speedometer = 1f;
+        }
+        //Debug.Log(speedometer);
+        animator.SetFloat(speedHash, speedometer, .1f, Time.deltaTime);
+
+
+        if( movementZ < (Input.GetKey(controls.keys["walkUp"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkDown"]) ? 1 : 0) ){
+            movementZ += Time.deltaTime * XZBlend;
+        }
+        if(movementZ > (Input.GetKey(controls.keys["walkUp"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkDown"]) ? 1 : 0) ){
+            movementZ -= Time.deltaTime * XZBlend;
+        }
+        if (movementX < (Input.GetKey(controls.keys["walkRight"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkLeft"]) ? 1 : 0)){
+            movementX += Time.deltaTime * XZBlend;
+        }
+        if(movementX > (Input.GetKey(controls.keys["walkRight"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkLeft"]) ? 1 : 0)){
+            movementX -= Time.deltaTime * XZBlend;
+        }
+
+        if(speedometer < .05f){
+            if (movementX < 0){
+                movementX += Time.deltaTime * XZBlend;
+            }
+            if (movementX > 0){
+                movementX -= Time.deltaTime * XZBlend;
+            }
+            if (movementZ < 0){
+                movementZ += Time.deltaTime * XZBlend;
+            }
+            if (movementZ > 0){
+                movementZ -= Time.deltaTime * XZBlend;
+            }
+        }
+
+        if(movementX > .9f){
+            movementX = 1f;
+        }
+        if(movementX < -.9f){
+            movementX = -1f;
+        }
+        else if( movementX < .05f && movementX > -.05f){
+            movementX = 0f;
+        }
+        if(movementZ > .9f){
+            movementZ = 1f;
+        }
+        if(movementZ < -.9f){
+            movementZ = -1f;
+        }
+        else if( movementZ < .05f && movementZ > -.05f){
+            movementZ = 0f;
+        }
+
+
+
+
+        animator.SetFloat(movementZHash, movementZ, .1f, Time.deltaTime); //this should be the forward back axis
+        animator.SetFloat(movementXHash, movementX, .1f, Time.deltaTime); //this should be the left right axis
+           // animator.SetFloat(movementZHash, (Input.GetKey(controls.keys["walkUp"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkDown"]) ? 1 : 0)); //this should be the forward back axis
+           // animator.SetFloat(movementXHash, (Input.GetKey(controls.keys["walkRight"])? 1 : 0) - (Input.GetKey(controls.keys["walkLeft"])? 1: 0)); //this should be the left right axis
+
+
+
         BoolAdjuster();
-        bool JumpPressed = Input.GetKey(sphere.controls.keys["jump"]);
+        bool JumpPressed = Input.GetKeyDown(sphere.controls.keys["jump"]) && !FindObjectOfType<PauseMenu>().isPaused && !sphere.moveBlocked;
+        
         isOnGround = isOnGroundADJ;
         bool isFalling = animator.GetBool(isFallingHash);
         bool isOnWall = animator.GetBool(isOnWallHash);
@@ -90,7 +181,12 @@ public class AnimationStateController : MonoBehaviour
         bool rightPressed = Input.GetKey(sphere.controls.keys["walkRight"]);
         bool backPressed = Input.GetKey(sphere.controls.keys["walkDown"]);
         bool movementPressed = forwardPressed || leftPressed || rightPressed || backPressed;
-
+        if(rot.isAiming){
+            animator.SetBool(isAimingHash, true);
+        }
+        else{
+            animator.SetBool(isAimingHash, false);
+        }
         if (isOnGround){
             animator.SetBool(onGroundHash, true);
         }
