@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
@@ -99,45 +99,18 @@ public class AnimationStateController : MonoBehaviour
     float jumpCap = .2f;
 
     void Update() {
-        speedometer = body.velocity.magnitude / speed.baseSpeed;
+	    speedometer = body.velocity.magnitude / speed.baseSpeed;
         animator.SetFloat(speedHash, speedometer, .1f, Time.deltaTime);
         
-        if(animator.GetFloat(speedHash) < .001f) {
-            animator.SetFloat(speedHash, 0f);
-        }
-        else if( animator.GetFloat(speedHash) > .980){
-            animator.SetFloat(speedHash, 1f);
-        }
+	    if(animator.GetFloat(speedHash) < .001f) {
+		    animator.SetFloat(speedHash, 0f);
+	    }
+	    else if( animator.GetFloat(speedHash) > .980){
+		    animator.SetFloat(speedHash, 1f);
+	    }
 
-        if( movementZ < (Input.GetKey(controls.keys["walkUp"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkDown"]) ? 1 : 0) ){
-            movementZ += Time.deltaTime * XZBlend;
-        }
-        if(movementZ > (Input.GetKey(controls.keys["walkUp"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkDown"]) ? 1 : 0) ){
-            movementZ -= Time.deltaTime * XZBlend;
-        }
-        if (movementX < (Input.GetKey(controls.keys["walkRight"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkLeft"]) ? 1 : 0)){
-            movementX += Time.deltaTime * XZBlend;
-        }
-        if(movementX > (Input.GetKey(controls.keys["walkRight"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkLeft"]) ? 1 : 0)){
-            movementX -= Time.deltaTime * XZBlend;
-        }
-
-        if(speedometer < .05f){
-            if (movementX < 0){
-                movementX += Time.deltaTime * XZBlend;
-            }
-            if (movementX > 0){
-                movementX -= Time.deltaTime * XZBlend;
-            }
-            if (movementZ < 0){
-                movementZ += Time.deltaTime * XZBlend;
-            }
-            if (movementZ > 0){
-                movementZ -= Time.deltaTime * XZBlend;
-            }
-        }
-        animator.SetFloat(movementZHash, movementZ, .1f, Time.deltaTime); //this should be the forward back axis
-        animator.SetFloat(movementXHash, movementX, .1f, Time.deltaTime); //this should be the left right axis
+	    animator.SetFloat(movementZHash, (Input.GetKey(controls.keys["walkUp"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkDown"]) ? 1 : 0), .05f, Time.deltaTime); //this should be the forward back axis
+	    animator.SetFloat(movementXHash, (Input.GetKey(controls.keys["walkRight"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkLeft"]) ? 1 : 0), .05f, Time.deltaTime); //this should be the left right axis
            // animator.SetFloat(movementZHash, (Input.GetKey(controls.keys["walkUp"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkDown"]) ? 1 : 0)); //this should be the forward back axis
            // animator.SetFloat(movementXHash, (Input.GetKey(controls.keys["walkRight"])? 1 : 0) - (Input.GetKey(controls.keys["walkLeft"])? 1: 0)); //this should be the left right axis
         

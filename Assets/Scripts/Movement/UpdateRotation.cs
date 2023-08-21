@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //updates what direction the player model is facing
@@ -35,6 +35,7 @@ public class UpdateRotation : MonoBehaviour
 	[SerializeField]
 	float cameraBlendRate = 500f;
 	Controls controls;
+	public float t = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,23 +57,17 @@ public class UpdateRotation : MonoBehaviour
 		}
 		if(aimingCamera.GetComponent<OrbitCamera>() != null){
 			if(isAiming){
-				if(controllingCam.fieldOfView > aimingCamera.GetComponent<OrbitCamera>().aimFOV){
-					controllingCam.fieldOfView -= Time.deltaTime * cameraBlendRate;
-				}
-				if(controllingCam.fieldOfView < aimingCamera.GetComponent<OrbitCamera>().aimFOV){
-					controllingCam.fieldOfView += Time.deltaTime * cameraBlendRate;
-				}
-				if(controllingCam.fieldOfView > aimingCamera.GetComponent<OrbitCamera>().aimFOV){
-					controllingCam.fieldOfView -= Time.deltaTime * cameraBlendRate/10f;
-				}
-				if(controllingCam.fieldOfView < aimingCamera.GetComponent<OrbitCamera>().aimFOV){
-					controllingCam.fieldOfView += Time.deltaTime * cameraBlendRate/10f;
-				}
+
+				controllingCam.fieldOfView = Mathf.Lerp(controllingCam.fieldOfView, aimingCamera.GetComponent<OrbitCamera>().aimFOV, t);
+
 				if(Mathf.Approximately(Mathf.Round(controllingCam.fieldOfView), Mathf.Round(aimingCamera.GetComponent<OrbitCamera>().aimFOV))){
 					if(controllingCam.fieldOfView != aimingCamera.GetComponent<OrbitCamera>().aimFOV){
 						controllingCam.fieldOfView = aimingCamera.GetComponent<OrbitCamera>().aimFOV;
 					}
 				}
+				
+				
+				
 				if(aimingCamera.GetComponent<OrbitCamera>().focus != aimPoint){
 					aimingCamera.GetComponent<OrbitCamera>().focus = aimPoint;
 				}
@@ -87,18 +82,7 @@ public class UpdateRotation : MonoBehaviour
 				}
 			}
 			else{
-				if(controllingCam.fieldOfView < aimingCamera.GetComponent<OrbitCamera>().baseFOV){
-					controllingCam.fieldOfView += Time.deltaTime * cameraBlendRate;
-				}
-				if(controllingCam.fieldOfView > aimingCamera.GetComponent<OrbitCamera>().baseFOV){
-					controllingCam.fieldOfView -= Time.deltaTime * cameraBlendRate;
-				}
-				if(controllingCam.fieldOfView < aimingCamera.GetComponent<OrbitCamera>().baseFOV){
-					controllingCam.fieldOfView += Time.deltaTime * cameraBlendRate/10;
-				}
-				if(controllingCam.fieldOfView > aimingCamera.GetComponent<OrbitCamera>().baseFOV){
-					controllingCam.fieldOfView -= Time.deltaTime * cameraBlendRate/10;
-				}
+				controllingCam.fieldOfView = Mathf.Lerp(controllingCam.fieldOfView, aimingCamera.GetComponent<OrbitCamera>().baseFOV, t);
 
 				if(Mathf.Approximately(Mathf.Round(controllingCam.fieldOfView), Mathf.Round(aimingCamera.GetComponent<OrbitCamera>().baseFOV))){
 					if(controllingCam.fieldOfView != aimingCamera.GetComponent<OrbitCamera>().baseFOV){
