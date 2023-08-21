@@ -52,7 +52,10 @@ public class AnimationStateController : MonoBehaviour
     float XZBlend = 100f;
 
     public void JumpAnimEvent(){
-		sphere.JumpTrigger();
+		sphere.JumpTrigger(1f, true);
+	}
+    public void HighJumpAnimEvent(){
+		sphere.JumpTrigger(1.2f, false);
 	}
 
     void Start() {
@@ -97,18 +100,14 @@ public class AnimationStateController : MonoBehaviour
 
     void Update() {
         speedometer = body.velocity.magnitude / speed.baseSpeed;
-
-        
-        
-        if(speedometer < .001f) {
-            speedometer = 0f;
-        }
-        else if( speedometer > .980){
-            speedometer = 1f;
-        }
-        //Debug.Log(speedometer);
         animator.SetFloat(speedHash, speedometer, .1f, Time.deltaTime);
-
+        
+        if(animator.GetFloat(speedHash) < .001f) {
+            animator.SetFloat(speedHash, 0f);
+        }
+        else if( animator.GetFloat(speedHash) > .980){
+            animator.SetFloat(speedHash, 1f);
+        }
 
         if( movementZ < (Input.GetKey(controls.keys["walkUp"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkDown"]) ? 1 : 0) ){
             movementZ += Time.deltaTime * XZBlend;
@@ -137,34 +136,29 @@ public class AnimationStateController : MonoBehaviour
                 movementZ -= Time.deltaTime * XZBlend;
             }
         }
-
-        if(movementX > .9f){
-            movementX = 1f;
-        }
-        if(movementX < -.9f){
-            movementX = -1f;
-        }
-        else if( movementX < .05f && movementX > -.05f){
-            movementX = 0f;
-        }
-        if(movementZ > .9f){
-            movementZ = 1f;
-        }
-        if(movementZ < -.9f){
-            movementZ = -1f;
-        }
-        else if( movementZ < .05f && movementZ > -.05f){
-            movementZ = 0f;
-        }
-
-
-
-
         animator.SetFloat(movementZHash, movementZ, .1f, Time.deltaTime); //this should be the forward back axis
         animator.SetFloat(movementXHash, movementX, .1f, Time.deltaTime); //this should be the left right axis
            // animator.SetFloat(movementZHash, (Input.GetKey(controls.keys["walkUp"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkDown"]) ? 1 : 0)); //this should be the forward back axis
            // animator.SetFloat(movementXHash, (Input.GetKey(controls.keys["walkRight"])? 1 : 0) - (Input.GetKey(controls.keys["walkLeft"])? 1: 0)); //this should be the left right axis
-
+        
+        if(animator.GetFloat(movementXHash) > .9f){
+            animator.SetFloat(movementXHash, 1f);
+        }
+        if(animator.GetFloat(movementXHash) < -.9f){
+            animator.SetFloat(movementXHash, -1f);
+        }
+        else if( animator.GetFloat(movementXHash) < .05f && animator.GetFloat(movementXHash) > -.05f){
+            animator.SetFloat(movementXHash, 0f);
+        }
+        if(animator.GetFloat(movementZHash) > .9f){
+            animator.SetFloat(movementZHash, 1f);
+        }
+        if(animator.GetFloat(movementZHash) < -.9f){
+            animator.SetFloat(movementZHash, -1f);
+        }
+        else if( animator.GetFloat(movementZHash) < .05f && animator.GetFloat(movementZHash) > -.05f){
+            animator.SetFloat(movementZHash, 0f);
+        }
 
 
         BoolAdjuster();
