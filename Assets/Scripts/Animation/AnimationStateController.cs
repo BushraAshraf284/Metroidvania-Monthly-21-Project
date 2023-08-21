@@ -52,10 +52,10 @@ public class AnimationStateController : MonoBehaviour
     float XZBlend = 100f;
 
     public void JumpAnimEvent(){
-		sphere.JumpTrigger(1f);
+		sphere.JumpTrigger(1f, true);
 	}
     public void HighJumpAnimEvent(){
-		sphere.JumpTrigger(1.5f);
+		sphere.JumpTrigger(1.2f, false);
 	}
 
     void Start() {

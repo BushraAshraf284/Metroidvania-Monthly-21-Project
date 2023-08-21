@@ -38,7 +38,13 @@ public class Movement : MonoBehaviour {
 	[SerializeField, Range(0f, 100f)]
 	[Tooltip("character's jump height")]
 	float jumpHeight = 2f;
-
+	[SerializeField, Range(0f, 100f)]
+	[Tooltip("character's vertical jump height while moving")]
+	float movingJumpHeightV = 2f;
+	[SerializeField, Range(0f, 100f)]
+	[Tooltip("character's horizontal jump height while moving")]
+	float movingJumpHeightH = 2f;
+	bool movingWhileJumping;
 	//[SerializeField, Range(0, 5)]
 	//[Tooltip("controls the amount of jumps you can do while in the air")]
 	//int maxAirJumps = 1;
@@ -74,7 +80,7 @@ public class Movement : MonoBehaviour {
 	int stepsSinceLastGrounded, stepsSinceLastJump;
 
 	Vector3 contactNormal, steepNormal;
-
+	UpdateRotation rotator;
 	Vector3 upAxis, rightAxis;
 	[HideInInspector]
 	public Vector3 forwardAxis;
@@ -105,6 +111,7 @@ public class Movement : MonoBehaviour {
 	float boost;
 	//runs when object becomes active
 	void Awake () {
+		rotator = GetComponentInChildren<UpdateRotation>();
         controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
         controller = GetComponentInChildren<AnimationStateController>();
 		speedController = GetComponent<MovementSpeedController>();
@@ -263,9 +270,10 @@ public class Movement : MonoBehaviour {
 		}
 	}
 
-	public void JumpTrigger(float boos){
+	public void JumpTrigger(float boos, bool moving){
 		boost = boos;
 		desiredJump = true;
+		movingWhileJumping = moving;
 	}
 	
 	public void Jump(Vector3 gravity) {
@@ -289,15 +297,31 @@ public class Movement : MonoBehaviour {
 			}
 
 			if (skip){
+				
+				Debug.DrawRay(this.transform.position, rotator.transform.forward);
 				stepsSinceLastJump = 0;
 				jumpPhase += 1;
-				float jumpSpeed = Mathf.Sqrt(2f * gravity.magnitude * jumpHeight);
-				jumpDirection = (jumpDirection + upAxis).normalized;
-				float alignedSpeed = Vector3.Dot(velocity, jumpDirection);
-				if (alignedSpeed > 0f) {
-					jumpSpeed = Mathf.Max(jumpSpeed - alignedSpeed, 0f);
+				float jumpSpeed;
+				float alignedSpeed;
+				if(movingWhileJumping){
+					jumpSpeed = Mathf.Sqrt(2f * gravity.magnitude * movingJumpHeightV);
+					jumpDirection = contactNormal + rotator.transform.forward *3f;
+					alignedSpeed = Vector3.Dot(velocity, jumpDirection);
+					if (alignedSpeed > 0f) {
+						jumpSpeed = Mathf.Max(jumpSpeed - alignedSpeed, 0f);
+					}
+					velocity += (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH);
 				}
-				velocity += (jumpDirection * jumpSpeed) * boost;
+				else if(!movingWhileJumping){
+					jumpSpeed = Mathf.Sqrt(2f * gravity.magnitude * jumpHeight);
+					jumpDirection = (jumpDirection + upAxis).normalized;
+					alignedSpeed = Vector3.Dot(velocity, jumpDirection);
+					if (alignedSpeed > 0f) {
+						jumpSpeed = Mathf.Max(jumpSpeed - alignedSpeed, 0f);
+					}
+					velocity += (jumpDirection * jumpSpeed) * boost;
+				}
+
 			}
 			else{
 				skip = true;
