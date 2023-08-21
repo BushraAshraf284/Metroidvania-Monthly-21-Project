@@ -35,6 +35,7 @@ public class UpdateRotation : MonoBehaviour
 	Camera controllingCam;
 	[SerializeField]
 	float cameraBlendRate = 500f;
+	float camBlender = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +59,17 @@ public class UpdateRotation : MonoBehaviour
 				}
 				if(controllingCam.fieldOfView < aimingCamera.GetComponent<OrbitCamera>().aimFOV){
 					controllingCam.fieldOfView += Time.deltaTime * cameraBlendRate;
+				}
+				if(controllingCam.fieldOfView > aimingCamera.GetComponent<OrbitCamera>().aimFOV){
+					controllingCam.fieldOfView -= Time.deltaTime * cameraBlendRate/10f;
+				}
+				if(controllingCam.fieldOfView < aimingCamera.GetComponent<OrbitCamera>().aimFOV){
+					controllingCam.fieldOfView += Time.deltaTime * cameraBlendRate/10f;
+				}
+				if(Mathf.Approximately(Mathf.Round(controllingCam.fieldOfView), Mathf.Round(aimingCamera.GetComponent<OrbitCamera>().aimFOV))){
+					if(controllingCam.fieldOfView != aimingCamera.GetComponent<OrbitCamera>().aimFOV){
+						controllingCam.fieldOfView = aimingCamera.GetComponent<OrbitCamera>().aimFOV;
+					}
 				}
 				if(aimingCamera.GetComponent<OrbitCamera>().focus != aimPoint){
 					aimingCamera.GetComponent<OrbitCamera>().focus = aimPoint;
@@ -85,6 +97,19 @@ public class UpdateRotation : MonoBehaviour
 				if(controllingCam.fieldOfView > aimingCamera.GetComponent<OrbitCamera>().baseFOV){
 					controllingCam.fieldOfView -= Time.deltaTime * cameraBlendRate;
 				}
+				if(controllingCam.fieldOfView < aimingCamera.GetComponent<OrbitCamera>().baseFOV){
+					controllingCam.fieldOfView += Time.deltaTime * cameraBlendRate/10;
+				}
+				if(controllingCam.fieldOfView > aimingCamera.GetComponent<OrbitCamera>().baseFOV){
+					controllingCam.fieldOfView -= Time.deltaTime * cameraBlendRate/10;
+				}
+
+				if(Mathf.Approximately(Mathf.Round(controllingCam.fieldOfView), Mathf.Round(aimingCamera.GetComponent<OrbitCamera>().baseFOV))){
+					if(controllingCam.fieldOfView != aimingCamera.GetComponent<OrbitCamera>().baseFOV){
+						controllingCam.fieldOfView = aimingCamera.GetComponent<OrbitCamera>().baseFOV;
+					}
+				}
+
 				if(aimingCamera.GetComponent<OrbitCamera>().focus != basePoint){
 					aimingCamera.GetComponent<OrbitCamera>().focus = basePoint;
 				}
