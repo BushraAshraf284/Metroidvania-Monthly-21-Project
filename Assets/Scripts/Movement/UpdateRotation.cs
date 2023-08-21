@@ -34,9 +34,11 @@ public class UpdateRotation : MonoBehaviour
 	Camera controllingCam;
 	[SerializeField]
 	float cameraBlendRate = 500f;
+	Controls controls;
     // Start is called before the first frame update
     void Start()
     {
+		controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
 		if(aimingCamera.GetComponent<OrbitCamera>() != null){
 			controllingCam = aimingCamera.GetComponent<OrbitCamera>().controllingCam.GetComponent<Camera>();
 		}
@@ -46,6 +48,12 @@ public class UpdateRotation : MonoBehaviour
     }
 
     void Update() {
+		if(Input.GetKey(controls.keys["aim"])){
+			isAiming = true;
+		}
+		else{
+			isAiming = false;
+		}
 		if(aimingCamera.GetComponent<OrbitCamera>() != null){
 			if(isAiming){
 				if(controllingCam.fieldOfView > aimingCamera.GetComponent<OrbitCamera>().aimFOV){
