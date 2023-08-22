@@ -65,7 +65,7 @@ public class UpdateRotation : MonoBehaviour
 			if(Physics.Raycast(controllingCam.transform.position, ProjectDirectionOnPlane(controllingCam.transform.forward, this.transform.right), out raycastHit, 999f, mask)){
 				//Debug.DrawLine(this.transform.position, raycastHit.point, Color.red, 5f);
 				if (aimCast.transform.position != raycastHit.point){
-				aimCast.transform.position = Vector3.Lerp(aimCast.transform.position, raycastHit.point, Time.deltaTime*50f);
+					aimCast.transform.position = Vector3.Lerp(aimCast.transform.position, raycastHit.point, Time.deltaTime*25f);
 				}
 				//aimCast.transform.position = raycastHit.point;
 			}

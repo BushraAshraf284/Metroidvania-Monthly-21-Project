@@ -1,0 +1,221 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: New Avatar Mask
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Head
+    m_Weight: 0
+  - m_Path: Homing Missiles
+    m_Weight: 0
+  - m_Path: Homing Missiles.002
+    m_Weight: 0
+  - m_Path: Homing Missiles.003
+    m_Weight: 0
+  - m_Path: Homing Missiles.004
+    m_Weight: 0
+  - m_Path: Homing Missiles.005
+    m_Weight: 0
+  - m_Path: Homing Missiles.006
+    m_Weight: 0
+  - m_Path: Homing Missiles.007
+    m_Weight: 0
+  - m_Path: Jet Booster
+    m_Weight: 0
+  - m_Path: Legs
+    m_Weight: 0
+  - m_Path: Missile
+    m_Weight: 0
+  - m_Path: Missile Launcher
+    m_Weight: 0
+  - m_Path: RIG
+    m_Weight: 0
+  - m_Path: RIG/HeelIK.L
+    m_Weight: 0
+  - m_Path: RIG/HeelIK.R
+    m_Weight: 0
+  - m_Path: RIG/Pelvis
+    m_Weight: 0
+  - m_Path: RIG/Pelvis/Hip.L
+    m_Weight: 0
+  - m_Path: RIG/Pelvis/Hip.L/Thigh.L
+    m_Weight: 0
+  - m_Path: RIG/Pelvis/Hip.L/Thigh.L/Shin.L
+    m_Weight: 0
+  - m_Path: RIG/Pelvis/Hip.L/Thigh.L/Shin.L/Foot.L
+    m_Weight: 0
+  - m_Path: RIG/Pelvis/Hip.L/Thigh.L/Shin.L/Foot.L/Toe.L
+    m_Weight: 0
+  - m_Path: RIG/Pelvis/Hip.R
+    m_Weight: 0
+  - m_Path: RIG/Pelvis/Hip.R/Thigh.R
+    m_Weight: 0
+  - m_Path: RIG/Pelvis/Hip.R/Thigh.R/Shin.R
+    m_Weight: 0
+  - m_Path: RIG/Pelvis/Hip.R/Thigh.R/Shin.R/Foot.R
+    m_Weight: 0
+  - m_Path: RIG/Pelvis/Hip.R/Thigh.R/Shin.R/Foot.R/Toe.R
+    m_Weight: 0
+  - m_Path: RIG/Pelvis/Upper Pelvis
+    m_Weight: 0
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach
+    m_Weight: 0
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Head
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Head/Neck
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.L
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.L/Arm.L
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.L/Arm.L/Elbow.L
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.L/Arm.L/Elbow.L/Forearm.L
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.L/Arm.L/Elbow.L/Forearm.L/Hand.L
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.L/Arm.L/Elbow.L/Forearm.L/Hand.L/Index
+      1.L
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.L/Arm.L/Elbow.L/Forearm.L/Hand.L/Index
+      1.L/Index 1.L.001
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.L/Arm.L/Elbow.L/Forearm.L/Hand.L/Index
+      1.L/Index 1.L.001/Index 1.L.002
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.L/Arm.L/Elbow.L/Forearm.L/Hand.L/Middle
+      1.L
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.L/Arm.L/Elbow.L/Forearm.L/Hand.L/Middle
+      1.L/Middle 1.L.001
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.L/Arm.L/Elbow.L/Forearm.L/Hand.L/Middle
+      1.L/Middle 1.L.001/Middle 1.L.002
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.L/Arm.L/Elbow.L/Forearm.L/Hand.L/Pinkie
+      1.L
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.L/Arm.L/Elbow.L/Forearm.L/Hand.L/Pinkie
+      1.L/Pinkie 1.L.001
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.L/Arm.L/Elbow.L/Forearm.L/Hand.L/Pinkie
+      1.L/Pinkie 1.L.001/Pinkie 1.L.002
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.L/Arm.L/Elbow.L/Forearm.L/Hand.L/Ring
+      1.L
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.L/Arm.L/Elbow.L/Forearm.L/Hand.L/Ring
+      1.L/Ring 1.L.001
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.L/Arm.L/Elbow.L/Forearm.L/Hand.L/Ring
+      1.L/Ring 1.L.001/Ring 1.L.002
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.L/Arm.L/Elbow.L/Forearm.L/Hand.L/Thumb
+      1.L
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.L/Arm.L/Elbow.L/Forearm.L/Hand.L/Thumb
+      1.L/Thumb 1.L.001
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.L/Arm.L/Elbow.L/Forearm.L/Hand.L/Thumb
+      1.L/Thumb 1.L.001/Thumb 1.L.002
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.L/Arm.L/Elbow.L/Forearm.L/Shock
+      Prong Handle Base.L
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.L/Arm.L/Elbow.L/Forearm.L/Shock
+      Prong Handle Base.L/Shock Prong Handle.L
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.L/Arm.L/Elbow.L/Forearm.L/Shock
+      Prong Handle Base.L/Shock Prong Handle.L/Shock Prong Handle Tip.L
+    m_Weight: 0
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.L/Arm.L/Elbow.L/Forearm.L/Shock
+      Prong Prong.L
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.R
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.R/Arm.R
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.R/Arm.R/Elbow.R
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.R/Arm.R/Elbow.R/Forearm.R
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.R/Arm.R/Elbow.R/Forearm.R/Hand.R
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.R/Arm.R/Elbow.R/Forearm.R/Hand.R/Index
+      1.R
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.R/Arm.R/Elbow.R/Forearm.R/Hand.R/Index
+      1.R/Index 1.R.001
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.R/Arm.R/Elbow.R/Forearm.R/Hand.R/Index
+      1.R/Index 1.R.001/Index 1.R.002
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.R/Arm.R/Elbow.R/Forearm.R/Hand.R/Middle
+      1.R
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.R/Arm.R/Elbow.R/Forearm.R/Hand.R/Middle
+      1.R/Middle 1.R.001
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.R/Arm.R/Elbow.R/Forearm.R/Hand.R/Middle
+      1.R/Middle 1.R.001/Middle 1.R.002
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.R/Arm.R/Elbow.R/Forearm.R/Hand.R/Pinkie
+      1.R
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.R/Arm.R/Elbow.R/Forearm.R/Hand.R/Pinkie
+      1.R/Pinkie 1.R.001
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.R/Arm.R/Elbow.R/Forearm.R/Hand.R/Pinkie
+      1.R/Pinkie 1.R.001/Pinkie 1.R.002
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.R/Arm.R/Elbow.R/Forearm.R/Hand.R/Ring
+      1.R
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.R/Arm.R/Elbow.R/Forearm.R/Hand.R/Ring
+      1.R/Ring 1.R.001
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.R/Arm.R/Elbow.R/Forearm.R/Hand.R/Ring
+      1.R/Ring 1.R.001/Ring 1.R.002
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.R/Arm.R/Elbow.R/Forearm.R/Hand.R/Thumb
+      1.R
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.R/Arm.R/Elbow.R/Forearm.R/Hand.R/Thumb
+      1.R/Thumb 1.R.001
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.R/Arm.R/Elbow.R/Forearm.R/Hand.R/Thumb
+      1.R/Thumb 1.R.001/Thumb 1.R.002
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.R/Arm.R/Elbow.R/Forearm.R/Shock
+      Prong Handle Base.R
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.R/Arm.R/Elbow.R/Forearm.R/Shock
+      Prong Handle Base.R/Shock Prong Handle.R
+    m_Weight: 1
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.R/Arm.R/Elbow.R/Forearm.R/Shock
+      Prong Handle Base.R/Shock Prong Handle.R/Shock Prong Handle Tip.R
+    m_Weight: 0
+  - m_Path: RIG/Pelvis/Upper Pelvis/Stomach/Chest/Chest Rotator/Shoulder.R/Arm.R/Elbow.R/Forearm.R/Shock
+      Prong Prong.R
+    m_Weight: 1
+  - m_Path: Shock Prong.L
+    m_Weight: 0
+  - m_Path: Shock Prong.R
+    m_Weight: 0
+  - m_Path: Sword
+    m_Weight: 0
+  - m_Path: Torso
+    m_Weight: 0
+  - m_Path: Vertical Boosters
+    m_Weight: 0

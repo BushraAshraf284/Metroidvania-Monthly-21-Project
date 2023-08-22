@@ -49,7 +49,7 @@ public class AnimationStateController : MonoBehaviour
     float movementX;
     [SerializeField]
     [Tooltip("how quickly the animator blender between different directions when strafing")]
-    float XZBlend = 100f;
+	//float XZBlend = 100f;
 
     public void JumpAnimEvent(){
 		sphere.JumpTrigger(1f, true);
@@ -149,10 +149,12 @@ public class AnimationStateController : MonoBehaviour
         bool backPressed = Input.GetKey(sphere.controls.keys["walkDown"]);
         bool movementPressed = forwardPressed || leftPressed || rightPressed || backPressed;
         if(rot.isAiming){
-            animator.SetBool(isAimingHash, true);
+	        animator.SetBool(isAimingHash, true);
+	        animator.SetLayerWeight(1, 1f);
         }
         else{
-            animator.SetBool(isAimingHash, false);
+	        animator.SetBool(isAimingHash, false);
+	        animator.SetLayerWeight(1, 0f);
         }
         if (isOnGround){
             animator.SetBool(onGroundHash, true);
