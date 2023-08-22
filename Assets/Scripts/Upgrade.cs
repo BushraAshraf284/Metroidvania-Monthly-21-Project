@@ -4,20 +4,12 @@ using UnityEngine;
 
 public class Upgrade : MonoBehaviour
 {
-    public enum upgrade{ShockProng, ShockSpike, Missile, HomingMissiles, JetBooster, VerticalBooster};
+    public enum upgrade{ShockProng, ShockSpike, Missile, HomingMissiles, JetBooster, VerticalBooster, Sword};
     public upgrade whatUpgrade;
-    /// <summary>
-    /// OnCollisionEnter is called when this collider/rigidbody has begun
-    /// touching another rigidbody/collider.
-    /// </summary>
-    /// <param name="other">The Collision data associated with this collision.</param>
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("made it past point #1");
         if(other.gameObject.tag == "Player"){
-            Debug.Log("made it past point #2" + other);
             if(whatUpgrade == upgrade.ShockProng){
-                Debug.Log("made it past point #3");
                 if( other.transform.root.gameObject.GetComponent<UpgradeTracker>() != null ){
                     other.transform.root.gameObject.GetComponent<UpgradeTracker>().UnlockShockProng();
                 }
@@ -46,6 +38,11 @@ public class Upgrade : MonoBehaviour
             else if(whatUpgrade == upgrade.VerticalBooster){
                 if( other.transform.root.gameObject.GetComponent<UpgradeTracker>() != null ){
                     other.transform.root.gameObject.GetComponent<UpgradeTracker>().UnlockVertBoost();
+                }
+            }
+            else if(whatUpgrade == upgrade.Sword){
+                if( other.transform.root.gameObject.GetComponent<UpgradeTracker>() != null ){
+                    other.transform.root.gameObject.GetComponent<UpgradeTracker>().UnlockSword();
                 }
             }
             Destroy(this.gameObject);

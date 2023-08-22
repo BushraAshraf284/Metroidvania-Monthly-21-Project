@@ -5,8 +5,11 @@ using UnityEngine;
 public class UpgradeTracker : MonoBehaviour
 {
     [SerializeField]
-    GameObject shockProng, shockSpike, missiles, homingMissiles, jetBoost, vertBoost;
+    GameObject shockProng, shockSpike, missiles, homingMissiles, jetBoost, vertBoost, sword;
     // Start is called before the first frame update
+    public void UnlockSword(){
+        shockProng.SetActive(true);
+    }
     public void UnlockShockProng(){
         shockProng.SetActive(true);
     }
