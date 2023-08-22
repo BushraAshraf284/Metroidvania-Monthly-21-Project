@@ -155,17 +155,6 @@ public class OrbitCamera : MonoBehaviour {
 	}
 
 	void LateUpdate () {
-
-		//NEED TO DISABLE AUTO ROTATE
-
-		//if (sphere.isAiming){
-
-		//	sphere.parent.transform.GetChild(1).GetChild(10).gameObject.SetActive(true);
-		//}
-		//if (!sphere.isAiming){
-		//	sphere.parent.transform.GetChild(1).GetChild(10).gameObject.SetActive(false);
-			//Debug.Log("aGGGH");
-		//}
 		if(!pause.isPaused){
 			UpdateGravityAlignment();
 			UpdateFocusPoint();

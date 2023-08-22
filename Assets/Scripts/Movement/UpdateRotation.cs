@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 //updates what direction the player model is facing
 //should make it diffeerentiate between normal rotations and gravity shift rotations so I can assign them different values
 //this script also handles the aiming logic, controlling how fast hte player rotates, what they rotate around, etc. 
@@ -20,23 +21,32 @@ public class UpdateRotation : MonoBehaviour
 	[SerializeField]
     GameObject player = default;
     Movement sphere; 
-    Rigidbody body;
-    Vector3 DummyGrav;
-    bool gravSwap;
 	[SerializeField]
 	public bool isAiming;
 	[SerializeField]
+	//orbitcamera object, basically the camera polearm
 	GameObject aimingCamera;
 	[SerializeField]
+	//empty that defines the camera position while aiming
 	Transform aimPoint;
 	[SerializeField]
+	//empty that defines the camera position while not aiming
 	Transform basePoint;
+	//The actual camera object on the polearm
 	Camera controllingCam;
-	[SerializeField]
-	float cameraBlendRate = 500f;
+	//reference to the controls component, needed to bind configs
 	Controls controls;
+	// controls blending rate of FOV 
 	public float t = 0.5f;
-    // Start is called before the first frame update
+    // gameobject that is ray cast from the camera forward to give the aiming IK an object to aim towards
+	[SerializeField]
+	GameObject aimCast;
+	[SerializeField]
+	LayerMask mask;
+	RaycastHit raycastHit;
+	[SerializeField]
+	Rig rig;
+
     void Start()
     {
 		controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
@@ -45,15 +55,26 @@ public class UpdateRotation : MonoBehaviour
 		}
 		transform.rotation = Quaternion.LookRotation( transform.forward , CustomGravity.GetUpAxis(transform.position));
         sphere = player.GetComponent<Movement>();
-        body = player.GetComponent<Rigidbody>();
     }
 
     void Update() {
-		if(Input.GetKey(controls.keys["aim"])){
+		if(Input.GetKey(controls.keys["aim"]) && !FindObjectOfType<PauseMenu>().isPaused && !sphere.moveBlocked){
+			rig.weight = 1f;
 			isAiming = true;
+			aimCast.SetActive(true);
+			if(Physics.Raycast(controllingCam.transform.position, ProjectDirectionOnPlane(controllingCam.transform.forward, this.transform.right), out raycastHit, 999f, mask)){
+				//Debug.DrawLine(this.transform.position, raycastHit.point, Color.red, 5f);
+				if (aimCast.transform.position != raycastHit.point){
+				aimCast.transform.position = Vector3.Lerp(aimCast.transform.position, raycastHit.point, Time.deltaTime*50f);
+				}
+				//aimCast.transform.position = raycastHit.point;
+			}
+
 		}
-		else{
+		else if(!Input.GetKey(controls.keys["aim"]) && !FindObjectOfType<PauseMenu>().isPaused && !sphere.moveBlocked){
+			rig.weight = 0f;
 			isAiming = false;
+			aimCast.SetActive(false);
 		}
 		if(aimingCamera.GetComponent<OrbitCamera>() != null){
 			if(isAiming){
