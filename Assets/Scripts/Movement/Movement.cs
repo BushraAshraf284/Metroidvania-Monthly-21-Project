@@ -1,4 +1,4 @@
-//Author: Travis Parks
+﻿//Author: Travis Parks
 //Debugging: Travis Parks
 using UnityEngine;
 public class Movement : MonoBehaviour { 
@@ -281,24 +281,11 @@ public class Movement : MonoBehaviour {
 			if (OnGround) {
 				jumpDirection = contactNormal;
 			}
-			//else if (OnSteep) {
-				//jumpDirection = steepNormal;
-				// this was originally 0 but i changed it so that wall jumping doesnt count as one of your air jumps
-				//jumpPhase -= 0;
-			//}
-			//else if (maxAirJumps > 0 && jumpPhase <= maxAirJumps) {
-			//	if (jumpPhase == 0) {
-			//	jumpPhase = 1;
-			//	}
-			//	jumpDirection = contactNormal;
-			//	}
 			else {
 				return;
 			}
 
 			if (skip){
-				
-				Debug.DrawRay(this.transform.position, rotator.transform.forward);
 				stepsSinceLastJump = 0;
 				jumpPhase += 1;
 				float jumpSpeed;
@@ -310,7 +297,22 @@ public class Movement : MonoBehaviour {
 					if (alignedSpeed > 0f) {
 						jumpSpeed = Mathf.Max(jumpSpeed - alignedSpeed, 0f);
 					}
-					velocity += (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH);
+					if(gravity.y > 0){
+						Debug.Log("Gravity Flipped! ");
+						Debug.DrawRay(transform.position, contactNormal * movingJumpHeightH, Color.red, 5f);
+						Debug.DrawRay(transform.position, rotator.transform.forward, Color.blue, 5f);
+						Debug.Log("Aligned speed: " + alignedSpeed + " Gravity: "+ gravity + " Jump Height Vertical: " + movingJumpHeightV + " Jump height Horizontal: " + movingJumpHeightH * .5f + " Base Jump Speed" + jumpSpeed *.5f );
+						Debug.Log("Velocity" + ((velocity + jumpDirection.normalized * jumpSpeed * .5f) + (contactNormal * (movingJumpHeightH *.5f))).magnitude);
+						velocity += (jumpDirection.normalized * jumpSpeed * .5f) + (contactNormal * (movingJumpHeightH *.5f));
+					}
+					else{
+						Debug.DrawRay(transform.position, contactNormal * movingJumpHeightH, Color.red, 5f);
+						Debug.DrawRay(transform.position, rotator.transform.forward, Color.blue, 5f);
+						Debug.Log("Aligned speed: " + alignedSpeed + " Gravity: "+ gravity + " Jump Height Vertical: " + movingJumpHeightV + " Jump height Horizontal: " + movingJumpHeightH + " Base Jump Speed" + jumpSpeed );
+						Debug.Log("Velocity" + (velocity + (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH)).magnitude);
+						velocity += (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH);
+					}
+
 				}
 				else if(!movingWhileJumping){
 					jumpSpeed = Mathf.Sqrt(2f * gravity.magnitude * jumpHeight);
@@ -319,7 +321,14 @@ public class Movement : MonoBehaviour {
 					if (alignedSpeed > 0f) {
 						jumpSpeed = Mathf.Max(jumpSpeed - alignedSpeed, 0f);
 					}
-					velocity += (jumpDirection * jumpSpeed) * boost;
+					if(gravity.y > 0){
+						Debug.Log("Gravity Flipped! ");
+						velocity += (jumpDirection * .5f * jumpSpeed *.5f) * boost;
+					}
+					else{
+						velocity += (jumpDirection * jumpSpeed) * boost;
+					}
+					
 				}
 
 			}
