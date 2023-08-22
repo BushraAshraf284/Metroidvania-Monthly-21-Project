@@ -109,6 +109,8 @@ public class Movement : MonoBehaviour {
 	}
     public Controls controls;
 	float boost;
+	[SerializeField]
+	Transform JumpRight, JumpLeft, JumpStraight, JumpBack;
 	//runs when object becomes active
 	void Awake () {
 		rotator = GetComponentInChildren<UpdateRotation>();
@@ -291,6 +293,7 @@ public class Movement : MonoBehaviour {
 				float jumpSpeed;
 				float alignedSpeed;
 				if(movingWhileJumping){
+					Debug.Log("Moving while jumping");
 					jumpSpeed = Mathf.Sqrt(2f * gravity.magnitude * movingJumpHeightV);
 					jumpDirection = contactNormal + rotator.transform.forward *3f;
 					alignedSpeed = Vector3.Dot(velocity, jumpDirection);
@@ -315,6 +318,8 @@ public class Movement : MonoBehaviour {
 
 				}
 				else if(!movingWhileJumping){
+					Debug.Log("Moving while not jumping");
+
 					jumpSpeed = Mathf.Sqrt(2f * gravity.magnitude * jumpHeight);
 					jumpDirection = (jumpDirection + upAxis).normalized;
 					alignedSpeed = Vector3.Dot(velocity, jumpDirection);

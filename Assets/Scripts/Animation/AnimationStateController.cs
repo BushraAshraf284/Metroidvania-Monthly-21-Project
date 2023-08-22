@@ -43,13 +43,11 @@ public class AnimationStateController : MonoBehaviour
     MovementSpeedController speed;
     Rigidbody body;
     float speedometer;
-    UpdateRotation rot;
     public Controls controls;
     float movementZ;
     float movementX;
     [SerializeField]
-    [Tooltip("how quickly the animator blender between different directions when strafing")]
-	//float XZBlend = 100f;
+	abilities abilities;
 
     public void JumpAnimEvent(){
 		sphere.JumpTrigger(1f, true);
@@ -58,9 +56,8 @@ public class AnimationStateController : MonoBehaviour
 		sphere.JumpTrigger(1.2f, false);
 	}
 
-    void Start() {
+	void Start() {
         controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
-        rot = player.GetComponentInChildren<UpdateRotation>();
         body = player.GetComponent<Rigidbody>();
         speed = player.GetComponent<MovementSpeedController>(); 
         sphere = player.GetComponent<Movement>();
@@ -98,7 +95,8 @@ public class AnimationStateController : MonoBehaviour
     float jumpCount;
     float jumpCap = .2f;
 
-    void Update() {
+	void Update() {
+		
 	    speedometer = body.velocity.magnitude / speed.baseSpeed;
         animator.SetFloat(speedHash, speedometer, .1f, Time.deltaTime);
         
@@ -143,12 +141,13 @@ public class AnimationStateController : MonoBehaviour
 		bool isRunning = animator.GetBool(isRunningHash);
         bool isJumping = animator.GetBool(isJumpingHash);
         bool isWalking = animator.GetBool(isWalkingHash);
-        bool forwardPressed = Input.GetKey(sphere.controls.keys["walkUp"]);
-        bool leftPressed = Input.GetKey(sphere.controls.keys["walkLeft"]);
-        bool rightPressed = Input.GetKey(sphere.controls.keys["walkRight"]);
-        bool backPressed = Input.GetKey(sphere.controls.keys["walkDown"]);
-        bool movementPressed = forwardPressed || leftPressed || rightPressed || backPressed;
-        if(rot.isAiming){
+		bool forwardPressed = Input.GetKey(sphere.controls.keys["walkUp"]) && !Input.GetKey(sphere.controls.keys["walkDown"]);
+		bool leftPressed = Input.GetKey(sphere.controls.keys["walkLeft"]) && !Input.GetKey(sphere.controls.keys["walkRight"]);
+		bool rightPressed = Input.GetKey(sphere.controls.keys["walkRight"]) && !Input.GetKey(sphere.controls.keys["walkLeft"]);
+		bool backPressed = Input.GetKey(sphere.controls.keys["walkDown"]) && !Input.GetKey(sphere.controls.keys["walkUp"]);
+		bool movementPressed = forwardPressed||leftPressed||rightPressed||backPressed;
+		//Debug.Log(movementPressed + " " + forwardPressed + " " + leftPressed + " " + rightPressed + " " + backPressed);
+	    if(abilities.isAiming){
 	        animator.SetBool(isAimingHash, true);
 	        animator.SetLayerWeight(1, 1f);
         }

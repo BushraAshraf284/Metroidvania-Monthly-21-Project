@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //this script is meant to control the character's speed and allow other scripts to place boosts or limits upon it.
@@ -37,9 +37,8 @@ public class MovementSpeedController : MonoBehaviour
         controls = GameObject.Find("Data").GetComponent<Controls>();
     }
     void MovementState(float factor){
-		//change movement speeds universally
-		bool moving = Input.GetKey(controls.keys["walkUp"]) || Input.GetKey(controls.keys["walkDown"]) || Input.GetKey(controls.keys["walkLeft"]) || Input.GetKey(controls.keys["walkRight"]);
-		if (!slowed){
+	    //change movement speeds universally
+	    if (!slowed){
 			currentSpeed = baseSpeed;
 		}
         else if(slowed){
