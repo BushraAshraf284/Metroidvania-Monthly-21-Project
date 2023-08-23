@@ -23,6 +23,7 @@ public class AnimationStateController : MonoBehaviour
     int isAimingHash;
     int movementZHash;
     int movementXHash;
+    int hasArmWeaponHash;
 
     bool isOnGround;
 
@@ -48,7 +49,9 @@ public class AnimationStateController : MonoBehaviour
     float movementX;
     [SerializeField]
 	abilities abilities;
-
+    public void ShootMissile(){
+        abilities.fireMissile();
+    }
     public void JumpAnimEvent(){
 		sphere.JumpTrigger(1f, true);
 	}
@@ -63,6 +66,7 @@ public class AnimationStateController : MonoBehaviour
         sphere = player.GetComponent<Movement>();
         animator = GetComponent<Animator>();
         speedHash = Animator.StringToHash("Speed");
+        hasArmWeaponHash = Animator.StringToHash("HasArmWeapon");
 		isRunningHash = Animator.StringToHash("isRunning");
         isJumpingHash = Animator.StringToHash("isJumping");
         onGroundHash = Animator.StringToHash("OnGround");
@@ -96,7 +100,6 @@ public class AnimationStateController : MonoBehaviour
     float jumpCap = .2f;
 
 	void Update() {
-		
 	    speedometer = body.velocity.magnitude / speed.baseSpeed;
         animator.SetFloat(speedHash, speedometer, .1f, Time.deltaTime);
         
@@ -147,9 +150,17 @@ public class AnimationStateController : MonoBehaviour
 		bool backPressed = Input.GetKey(sphere.controls.keys["walkDown"]) && !Input.GetKey(sphere.controls.keys["walkUp"]);
 		bool movementPressed = forwardPressed||leftPressed||rightPressed||backPressed;
 		//Debug.Log(movementPressed + " " + forwardPressed + " " + leftPressed + " " + rightPressed + " " + backPressed);
-	    if(abilities.isAiming){
-	        animator.SetBool(isAimingHash, true);
+        if(abilities.upgrades.hasMissiles || abilities.upgrades.hasShockSpike){
+            animator.SetBool(hasArmWeaponHash, true);
+        }
+        else{
+            animator.SetBool(hasArmWeaponHash, false);
+        }
+        if(abilities.isAiming && (abilities.upgrades.hasMissiles || abilities.upgrades.hasShockSpike)){
 	        animator.SetLayerWeight(1, 1f);
+        }
+        if(abilities.isAiming){
+	        animator.SetBool(isAimingHash, true);
         }
         else{
 	        animator.SetBool(isAimingHash, false);

@@ -9,7 +9,7 @@ public class UpdateRotation : MonoBehaviour
 
 {
 	[SerializeField]
-	GameObject point;
+	public GameObject point;
 	[SerializeField]
 	float rotationSpeed = 720f;
 	[SerializeField]

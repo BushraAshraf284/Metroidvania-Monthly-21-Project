@@ -6,27 +6,36 @@ public class UpgradeTracker : MonoBehaviour
 {
     [SerializeField]
     GameObject shockProng, shockSpike, missiles, homingMissiles, jetBoost, vertBoost, sword;
+    public bool hasShockProng, hasShockSpike, hasMissiles, hasHomingMissiles, hasJetBoost, hasVertBoost, hasSword;
+    
     // Start is called before the first frame update
     public void UnlockSword(){
-        shockProng.SetActive(true);
+        sword.SetActive(true);
+        hasSword = true;
     }
     public void UnlockShockProng(){
         shockProng.SetActive(true);
+        hasShockProng = true;
     }
     public void UnlockShockSpike(){
         shockSpike.SetActive(true);
+        hasShockSpike = true;
     }
     public void UnlockMissiles(){
         missiles.SetActive(true);
+        hasMissiles = true;
     }
     public void UnlockHomingMissiles(){
         homingMissiles.SetActive(true);
+        hasHomingMissiles = true;
     }
     public void UnlockJetBoost(){
         jetBoost.SetActive(true);
+        hasJetBoost = true;
     }
     public void UnlockVertBoost(){
         vertBoost.SetActive(true);
+        hasVertBoost = true;
     }
     public void EquipShockProng(){
 

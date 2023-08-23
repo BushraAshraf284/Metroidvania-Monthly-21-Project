@@ -94,7 +94,7 @@ public class Movement : MonoBehaviour {
 
 	bool skip = true;
 	AnimationStateController controller;
-
+	Vector3 potentialJump;
 	public bool moveBlocked;
 	public void blockMovement(){
 		moveBlocked = true;
@@ -280,67 +280,64 @@ public class Movement : MonoBehaviour {
 	
 	public void Jump(Vector3 gravity) {
 		
-			if (OnGround) {
-				jumpDirection = contactNormal;
-			}
-			else {
-				return;
-			}
+		if (OnGround) {
+		jumpDirection = contactNormal;
+		}
+		else {
+			return;
+		}
 
-			if (skip){
-				stepsSinceLastJump = 0;
-				jumpPhase += 1;
-				float jumpSpeed;
-				float alignedSpeed;
-				if(movingWhileJumping){
-					Debug.Log("Moving while jumping");
-					jumpSpeed = Mathf.Sqrt(2f * gravity.magnitude * movingJumpHeightV);
-					jumpDirection = contactNormal + rotator.transform.forward *3f;
-					alignedSpeed = Vector3.Dot(velocity, jumpDirection);
-					if (alignedSpeed > 0f) {
-						jumpSpeed = Mathf.Max(jumpSpeed - alignedSpeed, 0f);
-					}
-					if(gravity.y > 0){
-						Debug.Log("Gravity Flipped! ");
-						Debug.DrawRay(transform.position, contactNormal * movingJumpHeightH, Color.red, 5f);
-						Debug.DrawRay(transform.position, rotator.transform.forward, Color.blue, 5f);
-						Debug.Log("Aligned speed: " + alignedSpeed + " Gravity: "+ gravity + " Jump Height Vertical: " + movingJumpHeightV + " Jump height Horizontal: " + movingJumpHeightH * .5f + " Base Jump Speed" + jumpSpeed *.5f );
-						Debug.Log("Velocity" + ((velocity + jumpDirection.normalized * jumpSpeed * .5f) + (contactNormal * (movingJumpHeightH *.5f))).magnitude);
-						velocity += (jumpDirection.normalized * jumpSpeed * .5f) + (contactNormal * (movingJumpHeightH *.5f));
-					}
-					else{
-						Debug.DrawRay(transform.position, contactNormal * movingJumpHeightH, Color.red, 5f);
-						Debug.DrawRay(transform.position, rotator.transform.forward, Color.blue, 5f);
-						Debug.Log("Aligned speed: " + alignedSpeed + " Gravity: "+ gravity + " Jump Height Vertical: " + movingJumpHeightV + " Jump height Horizontal: " + movingJumpHeightH + " Base Jump Speed" + jumpSpeed );
-						Debug.Log("Velocity" + (velocity + (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH)).magnitude);
-						velocity += (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH);
-					}
-
+		if (skip){
+			stepsSinceLastJump = 0;
+			jumpPhase += 1;
+			float jumpSpeed;
+			float alignedSpeed;
+			if(movingWhileJumping){
+				Debug.Log("Moving while jumping");
+				jumpSpeed = Mathf.Sqrt(2f * gravity.magnitude * movingJumpHeightV);
+				jumpDirection = contactNormal - (rotator.transform.position - rotator.point.transform.position) * 2f;
+				alignedSpeed = Vector3.Dot(velocity, jumpDirection);
+				if (alignedSpeed > 0f) {
+					jumpSpeed = Mathf.Max(jumpSpeed - alignedSpeed, 0f);
 				}
-				else if(!movingWhileJumping){
-					Debug.Log("Moving while not jumping");
-
-					jumpSpeed = Mathf.Sqrt(2f * gravity.magnitude * jumpHeight);
-					jumpDirection = (jumpDirection + upAxis).normalized;
-					alignedSpeed = Vector3.Dot(velocity, jumpDirection);
-					if (alignedSpeed > 0f) {
-						jumpSpeed = Mathf.Max(jumpSpeed - alignedSpeed, 0f);
-					}
-					if(gravity.y > 0){
-						Debug.Log("Gravity Flipped! ");
-						velocity += (jumpDirection * .5f * jumpSpeed *.5f) * boost;
-					}
-					else{
-						velocity += (jumpDirection * jumpSpeed) * boost;
-					}
+				if(gravity.y > 0){
+					//Debug.Log("Gravity Flipped! ");
+					//Debug.Log("Aligned speed: " + alignedSpeed + " Gravity: "+ gravity + " Jump Height Vertical: " + movingJumpHeightV + " Jump height Horizontal: " + movingJumpHeightH * .5f + " Base Jump Speed" + jumpSpeed *.5f );
+					//Debug.Log("Velocity" + ((velocity + jumpDirection.normalized * jumpSpeed * .5f) + (contactNormal * (movingJumpHeightH *.5f))).magnitude);
+					velocity += (jumpDirection.normalized * jumpSpeed * .5f) + (contactNormal * (movingJumpHeightH *.5f));
+				}
+				else{
+					//Debug.Log("Aligned speed: " + alignedSpeed + " Gravity: "+ gravity + " Jump Height Vertical: " + movingJumpHeightV + " Jump height Horizontal: " + movingJumpHeightH + " Base Jump Speed" + jumpSpeed );
+					//Debug.Log("Velocity" + (velocity + (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH)).magnitude);
+					velocity += (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH);
 					
 				}
 
 			}
-			else{
-				skip = true;
+			else if(!movingWhileJumping){
+				Debug.Log("Moving while not jumping");
+
+				jumpSpeed = Mathf.Sqrt(2f * gravity.magnitude * jumpHeight);
+				jumpDirection = (jumpDirection + upAxis).normalized;
+				alignedSpeed = Vector3.Dot(velocity, jumpDirection);
+				if (alignedSpeed > 0f) {
+					jumpSpeed = Mathf.Max(jumpSpeed - alignedSpeed, 0f);
+				}
+				if(gravity.y > 0){
+					Debug.Log("Gravity Flipped! ");
+					velocity += (jumpDirection * .5f * jumpSpeed *.5f) * boost;
+				}
+				else{
+					velocity += (jumpDirection * jumpSpeed) * boost;
+				}
+				
 			}
+
 		}
+		else{
+			skip = true;
+		}
+	}
 
 	void OnCollisionEnter (Collision collision) {
 		EvaluateCollision(collision);
