@@ -66,7 +66,7 @@ public class PlayerStats : MonoBehaviour
     void Start()
 	{
 		//WAS WORKING ON IMPLEMENTING DIFFERENT PHASES
-		if(healthphase)
+		//if(healthphase)
         //Test line to see if we can set a default start point
         //when game is started, it sets the slider max value to hp value
         healthBar.SetMaxHealth(hp);
