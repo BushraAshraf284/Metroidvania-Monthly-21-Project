@@ -109,8 +109,6 @@ public class Movement : MonoBehaviour {
 	}
     public Controls controls;
 	float boost;
-	[SerializeField]
-	Transform JumpRight, JumpLeft, JumpStraight, JumpBack;
 	//runs when object becomes active
 	void Awake () {
 		rotator = GetComponentInChildren<UpdateRotation>();

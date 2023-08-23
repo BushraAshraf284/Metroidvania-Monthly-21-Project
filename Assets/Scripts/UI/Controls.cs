@@ -32,7 +32,8 @@ public class Controls : MonoBehaviour
                 {"dash",KeyCode.LeftShift},
                 {"interact",KeyCode.F},
                 {"attack",KeyCode.Mouse0},
-                {"aim",KeyCode.Mouse1},
+                //{"aim",KeyCode.Mouse1},
+                {"zoom",KeyCode.Mouse1},
                 {"leftWeaponMenu",KeyCode.E},
                 {"rightWeaponMenu",KeyCode.Q},
                 {"switchCam", KeyCode.Mouse2}

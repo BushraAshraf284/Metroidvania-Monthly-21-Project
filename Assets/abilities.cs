@@ -52,14 +52,14 @@ public class abilities : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-	    if(Input.GetKey(controls.keys["aim"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked){
+	    if(Input.GetKey(controls.keys["zoom"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked){
 	    	rot.Aim();
 	    	isAiming = true;
 	    	aimCast.SetActive(true);
 			rig.weight = 1f;
 	    	
 	    }
-	    else if(!Input.GetKey(controls.keys["aim"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked){
+	    else if(!Input.GetKey(controls.keys["zoom"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked){
 		    rig.weight = 0f;
 	    	rot.UnAim();
 	    	isAiming = false;
