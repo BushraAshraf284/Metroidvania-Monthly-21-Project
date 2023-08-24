@@ -1,10 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [Header("Enemy References")]
+    public GameObject Gun; // for rotation
+    public GameObject Aimtarget;
+    [Header("Max and Min Range")]
+    public Vector2 ReloadTime;
+    public Vector2 AttackTime; 
+
+    private StateMachine brain;
+    private GameObject player; // to store target
+    private bool playerInRange; // turn true when player can be detected
+
+    private void Awake()
+    {
+        brain = GetComponent<StateMachine>();
+    }
     void Start()
     {
         
@@ -15,4 +30,12 @@ public class EnemyAI : MonoBehaviour
     {
         
     }
+
+    void Search()
+    {
+
+    }
+
+
+
 }
