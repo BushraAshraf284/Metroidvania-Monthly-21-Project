@@ -1195,10 +1195,6 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   moveBlocked: 0
   controls: {fileID: 0}
-  JumpRight: {fileID: 0}
-  JumpLeft: {fileID: 0}
-  JumpStraight: {fileID: 0}
-  JumpBack: {fileID: 0}
 --- !u!54 &8093145463688235728
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1255,8 +1251,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4bb13283de7dca45ae44834f2b50baa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHpPhase1: 100
+  MaxHpPhase2: 120
+  MaxHpPhase3: 150
   hp: 100
   healthBar: {fileID: 0}
+  healthBar2: {fileID: 0}
+  healthBar3: {fileID: 0}
+  healthphase: 0
+  MaxChargePhase1: 100
+  MaxChargePhase2: 120
+  MaxChargePhase3: 150
+  charge: 100
+  batteryBar: {fileID: 0}
+  batteryBar2: {fileID: 0}
+  batteryBar3: {fileID: 0}
+  batteryChargeCap: 1
+  batteryChargeRate: 25
+  batteryphase: 0
+  hasShield: 0
+  maxShieldCharge: 100
+  shieldCharge: 100
+  hasShieldUpgrade: 0
+  shieldCell: {fileID: 0}
+  hasIFrames: 0
+  iFrameCooldown: 1
 --- !u!114 &5137862782602509900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1283,6 +1302,9 @@ MonoBehaviour:
   hasJetBoost: 0
   hasVertBoost: 0
   hasSword: 0
+  heartPieceCount: 0
+  shieldPieceCount: 0
+  batteryPieceCount: 0
 --- !u!114 &2090703015593492642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1308,13 +1330,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missile: {fileID: 7078151848023102289, guid: c773f235a4a978e458a73db1c361b3ab, type: 3}
+  spike: {fileID: 0}
+  spikeShell: {fileID: 0}
   missileSpawnPos: {fileID: 5742923251316534035}
+  spikeshellSpawnPos: {fileID: 0}
   rig: {fileID: 402110088288164306}
   isAiming: 0
   aimCast: {fileID: 0}
   camSwitchCooldownCount: 1
   forearm: {fileID: 5931523488949986523}
   upgrades: {fileID: 0}
+  missileReloadTime: 3
+  SpikeReloadTime: 5
+  worldMissile: {fileID: 0}
+  missileReloading: 0
+  spikeReloading: 0
+  worldSpike: {fileID: 0}
 --- !u!1 &3287200117868977988
 GameObject:
   m_ObjectHideFlags: 0
@@ -1394,7 +1425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4819538219990086488
 Transform:
   m_ObjectHideFlags: 0
@@ -1403,12 +1434,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3599275347567283102}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071067, y: 0.000000030908616, z: 0.000000030908623, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 5.6, z: 0}
-  m_LocalScale: {x: -100, y: -100, z: -100}
+  m_LocalRotation: {x: 0.00000025236588, y: -0.70710665, z: -0.707107, w: -0.0000002400403}
+  m_LocalPosition: {x: 0.01639944, y: 0.014674122, z: 0.0012257808}
+  m_LocalScale: {x: -1, y: -1, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2392741676720586468}
+  m_Father: {fileID: 6370135430034814619}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &8590894015344624789
 SkinnedMeshRenderer:
@@ -2770,6 +2801,7 @@ Transform:
   - {fileID: 6152194745309275219}
   - {fileID: 2658865792338054285}
   - {fileID: 5742923251316534035}
+  - {fileID: 4819538219990086488}
   m_Father: {fileID: 5726898393312133745}
   m_LocalEulerAnglesHint: {x: 0.000015367925, y: -69.44702, z: -90.00004}
 --- !u!1 &6060234131949087372
@@ -3313,7 +3345,6 @@ Transform:
   - {fileID: 8397221131941862505}
   - {fileID: 8951059280522263584}
   - {fileID: 7918877757408637768}
-  - {fileID: 4819538219990086488}
   - {fileID: 8231123268069142590}
   - {fileID: 4445065000280709985}
   - {fileID: 7010683558730221639}

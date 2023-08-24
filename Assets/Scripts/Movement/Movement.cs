@@ -291,7 +291,7 @@ public class Movement : MonoBehaviour {
 			float jumpSpeed;
 			float alignedSpeed;
 			if(movingWhileJumping){
-				Debug.Log("Moving while jumping");
+				//Debug.Log("Moving while jumping");
 				jumpSpeed = Mathf.Sqrt(2f * gravity.magnitude * movingJumpHeightV);
 				jumpDirection = contactNormal - (rotator.transform.position - rotator.point.transform.position) * 2f;
 				alignedSpeed = Vector3.Dot(velocity, jumpDirection);
@@ -313,7 +313,7 @@ public class Movement : MonoBehaviour {
 
 			}
 			else if(!movingWhileJumping){
-				Debug.Log("Moving while not jumping");
+				//Debug.Log("Moving while not jumping");
 
 				jumpSpeed = Mathf.Sqrt(2f * gravity.magnitude * jumpHeight);
 				jumpDirection = (jumpDirection + upAxis).normalized;
@@ -322,7 +322,7 @@ public class Movement : MonoBehaviour {
 					jumpSpeed = Mathf.Max(jumpSpeed - alignedSpeed, 0f);
 				}
 				if(gravity.y > 0){
-					Debug.Log("Gravity Flipped! ");
+					//Debug.Log("Gravity Flipped! ");
 					velocity += (jumpDirection * .5f * jumpSpeed *.5f) * boost;
 				}
 				else{

@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class BatteryBar : MonoBehaviour
 {
+  [SerializeField]
+  public GameObject fill;
 	public Slider batterySlider;
 
   //method used in PlayerStats class to set the max value of the slider

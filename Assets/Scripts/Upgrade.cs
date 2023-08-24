@@ -4,8 +4,25 @@ using UnityEngine;
 
 public class Upgrade : MonoBehaviour
 {
-    public enum upgrade{ShockProng, ShockSpike, Missile, HomingMissiles, JetBooster, VerticalBooster, Sword};
+    public enum upgrade{ShockProng, ShockSpike, Missile, HomingMissiles, JetBooster, VerticalBooster, Sword, BatteryPiece, HeartPiece, ShieldPiece};
     public upgrade whatUpgrade;
+    [SerializeField]
+    [Tooltip("Will this pickup dissapear when picked up?")]
+    bool dissapear;
+    [SerializeField]
+    [Tooltip("Will this pickup reappear after picked up?")]
+    bool reappear;
+    [SerializeField]
+    [Tooltip("How long until this pickup reappears?")]
+    float reappearTimer = 5f;
+    void ReappearTrigger(){
+        if(GetComponent<BoxCollider>() != null){
+            if(GetComponent<MeshRenderer>()!= null){
+                GetComponent<BoxCollider>().enabled = true;
+                GetComponent<MeshRenderer>().enabled = true;
+            }
+        }
+    }
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player"){
@@ -45,7 +62,37 @@ public class Upgrade : MonoBehaviour
                     other.transform.root.gameObject.GetComponent<UpgradeTracker>().UnlockSword();
                 }
             }
-            Destroy(this.gameObject);
+            else if(whatUpgrade == upgrade.HeartPiece){
+                if( other.transform.root.gameObject.GetComponent<UpgradeTracker>() != null ){
+                    other.transform.root.gameObject.GetComponent<UpgradeTracker>().GetHeartUpgrade();
+                }
+            }
+            else if(whatUpgrade == upgrade.ShieldPiece){
+                if( other.transform.root.gameObject.GetComponent<UpgradeTracker>() != null ){
+                    other.transform.root.gameObject.GetComponent<UpgradeTracker>().GetShieldUpgrade();
+                }
+            }
+            else if(whatUpgrade == upgrade.BatteryPiece){
+                if( other.transform.root.gameObject.GetComponent<UpgradeTracker>() != null ){
+                    other.transform.root.gameObject.GetComponent<UpgradeTracker>().GetBatteryUpgrade();
+                }
+            }
+            if(dissapear){
+                if(reappear){
+                    if(GetComponent<BoxCollider>() != null){
+                        if(GetComponent<MeshRenderer>()!= null){
+                            GetComponent<BoxCollider>().enabled = false;
+                            GetComponent<MeshRenderer>().enabled = false;
+                            Invoke("ReappearTrigger", reappearTimer);
+                        }
+                    }
+                }
+                else{
+                    Destroy(this.gameObject);
+                }
+                
+            }
+            
         }
     }
 

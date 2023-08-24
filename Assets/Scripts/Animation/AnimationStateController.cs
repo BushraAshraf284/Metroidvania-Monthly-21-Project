@@ -24,6 +24,8 @@ public class AnimationStateController : MonoBehaviour
     int movementZHash;
     int movementXHash;
     int hasArmWeaponHash;
+    int hasShockSpikeHash;
+    int hasMissileHash;
 
     bool isOnGround;
 
@@ -52,6 +54,9 @@ public class AnimationStateController : MonoBehaviour
     public void ShootMissile(){
         abilities.fireMissile();
     }
+    public void ShootSpike(){
+        abilities.fireSpike();
+    }
     public void JumpAnimEvent(){
 		sphere.JumpTrigger(1f, true);
 	}
@@ -76,6 +81,8 @@ public class AnimationStateController : MonoBehaviour
         isAimingHash = Animator.StringToHash("isAiming");
         movementZHash = Animator.StringToHash("Movement Z");
         movementXHash = Animator.StringToHash("Movement X");
+        hasMissileHash = Animator.StringToHash("HasMissile");
+        hasShockSpikeHash = Animator.StringToHash("HasShockSpike");
     }
 
     //this is meant to allow a sort of buffer, so bools stay true for a set amount of time
@@ -155,6 +162,14 @@ public class AnimationStateController : MonoBehaviour
         }
         else{
             animator.SetBool(hasArmWeaponHash, false);
+        }
+        if(abilities.upgrades.hasMissiles){
+            animator.SetBool(hasMissileHash, true);
+            animator.SetBool(hasShockSpikeHash, false);
+        }
+        if(abilities.upgrades.hasShockSpike){
+            animator.SetBool(hasShockSpikeHash, true);
+            animator.SetBool(hasMissileHash, false);
         }
         if(abilities.isAiming && (abilities.upgrades.hasMissiles || abilities.upgrades.hasShockSpike)){
 	        animator.SetLayerWeight(1, 1f);
