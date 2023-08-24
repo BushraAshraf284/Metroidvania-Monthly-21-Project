@@ -9,7 +9,7 @@ public class UpdateRotation : MonoBehaviour
 
 {
 	[SerializeField]
-	GameObject point;
+	public GameObject point;
 	[SerializeField]
 	float rotationSpeed = 720f;
 	[SerializeField]
@@ -22,13 +22,14 @@ public class UpdateRotation : MonoBehaviour
     GameObject player = default;
     Movement sphere; 
 	[SerializeField]
-	public bool isAiming;
-	[SerializeField]
 	//orbitcamera object, basically the camera polearm
 	GameObject aimingCamera;
 	[SerializeField]
 	//empty that defines the camera position while aiming
 	Transform aimPoint;
+	[SerializeField]
+	//empty that defines the camera position while aiming
+	Transform LeftaimPoint;
 	[SerializeField]
 	//empty that defines the camera position while not aiming
 	Transform basePoint;
@@ -38,17 +39,17 @@ public class UpdateRotation : MonoBehaviour
 	Controls controls;
 	// controls blending rate of FOV 
 	public float t = 0.5f;
-    // gameobject that is ray cast from the camera forward to give the aiming IK an object to aim towards
-	[SerializeField]
-	GameObject aimCast;
 	[SerializeField]
 	LayerMask mask;
 	RaycastHit raycastHit;
 	[SerializeField]
 	Rig rig;
+	[SerializeField]
+	abilities abilities;
+	bool whichShoulder = true;
 
     void Start()
-    {
+	{
 		controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
 		if(aimingCamera.GetComponent<OrbitCamera>() != null){
 			controllingCam = aimingCamera.GetComponent<OrbitCamera>().controllingCam.GetComponent<Camera>();
@@ -56,71 +57,50 @@ public class UpdateRotation : MonoBehaviour
 		transform.rotation = Quaternion.LookRotation( transform.forward , CustomGravity.GetUpAxis(transform.position));
         sphere = player.GetComponent<Movement>();
     }
-
-    void Update() {
-		if(Input.GetKey(controls.keys["aim"]) && !FindObjectOfType<PauseMenu>().isPaused && !sphere.moveBlocked){
-			rig.weight = 1f;
-			isAiming = true;
-			aimCast.SetActive(true);
-			if(Physics.Raycast(controllingCam.transform.position, ProjectDirectionOnPlane(controllingCam.transform.forward, this.transform.right), out raycastHit, 999f, mask)){
-				//Debug.DrawLine(this.transform.position, raycastHit.point, Color.red, 5f);
-				if (aimCast.transform.position != raycastHit.point){
-				aimCast.transform.position = Vector3.Lerp(aimCast.transform.position, raycastHit.point, Time.deltaTime*50f);
-				}
-				//aimCast.transform.position = raycastHit.point;
+	public void switchCam(){
+		whichShoulder = !whichShoulder;
+	}
+	public void Aim(){
+		if(Physics.Raycast(controllingCam.transform.position, ProjectDirectionOnPlane(controllingCam.transform.forward, this.transform.right), out raycastHit, 999f, mask)){
+			//Debug.DrawLine(this.transform.position, raycastHit.point, Color.red, 5f);
+			if (abilities.aimCast.transform.position != raycastHit.point){
+				abilities.aimCast.transform.position = Vector3.Lerp(abilities.aimCast.transform.position, raycastHit.point, Time.deltaTime*25f);
 			}
-
+			//aimCast.transform.position = raycastHit.point;
 		}
-		else if(!Input.GetKey(controls.keys["aim"]) && !FindObjectOfType<PauseMenu>().isPaused && !sphere.moveBlocked){
-			rig.weight = 0f;
-			isAiming = false;
-			aimCast.SetActive(false);
-		}
-		if(aimingCamera.GetComponent<OrbitCamera>() != null){
-			if(isAiming){
-
-				controllingCam.fieldOfView = Mathf.Lerp(controllingCam.fieldOfView, aimingCamera.GetComponent<OrbitCamera>().aimFOV, t);
-
-				if(Mathf.Approximately(Mathf.Round(controllingCam.fieldOfView), Mathf.Round(aimingCamera.GetComponent<OrbitCamera>().aimFOV))){
-					if(controllingCam.fieldOfView != aimingCamera.GetComponent<OrbitCamera>().aimFOV){
-						controllingCam.fieldOfView = aimingCamera.GetComponent<OrbitCamera>().aimFOV;
-					}
-				}
-				
-				
-				
-				if(aimingCamera.GetComponent<OrbitCamera>().focus != aimPoint){
-					aimingCamera.GetComponent<OrbitCamera>().focus = aimPoint;
-				}
-
-				if(this.transform.up != CustomGravity.GetUpAxis(this.transform.position)){
-						Quaternion toRotation = Quaternion.LookRotation( transform.forward , CustomGravity.GetUpAxis(this.transform.position) );
-						this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, (gravRotationSpeed) * Time.deltaTime);
-				}
-				else{
-					Quaternion toRotation2 = Quaternion.LookRotation(ProjectDirectionOnPlane(aimingCamera.transform.forward, CustomGravity.GetUpAxis(this.transform.position)), CustomGravity.GetUpAxis(this.transform.position));
-					this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation2, (camRotationSpeed) * Time.deltaTime);
-				}
+		controllingCam.fieldOfView = Mathf.Lerp(controllingCam.fieldOfView, aimingCamera.GetComponent<OrbitCamera>().aimFOV, t);
+	
+		if(whichShoulder){
+			if(aimingCamera.GetComponent<OrbitCamera>().focus != aimPoint){
+				aimingCamera.GetComponent<OrbitCamera>().focus = aimPoint;
 			}
-			else{
-				controllingCam.fieldOfView = Mathf.Lerp(controllingCam.fieldOfView, aimingCamera.GetComponent<OrbitCamera>().baseFOV, t);
-
-				if(Mathf.Approximately(Mathf.Round(controllingCam.fieldOfView), Mathf.Round(aimingCamera.GetComponent<OrbitCamera>().baseFOV))){
-					if(controllingCam.fieldOfView != aimingCamera.GetComponent<OrbitCamera>().baseFOV){
-						controllingCam.fieldOfView = aimingCamera.GetComponent<OrbitCamera>().baseFOV;
-					}
-				}
-
-				if(aimingCamera.GetComponent<OrbitCamera>().focus != basePoint){
-					aimingCamera.GetComponent<OrbitCamera>().focus = basePoint;
-				}
-				
-				UpdateSpins();
+		}
+		else{
+			if(aimingCamera.GetComponent<OrbitCamera>().focus != LeftaimPoint){
+				aimingCamera.GetComponent<OrbitCamera>().focus = LeftaimPoint;
 			}
 		}
 
+		if(this.transform.up != CustomGravity.GetUpAxis(this.transform.position)){
+			Quaternion toRotation = Quaternion.LookRotation( transform.forward , CustomGravity.GetUpAxis(this.transform.position) );
+			this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, (gravRotationSpeed) * Time.deltaTime);
+		}
+		else{
+			Quaternion toRotation2 = Quaternion.LookRotation(ProjectDirectionOnPlane(aimingCamera.transform.forward, CustomGravity.GetUpAxis(this.transform.position)), CustomGravity.GetUpAxis(this.transform.position));
+			this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation2, (camRotationSpeed) * Time.deltaTime);
+		}
+				
+	}
 
-    }
+	public void UnAim(){
+		controllingCam.fieldOfView = Mathf.Lerp(controllingCam.fieldOfView, aimingCamera.GetComponent<OrbitCamera>().baseFOV, t);
+
+		if(aimingCamera.GetComponent<OrbitCamera>().focus != basePoint){
+			aimingCamera.GetComponent<OrbitCamera>().focus = basePoint;
+		}
+				
+		UpdateSpins();
+	}
     void UpdateSpins()
     {
 		Vector3 player2Pointer = sphere.ProjectDirectionOnPlane(point.transform.position - transform.parent.gameObject.transform.position, CustomGravity.GetUpAxis(transform.position));

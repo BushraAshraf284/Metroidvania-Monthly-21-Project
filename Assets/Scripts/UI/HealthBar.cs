@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
+  [SerializeField]
+  public GameObject fill;
   public Slider healthSlider;
 
   //method used in PlayerStats class to set the max value of the slider

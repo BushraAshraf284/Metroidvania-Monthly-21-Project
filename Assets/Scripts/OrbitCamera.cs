@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
 //script that makes the camera movement more dynamic and less messy 
@@ -65,6 +65,9 @@ public class OrbitCamera : MonoBehaviour {
 	float distance = 5f;
     Vector3 focusPoint, previousFocusPoint;
 	PauseMenu pause;
+	[SerializeField]
+
+	Transform playerTransform;
 
 	Vector3 CameraHalfExtends {
 		get {
@@ -169,7 +172,7 @@ public class OrbitCamera : MonoBehaviour {
 			Vector3 lookPosition = focusPoint - lookDirection * distance;
 			Vector3 rectOffset = lookDirection * regularCamera.nearClipPlane;
 			Vector3 rectPosition = lookPosition + rectOffset;
-			Vector3 castFrom = focus.position;
+			Vector3 castFrom = playerTransform.position;
 			Vector3 castLine = rectPosition - castFrom;
 			float castDistance = castLine.magnitude;
 			Vector3 castDirection = castLine / castDistance;
