@@ -50,7 +50,7 @@ public class StateMachine : MonoBehaviour
             switch (type)
             {
                 case ActionType.ENTER:
-                    current.OnExit(); break;
+                    current.OnEnter(); break;
                 case ActionType.EXIT:
                     current.OnExit(); break;
                 case ActionType.ACTIVE:

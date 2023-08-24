@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
@@ -8,10 +9,18 @@ public class EnemyAI : MonoBehaviour
     [Header("Enemy References")]
     public GameObject Gun; // for rotation
     public GameObject Aimtarget;
+    public Vector3 InitialPosition;
+    public int Damage;
+
+    [Header("Shoot References")]
+    public GameObject BulletEmitter;
+    public GameObject BulletPrefab;
+    public float ForwardForce;
 
     [Header("Max and Min Range")]
-    public Vector2 ReloadTime;
+    public float ReloadTime;
     public Vector2 AttackTime;
+    public float ShootInterval;
 
     [Header("Field of View References")]
     public float radius;
@@ -24,83 +33,92 @@ public class EnemyAI : MonoBehaviour
 
     private StateMachine brain;
     private GameObject player; // to store target
-   // private bool playerInRange; 
+    public PlayerStats playerStats;
+    private GameObject PlayerAim;
+
+    private float currentTime;
+    private float currentReloadTime;
+    private float currentAttackTime;
+    private float currentShootInterval;
+
+    // private bool playerInRange; 
 
     private void Awake()
     {
         brain = GetComponent<StateMachine>();
+        PlayerAim = GameObject.FindGameObjectWithTag("AimTarget");
+        player = GameObject.FindGameObjectWithTag("Player").transform.root.gameObject;
     }
     void Start()
     {
-        
+        InitialPosition = Aimtarget.transform.position;
+        brain.PushState(OnSearchEnter, OnSearchExit, Search);
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        FieldOfViewCheck();
-    }
-    private void FieldOfViewCheck()
-    {
-        Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
-
-        if (rangeChecks.Length != 0)
-        {
-            Transform target = rangeChecks[0].transform;
-            Vector3 directionToTarget = (target.position - transform.position).normalized;
-
-            if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
-            {
-                float distanceToTarget = Vector3.Distance(transform.position, target.position);
-
-                if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
-                {
-                    playerInRange = true;
-                    player = target.transform.gameObject;
-                }
-                    
-                else
-                {
-                    playerInRange = false;
-                }
-                   
-            }
-            else
-                playerInRange = false;
-        }
-        else if (playerInRange)
-            playerInRange = false;
+        playerInRange = CanSeeTarget(player.transform, angle, radius);
     }
 
     void OnSearchEnter()
     {
-
+        Debug.Log("Search Enter");
     }
     void Search()
     {
         // Rotate Turret
-       
+
         if (playerInRange)
         {
+            Debug.Log("Player detected, Leaving search");
             brain.PushState(OnAttackEnter, OnAttackExit, Attack);
         }
     }
 
     void OnSearchExit()
     {
-
+        Debug.Log("Search Exit");
     }
 
     void OnAttackEnter()
     {
-        Aimtarget.transform.position = player.transform.position;
+        Debug.Log("Attack Enter");
+        currentAttackTime = Random.Range(AttackTime.x, AttackTime.y);
+        currentTime = currentAttackTime;
+        currentShootInterval = ShootInterval;
+        if (playerStats == null)
+        {
+            playerStats = player.GetComponent<PlayerStats>();
+        }
+
     }
 
     void Attack()
     {
-        if(playerInRange)
+        if (playerInRange)
         {
-
+            if (currentTime >= 0)
+            {
+                Aimtarget.transform.position = PlayerAim.transform.position;
+                if (currentShootInterval > 0)
+                {
+                    currentShootInterval -=Time.deltaTime;
+                }
+                else
+                {
+                    Debug.Log("Shooting");
+                    Shoot();
+                    playerStats.TakeDamage(Damage);
+                    currentShootInterval = ShootInterval;
+                }
+                currentTime -= Time.deltaTime;
+            }
+            else
+            {
+                Debug.Log("Pushing Reload");
+                brain.PushState(OnReloadEnter, null, Reload);
+            }
         }
         else
         {
@@ -110,9 +128,65 @@ public class EnemyAI : MonoBehaviour
 
     void OnAttackExit()
     {
-        //target = 
+        Debug.Log("Attack Exit");
+        Aimtarget.transform.position = InitialPosition;
     }
 
+    void Shoot()
+    {
+        GameObject bullet = Instantiate(BulletPrefab, BulletEmitter.transform.position, Quaternion.identity);
 
+        //Bullet angle correction.
+        bullet.transform.Rotate(Vector3.left * 90);
 
+        //Retrieve the Rigidbody component from the instantiated Bullet and control it.
+        Rigidbody BulletRb;
+        BulletRb = bullet.GetComponent<Rigidbody>();
+
+        //Tell the bullet to be "pushed" forward by an amount set by ForwardForce. 
+        BulletRb.AddForce(BulletEmitter.transform.forward * ForwardForce);
+
+        //Basic Clean Up
+        Destroy(bullet, 3f);
+    }
+
+    void OnReloadEnter()
+    {
+        Debug.Log("Reload Enter");
+        currentReloadTime = ReloadTime;
+    }
+
+    void Reload()
+    {
+        if (currentReloadTime > 0)
+        {
+            currentReloadTime -= Time.deltaTime;
+        }
+        else
+        {
+            brain.PopState();
+        }
+
+    }
+
+    bool CanSeeTarget(Transform target, float viewAngle, float viewRange)
+    {
+        Vector3 toTarget = target.position - BulletEmitter.transform.position;
+
+        if (Vector3.Angle(BulletEmitter.transform.forward, toTarget) <= viewAngle)
+        {
+            if (Physics.Raycast(BulletEmitter.transform.position, toTarget, out RaycastHit hit, viewRange,targetMask))
+            {
+                Debug.DrawRay(BulletEmitter.transform.position, toTarget * hit.distance, Color.yellow);
+                if (hit.transform.root == target)
+                    return true;
+            }
+            else
+            {
+                Debug.DrawRay(BulletEmitter.transform.position, toTarget * 1000, Color.red);
+            }
+        }
+        return false;
+
+    }
 }
