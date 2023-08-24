@@ -23,6 +23,9 @@ public class AnimationStateController : MonoBehaviour
     int isAimingHash;
     int movementZHash;
     int movementXHash;
+    int hasArmWeaponHash;
+    int hasShockSpikeHash;
+    int hasMissileHash;
 
     bool isOnGround;
 
@@ -43,14 +46,17 @@ public class AnimationStateController : MonoBehaviour
     MovementSpeedController speed;
     Rigidbody body;
     float speedometer;
-    UpdateRotation rot;
     public Controls controls;
     float movementZ;
     float movementX;
     [SerializeField]
-    [Tooltip("how quickly the animator blender between different directions when strafing")]
-    float XZBlend = 100f;
-
+	abilities abilities;
+    public void ShootMissile(){
+        abilities.fireMissile();
+    }
+    public void ShootSpike(){
+        abilities.fireSpike();
+    }
     public void JumpAnimEvent(){
 		sphere.JumpTrigger(1f, true);
 	}
@@ -58,14 +64,14 @@ public class AnimationStateController : MonoBehaviour
 		sphere.JumpTrigger(1.2f, false);
 	}
 
-    void Start() {
+	void Start() {
         controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
-        rot = player.GetComponentInChildren<UpdateRotation>();
         body = player.GetComponent<Rigidbody>();
         speed = player.GetComponent<MovementSpeedController>(); 
         sphere = player.GetComponent<Movement>();
         animator = GetComponent<Animator>();
         speedHash = Animator.StringToHash("Speed");
+        hasArmWeaponHash = Animator.StringToHash("HasArmWeapon");
 		isRunningHash = Animator.StringToHash("isRunning");
         isJumpingHash = Animator.StringToHash("isJumping");
         onGroundHash = Animator.StringToHash("OnGround");
@@ -75,6 +81,8 @@ public class AnimationStateController : MonoBehaviour
         isAimingHash = Animator.StringToHash("isAiming");
         movementZHash = Animator.StringToHash("Movement Z");
         movementXHash = Animator.StringToHash("Movement X");
+        hasMissileHash = Animator.StringToHash("HasMissile");
+        hasShockSpikeHash = Animator.StringToHash("HasShockSpike");
     }
 
     //this is meant to allow a sort of buffer, so bools stay true for a set amount of time
@@ -98,7 +106,7 @@ public class AnimationStateController : MonoBehaviour
     float jumpCount;
     float jumpCap = .2f;
 
-    void Update() {
+	void Update() {
 	    speedometer = body.velocity.magnitude / speed.baseSpeed;
         animator.SetFloat(speedHash, speedometer, .1f, Time.deltaTime);
         
@@ -143,16 +151,35 @@ public class AnimationStateController : MonoBehaviour
 		bool isRunning = animator.GetBool(isRunningHash);
         bool isJumping = animator.GetBool(isJumpingHash);
         bool isWalking = animator.GetBool(isWalkingHash);
-        bool forwardPressed = Input.GetKey(sphere.controls.keys["walkUp"]);
-        bool leftPressed = Input.GetKey(sphere.controls.keys["walkLeft"]);
-        bool rightPressed = Input.GetKey(sphere.controls.keys["walkRight"]);
-        bool backPressed = Input.GetKey(sphere.controls.keys["walkDown"]);
-        bool movementPressed = forwardPressed || leftPressed || rightPressed || backPressed;
-        if(rot.isAiming){
-            animator.SetBool(isAimingHash, true);
+		bool forwardPressed = Input.GetKey(sphere.controls.keys["walkUp"]) && !Input.GetKey(sphere.controls.keys["walkDown"]);
+		bool leftPressed = Input.GetKey(sphere.controls.keys["walkLeft"]) && !Input.GetKey(sphere.controls.keys["walkRight"]);
+		bool rightPressed = Input.GetKey(sphere.controls.keys["walkRight"]) && !Input.GetKey(sphere.controls.keys["walkLeft"]);
+		bool backPressed = Input.GetKey(sphere.controls.keys["walkDown"]) && !Input.GetKey(sphere.controls.keys["walkUp"]);
+		bool movementPressed = forwardPressed||leftPressed||rightPressed||backPressed;
+		//Debug.Log(movementPressed + " " + forwardPressed + " " + leftPressed + " " + rightPressed + " " + backPressed);
+        if(abilities.upgrades.hasMissiles || abilities.upgrades.hasShockSpike){
+            animator.SetBool(hasArmWeaponHash, true);
         }
         else{
-            animator.SetBool(isAimingHash, false);
+            animator.SetBool(hasArmWeaponHash, false);
+        }
+        if(abilities.upgrades.hasMissiles){
+            animator.SetBool(hasMissileHash, true);
+            animator.SetBool(hasShockSpikeHash, false);
+        }
+        if(abilities.upgrades.hasShockSpike){
+            animator.SetBool(hasShockSpikeHash, true);
+            animator.SetBool(hasMissileHash, false);
+        }
+        if(abilities.isAiming && (abilities.upgrades.hasMissiles || abilities.upgrades.hasShockSpike)){
+	        animator.SetLayerWeight(1, 1f);
+        }
+        if(abilities.isAiming){
+	        animator.SetBool(isAimingHash, true);
+        }
+        else{
+	        animator.SetBool(isAimingHash, false);
+	        animator.SetLayerWeight(1, 0f);
         }
         if (isOnGround){
             animator.SetBool(onGroundHash, true);

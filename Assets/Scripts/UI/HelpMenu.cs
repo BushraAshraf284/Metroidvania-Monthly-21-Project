@@ -1,4 +1,4 @@
-//Author: Brian Meginness
+﻿//Author: Brian Meginness
 //Debugging: Brian Meginness, Travis Parks
 using System.Collections;
 using System.Collections.Generic;
@@ -8,7 +8,8 @@ using UnityEngine.UI;
 public class HelpMenu : MonoBehaviour
 {
     //Menu images
-    Image aim;
+    Image zoom;
+    //Image aim;
     Image moveLeft;
     Image moveRight;
     Image moveUp;
@@ -18,7 +19,8 @@ public class HelpMenu : MonoBehaviour
     Image interact;
     Image attack;
     Image leftweaponmenu;
-    Image rightweaponmenu;
+	Image rightweaponmenu;
+	Image switchcam;
     GameObject errTxt;
     GameObject promptTxt;
     GameObject rebindTxt;
@@ -31,7 +33,7 @@ public class HelpMenu : MonoBehaviour
     {
         //Assign components
         controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
-        aim = GameObject.Find("Aim").GetComponent<Image>();
+        //aim = GameObject.Find("Aim").GetComponent<Image>();
         moveLeft = GameObject.Find("WalkLeft").GetComponent<Image>();
         moveRight = GameObject.Find("WalkRight").GetComponent<Image>();
         moveUp = GameObject.Find("WalkForward").GetComponent<Image>();
@@ -41,7 +43,9 @@ public class HelpMenu : MonoBehaviour
         interact = GameObject.Find("Interact").GetComponent<Image>();
         attack = GameObject.Find("Attack").GetComponent<Image>();
         leftweaponmenu = GameObject.Find("LeftWeaponMenu").GetComponent<Image>();
-        rightweaponmenu = GameObject.Find("RightWeaponMenu").GetComponent<Image>();
+	    rightweaponmenu = GameObject.Find("RightWeaponMenu").GetComponent<Image>();
+	    switchcam = GameObject.Find("SwitchCam").GetComponent<Image>();
+        zoom = GameObject.Find("Zoom").GetComponent<Image>();
         errTxt = GameObject.Find("ErrorText");
         promptTxt = GameObject.Find("PromptText");
         rebindTxt = GameObject.Find("RebindText");
@@ -131,8 +135,9 @@ public class HelpMenu : MonoBehaviour
     private void draw()
     {
         //Get Keys
-        KeyCode aimKey = controls.keys["aim"];
+        //KeyCode aimKey = controls.keys["aim"];
         KeyCode leftKey = controls.keys["walkLeft"];
+        KeyCode zoomKey = controls.keys["zoom"];
         KeyCode rightKey = controls.keys["walkRight"];
         KeyCode upKey = controls.keys["walkUp"];
         KeyCode downKey = controls.keys["walkDown"];
@@ -141,16 +146,19 @@ public class HelpMenu : MonoBehaviour
         KeyCode interKey = controls.keys["interact"];
         KeyCode attackKey = controls.keys["attack"];
         KeyCode leftWeaponMenuKey = controls.keys["leftWeaponMenu"];
-        KeyCode rightWeaponMenuKey = controls.keys["rightWeaponMenu"];
+	    KeyCode rightWeaponMenuKey = controls.keys["rightWeaponMenu"];
+	    KeyCode switchKey = controls.keys["switchCam"];
 
         errTxt.SetActive(false);
         promptTxt.SetActive(false);
         rebindTxt.SetActive(true);
 
-        //Set images to associated key sprite, or blank if associated sprite doesn't exist
+	    //Set images to associated key sprite, or blank if associated sprite doesn't exist
+        zoom.sprite = Resources.Load<Sprite>(zoomKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(zoomKey.ToString()); 
+	    switchcam.sprite = Resources.Load<Sprite>(switchKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(switchKey.ToString()); 
         leftweaponmenu.sprite = Resources.Load<Sprite>(leftWeaponMenuKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(leftWeaponMenuKey.ToString()); 
         rightweaponmenu.sprite = Resources.Load<Sprite>(rightWeaponMenuKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(rightWeaponMenuKey.ToString()); 
-        aim.sprite = Resources.Load<Sprite>(aimKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(aimKey.ToString()); 
+        //aim.sprite = Resources.Load<Sprite>(aimKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(aimKey.ToString()); 
         moveLeft.sprite = Resources.Load<Sprite>(leftKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(leftKey.ToString());
         moveRight.sprite = Resources.Load<Sprite>(rightKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(rightKey.ToString());
         moveUp.sprite = Resources.Load<Sprite>(upKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(upKey.ToString());

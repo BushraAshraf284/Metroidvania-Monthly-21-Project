@@ -1,4 +1,4 @@
-//Author: Brian Meginness + Travis Parks
+﻿//Author: Brian Meginness + Travis Parks
 //Debugging: Brian Meginness
 using System.Collections;
 using System.Collections.Generic;
@@ -32,9 +32,11 @@ public class Controls : MonoBehaviour
                 {"dash",KeyCode.LeftShift},
                 {"interact",KeyCode.F},
                 {"attack",KeyCode.Mouse0},
-                {"aim",KeyCode.Mouse1},
+                //{"aim",KeyCode.Mouse1},
+                {"zoom",KeyCode.Mouse1},
                 {"leftWeaponMenu",KeyCode.E},
-                {"rightWeaponMenu",KeyCode.Q}
+                {"rightWeaponMenu",KeyCode.Q},
+                {"switchCam", KeyCode.Mouse2}
             };
 
             //Dictionary for what keys on the keyboard are in use
