@@ -12,7 +12,11 @@ public class PlayerInteractUI : MonoBehaviour
         if (playerInteraction.GetInteractableObject() != null)
         {
             Show();
-        } else
+        } 
+        else if(playerInteraction.GetInteractableConsole() != null){
+            Show();
+        }
+        else
         {
             Hide();
         }

@@ -5,6 +5,10 @@ public class Movement : MonoBehaviour {
 	//CAN I DIFFERENTIATE BETWEEN CERTAIN TYPES OF STEEPS? ie a straight wall vs a sloped ramp? this would be nice!
 	//This script controls the movement of the character. Adapted from https://catlikecoding.com/unity/tutorials/movement/ by Travis Parks
 	[SerializeField]
+	float maxVJumpSpeed = 15f;
+	[SerializeField]
+	float maxHJumpSpeed = 15f;
+	[SerializeField]
 	GameObject feet;
 
 	//reference to the script that controls limits on your movement speed
@@ -307,8 +311,17 @@ public class Movement : MonoBehaviour {
 				else{
 					//Debug.Log("Aligned speed: " + alignedSpeed + " Gravity: "+ gravity + " Jump Height Vertical: " + movingJumpHeightV + " Jump height Horizontal: " + movingJumpHeightH + " Base Jump Speed" + jumpSpeed );
 					//Debug.Log("Velocity" + (velocity + (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH)).magnitude);
-					velocity += (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH);
-					
+					if(connectedBody){
+						jumpSpeed = jumpSpeed + connectionVelocity.magnitude;
+					}
+					if((velocity + (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH)).magnitude <= maxHJumpSpeed ){
+						velocity += (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH);
+					}
+					else{
+						Debug.Log("Exceeded max jump speed!");
+						velocity = (velocity + (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH)).normalized * maxHJumpSpeed;
+						
+					}
 				}
 
 			}
@@ -325,9 +338,17 @@ public class Movement : MonoBehaviour {
 					//Debug.Log("Gravity Flipped! ");
 					velocity += (jumpDirection * .5f * jumpSpeed *.5f) * boost;
 				}
-				else{
+				//if(connectedBody){
+				//	jumpSpeed = jumpSpeed + connectionVelocity.magnitude;
+				//}
+				if((velocity + (jumpDirection*jumpSpeed)*boost).magnitude <= maxVJumpSpeed){
 					velocity += (jumpDirection * jumpSpeed) * boost;
 				}
+				else{
+					Debug.Log("Exceeded max jump speed!");
+					velocity = (velocity + (jumpDirection*jumpSpeed)*boost).normalized * maxVJumpSpeed;
+				}
+
 				
 			}
 
