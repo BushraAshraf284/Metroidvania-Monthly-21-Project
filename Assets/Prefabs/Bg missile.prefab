@@ -152,4 +152,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e44d5acc396661b42b7ea1129492b54e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missileSpeed: 15
+  missileSpeed: 45
+  spikeSpeed: 80
