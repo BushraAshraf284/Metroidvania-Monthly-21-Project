@@ -5,7 +5,7 @@ using UnityEngine;
 //This script lives on the npc objects
 public class NpcDialogue : MonoBehaviour
 {
-    public Dialogue dialogue;
+    public AltDialogue dialogue;
     public GameObject dialogueBox;
 
     public void Begin(){

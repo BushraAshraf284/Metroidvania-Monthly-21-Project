@@ -27,7 +27,7 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
-    public void StartDialogue(Dialogue dialogue) //creates our queue of sentences, locks the player, enables the cursor, and activates dialogue UI
+    public void StartDialogue(AltDialogue dialogue) //creates our queue of sentences, locks the player, enables the cursor, and activates dialogue UI
     {
         //Debug.Log("Starting conversation with "+dialogue.name);
         movement.blockMovement();

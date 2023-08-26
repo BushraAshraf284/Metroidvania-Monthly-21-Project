@@ -5,7 +5,7 @@ using UnityEngine;
 //This class is serializable so we can enter the npc name and sentences in the unity editor
 //Instances of this class are made and passed to the DialogueManager's functions
 [System.Serializable]
-public class Dialogue
+public class AltDialogue
 {
     public string name;
     [TextArea(3, 10)]
