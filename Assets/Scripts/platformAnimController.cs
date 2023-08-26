@@ -10,16 +10,13 @@ public class platformAnimController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
     }
-    void ResetActivated()
-    {
+    void ResetActivated(){
         anim.SetBool("Activated", false);
     }
-    public void Activated()
-    {
+    public void Activated(){
         anim.SetBool("Activated", true);
     }
-    public void TempActivation(float time)
-    {
+    public void TempActivation(float time){
         anim.SetBool("Activated", true);
         Invoke("ResetActivated", time);
     }
