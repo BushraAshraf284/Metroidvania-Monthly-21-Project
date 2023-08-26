@@ -5,6 +5,8 @@ using UnityEngine;
 public class Interaction : MonoBehaviour
 {
     Controls controls;
+    [SerializeField]
+    float interactRange = 2f;
     void Start()
     {
         controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
@@ -12,7 +14,6 @@ public class Interaction : MonoBehaviour
     
     private void Update()
     {
-        float interactRange = 5f;
         Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
         if (Input.GetKeyDown(controls.keys["interact"]))
         {
@@ -33,7 +34,6 @@ public class Interaction : MonoBehaviour
 
     public Interactables GetInteractableObject()
     {
-        float interactRange = 5f;
         Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
 
         foreach (Collider collider in colliderArray)
@@ -47,8 +47,6 @@ public class Interaction : MonoBehaviour
     }
     public Console GetInteractableConsole()
     {
-        //Debug.Log("Test spot");
-        float interactRange = 5f;
         Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
 
         foreach (Collider collider in colliderArray)

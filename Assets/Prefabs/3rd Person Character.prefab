@@ -1167,7 +1167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aea7bba569602849ae08bb9a27b3a0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxJumpSpeed: 17
+  maxVJumpSpeed: 15
+  maxHJumpSpeed: 15
   feet: {fileID: 7300493711148808132}
   parent: {fileID: 3171487718812326108}
   playerInputSpace: {fileID: 0}
@@ -1318,6 +1319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17852cef26bbdb943a19ad60222129a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactRange: 3
 --- !u!114 &759497653412688651
 MonoBehaviour:
   m_ObjectHideFlags: 0
