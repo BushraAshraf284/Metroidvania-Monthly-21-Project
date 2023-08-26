@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
-    
+    Controls controls;
+    [SerializeField]
+    float interactRange = 2.5f;
+
+    private void Start()
+    {
+        controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
+    }
+
     private void Update()
     {
-        float interactRange = 5f;
+        
         Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(controls.keys["interact"]))
         {
             foreach (Collider collider in colliderArray)
             {
@@ -18,14 +26,31 @@ public class Interaction : MonoBehaviour
                 {
                     interactables.Interact();
                 }
+                if (collider.TryGetComponent(out NPCInteractables npcInteractable))
+                {
+                    npcInteractable.NPCInteract();
+                }
             }
         }
-        
+
+    }
+
+    public Console GetInteractableConsole()
+    {
+        Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
+
+        foreach (Collider collider in colliderArray)
+        {
+            if (collider.TryGetComponent(out Console console))
+            {
+                return console;
+            }
+        }
+        return null;
     }
 
     public Interactables GetInteractableObject()
     {
-        float interactRange = 5f;
         Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
 
         foreach (Collider collider in colliderArray)
@@ -33,6 +58,20 @@ public class Interaction : MonoBehaviour
             if (collider.TryGetComponent(out Interactables interactables))
             {
                 return interactables;
+            }
+        }
+        return null;
+    }
+
+    public NPCInteractables GetNPCInteractableObject()
+    {
+        Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
+
+        foreach (Collider collider in colliderArray)
+        {
+            if (collider.TryGetComponent(out NPCInteractables npcInteractable))
+            {
+                return npcInteractable;
             }
         }
         return null;
