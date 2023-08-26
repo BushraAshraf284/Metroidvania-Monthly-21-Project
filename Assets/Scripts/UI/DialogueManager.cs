@@ -66,7 +66,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             if(gate == 5){
-                textScrollNoise.Play();
+                //textScrollNoise.Play();
                 gate = 0;
             }
             else{

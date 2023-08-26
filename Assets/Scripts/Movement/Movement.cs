@@ -108,8 +108,6 @@ public class Movement : MonoBehaviour {
 	}
 	public void unblockMovement(){
 		moveBlocked = false;
-		transform.GetChild(1).gameObject.SetActive(true);
-		transform.GetChild(4).gameObject.SetActive(false);
 	}
     public Controls controls;
 	float boost;

@@ -5,16 +5,18 @@ using UnityEngine;
 public class NPCInteractables : MonoBehaviour
 {
     [SerializeField]
-    private Dialogue diag;
+    private DialogueManager diag;
+
+    public NpcDialogue npcDiag;
 
     private void Start()
     {
-        
+        npcDiag = this.GetComponent<NpcDialogue>();
     }
 
     public void NPCInteract()
     {
         //Debug.Log("Interact");
-        diag.StartDialogue();
+        diag.StartDialogue(npcDiag.dialogue);
     }
 }
