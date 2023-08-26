@@ -1167,6 +1167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aea7bba569602849ae08bb9a27b3a0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxJumpSpeed: 17
   feet: {fileID: 7300493711148808132}
   parent: {fileID: 3171487718812326108}
   playerInputSpace: {fileID: 0}
@@ -1181,7 +1182,7 @@ MonoBehaviour:
   movingJumpHeightH: 4
   probeMask:
     serializedVersion: 2
-    m_Bits: 51
+    m_Bits: 307
   stairsMask:
     serializedVersion: 2
     m_Bits: 0
