@@ -1,2 +1,2 @@
 # Metroidvania-Monthly-21-Project
- Our Project for Brackey's Game Jam 2023
+ Our Project for Metroidvania Monthly Jam 21
