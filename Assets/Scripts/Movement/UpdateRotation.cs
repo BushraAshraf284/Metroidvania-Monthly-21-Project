@@ -112,12 +112,16 @@ public class UpdateRotation : MonoBehaviour
 		}
 		if (sphere.velocity.magnitude > .2f && (sphere.playerInput != Vector3.zero)){
 			if(!sphere.OnGround){
-				Quaternion toRotation = Quaternion.LookRotation(ProjectDirectionOnPlane(player2Pointer, gravity), gravity);
-				transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, airRotationSpeed * Time.deltaTime);
+				if(player2Pointer != Vector3.zero){
+					Quaternion toRotation = Quaternion.LookRotation(ProjectDirectionOnPlane(player2Pointer, gravity), gravity);
+					transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, airRotationSpeed * Time.deltaTime);
+				}
 			}
 			else{
-				Quaternion toRotation = Quaternion.LookRotation(ProjectDirectionOnPlane(player2Pointer, gravity), gravity);
-				transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+				if(player2Pointer != Vector3.zero){
+					Quaternion toRotation = Quaternion.LookRotation(ProjectDirectionOnPlane(player2Pointer, gravity), gravity);
+					transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+				}
 			}
 			//Debug.Log("Moving");
 
