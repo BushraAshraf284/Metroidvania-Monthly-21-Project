@@ -6,7 +6,7 @@ using UnityEngine;
 public class UpgradeTracker : MonoBehaviour
 {
     [SerializeField]
-    GameObject shockProng, shockSpike, missiles, homingMissiles, jetBoost, vertBoost, sword;
+    GameObject shockProng, shockSpike, missiles, homingMissiles, jetBoost, vertBoost, sword, shield, hp1, hp11, hp2, bat1, bat2;
     public bool hasShockProng, hasShockSpike, hasMissiles, hasHomingMissiles, hasJetBoost, hasVertBoost, hasSword;
     public int heartPieceCount;
     public int shieldPieceCount;
@@ -23,6 +23,7 @@ public class UpgradeTracker : MonoBehaviour
                 Debug.Log("Got All Three Pieces! Giving shield Upgrade");
                 stats.GetShieldUpgrade();
                 shieldPieceCount = 0;
+                shield.SetActive(true);
             }
             else{
                 Debug.Log("Got a shield Piece!");
@@ -36,6 +37,16 @@ public class UpgradeTracker : MonoBehaviour
                 Debug.Log("Got All Three Pieces! Giving Health Upgrade");
                 stats.GetHPUpgrade();
                 heartPieceCount = 0;
+                if(!hp1.activeInHierarchy){
+                    hp1.SetActive(true);
+                    hp11.SetActive(true);
+                }
+                else if(!hp2.activeInHierarchy){
+                    hp2.SetActive(true);
+                }
+                else{
+                    Debug.Log("Already Have all Upgraddes!");
+                }
             }
             else{
                 Debug.Log("Got A Heart Piece");
@@ -49,6 +60,15 @@ public class UpgradeTracker : MonoBehaviour
                 Debug.Log("Got All Three Pieces! Giving Shield Upgrade");
                 stats.GetBatteryUpgrade();
                 batteryPieceCount = 0;
+                if(!bat1.activeInHierarchy){
+                    bat1.SetActive(true);
+                }
+                else if(!bat2.activeInHierarchy){
+                    bat2.SetActive(true);
+                }
+                else{
+                    Debug.Log("Already Have all Upgraddes!");
+                }
             }
             else{
                 Debug.Log("Got A Battery Piece");

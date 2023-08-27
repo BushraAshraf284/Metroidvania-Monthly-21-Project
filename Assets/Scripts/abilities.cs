@@ -127,14 +127,14 @@ public class abilities : MonoBehaviour
 				SpikeReloadCount = 0f;
 			}
 		}
-	    if(Input.GetKey(controls.keys["zoom"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked){
+	    if(Input.GetKey(controls.keys["zoom"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked && !move.delayedIsDashing){
 	    	rot.Aim();
 	    	isAiming = true;
 	    	aimCast.SetActive(true);
 			rig.weight = 1f;
 	    	
 	    }
-	    else if(!Input.GetKey(controls.keys["zoom"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked){
+	    else if((!Input.GetKey(controls.keys["zoom"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked) || move.delayedIsDashing){
 		    rig.weight = 0f;
 	    	rot.UnAim();
 	    	isAiming = false;
@@ -165,7 +165,7 @@ public class abilities : MonoBehaviour
 			}
 	    }
 		else{
-			if(Input.GetKey(controls.keys["dash"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked && animCon.movementPressed && move.OnGround){
+			if(Input.GetKey(controls.keys["dash"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked && animCon.movementPressed && move.OnGround && upgrades.hasJetBoost && !isAiming){
 				//Debug.Log("Trying to dash!");
 				if(!dashCooldown){
 					if(stats.charge - dashEnergyCost < 0){

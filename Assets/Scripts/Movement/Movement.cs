@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour {
 	public bool dashing;
 	[SerializeField]
 	float delayedIsDashingTimer;
-	bool delayedIsDashing;
+	public bool delayedIsDashing;
 	[SerializeField]
 	float dashSpeed;
 	[SerializeField]
