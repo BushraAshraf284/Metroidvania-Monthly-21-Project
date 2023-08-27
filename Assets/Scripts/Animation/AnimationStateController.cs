@@ -26,6 +26,7 @@ public class AnimationStateController : MonoBehaviour
     int hasArmWeaponHash;
     int hasShockSpikeHash;
     int hasMissileHash;
+    int dashingHash;
 
     bool isOnGround;
 
@@ -51,6 +52,8 @@ public class AnimationStateController : MonoBehaviour
     float movementX;
     [SerializeField]
 	abilities abilities;
+    public bool movementPressed;
+    bool dashingGate = false;
     public void ShootMissile(){
         abilities.fireMissile();
     }
@@ -58,6 +61,9 @@ public class AnimationStateController : MonoBehaviour
         abilities.fireSpike();
     }
     public void JumpAnimEvent(){
+		sphere.JumpTrigger(1f, true);
+	}
+    public void DashJumpAnimEvent(){
 		sphere.JumpTrigger(1f, true);
 	}
     public void HighJumpAnimEvent(){
@@ -83,6 +89,7 @@ public class AnimationStateController : MonoBehaviour
         movementXHash = Animator.StringToHash("Movement X");
         hasMissileHash = Animator.StringToHash("HasMissile");
         hasShockSpikeHash = Animator.StringToHash("HasShockSpike");
+        dashingHash = Animator.StringToHash("Dash");
     }
 
     //this is meant to allow a sort of buffer, so bools stay true for a set amount of time
@@ -105,6 +112,15 @@ public class AnimationStateController : MonoBehaviour
     }
     float jumpCount;
     float jumpCap = .2f;
+    public void resetDashingHash(){
+        animator.SetBool(dashingHash, false);
+    }
+    void resetDashingGate(){
+        dashingGate = false;
+    }
+    public void animDashTrigger(){
+        abilities.Dash();
+    }
 
 	void Update() {
 	    speedometer = body.velocity.magnitude / speed.baseSpeed;
@@ -156,7 +172,7 @@ public class AnimationStateController : MonoBehaviour
 		bool leftPressed = Input.GetKey(sphere.controls.keys["walkLeft"]) && !Input.GetKey(sphere.controls.keys["walkRight"]);
 		bool rightPressed = Input.GetKey(sphere.controls.keys["walkRight"]) && !Input.GetKey(sphere.controls.keys["walkLeft"]);
 		bool backPressed = Input.GetKey(sphere.controls.keys["walkDown"]) && !Input.GetKey(sphere.controls.keys["walkUp"]);
-		bool movementPressed = forwardPressed||leftPressed||rightPressed||backPressed;
+		movementPressed = forwardPressed||leftPressed||rightPressed||backPressed;
 		//Debug.Log(movementPressed + " " + forwardPressed + " " + leftPressed + " " + rightPressed + " " + backPressed);
         if(abilities.upgrades.hasMissiles || abilities.upgrades.hasShockSpike){
             animator.SetBool(hasArmWeaponHash, true);
@@ -260,6 +276,7 @@ public class AnimationStateController : MonoBehaviour
             animator.SetBool(isRunningHash, false);
             animator.SetFloat(speedHash, 0f);
         }
+
     }
 
 }

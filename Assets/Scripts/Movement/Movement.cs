@@ -1,9 +1,19 @@
 ﻿//Author: Travis Parks
 //Debugging: Travis Parks
+using Unity.VisualScripting;
 using UnityEngine;
 public class Movement : MonoBehaviour { 
 	//CAN I DIFFERENTIATE BETWEEN CERTAIN TYPES OF STEEPS? ie a straight wall vs a sloped ramp? this would be nice!
 	//This script controls the movement of the character. Adapted from https://catlikecoding.com/unity/tutorials/movement/ by Travis Parks
+	[SerializeField]
+	Transform playerCenter;
+	[SerializeField]
+	public bool dashing;
+	[SerializeField]
+	float delayedIsDashingTimer;
+	bool delayedIsDashing;
+	[SerializeField]
+	float dashSpeed;
 	[SerializeField]
 	float maxVJumpSpeed = 15f;
 	[SerializeField]
@@ -293,59 +303,33 @@ public class Movement : MonoBehaviour {
 			float jumpSpeed;
 			float alignedSpeed;
 			if(movingWhileJumping){
-				//Debug.Log("Moving while jumping");
-				jumpSpeed = Mathf.Sqrt(2f * gravity.magnitude * movingJumpHeightV);
-				jumpDirection = contactNormal - (rotator.transform.position - rotator.point.transform.position) * 2f;
-				alignedSpeed = Vector3.Dot(velocity, jumpDirection);
-				if (alignedSpeed > 0f) {
-					jumpSpeed = Mathf.Max(jumpSpeed - alignedSpeed, 0f);
+				jumpSpeed = 10f;
+				jumpDirection = contactNormal - ((feet.transform.position - rotator.point.transform.position) * 3f);
+				if(delayedIsDashing){
+					Debug.Log("Dash Jump!!!");
+					jumpDirection = contactNormal - ((feet.transform.position - rotator.point.transform.position) * 4f);
+					jumpSpeed = 8f;
 				}
 				if(gravity.y > 0){
 					Debug.Log("Gravity Flipped! ");
-					//Debug.Log("Aligned speed: " + alignedSpeed + " Gravity: "+ gravity + " Jump Height Vertical: " + movingJumpHeightV + " Jump height Horizontal: " + movingJumpHeightH * .5f + " Base Jump Speed" + jumpSpeed *.5f );
-					//Debug.Log("Velocity" + ((velocity + jumpDirection.normalized * jumpSpeed * .5f) + (contactNormal * (movingJumpHeightH *.5f))).magnitude);
 					velocity += (jumpDirection.normalized * jumpSpeed * .5f) + (contactNormal * (movingJumpHeightH *.5f));
 				}
 				else{
-					//Debug.Log("Aligned speed: " + alignedSpeed + " Gravity: "+ gravity + " Jump Height Vertical: " + movingJumpHeightV + " Jump height Horizontal: " + movingJumpHeightH + " Base Jump Speed" + jumpSpeed );
-					//Debug.Log("Velocity" + (velocity + (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH)).magnitude);
-					//if(connectedBody){
-					//	jumpSpeed = jumpSpeed + connectionVelocity.magnitude;
-					//}
-					if((velocity + (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH)).magnitude <= maxHJumpSpeed ){
-						velocity += (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH);
-					}
-					else{
-						Debug.Log("Exceeded max jump speed while moving ");
-						velocity = (velocity + (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH)).normalized * 10f;
-						
-					}
+					Debug.Log("Doing a moving jump at velocity:" + (velocity + (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH)).magnitude);
+					velocity += (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH);
 				}
 
 			}
 			else if(!movingWhileJumping){
-				//Debug.Log("Moving while not jumping");
-
-				jumpSpeed = Mathf.Sqrt(2f * gravity.magnitude * jumpHeight);
+				jumpSpeed = 8f;
 				jumpDirection = (jumpDirection + upAxis).normalized;
 				alignedSpeed = Vector3.Dot(velocity, jumpDirection);
-				if (alignedSpeed > 0f) {
-					jumpSpeed = Mathf.Max(jumpSpeed - alignedSpeed, 0f);
-				}
 				if(gravity.y > 0){
 					Debug.Log("Gravity Flipped! ");
 					velocity += (jumpDirection * .5f * jumpSpeed *.5f) * boost;
 				}
-				//if(connectedBody){
-				//	jumpSpeed = jumpSpeed + connectionVelocity.magnitude;
-				//}
-				if((velocity + (jumpDirection*jumpSpeed)*boost).magnitude <= maxVJumpSpeed){
-					velocity += (jumpDirection * jumpSpeed) * boost;
-				}
-				else{
-					Debug.Log("Exceeded max jump speed while not moving ");
-					velocity = (velocity + (jumpDirection*jumpSpeed)*boost).normalized * maxVJumpSpeed;
-				}
+				Debug.Log("Doing a stationaty jump as velocity: "+ (velocity + (jumpDirection * jumpSpeed)).magnitude);
+				velocity += (jumpDirection * jumpSpeed);
 
 				
 			}
@@ -437,6 +421,14 @@ public class Movement : MonoBehaviour {
 			Mathf.MoveTowards(currentZ, playerInput.y * speed, maxSpeedChange);
 
 		velocity += xAxis * (newX - currentX) + zAxis * (newZ - currentZ);
+		if(dashing && OnGround){
+			delayedIsDashing = true;
+			Invoke("resetDelayedIsDashing", delayedIsDashingTimer);
+			velocity += (ProjectDirectionOnPlane((rotator.point.transform.position - this.transform.position).normalized, contactNormal)) * dashSpeed;
+		}
+	}
+	void resetDelayedIsDashing(){
+		delayedIsDashing = false;
 	}
 	public Vector3 ProjectDirectionOnPlane (Vector3 direction, Vector3 normal) {
 		return (direction - normal * Vector3.Dot(direction, normal)).normalized;

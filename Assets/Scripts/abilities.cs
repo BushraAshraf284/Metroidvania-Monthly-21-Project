@@ -29,6 +29,13 @@ public class abilities : MonoBehaviour
 	[SerializeField]
 	float camSwitchCooldownCount = 1f;
 	[SerializeField]
+	float dashEnergyCost = 20f;
+	public bool dashCooldown = false;
+	[SerializeField]
+	float dashCooldownCount = 1f;
+	[SerializeField]
+	float dashTimer = .1f;
+	[SerializeField]
 	GameObject forearm;
     // Start is called before the first frame update
 	GameObject missilePrefab;
@@ -47,8 +54,10 @@ public class abilities : MonoBehaviour
 	public bool spikeReloading;
 	[SerializeField]
 	GameObject worldSpike;
+	PlayerStats stats;
     void Start()
 	{
+		stats = GetComponent<PlayerStats>();
 		upgrades = GetComponent<UpgradeTracker>();
 		anim = GetComponentInChildren<Animator>();
 		animCon = GetComponentInChildren<AnimationStateController>();
@@ -57,6 +66,13 @@ public class abilities : MonoBehaviour
 	    rot = GetComponentInChildren<UpdateRotation>();
 	    
     }
+	void resetDashing(){
+		move.dashing = false;
+	}
+	public void Dash(){
+		move.dashing = true;
+		Invoke("resetDashing", dashTimer);
+	}
 	public void fireMissile(){
 		missilePrefab = Instantiate(missile, missileSpawnPos.position, Quaternion.LookRotation(( missileSpawnPos.position - aimCast.transform.position), CustomGravity.GetUpAxis(this.transform.position)));
 		if(missilePrefab.GetComponent<Thruster>() != null){
@@ -84,6 +100,9 @@ public class abilities : MonoBehaviour
 	}
 	void resetCamSwitchCooldown(){
 		camSwitchCooldown = false;
+	}
+	void resetDashCooldown(){
+		dashCooldown = false;
 	}
     // Update is called once per frame
     void Update()
@@ -144,7 +163,24 @@ public class abilities : MonoBehaviour
 					Invoke("resetCamSwitchCooldown", camSwitchCooldownCount);
 				}
 			}
-			
 	    }
+		else{
+			if(Input.GetKey(controls.keys["dash"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked && animCon.movementPressed && move.OnGround){
+				//Debug.Log("Trying to dash!");
+				if(!dashCooldown){
+					if(stats.charge - dashEnergyCost < 0){
+						Debug.Log("Not enough Battery!");
+					}
+					else{
+						//Dash();s
+						stats.DrainBattery(dashEnergyCost);
+						anim.SetBool("Dash", true);
+						dashCooldown = true;
+						Invoke("resetDashCooldown", dashCooldownCount);
+					}
+				}
+			}
+		}
+
     }
 }

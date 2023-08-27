@@ -28,7 +28,13 @@ public class RotationPointer : MonoBehaviour
             if(Input.GetKey(sphere.controls.keys["walkLeft"]) && Input.GetKey(sphere.controls.keys["walkRight"])){
             playerInput.x = 0f;
         }
-        transform.localPosition = sphere.ProjectDirectionOnPlane(playerinputSpace.TransformDirection(playerInput.x, 0f, playerInput.y) * maxSpeed, CustomGravity.GetUpAxis(transform.position) );
+        if(playerInput.y == 0 && playerInput.x == 0){
+            
+        }
+        else{
+            transform.localPosition = sphere.ProjectDirectionOnPlane(playerinputSpace.TransformDirection(playerInput.x, 0f, playerInput.y) * maxSpeed, CustomGravity.GetUpAxis(transform.position) );
+        }
+
         
 		//transform.localPosition = new Vector3(playerInput.x, 0.5f, playerInput.y);
 	}
