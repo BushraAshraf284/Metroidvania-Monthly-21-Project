@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 4492063607129178388}
   - component: {fileID: 5938919708361813154}
   - component: {fileID: 5190950549468951473}
-  - component: {fileID: 1374815722621939873}
+  - component: {fileID: 6644388879759496408}
+  - component: {fileID: 727440780679268508}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: NPC
@@ -104,11 +105,11 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.1092014
-  m_Height: 6.935183
+  m_Radius: 1.017569
+  m_Height: 2.7038934
   m_Direction: 1
-  m_Center: {x: 0.13099414, y: -0.5004966, z: -0.13212474}
---- !u!114 &1374815722621939873
+  m_Center: {x: 0.0018605652, y: -0.16910176, z: 0.031978823}
+--- !u!114 &6644388879759496408
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,6 +118,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 3662505313708989879}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 221cd968da6fe094892b5078624b903f, type: 3}
+  m_Script: {fileID: 11500000, guid: 30191e41722adea4a9da835333af2d2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogue:
+    name: 
+    sentences: []
+  dialogueBox: {fileID: 0}
+--- !u!114 &727440780679268508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3662505313708989879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7417e15c79adb4eb148041f5c7a09b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diag: {fileID: 0}
+  npcDiag: {fileID: 0}

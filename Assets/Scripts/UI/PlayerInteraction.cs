@@ -30,6 +30,10 @@ public class Interaction : MonoBehaviour
                 {
                     npcInteractable.NPCInteract();
                 }
+                if (collider.TryGetComponent(out Console console))
+                {
+                    console.Interact();
+                }
             }
         }
 

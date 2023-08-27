@@ -309,15 +309,15 @@ public class Movement : MonoBehaviour {
 				else{
 					//Debug.Log("Aligned speed: " + alignedSpeed + " Gravity: "+ gravity + " Jump Height Vertical: " + movingJumpHeightV + " Jump height Horizontal: " + movingJumpHeightH + " Base Jump Speed" + jumpSpeed );
 					//Debug.Log("Velocity" + (velocity + (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH)).magnitude);
-					if(connectedBody){
-						jumpSpeed = jumpSpeed + connectionVelocity.magnitude;
-					}
+					//if(connectedBody){
+					//	jumpSpeed = jumpSpeed + connectionVelocity.magnitude;
+					//}
 					if((velocity + (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH)).magnitude <= maxHJumpSpeed ){
 						velocity += (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH);
 					}
 					else{
 						Debug.Log("Exceeded max jump speed while moving ");
-						velocity = (velocity + (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH)).normalized * 8f;
+						velocity = (velocity + (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH)).normalized * 10f;
 						
 					}
 				}
