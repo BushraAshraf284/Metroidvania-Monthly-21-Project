@@ -301,7 +301,7 @@ public class Movement : MonoBehaviour {
 					jumpSpeed = Mathf.Max(jumpSpeed - alignedSpeed, 0f);
 				}
 				if(gravity.y > 0){
-					//Debug.Log("Gravity Flipped! ");
+					Debug.Log("Gravity Flipped! ");
 					//Debug.Log("Aligned speed: " + alignedSpeed + " Gravity: "+ gravity + " Jump Height Vertical: " + movingJumpHeightV + " Jump height Horizontal: " + movingJumpHeightH * .5f + " Base Jump Speed" + jumpSpeed *.5f );
 					//Debug.Log("Velocity" + ((velocity + jumpDirection.normalized * jumpSpeed * .5f) + (contactNormal * (movingJumpHeightH *.5f))).magnitude);
 					velocity += (jumpDirection.normalized * jumpSpeed * .5f) + (contactNormal * (movingJumpHeightH *.5f));
@@ -316,8 +316,8 @@ public class Movement : MonoBehaviour {
 						velocity += (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH);
 					}
 					else{
-						Debug.Log("Exceeded max jump speed!");
-						velocity = (velocity + (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH)).normalized * maxHJumpSpeed;
+						Debug.Log("Exceeded max jump speed while moving ");
+						velocity = (velocity + (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH)).normalized * 8f;
 						
 					}
 				}
@@ -333,7 +333,7 @@ public class Movement : MonoBehaviour {
 					jumpSpeed = Mathf.Max(jumpSpeed - alignedSpeed, 0f);
 				}
 				if(gravity.y > 0){
-					//Debug.Log("Gravity Flipped! ");
+					Debug.Log("Gravity Flipped! ");
 					velocity += (jumpDirection * .5f * jumpSpeed *.5f) * boost;
 				}
 				//if(connectedBody){
@@ -343,7 +343,7 @@ public class Movement : MonoBehaviour {
 					velocity += (jumpDirection * jumpSpeed) * boost;
 				}
 				else{
-					Debug.Log("Exceeded max jump speed!");
+					Debug.Log("Exceeded max jump speed while not moving ");
 					velocity = (velocity + (jumpDirection*jumpSpeed)*boost).normalized * maxVJumpSpeed;
 				}
 
