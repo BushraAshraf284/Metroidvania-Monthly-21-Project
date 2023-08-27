@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
@@ -31,16 +32,22 @@ public class EnemyAI : MonoBehaviour
     public LayerMask obstructionMask;
     private bool playerInRange; // turn true when player can be detected
 
+    [Header("Search Anim Reference")]
+    public float distanceToMove;
+    public float duration;
+    public float delay;
+
     private StateMachine brain;
     private GameObject player; // to store target
     public PlayerStats playerStats;
-    private GameObject PlayerAim;
 
+    private GameObject PlayerAim;
+    private Tween RotateTween;
     private float currentTime;
     private float currentReloadTime;
     private float currentAttackTime;
     private float currentShootInterval;
-
+    private DG.Tweening.Sequence rotateSequence;
     // private bool playerInRange; 
 
     private void Awake()
@@ -48,10 +55,16 @@ public class EnemyAI : MonoBehaviour
         brain = GetComponent<StateMachine>();
         PlayerAim = GameObject.FindGameObjectWithTag("AimTarget");
         player = GameObject.FindGameObjectWithTag("Player").transform.root.gameObject;
+      
     }
     void Start()
     {
         InitialPosition = Aimtarget.transform.position;
+        rotateSequence = DOTween.Sequence(); // create a sequence
+        Vector3 pos = Aimtarget.transform.position;
+        rotateSequence.Append(Aimtarget.transform.DOMove(new Vector3(pos.x + distanceToMove, pos.y, pos.z), duration).SetDelay(delay)); 
+        rotateSequence.Append(Aimtarget.transform.DOMove(new Vector3(pos.x - distanceToMove, pos.y, pos.z), duration).SetDelay(delay));
+        rotateSequence.SetLoops(-1); // repeat continously
         brain.PushState(OnSearchEnter, OnSearchExit, Search);
     }
 
@@ -64,11 +77,12 @@ public class EnemyAI : MonoBehaviour
     void OnSearchEnter()
     {
         Debug.Log("Search Enter");
+        rotateSequence.Restart();
+
     }
     void Search()
     {
-        // Rotate Turret
-
+       
         if (playerInRange)
         {
             Debug.Log("Player detected, Leaving search");
@@ -78,6 +92,10 @@ public class EnemyAI : MonoBehaviour
 
     void OnSearchExit()
     {
+        if (rotateSequence != null)
+        {
+            rotateSequence.Pause();
+        }
         Debug.Log("Search Exit");
     }
 
@@ -129,7 +147,7 @@ public class EnemyAI : MonoBehaviour
     void OnAttackExit()
     {
         Debug.Log("Attack Exit");
-        Aimtarget.transform.position = InitialPosition;
+        //Aimtarget.transform.position = InitialPosition;
     }
 
     void Shoot()

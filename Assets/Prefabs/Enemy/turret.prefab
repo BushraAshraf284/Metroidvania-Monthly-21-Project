@@ -339,7 +339,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33cecc2099785704490bbaeb51fc79bb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 96.39
+      value: 94.31
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33cecc2099785704490bbaeb51fc79bb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -422,16 +422,36 @@ PrefabInstance:
       value: turret
       objectReference: {fileID: 0}
     - target: {fileID: 3316992658331686828, guid: 33cecc2099785704490bbaeb51fc79bb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3316992658331686828, guid: 33cecc2099785704490bbaeb51fc79bb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.040283203
+      objectReference: {fileID: 0}
+    - target: {fileID: 3316992658331686828, guid: 33cecc2099785704490bbaeb51fc79bb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0048522986
+      objectReference: {fileID: 0}
+    - target: {fileID: 3316992658331686828, guid: 33cecc2099785704490bbaeb51fc79bb, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.0000030398369
       objectReference: {fileID: 0}
     - target: {fileID: 3316992658331686828, guid: 33cecc2099785704490bbaeb51fc79bb, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3316992658331686828, guid: 33cecc2099785704490bbaeb51fc79bb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3316992658331686828, guid: 33cecc2099785704490bbaeb51fc79bb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3316992658331686828, guid: 33cecc2099785704490bbaeb51fc79bb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -180
       objectReference: {fileID: 0}
     - target: {fileID: 8879528566716807029, guid: 33cecc2099785704490bbaeb51fc79bb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -576,12 +596,12 @@ MonoBehaviour:
   Damage: 45
   BulletEmitter: {fileID: 5899079800368372897}
   BulletPrefab: {fileID: 4224021561234923775, guid: 662e761c8485f6040b82c4d61f540662, type: 3}
-  ForwardForce: 500
-  ReloadTime: 10
+  ForwardForce: 4000
+  ReloadTime: 5
   AttackTime: {x: 10, y: 15}
-  ShootInterval: 3
-  radius: 100
-  angle: 90
+  ShootInterval: 1
+  radius: 15
+  angle: 60
   playerRef: {fileID: 0}
   targetMask:
     serializedVersion: 2
@@ -589,6 +609,9 @@ MonoBehaviour:
   obstructionMask:
     serializedVersion: 2
     m_Bits: 0
+  distanceToMove: 10
+  duration: 4
+  delay: 2
   playerStats: {fileID: 0}
 --- !u!4 &5230520866873237584 stripped
 Transform:
