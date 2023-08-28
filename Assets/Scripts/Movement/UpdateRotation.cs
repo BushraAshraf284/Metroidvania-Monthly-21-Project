@@ -61,7 +61,7 @@ public class UpdateRotation : MonoBehaviour
 		whichShoulder = !whichShoulder;
 	}
 	public void Aim(){
-		if(Physics.Raycast(controllingCam.transform.position, ProjectDirectionOnPlane(controllingCam.transform.forward, this.transform.right), out raycastHit, 999f, mask)){
+		if(Physics.Raycast(controllingCam.transform.position, controllingCam.transform.forward, out raycastHit, 999f, mask)){
 			//Debug.DrawLine(this.transform.position, raycastHit.point, Color.red, 5f);
 			if (abilities.aimCast.transform.position != raycastHit.point){
 				abilities.aimCast.transform.position = Vector3.Lerp(abilities.aimCast.transform.position, raycastHit.point, Time.deltaTime*25f);

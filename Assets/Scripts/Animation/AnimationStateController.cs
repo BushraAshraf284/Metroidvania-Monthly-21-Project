@@ -57,6 +57,21 @@ public class AnimationStateController : MonoBehaviour
     public void ShootMissile(){
         abilities.fireMissile();
     }
+    public void resetProngingAnimEvent(){
+        animator.SetBool("Pronging", false);
+    }
+    public void blockMovementAnimEvent(){
+		sphere.blockMovement();
+	}
+	public void unBlockMovementAnimEvent(){
+		sphere.unblockMovement();
+	}
+    public void SpawnShockProngHitboxAnimEvent(){
+		abilities.SpawnShockProngHitbox();
+	}
+	public void DeSpawnShockProngHitboxAnimEvent(){
+		abilities.DeSpawnShockProngHitbox();
+	}
     public void ShootSpike(){
         abilities.fireSpike();
     }

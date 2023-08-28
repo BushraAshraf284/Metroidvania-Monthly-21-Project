@@ -6,6 +6,8 @@ using UnityEngine.Animations.Rigging;
 public class abilities : MonoBehaviour
 {
 	[SerializeField]
+	GameObject shockProngHitbox;
+	[SerializeField]
 	GameObject missile;
 	[SerializeField]
 	GameObject spike;
@@ -25,6 +27,9 @@ public class abilities : MonoBehaviour
 	public GameObject aimCast;
 	AnimationStateController animCon;
 	Animator anim;
+	bool shockProngCooldown = false;
+	[SerializeField]
+	float shockProngdownCount = 1f;
 	bool camSwitchCooldown = false;
 	[SerializeField]
 	float camSwitchCooldownCount = 1f;
@@ -55,6 +60,8 @@ public class abilities : MonoBehaviour
 	[SerializeField]
 	GameObject worldSpike;
 	PlayerStats stats;
+	[SerializeField]
+	float shockSpikeDrainAmount = 50f;
     void Start()
 	{
 		stats = GetComponent<PlayerStats>();
@@ -68,6 +75,12 @@ public class abilities : MonoBehaviour
     }
 	void resetDashing(){
 		move.dashing = false;
+	}
+	public void SpawnShockProngHitbox(){
+		shockProngHitbox.SetActive(true);
+	}
+	public void DeSpawnShockProngHitbox(){
+		shockProngHitbox.SetActive(false);
 	}
 	public void Dash(){
 		move.dashing = true;
@@ -101,12 +114,18 @@ public class abilities : MonoBehaviour
 	void resetCamSwitchCooldown(){
 		camSwitchCooldown = false;
 	}
+	void resetshockProngCooldown(){
+		shockProngCooldown = false;
+	}
 	void resetDashCooldown(){
 		dashCooldown = false;
 	}
+
+	
     // Update is called once per frame
     void Update()
     {
+		//Handles the reloading for missiles
 		if(missileReloading){
 			if(missileReloadCount < missileReloadTime){
 				missileReloadCount += Time.deltaTime;
@@ -117,6 +136,7 @@ public class abilities : MonoBehaviour
 				missileReloadCount = 0f;
 			}
 		}
+		//handles the reloading for spike
 		if(spikeReloading){
 			if(SpikeReloadCount < SpikeReloadTime){
 				SpikeReloadCount += Time.deltaTime;
@@ -127,13 +147,22 @@ public class abilities : MonoBehaviour
 				SpikeReloadCount = 0f;
 			}
 		}
+		//no aiming in reversed gravity
+		//if(CustomGravity.GetGravity(rot.transform.position).y > 0){
+		//	rig.weight = 0f;
+	    //	rot.UnAim();
+	    //	isAiming = false;
+	   // 	aimCast.SetActive(false);
+		//}
+
+		//aiming
 	    if(Input.GetKey(controls.keys["zoom"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked && !move.delayedIsDashing){
-	    	rot.Aim();
-	    	isAiming = true;
-	    	aimCast.SetActive(true);
+			rot.Aim();
+			isAiming = true;
+			aimCast.SetActive(true);
 			rig.weight = 1f;
-	    	
 	    }
+		//un-aiming
 	    else if((!Input.GetKey(controls.keys["zoom"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked) || move.delayedIsDashing){
 		    rig.weight = 0f;
 	    	rot.UnAim();
@@ -141,7 +170,9 @@ public class abilities : MonoBehaviour
 	    	aimCast.SetActive(false);
 	    	
 	    }
+
 	    if(isAiming){
+			//shoot missiles
 			if(upgrades.hasMissiles){
 				if(Input.GetKey(controls.keys["attack"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked && !missileReloading){
 					anim.SetBool("isFiring", true);
@@ -149,13 +180,20 @@ public class abilities : MonoBehaviour
 
 				}
 			}
+			//shoot shock spike
 			if(upgrades.hasShockSpike){
 				if(Input.GetKey(controls.keys["attack"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked && !spikeReloading){
-					anim.SetBool("isFiring", true);
-					Invoke("ResetFiring", .1f);
-
+					if(stats.charge - shockSpikeDrainAmount > 0){
+						anim.SetBool("isFiring", true);
+						Invoke("ResetFiring", .1f);
+						stats.DrainBattery(shockSpikeDrainAmount);
+					}
+					else{
+						Debug.Log("Not Enough Battery to use Shock Spike!");
+					}
 				}
 			}
+			//switch aiming shoulder
 			if(Input.GetKey(controls.keys["switchCam"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked){
 				if(!camSwitchCooldown){
 					rot.switchCam();
@@ -165,6 +203,22 @@ public class abilities : MonoBehaviour
 			}
 	    }
 		else{
+			//Shock prong / sword
+			if(Input.GetKeyDown(controls.keys["attack"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked && upgrades.hasShockProng){
+				if(!shockProngCooldown){
+					
+					anim.SetBool("Pronging", true);
+					anim.SetBool("Pronging2", true);
+					shockProngCooldown = true;
+					Invoke("resetshockProngCooldown", shockProngdownCount);
+
+				}
+			}
+			if((Input.GetKeyUp(controls.keys["attack"]) && !FindObjectOfType<PauseMenu>().isPaused) || stats.charge <= 0){
+				anim.SetBool("Pronging", false);
+				anim.SetBool("Pronging2", false);
+			}
+			//Dash
 			if(Input.GetKey(controls.keys["dash"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked && animCon.movementPressed && move.OnGround && upgrades.hasJetBoost && !isAiming){
 				//Debug.Log("Trying to dash!");
 				if(!dashCooldown){
@@ -172,7 +226,6 @@ public class abilities : MonoBehaviour
 						Debug.Log("Not enough Battery!");
 					}
 					else{
-						//Dash();s
 						stats.DrainBattery(dashEnergyCost);
 						anim.SetBool("Dash", true);
 						dashCooldown = true;

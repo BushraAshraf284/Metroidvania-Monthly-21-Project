@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Thruster : MonoBehaviour
 {
+    [SerializeField]
+    bool isSpike;
+    [SerializeField]
+    GameObject stuckSpikePrefab;
+    [SerializeField]
+    bool isMissile;
     Rigidbody body;
     bool gate = true;
     bool burstGate = true;
@@ -14,7 +20,7 @@ public class Thruster : MonoBehaviour
     float spikeSpeed = 80f;
     // Start is called before the first frame update
     public void StartForce(Transform t){
-        Debug.Log("Accellerating Rocket! " + target);
+        //Debug.Log("Accellerating Rocket! " + target);
         gate = false;
         target = t;
     }
@@ -40,5 +46,26 @@ public class Thruster : MonoBehaviour
             body.velocity = (target.position - this.transform.position).normalized * spikeSpeed;
             burstGate = true;
         }
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if(isSpike){
+            GameObject stuckSpike = Instantiate(stuckSpikePrefab);
+            stuckSpike.transform.position = transform.position;
+            stuckSpike.transform.forward = -transform.forward;
+            //stuckSpike.transform.SetParent(other.collider.transform, true);
+            stuckSpike.transform.parent = other.collider.transform;
+            if(other.gameObject.GetComponent<Rigidbody>()!= null){
+                //stuckSpike.GetComponent<MeshCollider>().enabled = false;
+                //stuckSpike.GetComponent<Rigidbody>().isKinematic = false;
+            }
+            Destroy(gameObject);
+        }
+        if(isMissile){
+            //Explosive forse! spawn explosion, knock stuff back, etc
+        }
+        
+
     }
 }
