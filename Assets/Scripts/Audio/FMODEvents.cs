@@ -5,11 +5,21 @@ using FMODUnity;
 
 public class FMODEvents : MonoBehaviour
 {
-	[field: Header("Player SFX")]
+	[field: Header("Player Animation SFX")]
 	[field: SerializeField] public EventReference playerFootsteps { get; private set; }
 	[field: SerializeField] public EventReference playerJump { get; private set; }
+	[field: SerializeField] public EventReference playerJumpLand { get; private set; }
+	[field: SerializeField] public EventReference playerFalling { get; private set; }
 	[field: SerializeField] public EventReference playerDash { get; private set; }
+	[field: SerializeField] public EventReference playerDashStart { get; private set; }
+	[field: SerializeField] public EventReference playerDashStop { get; private set; }
+	[field: SerializeField] public EventReference playerDashJump { get; private set; }
+	[field: SerializeField] public EventReference playerJogJumpStart { get; private set; }
+	[field: SerializeField] public EventReference playerJogJumpStop { get; private set; }
+	[field: SerializeField] public EventReference playerJogJumpLand { get; private set; }
 	[field: SerializeField] public EventReference playerShootMissle { get; private set; }
+	
+	[field: Header("Player SFX")]
 	[field: SerializeField] public EventReference playerHurt { get; private set; }
 	[field: SerializeField] public EventReference playerHeal { get; private set; }
 
