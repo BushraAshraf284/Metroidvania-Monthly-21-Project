@@ -6,6 +6,8 @@ public class Movement : MonoBehaviour {
 	//CAN I DIFFERENTIATE BETWEEN CERTAIN TYPES OF STEEPS? ie a straight wall vs a sloped ramp? this would be nice!
 	//This script controls the movement of the character. Adapted from https://catlikecoding.com/unity/tutorials/movement/ by Travis Parks
 	[SerializeField]
+	public Transform leadAimPoint;
+	[SerializeField]
 	Transform playerCenter;
 	[SerializeField]
 	public bool dashing;

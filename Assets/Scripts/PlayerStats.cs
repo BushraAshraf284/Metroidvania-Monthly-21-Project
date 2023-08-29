@@ -114,16 +114,16 @@ public class PlayerStats : MonoBehaviour
         if(!hasIFrames){
             if(!hasShield){
                 if (hp - damage < 0){
-                    //Debug.Log("Went from "+hp+" to 0");
-                    //Debug.Log("Zero HP!");
+                    Debug.Log("Went from "+hp+" to 0");
+                    Debug.Log("Zero HP!");
                     hp = 0;
                 }
                 else {
-                    //Debug.Log("Went from "+hp+" to "+ Mathf.Round(hp-damage));
+                    Debug.Log("Went from "+hp+" to "+ Mathf.Round(hp-damage));
 
 
                     if(hp != Mathf.Round(hp-damage)){
-                        //Debug.Log("Took " + damage + " Damage");
+                        Debug.Log("Took " + damage + " Damage");
                         hasIFrames = true;
                         iFrameCount = 0f;
                         hp = Mathf.Round(hp-damage);
@@ -131,7 +131,7 @@ public class PlayerStats : MonoBehaviour
                 }
             }
             else{
-                //Debug.Log("Shield Blocked Damage!");
+                Debug.Log("Shield Blocked Damage!");
                 hasIFrames = true;
                 iFrameCount = 0f;
                 hasShield = false;
@@ -139,7 +139,7 @@ public class PlayerStats : MonoBehaviour
             }   
         }
         else{
-            //Debug.Log("Took Damage during I Frames!");
+            Debug.Log("Took Damage during I Frames!");
         }
         
     }

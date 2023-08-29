@@ -12,6 +12,7 @@ public class Console : MonoBehaviour
     bool oneWay;
     [SerializeField]
     float time;
+    bool gate = true;
 
     public void Interact(){
         Debug.Log("made it into console");
@@ -20,9 +21,13 @@ public class Console : MonoBehaviour
                 foreach (GameObject p in platforms){
                     if(p.GetComponent<platformAnimController>() != null){
                         if(oneWay){
+                            //p.GetComponent<platformAnimController>().sound.start()
+                            gate = false;
                             Debug.Log("Moving a platform");
                             p.GetComponent<platformAnimController>().Activated();
                         }else{
+                            //p.GetComponent<platformAnimController>().sound.start()
+                            gate = false;
                             p.GetComponent<platformAnimController>().TempActivation(time);
                         }
                     }
@@ -30,6 +35,19 @@ public class Console : MonoBehaviour
             }
         }
         else if( type == consoleType.Event){
+        }
+    }
+
+    void Update()
+    {
+        if(!gate){
+            foreach (GameObject p in platforms){
+                if(p.GetComponent<platformAnimController>() != null){
+                    if(!p.GetComponent<platformAnimController>().AnimatorIsPlaying()){
+                        //p.GetComponent<platformAnimController>().sound.stop()
+                    }
+                }
+            }
         }
     }
 }

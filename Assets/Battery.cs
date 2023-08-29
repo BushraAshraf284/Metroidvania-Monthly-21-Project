@@ -22,6 +22,8 @@ public class Battery : MonoBehaviour
     public bool charging;
     bool activationGate = false;
     bool activationGate2 = false;
+    //added recently
+    bool beenCharged;
     void Start(){
 
     }
@@ -34,20 +36,23 @@ public class Battery : MonoBehaviour
                 activationGate = true;
                 foreach (GameObject p in platforms){
                     if(p.GetComponent<platformAnimController>() != null){
-                            Debug.Log("Moving a platform");
+                            Debug.Log("Moving a platform", this.gameObject);
                             p.GetComponent<platformAnimController>().Activated();
+                            beenCharged = true;
                     }
                 }
             }
         }
         else{
-            if(!activationGate2){
-                activationGate = false;
-                activationGate2 = true;
-                foreach (GameObject p in platforms){
-                    if(p.GetComponent<platformAnimController>() != null){
-                            Debug.Log("Reverting a platform");
-                            p.GetComponent<platformAnimController>().ResetActivated();
+            if(beenCharged){
+                if(!activationGate2){
+                    activationGate = false;
+                    activationGate2 = true;
+                    foreach (GameObject p in platforms){
+                        if(p.GetComponent<platformAnimController>() != null){
+                                Debug.Log("Reverting a platform", this.gameObject);
+                                p.GetComponent<platformAnimController>().ResetActivated();
+                        }
                     }
                 }
             }
@@ -56,7 +61,7 @@ public class Battery : MonoBehaviour
     public void ChargeBattery(){
 		if (charge + (Time.deltaTime*chargeRate) > maxCharge){
             batteryDrainTimer = 0f;
-			charge = 100;
+			charge = maxCharge;
             charging = true;
             Debug.Log("Battery at capacity!");
 		}

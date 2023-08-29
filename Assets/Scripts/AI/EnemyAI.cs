@@ -48,6 +48,7 @@ public class EnemyAI : MonoBehaviour
     private float currentAttackTime;
     private float currentShootInterval;
     private DG.Tweening.Sequence rotateSequence;
+    Vector3 toTarget;
     // private bool playerInRange; 
 
     private void Awake()
@@ -76,7 +77,7 @@ public class EnemyAI : MonoBehaviour
 
     void OnSearchEnter()
     {
-        Debug.Log("Search Enter");
+        //Debug.Log("Search Enter");
         rotateSequence.Restart();
 
     }
@@ -85,7 +86,7 @@ public class EnemyAI : MonoBehaviour
        
         if (playerInRange)
         {
-            Debug.Log("Player detected, Leaving search");
+            //Debug.Log("Player detected, Leaving search");
             brain.PushState(OnAttackEnter, OnAttackExit, Attack);
         }
     }
@@ -96,12 +97,12 @@ public class EnemyAI : MonoBehaviour
         {
             rotateSequence.Pause();
         }
-        Debug.Log("Search Exit");
+        //Debug.Log("Search Exit");
     }
 
     void OnAttackEnter()
     {
-        Debug.Log("Attack Enter");
+        //Debug.Log("Attack Enter");
         currentAttackTime = Random.Range(AttackTime.x, AttackTime.y);
         currentTime = currentAttackTime;
         currentShootInterval = ShootInterval;
@@ -134,7 +135,7 @@ public class EnemyAI : MonoBehaviour
             }
             else
             {
-                Debug.Log("Pushing Reload");
+                //Debug.Log("Pushing Reload");
                 brain.PushState(OnReloadEnter, null, Reload);
             }
         }
@@ -152,17 +153,18 @@ public class EnemyAI : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bullet = Instantiate(BulletPrefab, BulletEmitter.transform.position, Quaternion.identity);
-
+        GameObject bullet = Instantiate(BulletPrefab);
+        bullet.transform.position = BulletEmitter.transform.position;
+        bullet.transform.forward = -BulletEmitter.transform.forward;
         //Bullet angle correction.
-        bullet.transform.Rotate(Vector3.left * 90);
+        //bullet.transform.Rotate(Vector3.left * 90);
 
         //Retrieve the Rigidbody component from the instantiated Bullet and control it.
-        Rigidbody BulletRb;
-        BulletRb = bullet.GetComponent<Rigidbody>();
+        //Rigidbody BulletRb;
+        //BulletRb = bullet.transform.GetComponentInChildren<Rigidbody>();
 
         //Tell the bullet to be "pushed" forward by an amount set by ForwardForce. 
-        BulletRb.AddForce(BulletEmitter.transform.forward * ForwardForce);
+        //BulletRb.AddForce(BulletEmitter.transform.forward * ForwardForce);
 
         //Basic Clean Up
         Destroy(bullet, 3f);
@@ -170,7 +172,7 @@ public class EnemyAI : MonoBehaviour
 
     void OnReloadEnter()
     {
-        Debug.Log("Reload Enter");
+       //Debug.Log("Reload Enter");
         currentReloadTime = ReloadTime;
     }
 
@@ -189,7 +191,8 @@ public class EnemyAI : MonoBehaviour
 
     bool CanSeeTarget(Transform target, float viewAngle, float viewRange)
     {
-        Vector3 toTarget = target.position - BulletEmitter.transform.position;
+        toTarget = target.position - BulletEmitter.transform.position;
+
 
         if (Vector3.Angle(BulletEmitter.transform.forward, toTarget) <= viewAngle)
         {

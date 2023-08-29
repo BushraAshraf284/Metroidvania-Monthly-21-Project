@@ -96,11 +96,21 @@ public class UpgradeTracker : MonoBehaviour
         sword.SetActive(true);
         hasSword = true;
     }
+    public void EquipSword(){
+        Debug.Log("Equipping Sword!");
+        DisableAllLeftHandWeapons();
+        sword.SetActive(true);
+    }
     public void UnlockShockProng(){
         Debug.Log("Equipping Shock Prong!");
         DisableAllLeftHandWeapons();
         shockProng.SetActive(true);
         hasShockProng = true;
+    }
+    public void EquipShockProng(){
+        Debug.Log("Equipping Shock Prong!");
+        DisableAllLeftHandWeapons();
+        shockProng.SetActive(true);
     }
     public void UnlockShockSpike(){
         Debug.Log("Equipping Shock Spike!");
@@ -108,17 +118,32 @@ public class UpgradeTracker : MonoBehaviour
         shockSpike.SetActive(true);
         hasShockSpike = true;
     }
+    public void EquipShockSpike(){
+        Debug.Log("Equipping Shock Spike!");
+        DisableAllRightHandWeapons();
+        shockSpike.SetActive(true);
+    }
     public void UnlockMissiles(){
         Debug.Log("Equipping Missiles!");
         DisableAllRightHandWeapons();
         missiles.SetActive(true);
         hasMissiles = true;
     }
+    public void EquipMissiles(){
+        Debug.Log("Equipping Missiles!");
+        DisableAllRightHandWeapons();
+        missiles.SetActive(true);
+    }
     public void UnlockHomingMissiles(){
-        Debug.Log("Equipping Homing Missiles!");
+        Debug.Log("Unlocking Homing Missiles!");
         DisableAllRightHandWeapons();
         homingMissiles.SetActive(true);
         hasHomingMissiles = true;
+    }
+    public void EquipHomingMissiles(){
+        Debug.Log("Equipping Homing Missiles!");
+        DisableAllRightHandWeapons();
+        homingMissiles.SetActive(true);
     }
     public void UnlockJetBoost(){
         Debug.Log("Equipping Jet Boost!");
@@ -130,7 +155,6 @@ public class UpgradeTracker : MonoBehaviour
         vertBoost.SetActive(true);
         hasVertBoost = true;
     }
-    //none for vertboost and jet boost cause they are just always on 
 
 
     // Update is called once per frame
