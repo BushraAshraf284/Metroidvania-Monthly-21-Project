@@ -100,7 +100,9 @@ public class PlayerStats : MonoBehaviour
         hasIFrames = false;
     }
     public void ChargeBattery(){
-        if(charge < MaxCharge){
+        if (isBatteryCharging) { AudioManager.instance.PlayOneShot(FMODEvents.instance.playerBatteryCharge, this.transform.position); } // Need to stop audio when done charging
+
+        if (charge < MaxCharge){
             if(batteryChargeTimer < batteryChargeCap){
 	            batteryChargeTimer += Time.deltaTime;
 	            isBatteryCharging = false;
