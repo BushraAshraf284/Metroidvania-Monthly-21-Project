@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Upgrade : MonoBehaviour
 {
+
     public enum upgrade{ShockProng, ShockSpike, Missile, HomingMissiles, JetBooster, VerticalBooster, Sword, BatteryPiece, HeartPiece, ShieldPiece};
     public upgrade whatUpgrade;
     [SerializeField]
@@ -23,6 +24,7 @@ public class Upgrade : MonoBehaviour
             }
         }
     }
+
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player"){
@@ -65,6 +67,8 @@ public class Upgrade : MonoBehaviour
             else if(whatUpgrade == upgrade.HeartPiece){
                 if( other.transform.root.gameObject.GetComponent<UpgradeTracker>() != null ){
                     other.transform.root.gameObject.GetComponent<UpgradeTracker>().GetHeartUpgrade();
+                    // Play audio when collected
+                    AudioManager.instance.PlayOneShot(FMODEvents.instance.upgradeCollectedSound, this.transform.position);
                 }
             }
             else if(whatUpgrade == upgrade.ShieldPiece){

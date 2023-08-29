@@ -67,6 +67,7 @@ public class DialogueManager : MonoBehaviour
         {
             if(gate == 5){
                 //textScrollNoise.Play();
+                AudioManager.instance.PlayOneShot(FMODEvents.instance.npcSFX, this.transform.position);
                 gate = 0;
             }
             else{
