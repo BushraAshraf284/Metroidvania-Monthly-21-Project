@@ -18,7 +18,7 @@ public class PlayerStats : MonoBehaviour
     [Tooltip("Max HP for the player with two health upgrades")]
 	float MaxHpPhase3 = 150f;
     float MaxHP;
-	public float hp = 100;
+	public float hp = 0;
     [SerializeField]
 	HealthBar healthBar;
     [SerializeField]
@@ -38,14 +38,15 @@ public class PlayerStats : MonoBehaviour
     [Tooltip("Max HP for the player with two battery upgrades")]
 	public float MaxChargePhase3 = 150f;
     float MaxCharge;
-	public float charge = 100;
+	public float charge = 0;
     [SerializeField]
 	BatteryBar batteryBar;
     [SerializeField]
 	BatteryBar batteryBar2;
     [SerializeField]
 	BatteryBar batteryBar3;
-    float batteryChargeTimer = 0f;
+	float batteryChargeTimer = 0f;
+	public bool isBatteryCharging;
     [SerializeField]
     [Tooltip("How long it takes for the battery's charge to start to refill again")]
     float batteryChargeCap = 3f;
@@ -57,7 +58,7 @@ public class PlayerStats : MonoBehaviour
 
 	public bool hasShield;
     public float maxShieldCharge = 100f;
-    public float shieldCharge = 100f;
+	public float shieldCharge = 0;
     public bool hasShieldUpgrade;
     [SerializeField]
     ShieldCell shieldCell;
@@ -101,14 +102,17 @@ public class PlayerStats : MonoBehaviour
     public void ChargeBattery(){
         if(charge < MaxCharge){
             if(batteryChargeTimer < batteryChargeCap){
-                batteryChargeTimer += Time.deltaTime;
+	            batteryChargeTimer += Time.deltaTime;
+	            isBatteryCharging = false;
             }
             else{
+            	isBatteryCharging = true;
                 charge += Time.deltaTime * batteryChargeRate;
             }
         }
         else if (charge >= MaxCharge){
-            charge = MaxCharge;
+	        charge = MaxCharge;
+	        isBatteryCharging = false;
         }
     }
 
@@ -159,6 +163,11 @@ public class PlayerStats : MonoBehaviour
             Debug.Log("You already have this shield upgrade!");
         }
     }
+	public void CheckShieldUpgrade(){
+		if(hasShieldUpgrade){
+			shieldCell.transform.parent.gameObject.SetActive(true);
+		}
+	}
     public void GetBatteryUpgrade(){
         if(batteryphase == BAPhase.Phase1){
             batteryphase = BAPhase.Phase2;
@@ -191,6 +200,47 @@ public class PlayerStats : MonoBehaviour
             Debug.Log("You already have all battery upgrades!");
         }
     }
+	public void CheckBatteryUpgrade(){
+		if(batteryphase == BAPhase.Phase1){
+			UpdateBatteryMaxes();
+			batteryBar.gameObject.SetActive(true);
+			batteryBar2.gameObject.SetActive(false);
+			batteryBar3.gameObject.SetActive(false);
+			if(batteryBar.batterySlider.GetComponent<Slider>() != null){
+				if(batteryBar.fill.GetComponent<RectTransform>() != null){
+					batteryBar.batterySlider.GetComponent<Slider>().maxValue = MaxChargePhase1;
+					batteryBar.batterySlider.GetComponent<Slider>().fillRect = batteryBar.fill.GetComponent<RectTransform>();
+				}
+			}
+		}
+		else if(batteryphase == BAPhase.Phase2){
+			UpdateBatteryMaxes();
+			batteryBar.gameObject.SetActive(false);
+			batteryBar2.gameObject.SetActive(true);
+			batteryBar3.gameObject.SetActive(false);
+
+			if(batteryBar2.batterySlider.GetComponent<Slider>() != null){
+				if(batteryBar2.fill.GetComponent<RectTransform>() != null){
+                    
+					batteryBar2.batterySlider.GetComponent<Slider>().maxValue = MaxChargePhase2;
+					batteryBar2.batterySlider.GetComponent<Slider>().fillRect = batteryBar2.fill.GetComponent<RectTransform>();
+				}
+			}
+		}
+		else if(batteryphase == BAPhase.Phase3){
+			UpdateBatteryMaxes();
+			batteryBar.gameObject.SetActive(false);
+			batteryBar2.gameObject.SetActive(false);
+			batteryBar3.gameObject.SetActive(true);
+
+			if(batteryBar3.batterySlider.GetComponent<Slider>() != null){
+				if(batteryBar3.fill.GetComponent<RectTransform>() != null){
+					batteryBar3.batterySlider.GetComponent<Slider>().maxValue = MaxChargePhase3;
+					batteryBar3.batterySlider.GetComponent<Slider>().fillRect = batteryBar3.fill.GetComponent<RectTransform>();
+				}
+			}
+		}
+	}
     public void GetHPUpgrade(){
         if(healthphase == HPPhase.Phase1){
             healthBar.gameObject.SetActive(false);
@@ -221,6 +271,60 @@ public class PlayerStats : MonoBehaviour
             Debug.Log("You already have all Health upgrades!");
         }
     }
+	public void CheckHPUpgrade(){
+		if(healthphase == HPPhase.Phase1){
+			
+			if(healthBar3.gameObject.activeInHierarchy){
+				healthBar3.gameObject.SetActive(false);
+			}
+			if(!healthBar.gameObject.activeInHierarchy){
+				healthBar.gameObject.SetActive(true);
+			}
+			if(healthBar2.gameObject.activeInHierarchy){
+				healthBar2.gameObject.SetActive(false);
+			}
+			if(healthBar.healthSlider.GetComponent<Slider>() != null){
+				if(healthBar.fill.GetComponent<RectTransform>() != null){
+					healthBar.healthSlider.GetComponent<Slider>().maxValue = MaxHpPhase1;
+					healthBar.healthSlider.GetComponent<Slider>().fillRect = healthBar.fill.GetComponent<RectTransform>();
+				}
+			}
+		}
+		else if(healthphase == HPPhase.Phase2){
+			if(healthBar3.gameObject.activeInHierarchy){
+				healthBar3.gameObject.SetActive(false);
+			}
+			if(healthBar.gameObject.activeInHierarchy){
+				healthBar.gameObject.SetActive(false);
+			}
+			if(!healthBar2.gameObject.activeInHierarchy){
+				healthBar2.gameObject.SetActive(false);
+			}
+			if(healthBar2.healthSlider.GetComponent<Slider>() != null){
+				if(healthBar2.fill.GetComponent<RectTransform>() != null){
+					healthBar2.healthSlider.GetComponent<Slider>().maxValue = MaxHpPhase2;
+					healthBar2.healthSlider.GetComponent<Slider>().fillRect = healthBar2.fill.GetComponent<RectTransform>();
+				}
+			}
+		}
+		else if(healthphase == HPPhase.Phase3){
+			if(!healthBar3.gameObject.activeInHierarchy){
+				healthBar3.gameObject.SetActive(true);
+			}
+			if(healthBar.gameObject.activeInHierarchy){
+				healthBar.gameObject.SetActive(false);
+			}
+			if(healthBar2.gameObject.activeInHierarchy){
+				healthBar2.gameObject.SetActive(false);
+			}
+			if(healthBar3.healthSlider.GetComponent<Slider>() != null){
+				if(healthBar3.fill.GetComponent<RectTransform>() != null){
+					healthBar3.healthSlider.GetComponent<Slider>().maxValue = MaxHpPhase3;
+					healthBar3.healthSlider.GetComponent<Slider>().fillRect = healthBar3.fill.GetComponent<RectTransform>();
+				}
+			}
+		}
+	}
     public void ChargeShield(float shieldChargeAmount){
         if (shieldCharge + shieldChargeAmount >= maxShieldCharge){
             shieldCharge = maxShieldCharge; 
@@ -233,32 +337,51 @@ public class PlayerStats : MonoBehaviour
     void UpdateHPMaxes(){
         if(healthphase == HPPhase.Phase1){
             MaxHP = MaxHpPhase1;
-            healthBar.SetMaxHealth(MaxHpPhase1);
-            hp = MaxHP;
+	        healthBar.SetMaxHealth(MaxHpPhase1);
+	        if(hp!= 0){
+	        	//if doesnt equal zero, then its being carried over from previous scene
+	        	CheckHPUpgrade();
+	        }
+	        else{
+	        	//if it does equal zero, its coming from a fresh started scene
+	        	hp = MaxHpPhase1;
+	        }
+            
         }
         else if(healthphase == HPPhase.Phase2){
             Debug.Log("Got Health Upgrade #1!, Set max HP to " + MaxHpPhase2 + " From " + MaxCharge);
             MaxHP = MaxHpPhase2;
-            healthBar.SetMaxHealth(MaxHpPhase2);
-            hp = MaxHP;
+	        healthBar.SetMaxHealth(MaxHpPhase2);
+	        if(hp!= 0){
+	        	CheckHPUpgrade();
+	        }
+	        else{
+	        	hp = MaxHpPhase2;
+	        }
         }
         else if(healthphase == HPPhase.Phase3){
             Debug.Log("Got Health Upgrade #2!, Set max HP to " + MaxHpPhase3 + " From " + MaxCharge);
             MaxHP = MaxHpPhase3;
             healthBar.SetMaxHealth(MaxHpPhase3);
-            hp = MaxHP;
+	        if(hp!= 0){
+	        	CheckHPUpgrade();
+	        }
+	        else{
+	        	hp = MaxHpPhase3;
+	        }
         }
     }
     void UpdateShieldMaxes(){
         if(hasShieldUpgrade){
-            shieldCell.SetMaxCharge(shieldCharge);
+	        shieldCell.SetMaxCharge(maxShieldCharge);
+
         }
     }
     void UpdateBatteryMaxes(){
         if(batteryphase == BAPhase.Phase1){
             MaxCharge = MaxChargePhase1;
             batteryBar.SetMaxCharge(MaxChargePhase1);
-            charge = MaxCharge;
+	        charge = MaxCharge;
         }
         else if(batteryphase == BAPhase.Phase2){
             Debug.Log("Got Battery Upgrade #1!, Set max charge to " + MaxChargePhase2 + " From " + MaxCharge);
@@ -284,7 +407,10 @@ public class PlayerStats : MonoBehaviour
         UpdateMaxes();
         //Test line to see if we can set a default start point
         //when game is started, it sets the slider max value to hp value
-        //healthBar.SetMaxHealth(hp);
+		//healthBar.SetMaxHealth(hp);
+		if(hasShield){
+			
+		}
     }
 
     void Update()

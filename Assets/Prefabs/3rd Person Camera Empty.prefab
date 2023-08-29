@@ -171,7 +171,6 @@ MonoBehaviour:
   aimFOV: 50
   controllingCam: {fileID: 5540456353399380291}
   camAutoTurn: 0
-  player: {fileID: 0}
   upAlignmentSpeed: 180
   obstructionMask:
     serializedVersion: 2
@@ -181,7 +180,7 @@ MonoBehaviour:
   minVerticalAngle: -89
   maxVerticalAngle: 89
   rotationSpeed: 360
-  focusCentering: 0.999
+  focusCentering: 0.99999
   focusRadius: 5
   focus: {fileID: 0}
   distance: 4

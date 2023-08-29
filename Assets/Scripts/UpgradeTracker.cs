@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
@@ -11,10 +11,60 @@ public class UpgradeTracker : MonoBehaviour
     public int heartPieceCount;
     public int shieldPieceCount;
     public int batteryPieceCount;
-    PlayerStats stats;
+	PlayerStats stats;
+	public enum LeftWeaponEquipped{Sword, ShockProng, none};
+	public LeftWeaponEquipped leftWeapon;
+	public enum RightWeaponEquipped{Missiles, HomingMissiles, ShockSpike, none};
+	public RightWeaponEquipped rightWeapon;
     void Start()
     {
-        stats = GetComponent<PlayerStats>();
+	    stats = GetComponent<PlayerStats>();
+	    if(leftWeapon == LeftWeaponEquipped.Sword){
+	    	if(hasSword){
+		    	EquipSword();
+	    	}
+	    	else{
+	    		DisableAllRightHandWeapons();
+	    	}
+	    }
+	    else if(leftWeapon == LeftWeaponEquipped.ShockProng){
+	    	if(hasShockProng){
+		    	EquipShockProng();
+	    	}
+	    	else{
+	    		DisableAllRightHandWeapons();
+	    	}
+	    }
+	    else if(leftWeapon == LeftWeaponEquipped.none){
+	    	DisableAllLeftHandWeapons();
+	    }
+	    if(rightWeapon == RightWeaponEquipped.Missiles){
+		    if(hasMissiles){
+		    	EquipMissiles();
+	    	}
+		    else{
+	    		DisableAllRightHandWeapons();
+	    	}
+	    }
+	    else if(rightWeapon == RightWeaponEquipped.HomingMissiles){
+		    if(hasHomingMissiles){
+		    	EquipHomingMissiles();
+	    	}
+		    else{
+	    		DisableAllRightHandWeapons();
+	    	}
+	    }
+	    else if(rightWeapon == RightWeaponEquipped.ShockSpike){
+		    if(hasShockSpike){
+		    	EquipShockSpike();
+	    	}
+	    	else{
+	    		DisableAllRightHandWeapons();
+	    	}
+	    }
+	    else if(rightWeapon == RightWeaponEquipped.none){
+	    	DisableAllRightHandWeapons();
+	    }
     }
     // Start is called before the first frame update
     public void GetShieldUpgrade()

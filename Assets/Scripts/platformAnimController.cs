@@ -1,10 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using FMOD;
 using UnityEngine;
 
 public class platformAnimController : MonoBehaviour
 {
+	public bool isOpened;
     Animator anim;
     // Start is called before the first frame update
     public bool isActivated;
@@ -19,7 +20,11 @@ public class platformAnimController : MonoBehaviour
     //}
     void Start()
     {
-        anim = GetComponent<Animator>();
+	    anim = GetComponent<Animator>();
+	    if(isOpened){
+		    anim.SetBool("Activated", true);
+		    isActivated = true;
+	    }
     }
     public void ResetActivated(){
         anim.SetBool("Activated", false);
@@ -27,7 +32,8 @@ public class platformAnimController : MonoBehaviour
     }
     public void Activated(){
         anim.SetBool("Activated", true);
-        isActivated = true;
+	    isActivated = true;
+	    isOpened = true;
     }
     public void TempActivation(float time){
         isActivated = true;
