@@ -99,12 +99,18 @@ public class PlayerStats : MonoBehaviour
         hasIFrames = false;
     }
     public void ChargeBattery(){
-        if(charge < MaxCharge){
+
+        /* If charging, play this sound
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.playerBatteryCharge, this.transform.position);
+        
+        Right now the audio will play each tick of the battery charging. May need a batteryCharging bool.
+        */
+
+        if (charge < MaxCharge){
             if(batteryChargeTimer < batteryChargeCap){
                 batteryChargeTimer += Time.deltaTime;
             }
             else{
-                AudioManager.instance.PlayOneShot(FMODEvents.instance.playerBatteryCharge, this.transform.position);
 
                 charge += Time.deltaTime * batteryChargeRate;
             }
