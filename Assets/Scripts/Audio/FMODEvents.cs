@@ -23,6 +23,7 @@ public class FMODEvents : MonoBehaviour
 	[field: SerializeField] public EventReference playerDeath { get; private set; }
 	[field: SerializeField] public EventReference playerHeal { get; private set; }
 	[field: SerializeField] public EventReference playerHurt { get; private set; }
+	[field: SerializeField] public EventReference playerBatteryCharge { get; private set; }
 
 	[field: Header("Collectable SFX")]
 	[field: SerializeField] public EventReference upgradeCollectedSound { get; private set; }

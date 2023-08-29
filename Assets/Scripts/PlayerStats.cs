@@ -104,6 +104,8 @@ public class PlayerStats : MonoBehaviour
                 batteryChargeTimer += Time.deltaTime;
             }
             else{
+                AudioManager.instance.PlayOneShot(FMODEvents.instance.playerBatteryCharge, this.transform.position);
+
                 charge += Time.deltaTime * batteryChargeRate;
             }
         }
