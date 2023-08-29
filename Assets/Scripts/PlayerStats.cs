@@ -119,7 +119,7 @@ public class PlayerStats : MonoBehaviour
                     //Debug.Log("Went from "+hp+" to 0");
                     //Debug.Log("Zero HP!");
 
-                    // Add Death Audio
+                    AudioManager.instance.PlayOneShot(FMODEvents.instance.playerDeath, this.transform.position);
 
                     hp = 0;
                 }
