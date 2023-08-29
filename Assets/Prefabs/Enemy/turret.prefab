@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 6915633008443759198}
   - component: {fileID: 3760528507564660010}
   - component: {fileID: 8101711841972058311}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bullet Emitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 34e6d8077f615b0468518aa53afe2582, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -335,31 +335,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 33cecc2099785704490bbaeb51fc79bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.11
+      value: 111.91
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33cecc2099785704490bbaeb51fc79bb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 94.31
+      value: 106.49
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33cecc2099785704490bbaeb51fc79bb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -981.92
+      value: -815.53
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33cecc2099785704490bbaeb51fc79bb, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: -0.00000020116568
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33cecc2099785704490bbaeb51fc79bb, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.70710677
+      value: -0.00000018978622
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33cecc2099785704490bbaeb51fc79bb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33cecc2099785704490bbaeb51fc79bb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33cecc2099785704490bbaeb51fc79bb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -371,7 +371,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33cecc2099785704490bbaeb51fc79bb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: -6733177361254619370, guid: 33cecc2099785704490bbaeb51fc79bb, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -390857530817630891, guid: 33cecc2099785704490bbaeb51fc79bb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -593,22 +597,22 @@ MonoBehaviour:
   Gun: {fileID: 135980253702937361}
   Aimtarget: {fileID: 0}
   InitialPosition: {x: 0, y: 0, z: 0}
-  Damage: 45
+  Damage: 5
   BulletEmitter: {fileID: 5899079800368372897}
-  BulletPrefab: {fileID: 4224021561234923775, guid: 662e761c8485f6040b82c4d61f540662, type: 3}
-  ForwardForce: 4000
+  BulletPrefab: {fileID: 7078151848023102289, guid: b0dad4a53c3672c4d800bb0a5cb86090, type: 3}
+  ForwardForce: 150000
   ReloadTime: 5
   AttackTime: {x: 10, y: 15}
-  ShootInterval: 1
-  radius: 15
-  angle: 60
+  ShootInterval: 0.15
+  radius: 50
+  angle: 113
   playerRef: {fileID: 0}
   targetMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 3455
   obstructionMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 3711
   distanceToMove: 10
   duration: 4
   delay: 2
