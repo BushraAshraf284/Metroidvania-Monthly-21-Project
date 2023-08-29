@@ -12,11 +12,8 @@ public class OrbitCamera : MonoBehaviour {
 	[SerializeField]
 	bool camAutoTurn;
     bool cursorLock = false;
-
-	public GameObject player = default;
+	GameObject player = default;
     Movement sphere = default; 
-	
-
 	[SerializeField, Min(0f)]
 	[Tooltip("This is how many degrees per second your camera rotates to match you")]
 	float upAlignmentSpeed = 360f;
@@ -55,8 +52,7 @@ public class OrbitCamera : MonoBehaviour {
 
     [SerializeField, Min(0f)]
 	float focusRadius = 1f;
-
-    [SerializeField]
+	[HideInInspector]
 	public Transform focus = default;
 	Transform Prevfocus = default;
 
@@ -65,8 +61,6 @@ public class OrbitCamera : MonoBehaviour {
 	float distance = 5f;
     Vector3 focusPoint, previousFocusPoint;
 	PauseMenu pause;
-	[SerializeField]
-
 	Transform playerTransform;
 
 	Vector3 CameraHalfExtends {
@@ -131,13 +125,17 @@ public class OrbitCamera : MonoBehaviour {
 	}
 
     void Awake () {
-		pause = GameObject.Find("PauseMenu").GetComponent<PauseMenu>();
+	    pause = GameObject.Find("PauseMenu").GetComponent<PauseMenu>();
+	    player = GameObject.Find("3rd Person Character");
+	    sphere = player.GetComponent<Movement>();
+	    focus = sphere.playerCenter;
+	    playerTransform = sphere.playerCenter;
         if (!cursorLock) {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
 		Prevfocus = focus;
-		sphere = player.GetComponent<Movement>();
+		
 		regularCamera = GetComponent<Camera>();
 		focusPoint = focus.position;
 		transform.localRotation = orbitRotation = Quaternion.Euler(orbitAngles);

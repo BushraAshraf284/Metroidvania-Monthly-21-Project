@@ -1,10 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Upgrade : MonoBehaviour
 {
-
+	public bool isPickedUp;
     public enum upgrade{ShockProng, ShockSpike, Missile, HomingMissiles, JetBooster, VerticalBooster, Sword, BatteryPiece, HeartPiece, ShieldPiece};
     public upgrade whatUpgrade;
     [SerializeField]
@@ -15,10 +15,29 @@ public class Upgrade : MonoBehaviour
     bool reappear;
     [SerializeField]
     [Tooltip("How long until this pickup reappears?")]
-    float reappearTimer = 5f;
+	float reappearTimer = 5f;
+	protected void Start()
+	{
+		if(isPickedUp){
+			if(reappear){
+				if(GetComponent<BoxCollider>() != null){
+					if(GetComponent<MeshRenderer>()!= null){
+						GetComponent<BoxCollider>().enabled = false;
+						GetComponent<MeshRenderer>().enabled = false;
+						Invoke("ReappearTrigger", reappearTimer);
+					}
+				}
+			}
+			else{
+				Destroy(this.gameObject);
+			}
+                
+		}
+	}
     void ReappearTrigger(){
         if(GetComponent<BoxCollider>() != null){
-            if(GetComponent<MeshRenderer>()!= null){
+	        if(GetComponent<MeshRenderer>()!= null){
+		        isPickedUp = false;
                 GetComponent<BoxCollider>().enabled = true;
                 GetComponent<MeshRenderer>().enabled = true;
             }
@@ -81,6 +100,7 @@ public class Upgrade : MonoBehaviour
                     other.transform.root.gameObject.GetComponent<UpgradeTracker>().GetBatteryUpgrade();
                 }
             }
+	        isPickedUp = true;
             if(dissapear){
                 if(reappear){
                     if(GetComponent<BoxCollider>() != null){
