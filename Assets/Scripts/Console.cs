@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Console : MonoBehaviour
-{   
-    public enum consoleType{ DoorsAndPlatforms, Event};
+{
+    public enum consoleType { DoorsAndPlatforms, Event };
     public consoleType type;
     [SerializeField]
     public List<GameObject> platforms = new List<GameObject>();
@@ -14,18 +14,28 @@ public class Console : MonoBehaviour
     float time;
     bool gate = true;
 
-    public void Interact(){
+    public void Interact()
+    {
         Debug.Log("made it into console");
-        if(type == consoleType.DoorsAndPlatforms){
-            if(platforms.Count > 0){
-                foreach (GameObject p in platforms){
-                    if(p.GetComponent<platformAnimController>() != null){
-                        if(oneWay){
+        if (type == consoleType.DoorsAndPlatforms)
+        {
+            if (platforms.Count > 0)
+            {
+                foreach (GameObject p in platforms)
+                {
+                    if (p.GetComponent<platformAnimController>() != null)
+                    {
+                        if (oneWay)
+                        {
+                            AudioManager.instance.PlayOneShot(FMODEvents.instance.interactSFX, this.transform.position);
                             //p.GetComponent<platformAnimController>().sound.start()
                             gate = false;
                             Debug.Log("Moving a platform");
                             p.GetComponent<platformAnimController>().Activated();
-                        }else{
+                        }
+                        else
+                        {
+                            // loop
                             //p.GetComponent<platformAnimController>().sound.start()
                             gate = false;
                             p.GetComponent<platformAnimController>().TempActivation(time);
@@ -34,16 +44,21 @@ public class Console : MonoBehaviour
                 }
             }
         }
-        else if( type == consoleType.Event){
+        else if (type == consoleType.Event)
+        {
         }
     }
 
     void Update()
     {
-        if(!gate){
-            foreach (GameObject p in platforms){
-                if(p.GetComponent<platformAnimController>() != null){
-                    if(!p.GetComponent<platformAnimController>().AnimatorIsPlaying()){
+        if (!gate)
+        {
+            foreach (GameObject p in platforms)
+            {
+                if (p.GetComponent<platformAnimController>() != null)
+                {
+                    if (!p.GetComponent<platformAnimController>().AnimatorIsPlaying())
+                    {
                         //p.GetComponent<platformAnimController>().sound.stop()
                     }
                 }

@@ -70,6 +70,8 @@ public class PlayerStats : MonoBehaviour
 
 
     public void RestoreHP(float healAmount){
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.playerHeal, this.transform.position);
+
         if (hp + healAmount >= MaxHP){
             hp = MaxHP;
         }
@@ -114,16 +116,19 @@ public class PlayerStats : MonoBehaviour
         if(!hasIFrames){
             if(!hasShield){
                 if (hp - damage < 0){
-                    Debug.Log("Went from "+hp+" to 0");
-                    Debug.Log("Zero HP!");
+                    //Debug.Log("Went from "+hp+" to 0");
+                    //Debug.Log("Zero HP!");
+
+                    // Add Death Audio
+
                     hp = 0;
                 }
                 else {
-                    Debug.Log("Went from "+hp+" to "+ Mathf.Round(hp-damage));
 
+                    AudioManager.instance.PlayOneShot(FMODEvents.instance.playerHurt, this.transform.position);
 
-                    if(hp != Mathf.Round(hp-damage)){
-                        Debug.Log("Took " + damage + " Damage");
+                    if (hp != Mathf.Round(hp-damage)){
+                        //Debug.Log("Took " + damage + " Damage");
                         hasIFrames = true;
                         iFrameCount = 0f;
                         hp = Mathf.Round(hp-damage);
@@ -131,7 +136,7 @@ public class PlayerStats : MonoBehaviour
                 }
             }
             else{
-                Debug.Log("Shield Blocked Damage!");
+                //Debug.Log("Shield Blocked Damage!");
                 hasIFrames = true;
                 iFrameCount = 0f;
                 hasShield = false;
@@ -139,7 +144,7 @@ public class PlayerStats : MonoBehaviour
             }   
         }
         else{
-            Debug.Log("Took Damage during I Frames!");
+            //Debug.Log("Took Damage during I Frames!");
         }
         
     }

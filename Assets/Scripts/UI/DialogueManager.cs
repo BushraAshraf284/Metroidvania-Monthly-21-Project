@@ -62,11 +62,11 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueText.text = "";
         gate = 5;
-        //textScrollNoise.pitch = Random.Range(.8f, 1.25f);
         foreach (char letter in sentence.ToCharArray())
         {
             if(gate == 5){
-                //textScrollNoise.Play();
+                // NPC Dialogue Audio
+                AudioManager.instance.PlayOneShot(FMODEvents.instance.npcSFX, this.transform.position);
                 gate = 0;
             }
             else{
