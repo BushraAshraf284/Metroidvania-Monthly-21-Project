@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class PlayerAnimationAudio: MonoBehaviour
 {
+
+    private void PlayShootMissle()
+    {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.playerShootMissle, this.transform.position);
+    }
+
     private void PlayFootstep()
     {
-        Debug.Log("Playing footstep audio");
+        
         AudioManager.instance.PlayOneShot(FMODEvents.instance.playerFootsteps, this.transform.position); 
     }
 
