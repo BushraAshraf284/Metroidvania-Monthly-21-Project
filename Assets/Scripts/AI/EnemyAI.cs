@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
@@ -156,18 +157,11 @@ public class EnemyAI : MonoBehaviour
         GameObject bullet = Instantiate(BulletPrefab);
         bullet.transform.position = BulletEmitter.transform.position;
         bullet.transform.forward = -BulletEmitter.transform.forward;
-        //Bullet angle correction.
-        //bullet.transform.Rotate(Vector3.left * 90);
-
-        //Retrieve the Rigidbody component from the instantiated Bullet and control it.
-        //Rigidbody BulletRb;
-        //BulletRb = bullet.transform.GetComponentInChildren<Rigidbody>();
-
-        //Tell the bullet to be "pushed" forward by an amount set by ForwardForce. 
-        //BulletRb.AddForce(BulletEmitter.transform.forward * ForwardForce);
-
-        //Basic Clean Up
-        Destroy(bullet, 3f);
+        //would be nice to add some variance to this so its no soo precise
+        if(Physics.Raycast(BulletEmitter.transform.position, BulletEmitter.transform.forward, out RaycastHit hit, 900f, obstructionMask )){
+            Debug.DrawLine(BulletEmitter.transform.position, hit.point, Color.green, 5f );
+            bullet.GetComponent<BulletLerper>().Lerp(hit.point, BulletEmitter.transform.forward);
+        }
     }
 
     void OnReloadEnter()
