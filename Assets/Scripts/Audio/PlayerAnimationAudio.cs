@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAnimationAudio : MonoBehaviour
 {
     private bool isFootstepSoundPlaying = false;
-    public float footstepCooldown = 0.5f;
+    public float footstepCooldown = 0.3f;
 
     private void PlayFootstep()
     {
