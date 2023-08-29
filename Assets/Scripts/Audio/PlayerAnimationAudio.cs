@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class PlayerAnimationAudio : MonoBehaviour
 {
+    private bool isFootstepSoundPlaying = false;
+    public float footstepCooldown = 0.5f;
+
+    private void PlayFootstep()
+    {
+        if (!isFootstepSoundPlaying)
+        {
+            isFootstepSoundPlaying = true;
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.playerFootsteps, this.transform.position);
+        }
+        Invoke(nameof(ResetFootstepSound), footstepCooldown);
+    }
+
+    private void ResetFootstepSound()
+    {
+        isFootstepSoundPlaying = false;
+    }
 
     private void PlayShootMissle()
     {
         AudioManager.instance.PlayOneShot(FMODEvents.instance.playerShootMissle, this.transform.position);
-    }
-
-    private void PlayFootstep()
-    {
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.playerFootsteps, this.transform.position);
     }
 
     private void PlayJump()
