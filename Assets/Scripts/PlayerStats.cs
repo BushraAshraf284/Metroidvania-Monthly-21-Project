@@ -17,7 +17,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField]
     [Tooltip("Max HP for the player with two health upgrades")]
 	float MaxHpPhase3 = 150f;
-    float MaxHP;
+    public float MaxHP;
 	public float hp = 0;
     [SerializeField]
 	HealthBar healthBar;

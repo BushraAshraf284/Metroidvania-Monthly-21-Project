@@ -4,13 +4,31 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
+    public Transform nearestInteractable;
+    GameObject[] interactables;
+    GameObject[] npcs;
     Controls controls;
     [SerializeField]
     float interactRange = 2.5f;
+    float minDistance = 999f;
 
     private void Start()
     {
         controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
+        interactables = GameObject.FindGameObjectsWithTag("Interactable");
+        npcs = GameObject.FindGameObjectsWithTag("NPC");
+        foreach(GameObject g in interactables){
+            if(Vector3.Distance(this.transform.position, g.transform.position) < minDistance){
+                nearestInteractable = g.transform;
+                minDistance = Vector3.Distance(this.transform.position, g.transform.position);
+            }
+        }
+        foreach(GameObject g in npcs){
+            if(Vector3.Distance(this.transform.position, g.transform.position) < minDistance){
+                nearestInteractable = g.transform;
+                minDistance = Vector3.Distance(this.transform.position, g.transform.position);
+            }
+        }
     }
 
     private void Update()

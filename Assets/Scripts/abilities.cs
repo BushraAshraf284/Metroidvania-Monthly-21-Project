@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.Animations.Rigging;
 public class abilities : MonoBehaviour
 {
+	[SerializeField]
+	GameObject aimingCrosshair, notAimingCrosshair;
 	public bool canFollowUpGate;
 	public bool swordAttacking;
 	[SerializeField]
@@ -170,6 +172,8 @@ public class abilities : MonoBehaviour
 
 		//aiming
 	    if(Input.GetKey(controls.keys["zoom"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked && !move.delayedIsDashing && !swordAttacking){
+			aimingCrosshair.SetActive(true);
+			notAimingCrosshair.SetActive(false);
 			rot.Aim();
 			isAiming = true;
 			aimCast.SetActive(true);
@@ -177,6 +181,8 @@ public class abilities : MonoBehaviour
 	    }
 		//un-aiming
 	    else if((!Input.GetKey(controls.keys["zoom"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked) || move.delayedIsDashing || swordAttacking){
+			aimingCrosshair.SetActive(false);
+			notAimingCrosshair.SetActive(true);
 		    rig.weight = 0f;
 	    	rot.UnAim();
 	    	isAiming = false;

@@ -126,8 +126,8 @@ MonoBehaviour:
   - {fileID: 5775425907682649540, guid: e626aa9c79dba1949bf7ad6a26c871b4, type: 3}
   shatterSpawnPos: {fileID: 4720450091790001418}
   hitPoints: 2
-  breakSpeed: 40
-  throwableBreak: 0
+  breakSpeed: 10
+  throwableBreak: 1
   bombBreak: 0
 --- !u!4 &8995349277695392572 stripped
 Transform:

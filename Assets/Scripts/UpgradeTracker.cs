@@ -93,6 +93,7 @@ public class UpgradeTracker : MonoBehaviour
             {
                 Debug.Log("Got All Three Pieces! Giving Health Upgrade");
                 stats.GetHPUpgrade();
+                stats.hp = stats.MaxHP;
                 heartPieceCount = 0;
                 if (!hp1.activeInHierarchy)
                 {
