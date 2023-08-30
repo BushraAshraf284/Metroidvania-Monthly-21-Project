@@ -6,6 +6,9 @@ TagManager:
   tags:
   - NPC
   - AimTarget
+  - Breakable
+  - Explosive
+  - Gibs
   layers:
   - Default
   - TransparentFX
@@ -19,7 +22,7 @@ TagManager:
   - Detailed
   - Rigidbodies
   - StuckProjectiles
-  - 
+  - Gibs
   - 
   - 
   - 

@@ -5,6 +5,10 @@ using UnityEngine;
 using UnityEngine.Animations.Rigging;
 public class abilities : MonoBehaviour
 {
+	public bool canFollowUpGate;
+	public bool swordAttacking;
+	[SerializeField]
+	public GameObject swordHitbox;
 	[SerializeField]
 	GameObject shockProngHitbox;
 	[SerializeField]
@@ -46,6 +50,7 @@ public class abilities : MonoBehaviour
 	GameObject missilePrefab;
 	GameObject spikePrefab;
 	GameObject spikeShellPrefab;
+	[HideInInspector]
 	public UpgradeTracker upgrades;
 	[SerializeField]
 	float missileReloadTime = 3f;
@@ -73,6 +78,14 @@ public class abilities : MonoBehaviour
 	    rot = GetComponentInChildren<UpdateRotation>();
 	    
     }
+	public void SetCanFollowUpGateFalse(){
+		canFollowUpGate = false;
+		anim.SetBool("CanFollowUp", false);
+	}
+	public void SetCanFollowUpGateTrue(){
+		canFollowUpGate = true;
+	}
+	
 	void resetDashing(){
 		move.dashing = false;
 	}
@@ -156,14 +169,14 @@ public class abilities : MonoBehaviour
 		//}
 
 		//aiming
-	    if(Input.GetKey(controls.keys["zoom"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked && !move.delayedIsDashing){
+	    if(Input.GetKey(controls.keys["zoom"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked && !move.delayedIsDashing && !swordAttacking){
 			rot.Aim();
 			isAiming = true;
 			aimCast.SetActive(true);
 			rig.weight = 1f;
 	    }
 		//un-aiming
-	    else if((!Input.GetKey(controls.keys["zoom"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked) || move.delayedIsDashing){
+	    else if((!Input.GetKey(controls.keys["zoom"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked) || move.delayedIsDashing || swordAttacking){
 		    rig.weight = 0f;
 	    	rot.UnAim();
 	    	isAiming = false;
@@ -214,9 +227,16 @@ public class abilities : MonoBehaviour
 
 				}
 			}
-			if((Input.GetKeyUp(controls.keys["attack"]) && !FindObjectOfType<PauseMenu>().isPaused) || stats.charge <= 0){
+			if((Input.GetKeyUp(controls.keys["attack"]) && !FindObjectOfType<PauseMenu>().isPaused) || stats.charge <= 0 && upgrades.hasShockProng){
 				anim.SetBool("Pronging", false);
 				anim.SetBool("Pronging2", false);
+			}
+			if(Input.GetKeyDown(controls.keys["attack"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked && upgrades.hasSword && !move.delayedIsDashing){
+				if(canFollowUpGate){
+					anim.SetBool("CanFollowUp", true);
+				}
+				anim.SetBool("SwordAttacking", true);
+
 			}
 			//Dash
 			if(Input.GetKey(controls.keys["dash"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked && animCon.movementPressed && move.OnGround && upgrades.hasJetBoost && !isAiming){

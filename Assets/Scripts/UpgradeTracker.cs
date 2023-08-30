@@ -6,7 +6,7 @@ using UnityEngine;
 public class UpgradeTracker : MonoBehaviour
 {
     [SerializeField]
-    GameObject shockProng, shockSpike, missiles, homingMissiles, jetBoost, vertBoost, sword, shield, hp1, hp11, hp2, bat1, bat2;
+    GameObject shockProng, shockSpike, missiles, homingMissiles, jetBoost, vertBoost, sword, swordBlade, shield, hp1, hp11, hp2, bat1, bat2;
     public bool hasShockProng, hasShockSpike, hasMissiles, hasHomingMissiles, hasJetBoost, hasVertBoost, hasSword;
     public int heartPieceCount;
     public int shieldPieceCount;
@@ -146,6 +146,7 @@ public class UpgradeTracker : MonoBehaviour
     }
     void DisableAllLeftHandWeapons()
     {
+        swordBlade.SetActive(false);
         sword.SetActive(false);
         shockProng.SetActive(false);
         hasSword = false;
@@ -165,6 +166,7 @@ public class UpgradeTracker : MonoBehaviour
         Debug.Log("Equipping Sword!");
         DisableAllLeftHandWeapons();
         sword.SetActive(true);
+        swordBlade.SetActive(true);
         hasSword = true;
     }
     public void EquipSword()
@@ -172,6 +174,7 @@ public class UpgradeTracker : MonoBehaviour
         Debug.Log("Equipping Sword!");
         DisableAllLeftHandWeapons();
         sword.SetActive(true);
+        swordBlade.SetActive(true);
     }
     public void UnlockShockProng()
     {

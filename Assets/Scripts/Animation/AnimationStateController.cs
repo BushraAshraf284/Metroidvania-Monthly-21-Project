@@ -27,6 +27,8 @@ public class AnimationStateController : MonoBehaviour
     int hasShockSpikeHash;
     int hasMissileHash;
     int dashingHash;
+    int canFollowUpHash;
+    int swordAttackingHash;
 
     bool isOnGround;
 
@@ -84,6 +86,16 @@ public class AnimationStateController : MonoBehaviour
     public void HighJumpAnimEvent(){
 		sphere.JumpTrigger(1.2f, false);
 	}
+    public void SetCanFollowUpGateTrueAnimEvent(){
+        abilities.SetCanFollowUpGateTrue();
+    }
+    public void SetCanFollowUpGateFalseAnimEvent(){
+        abilities.SetCanFollowUpGateFalse();
+        SetSwordAttackingFalseAnimEvent();
+    } 
+    public void SetSwordAttackingFalseAnimEvent(){
+        animator.SetBool(swordAttackingHash, false);
+    }  
 
 	void Start() {
         controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
@@ -105,6 +117,8 @@ public class AnimationStateController : MonoBehaviour
         hasMissileHash = Animator.StringToHash("HasMissile");
         hasShockSpikeHash = Animator.StringToHash("HasShockSpike");
         dashingHash = Animator.StringToHash("Dash");
+        canFollowUpHash = Animator.StringToHash("CanFollowUp");
+        swordAttackingHash = Animator.StringToHash("SwordAttacking");
     }
 
     //this is meant to allow a sort of buffer, so bools stay true for a set amount of time
@@ -135,6 +149,12 @@ public class AnimationStateController : MonoBehaviour
     }
     public void animDashTrigger(){
         abilities.Dash();
+    }
+    public void enableSwordHitbox(){
+        abilities.swordHitbox.SetActive(true);
+    }
+    public void disableSwordHitbox(){
+        abilities.swordHitbox.SetActive(false);
     }
 
 	void Update() {

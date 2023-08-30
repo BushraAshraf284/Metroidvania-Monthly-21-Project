@@ -9,7 +9,7 @@ public class Shatter : MonoBehaviour
 
     bool boomBlocked;
     public GameObject explosionEffect;
-    public GameObject shatterPrefab;
+    public GameObject[] shatterPrefab;
     [Tooltip("What shattered mesh spawns")]
     public GameObject shatterSpawnPos;
     [Tooltip("Where the shattered mesh spawns")]
@@ -23,8 +23,6 @@ public class Shatter : MonoBehaviour
     float breakSpeed = 40f;
     GameObject player;
     GameObject sounds;
-    [SerializeField]
-    public bool punchAble;
     [SerializeField]
     bool throwableBreak;
     [SerializeField]
@@ -46,11 +44,7 @@ public class Shatter : MonoBehaviour
     }
 
     void Start() {
-        foreach(GameObject g in GameObject.FindGameObjectsWithTag("Player")){
-            if(g.GetComponent<Movement>()!=null){
-                player = g.transform.GetChild(0).GetChild(0).GetChild(2).gameObject;
-            }
-        }
+
         color = GetComponent<Renderer>();
     }
     public void oneShot(float time){
@@ -61,7 +55,7 @@ public class Shatter : MonoBehaviour
     public void takeDamage(){
         if (Damagestate < hitPoints){
             foreach(Material m in color.materials ){
-                m.SetColor("_EmissionColor", Color.grey * darken);
+                //m.SetColor("_EmissionColor", Color.grey * darken);
                 m.SetColor("_Color", Color.grey * darken);
                 Damagestate++;
                 darken -= .2f;
@@ -72,7 +66,9 @@ public class Shatter : MonoBehaviour
         }
     }
     void spawnShatter(){
-        Instantiate(shatterPrefab, shatterSpawnPos.transform.position, shatterSpawnPos.transform.rotation);
+        GameObject realShatter;
+        realShatter = shatterPrefab[Random.Range(0, shatterPrefab.Length-1)];
+        Instantiate(realShatter, shatterSpawnPos.transform.position, shatterSpawnPos.transform.rotation);
         if(explosionEffect != null){
             Instantiate(explosionEffect, transform.position, transform.rotation);
 

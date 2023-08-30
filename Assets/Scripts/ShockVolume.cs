@@ -10,6 +10,10 @@ public class ShockVolume : MonoBehaviour
     float playerBatteryDrainAmount = .1f;
     [SerializeField]
     bool isSpike;
+    /// <summary>
+    /// OnTriggerEnter is called when the Collider other enters the trigger.
+    /// </summary>
+    /// <param name="other">The other Collider involved in this collision.</param>
     void OnTriggerStay(Collider other)
     {
         if(other.gameObject.GetComponent<Battery>()!= null){

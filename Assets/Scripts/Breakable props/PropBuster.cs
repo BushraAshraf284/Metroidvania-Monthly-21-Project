@@ -5,10 +5,8 @@ using UnityEngine;
 //Travis Parks
 public class PropBuster : MonoBehaviour
 {
-    [SerializeField]
-    AudioSource[] punchSounds;
-    [SerializeField]
-    bool isPunch;
+    //[SerializeField]
+    //AudioSource[] punchSounds;
     [SerializeField]
     float power;
     [SerializeField]
@@ -18,10 +16,10 @@ public class PropBuster : MonoBehaviour
     Shatter otherExplosive;
     void OnCollisionEnter(Collision other) {
 
-        if(other.gameObject.tag != "Player" && punchSounds.Length != 0){
-            int index = Random.Range(0, punchSounds.Length - 1);
-            punchSounds[index].Play();
-        }
+        //if(other.gameObject.tag != "Player" && punchSounds.Length != 0){
+        //    int index = Random.Range(0, punchSounds.Length - 1);
+        //    punchSounds[index].Play();
+        //}
 
         if(other.gameObject.GetComponent<Rigidbody>() != null){
             if (other.gameObject.GetComponent<Rigidbody>() != null && other.gameObject.tag != "Breakable" || other.gameObject.tag != "Explosive"){
@@ -30,22 +28,8 @@ public class PropBuster : MonoBehaviour
             if (other.gameObject.tag == "Breakable" || other.gameObject.tag == "Explosive"){
                 if(!oneShot){
                     otherExplosive = other.gameObject.GetComponent<Shatter>();
-                    if(otherExplosive.punchAble){
-                        other.gameObject.GetComponent<Rigidbody>().AddExplosionForce(power, transform.root.position, radius);
-                        if(isPunch){
-                            otherExplosive.takeDamage();
-                        }
-                        else{
-                            otherExplosive.takeDamage();
-                        }
-                    }
-                }
-                else{
-                    if(otherExplosive.punchAble){
-
-                        otherExplosive = other.gameObject.GetComponent<Shatter>();
-                        otherExplosive.oneShot(0);
-                    }
+                    other.gameObject.GetComponent<Rigidbody>().AddExplosionForce(power, transform.root.position, radius);
+                    otherExplosive.takeDamage();
                 }
             }
         }

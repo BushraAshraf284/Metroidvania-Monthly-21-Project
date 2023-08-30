@@ -18,6 +18,9 @@ public class Thruster : MonoBehaviour
     float missileSpeed = 15f;
     [SerializeField]
     float spikeSpeed = 80f;
+    [SerializeField]
+    float missilePower, missileRadius, missileUpModifier;
+    Vector3 missileExplosionPos;
     // Start is called before the first frame update
     public void StartForce(Transform t){
         //Debug.Log("Accellerating Rocket! " + target);
@@ -51,19 +54,45 @@ public class Thruster : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
         if(isSpike){
-            GameObject stuckSpike = Instantiate(stuckSpikePrefab);
-            stuckSpike.transform.position = transform.position;
-            stuckSpike.transform.forward = -transform.forward;
-            //stuckSpike.transform.SetParent(other.collider.transform, true);
-            stuckSpike.transform.parent = other.collider.transform;
-            if(other.gameObject.GetComponent<Rigidbody>()!= null){
-                //stuckSpike.GetComponent<MeshCollider>().enabled = false;
-                //stuckSpike.GetComponent<Rigidbody>().isKinematic = false;
+            if(other.gameObject.GetComponent<Shatter>()!= null){
+                other.gameObject.GetComponent<Shatter>().oneShot(0);
             }
-            Destroy(gameObject);
+            else{
+                GameObject stuckSpike = Instantiate(stuckSpikePrefab);
+                stuckSpike.transform.position = transform.position;
+                stuckSpike.transform.forward = -transform.forward;
+                //stuckSpike.transform.SetParent(other.collider.transform, true);
+                stuckSpike.transform.parent = other.collider.transform;
+                Destroy(gameObject);
+            }
+
         }
         if(isMissile){
-            //Explosive forse! spawn explosion, knock stuff back, etc
+            missileExplosionPos = transform.position;
+            Collider[] colliders = Physics.OverlapSphere(missileExplosionPos, missileRadius);
+            Collider[] colliders2 = Physics.OverlapSphere(missileExplosionPos, missileRadius/5);
+            Collider[] colliders3 = Physics.OverlapSphere(missileExplosionPos, missileRadius/25);
+            foreach (Collider hit in colliders3)
+        	{
+                if (hit.gameObject.GetComponent<Shatter>() != null){
+                    hit.gameObject.GetComponent<Shatter>().oneShot(0);
+                }
+            }
+            foreach (Collider hit in colliders2)
+        	{
+                if (hit.gameObject.GetComponent<Shatter>() != null){
+                    hit.gameObject.GetComponent<Shatter>().takeDamage();
+                }
+            }
+        	foreach (Collider hit in colliders)
+        	{
+                Rigidbody rb = hit.GetComponent<Rigidbody>();
+                //Explosive forse! spawn explosion, knock stuff back, etc
+                if (rb != null){
+                    rb.AddExplosionForce(missilePower, missileExplosionPos, missileRadius, missileUpModifier);
+                }
+                Destroy(gameObject);
+            }
         }
         
 
