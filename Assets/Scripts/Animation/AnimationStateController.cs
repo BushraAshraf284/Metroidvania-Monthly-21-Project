@@ -56,6 +56,7 @@ public class AnimationStateController : MonoBehaviour
 	abilities abilities;
     public bool movementPressed;
     private string lastAnimationName = "";
+    private bool noAnimationMessagePrinted = false;
     public bool enableDebugMessages = true;
     bool dashingGate = false;
     public void ShootMissile(){
@@ -327,6 +328,7 @@ public class AnimationStateController : MonoBehaviour
         AnimatorClipInfo[] clipInfo = animator.GetCurrentAnimatorClipInfo(0);
         if (clipInfo.Length > 0)
         {
+            noAnimationMessagePrinted = false;
             string currentAnimationName = clipInfo[0].clip.name;
 
             if (currentAnimationName != lastAnimationName)
@@ -337,7 +339,11 @@ public class AnimationStateController : MonoBehaviour
         }
         else
         {
-            Debug.Log("No animation clip is currently playing.");
+            if (!noAnimationMessagePrinted)
+            {
+                Debug.Log("No animation clip is currently playing.");
+                noAnimationMessagePrinted = true;
+            }
         } 
     }
 
