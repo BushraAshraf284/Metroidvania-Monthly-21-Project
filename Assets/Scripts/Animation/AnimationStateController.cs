@@ -55,6 +55,9 @@ public class AnimationStateController : MonoBehaviour
     [SerializeField]
 	abilities abilities;
     public bool movementPressed;
+    private string lastAnimationName = "";
+    private bool noAnimationMessagePrinted = false;
+    public bool enableDebugMessages = true;
     bool dashingGate = false;
     public void ShootMissile(){
         abilities.fireMissile();
@@ -311,7 +314,37 @@ public class AnimationStateController : MonoBehaviour
             animator.SetBool(isRunningHash, false);
             animator.SetFloat(speedHash, 0f);
         }
+        
+        LogCurrentAnimation();
+    }
 
+    private void LogCurrentAnimation()
+    {
+        if (!enableDebugMessages)
+        {
+            return;
+        }
+
+        AnimatorClipInfo[] clipInfo = animator.GetCurrentAnimatorClipInfo(0);
+        if (clipInfo.Length > 0)
+        {
+            noAnimationMessagePrinted = false;
+            string currentAnimationName = clipInfo[0].clip.name;
+
+            if (currentAnimationName != lastAnimationName)
+            {
+                Debug.Log("Current Animation: " + currentAnimationName);
+                lastAnimationName = currentAnimationName;
+            }
+        }
+        else
+        {
+            if (!noAnimationMessagePrinted)
+            {
+                Debug.Log("No animation clip is currently playing.");
+                noAnimationMessagePrinted = true;
+            }
+        } 
     }
 
 }
