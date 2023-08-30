@@ -5,6 +5,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using FMOD.Studio;
+
 //this script will just keep track of the player's various stats and allow other scripts to access and edit them
 public class PlayerStats : MonoBehaviour
 {
@@ -47,6 +49,7 @@ public class PlayerStats : MonoBehaviour
 	BatteryBar batteryBar3;
 	float batteryChargeTimer = 0f;
 	public bool isBatteryCharging;
+    private EventInstance playerBatteryCharge;
     [SerializeField]
     [Tooltip("How long it takes for the battery's charge to start to refill again")]
     float batteryChargeCap = 3f;
@@ -100,7 +103,18 @@ public class PlayerStats : MonoBehaviour
         hasIFrames = false;
     }
     public void ChargeBattery(){
-        if (isBatteryCharging) { AudioManager.instance.PlayOneShot(FMODEvents.instance.playerBatteryCharge, this.transform.position); } // Need to stop audio when done charging
+        if (isBatteryCharging){
+            PLAYBACK_STATE playbackState;
+            playerBatteryCharge.getPlaybackState(out playbackState);
+            if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
+            {
+                playerBatteryCharge.start();
+            }
+            
+        } else{
+            Debug.Log("Stopping playback");
+            playerBatteryCharge.stop(STOP_MODE.ALLOWFADEOUT);
+        }
 
         if (charge < MaxCharge){
             if(batteryChargeTimer < batteryChargeCap){
@@ -407,6 +421,7 @@ public class PlayerStats : MonoBehaviour
     void Start()
 	{
         UpdateMaxes();
+        playerBatteryCharge = AudioManager.instance.CreateEventInstance(FMODEvents.instance.playerBatteryCharge);
         //Test line to see if we can set a default start point
         //when game is started, it sets the slider max value to hp value
 		//healthBar.SetMaxHealth(hp);
