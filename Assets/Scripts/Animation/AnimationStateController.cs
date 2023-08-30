@@ -55,6 +55,7 @@ public class AnimationStateController : MonoBehaviour
     [SerializeField]
 	abilities abilities;
     public bool movementPressed;
+    private string lastAnimationName = "";
     public bool enableDebugMessages = true;
     bool dashingGate = false;
     public void ShootMissile(){
@@ -327,7 +328,12 @@ public class AnimationStateController : MonoBehaviour
         if (clipInfo.Length > 0)
         {
             string currentAnimationName = clipInfo[0].clip.name;
-            Debug.Log("Current Animation: " + currentAnimationName);
+
+            if (currentAnimationName != lastAnimationName)
+            {
+                Debug.Log("Current Animation: " + currentAnimationName);
+                lastAnimationName = currentAnimationName;
+            }
         }
         else
         {
