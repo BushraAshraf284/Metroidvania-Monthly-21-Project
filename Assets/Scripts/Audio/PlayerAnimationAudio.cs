@@ -22,6 +22,26 @@ public class PlayerAnimationAudio : MonoBehaviour
         isFootstepSoundPlaying = false;
     }
 
+    private void PlayServoSmall()
+    {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.playerServoSmall, this.transform.position);
+    }
+
+    private void PlayServoMedium()
+    {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.playerServoMedium, this.transform.position);
+    }
+
+    private void PlayServoHeavy()
+    {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.playerServoHeavy, this.transform.position);
+    }
+
+    private void PlayServoCranking()
+    {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.playerServoCranking, this.transform.position);
+    }
+
     private void PlayShootMissle()
     {
         AudioManager.instance.PlayOneShot(FMODEvents.instance.playerShootMissle, this.transform.position);

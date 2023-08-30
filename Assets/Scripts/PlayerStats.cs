@@ -112,7 +112,6 @@ public class PlayerStats : MonoBehaviour
             }
             
         } else{
-            Debug.Log("Stopping playback");
             playerBatteryCharge.stop(STOP_MODE.ALLOWFADEOUT);
         }
 
