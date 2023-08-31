@@ -14,10 +14,10 @@ public class Movement : MonoBehaviour {
 	public bool delayedIsDashing;
 	[SerializeField]
 	float dashSpeed;
-	[SerializeField]
-	float maxVJumpSpeed = 15f;
-	[SerializeField]
-	float maxHJumpSpeed = 15f;
+	//[SerializeField]
+	//float maxVJumpSpeed = 15f;
+	//[SerializeField]
+	//float maxHJumpSpeed = 15f;
 	[SerializeField]
 	GameObject feet;
 
@@ -47,12 +47,12 @@ public class Movement : MonoBehaviour {
 	[Tooltip("how quickly your character responds to input")]
 	float maxAcceleration = 10f, maxAirAcceleration = 1f;
 
-	[SerializeField, Range(0f, 100f)]
-	[Tooltip("character's jump height")]
-	float jumpHeight = 2f;
-	[SerializeField, Range(0f, 100f)]
-	[Tooltip("character's vertical jump height while moving")]
-	float movingJumpHeightV = 2f;
+	//[SerializeField, Range(0f, 100f)]
+	//[Tooltip("character's jump height")]
+	//float jumpHeight = 2f;
+	//[SerializeField, Range(0f, 100f)]
+	//[Tooltip("character's vertical jump height while moving")]
+	//float movingJumpHeightV = 2f;
 	[SerializeField, Range(0f, 100f)]
 	[Tooltip("character's horizontal jump height while moving")]
 	float movingJumpHeightH = 2f;

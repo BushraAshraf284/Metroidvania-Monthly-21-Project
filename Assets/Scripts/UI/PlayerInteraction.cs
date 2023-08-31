@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,23 +38,25 @@ public class Interaction : MonoBehaviour
 
         if (Input.GetKeyDown(controls.keys["interact"]))
         {
-            foreach (Collider collider in colliderArray)
-            {
-                if (collider.TryGetComponent(out Interactables interactables))
-                {
-                    interactables.Interact();
-                }
-                if (collider.TryGetComponent(out NPCInteractables npcInteractable))
-                {
-                    npcInteractable.NPCInteract();
-                }
-                if (collider.TryGetComponent(out Console console))
-                {
-                    console.Interact();
-                }
-            }
+        	
+		        foreach (Collider collider in colliderArray)
+		        {
+		        	if(collider.gameObject.tag == "Interactable" || collider.gameObject.tag == "NPC"){
+			            if (collider.TryGetComponent(out Interactables interactables))
+			            {
+			                interactables.Interact();
+			            }
+			            if (collider.TryGetComponent(out NPCInteractables npcInteractable))
+			            {
+			                npcInteractable.NPCInteract();
+			            }
+			            if (collider.TryGetComponent(out Console console))
+			            {
+			                console.Interact();
+			            }
+		        	}
+		        }
         }
-
     }
 
     public Console GetInteractableConsole()
@@ -63,10 +65,12 @@ public class Interaction : MonoBehaviour
 
         foreach (Collider collider in colliderArray)
         {
-            if (collider.TryGetComponent(out Console console))
-            {
-                return console;
-            }
+        	if(collider.gameObject.tag == "Interactable" || collider.gameObject.tag == "NPC"){
+	            if (collider.TryGetComponent(out Console console))
+	            {
+	                return console;
+	            }
+        	}
         }
         return null;
     }
@@ -77,10 +81,12 @@ public class Interaction : MonoBehaviour
 
         foreach (Collider collider in colliderArray)
         {
-            if (collider.TryGetComponent(out Interactables interactables))
-            {
-                return interactables;
-            }
+        	if(collider.gameObject.tag == "Interactable" || collider.gameObject.tag == "NPC"){
+	            if (collider.TryGetComponent(out Interactables interactables))
+	            {
+	                return interactables;
+	            }
+        	}
         }
         return null;
     }
@@ -91,10 +97,12 @@ public class Interaction : MonoBehaviour
 
         foreach (Collider collider in colliderArray)
         {
-            if (collider.TryGetComponent(out NPCInteractables npcInteractable))
-            {
-                return npcInteractable;
-            }
+        	if(collider.gameObject.tag == "Interactable" || collider.gameObject.tag == "NPC"){
+	            if (collider.TryGetComponent(out NPCInteractables npcInteractable))
+	            {
+	                return npcInteractable;
+	            }
+        	}
         }
         return null;
     }

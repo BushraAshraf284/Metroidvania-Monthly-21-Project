@@ -451,7 +451,7 @@ public class abilities : MonoBehaviour
 	    }
 	    if(Input.GetKeyUp(controls.keys["jump"]) && !FindObjectOfType<PauseMenu>().isPaused && upgrades.hasVertBoost && animCon.canHighJump){
 	    	//Play high jump animation here!
-	    	if(isAiming){
+	    	if(isAiming || move.moveBlocked){
 	    		animCon.canHighJump = false;
 	    	}
 	    	else{

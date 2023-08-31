@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -10,7 +10,7 @@ public class BulletLerper : MonoBehaviour
     [SerializeField]
     float time = .001f;
     [SerializeField]
-    float bulletLerpDistance = .005f;
+	//float bulletLerpDistance = .005f;
     Rigidbody body;
     Vector3 start;
     // Start is called before the first frame update

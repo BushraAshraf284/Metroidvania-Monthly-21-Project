@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +9,7 @@ public class PlayerInteractUI : MonoBehaviour
 
     private void Update()
     {
-        if (playerInteraction.GetInteractableObject() != null || playerInteraction.GetNPCInteractableObject() || playerInteraction.GetInteractableConsole())
+	    if (playerInteraction.GetInteractableObject() != null || playerInteraction.GetNPCInteractableObject() != null || playerInteraction.GetInteractableConsole() != null)
         {
             Show();
         } 

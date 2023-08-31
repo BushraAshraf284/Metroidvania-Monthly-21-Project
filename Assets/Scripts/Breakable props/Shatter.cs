@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //handles "breaking" a breakable object, as wella s exploding explodable objects. upon being called, it will delete the original object, then spawn a prefab of debris with a force added to it, giving 
@@ -26,8 +26,11 @@ public class Shatter : MonoBehaviour
     [SerializeField]
     bool throwableBreak;
     [SerializeField]
-    public bool bombBreak;
-    public void setBoomBlocked(bool plug){
+	public bool bombBreak;
+	[SerializeField]
+	bool hasEvent;
+	public void setBoomBlocked(bool plug){
+		
         boomBlocked = plug;
     }
     void OnCollisionEnter(Collision other) {
@@ -48,8 +51,9 @@ public class Shatter : MonoBehaviour
         color = GetComponent<Renderer>();
     }
     public void oneShot(float time){
-        if(!boomBlocked){
-            Invoke("spawnShatter", time);
+	    if(!boomBlocked){
+	        Invoke("spawnShatter", time);
+
         }
     }
     public void takeDamage(){
@@ -62,10 +66,16 @@ public class Shatter : MonoBehaviour
             }
         }
         else if ( Damagestate >= hitPoints){
-            Invoke("spawnShatter", 0);
+	        Invoke("spawnShatter", 0);
+
         }
     }
-    void spawnShatter(){
+	void spawnShatter(){
+		if(hasEvent){
+			if(this.gameObject.GetComponent<Console>()!= null){
+				this.gameObject.GetComponent<Console>().Interact();
+			}
+		}
         GameObject realShatter;
         realShatter = shatterPrefab[Random.Range(0, shatterPrefab.Length-1)];
         Instantiate(realShatter, shatterSpawnPos.transform.position, shatterSpawnPos.transform.rotation);

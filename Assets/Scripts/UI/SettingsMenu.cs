@@ -1,4 +1,4 @@
-//Author: Brian Meginness
+﻿//Author: Brian Meginness
 //Debugging: Brian Meginness
 using System.Collections;
 using System.Collections.Generic;

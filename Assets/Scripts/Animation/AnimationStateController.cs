@@ -58,7 +58,7 @@ public class AnimationStateController : MonoBehaviour
     private string lastAnimationName = "";
     private bool noAnimationMessagePrinted = false;
     public bool enableDebugMessages = true;
-	bool dashingGate = false;
+	//bool dashingGate = false;
 	bool jumpHeld;
 	float jumpHeldTimer;
 	[SerializeField]
@@ -163,9 +163,9 @@ public class AnimationStateController : MonoBehaviour
     public void resetDashingHash(){
         animator.SetBool(dashingHash, false);
     }
-    void resetDashingGate(){
-        dashingGate = false;
-    }
+	// void resetDashingGate(){
+	    //    dashingGate = false;
+	    //}
     public void animDashTrigger(){
         abilities.Dash();
     }
@@ -255,9 +255,9 @@ public class AnimationStateController : MonoBehaviour
             animator.SetBool(hasMissileHash, false);
         }
 		if(abilities.isAiming ){
-			Debug.Log("IsAiminG!");
+			//Debug.Log("IsAiminG!");
 			if((abilities.upgrades.hasMissiles || abilities.upgrades.hasShockSpike)){
-				Debug.Log("Setting layer weight to 1 in in statement #1 in anim state controller");
+				//Debug.Log("Setting layer weight to 1 in in statement #1 in anim state controller");
 				animator.SetLayerWeight(1, 1f);		
 			}
 

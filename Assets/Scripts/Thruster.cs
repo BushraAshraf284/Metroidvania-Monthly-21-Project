@@ -77,6 +77,7 @@ public class Thruster : MonoBehaviour
                 if (hit.gameObject.GetComponent<Shatter>() != null){
                     hit.gameObject.GetComponent<Shatter>().oneShot(0);
                 }
+
             }
             foreach (Collider hit in colliders2)
         	{
@@ -91,8 +92,16 @@ public class Thruster : MonoBehaviour
                 if (rb != null){
                     rb.AddExplosionForce(missilePower, missileExplosionPos, missileRadius, missileUpModifier);
                 }
-                Destroy(gameObject);
-            }
+	        	if(hit.gameObject.GetComponent<Targetable>()!= null){
+	        		//Debug.Log("HIT A TARGETABLE THINGY");
+		        	if(hit.gameObject.GetComponent<Targetable>().HasEvent){
+		        		//Debug.Log("targetably thingy has an event");
+			        	hit.gameObject.GetComponent<Targetable>().Triggered();
+		        	}
+	        	}
+                
+        	}
+	        Destroy(gameObject);
         }
         
 
