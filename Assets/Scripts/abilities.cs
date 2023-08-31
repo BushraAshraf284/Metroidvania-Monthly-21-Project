@@ -6,6 +6,8 @@ using UnityEngine.Animations.Rigging;
 public class abilities : MonoBehaviour
 {
 	[SerializeField]
+	GameObject homingMissileVolume;
+	[SerializeField]
 	GameObject aimingCrosshair, notAimingCrosshair;
 	public bool canFollowUpGate;
 	public bool swordAttacking;
@@ -178,6 +180,10 @@ public class abilities : MonoBehaviour
 			isAiming = true;
 			aimCast.SetActive(true);
 			rig.weight = 1f;
+			if(upgrades.hasHomingMissiles){
+				homingMissileVolume.SetActive(true);
+			}
+			
 	    }
 		//un-aiming
 	    else if((!Input.GetKey(controls.keys["zoom"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked) || move.delayedIsDashing || swordAttacking){
@@ -187,6 +193,10 @@ public class abilities : MonoBehaviour
 	    	rot.UnAim();
 	    	isAiming = false;
 	    	aimCast.SetActive(false);
+			if(upgrades.hasHomingMissiles){
+				homingMissileVolume.SetActive(false);
+				homingMissileVolume.GetComponent<HomingMissileTracking>().ClearList();
+			}
 	    	
 	    }
 
@@ -209,6 +219,18 @@ public class abilities : MonoBehaviour
 					}
 					else{
 						Debug.Log("Not Enough Battery to use Shock Spike!");
+					}
+				}
+			}
+			if(upgrades.hasHomingMissiles){
+				if(homingMissileVolume.GetComponent<HomingMissileTracking>().target1 != null){
+					//only one tracked target
+					if(homingMissileVolume.GetComponent<HomingMissileTracking>().target2 != null){
+						//only two tracked targets
+						if(homingMissileVolume.GetComponent<HomingMissileTracking>().target3 != null){
+							//all three targets locked
+
+						}
 					}
 				}
 			}
