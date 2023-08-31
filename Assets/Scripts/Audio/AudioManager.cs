@@ -15,6 +15,8 @@ public class AudioManager : MonoBehaviour
     private List<EventInstance> eventInstances;
     private List<StudioEventEmitter> eventEmitters;
 
+    private EventInstance currentSoundInstance;
+
     public static AudioManager instance { get; private set; }
 
     private void Awake()
@@ -55,6 +57,18 @@ public class AudioManager : MonoBehaviour
         emitter.EventReference = eventReference;
         eventEmitters.Add(emitter);
         return emitter;
+    }
+
+    public void PlaySoundFromAnimation(EventInstance sound)
+    {
+        if (currentSoundInstance.isValid())
+        {
+            currentSoundInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            currentSoundInstance.release();
+        }
+
+        sound.start();
+        currentSoundInstance = sound;
     }
 
     private void CleanUp()

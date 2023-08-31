@@ -1,18 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMOD.Studio;
 
 public class PlayerAnimationAudio : MonoBehaviour
 {
     private bool isFootstepSoundPlaying = false;
     public float footstepCooldown = 0.3f;
+    private EventInstance playerFootsteps;
+    private EventInstance playerDashStart;
+    private EventInstance playerDashStop;
+    private EventInstance playerDashJump;
+    private EventInstance playerJump;
+    private EventInstance playerJumpLand;
+    private EventInstance playerFalling;
+    private EventInstance playerJogJumpStart;
+    private EventInstance playerJogJumpLand;
 
     private void PlayFootstep()
     {
         if (!isFootstepSoundPlaying)
         {
             isFootstepSoundPlaying = true;
-            AudioManager.instance.PlayOneShot(FMODEvents.instance.playerFootsteps, this.transform.position);
+            playerFootsteps = AudioManager.instance.CreateEventInstance(FMODEvents.instance.playerFootsteps);
+            AudioManager.instance.PlaySoundFromAnimation(playerFootsteps);
         }
         Invoke(nameof(ResetFootstepSound), footstepCooldown);
     }
@@ -20,6 +31,59 @@ public class PlayerAnimationAudio : MonoBehaviour
     private void ResetFootstepSound()
     {
         isFootstepSoundPlaying = false;
+    }
+
+    private void PlayShootMissle()
+    {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.playerShootMissle, this.transform.position);
+    }
+
+    private void PlayJump()
+    {
+        playerJump = AudioManager.instance.CreateEventInstance(FMODEvents.instance.playerJump);
+        AudioManager.instance.PlaySoundFromAnimation(playerJump);
+    }
+
+    private void PlayJumpLand()
+    {
+        playerJumpLand = AudioManager.instance.CreateEventInstance(FMODEvents.instance.playerJumpLand);
+        AudioManager.instance.PlaySoundFromAnimation(playerJumpLand);
+    }
+
+    private void PlayDashStart()
+    {
+        playerDashStart = AudioManager.instance.CreateEventInstance(FMODEvents.instance.playerDashStart);
+        AudioManager.instance.PlaySoundFromAnimation(playerDashStart);
+    }
+
+    private void PlayDashStop()
+    {
+        playerDashStop = AudioManager.instance.CreateEventInstance(FMODEvents.instance.playerDashStop);
+        AudioManager.instance.PlaySoundFromAnimation(playerDashStop);
+    }
+
+    private void PlayDashJump()
+    {
+        playerDashJump = AudioManager.instance.CreateEventInstance(FMODEvents.instance.playerDashJump);
+        AudioManager.instance.PlaySoundFromAnimation(playerDashJump);
+    }
+
+    private void PlayFalling()
+    {
+        playerFalling = AudioManager.instance.CreateEventInstance(FMODEvents.instance.playerFalling);
+        AudioManager.instance.PlaySoundFromAnimation(playerFalling);
+    }
+
+    private void PlayJogJumpStart()
+    {
+        playerJogJumpStart = AudioManager.instance.CreateEventInstance(FMODEvents.instance.playerJogJumpStart);
+        AudioManager.instance.PlaySoundFromAnimation(playerJogJumpStart);
+    }
+    
+    private void PlayJogJumpLand()
+    {
+        playerJogJumpLand = AudioManager.instance.CreateEventInstance(FMODEvents.instance.playerJogJumpLand);
+        AudioManager.instance.PlaySoundFromAnimation(playerJogJumpLand);
     }
 
     private void PlayServoSmall()
@@ -42,48 +106,4 @@ public class PlayerAnimationAudio : MonoBehaviour
         AudioManager.instance.PlayOneShot(FMODEvents.instance.playerServoCranking, this.transform.position);
     }
 
-    private void PlayShootMissle()
-    {
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.playerShootMissle, this.transform.position);
-    }
-
-    private void PlayJump()
-    {
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.playerJump, this.transform.position);
-    }
-
-    private void PlayJumpLand()
-    {
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.playerJumpLand, this.transform.position);
-    }
-
-    private void PlayDashStart()
-    {
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.playerDashStart, this.transform.position);
-    }
-
-    private void PlayDashStop()
-    {
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.playerDashStop, this.transform.position);
-    }
-
-    private void PlayDashJump()
-    {
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.playerDashJump, this.transform.position);
-    }
-
-    private void PlayFalling()
-    {
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.playerFalling, this.transform.position);
-    }
-
-    private void PlayJogJumpStart()
-    {
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.playerJogJumpStart, this.transform.position);
-    }
-    
-    private void PlayJogJumpLand()
-    {
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.playerJogJumpLand, this.transform.position);
-    }
 }
