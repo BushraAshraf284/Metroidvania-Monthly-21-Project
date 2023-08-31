@@ -89,8 +89,8 @@ public class PlayerStats : MonoBehaviour
 			//Debug.Log("Went from "+hp+" to 0");
             batteryChargeTimer = 0f;
 			charge = 0;
-
-		}
+            
+        }
 		else {
 			//Debug.Log("Went from "+hp+" to "+ Mathf.Round(hp-damage));
 			if(charge != charge-drain){
@@ -98,7 +98,9 @@ public class PlayerStats : MonoBehaviour
 				charge = charge-drain;
 			}
 		}
-	}
+        
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.playerBatteryDrain, this.transform.position);
+    }
     public void ResetHasIFrames(){
         hasIFrames = false;
     }
