@@ -33,6 +33,7 @@ public class FMODEvents : MonoBehaviour
 
 	[field: Header("Collectable SFX")]
 	[field: SerializeField] public EventReference upgradeCollectedSound { get; private set; }
+	[field: SerializeField] public EventReference batteryEmitterSound { get; private set; }
 
 	[field: Header("NPC SFX")]
 	[field: SerializeField] public EventReference npcSFX { get; private set; }
