@@ -6,6 +6,12 @@ using UnityEngine.Animations.Rigging;
 public class abilities : MonoBehaviour
 {
 	[SerializeField]
+	GameObject missile1, missile2, missile3, missile4, missile5, missile6;
+	[SerializeField]
+	GameObject homingMissilePrefab;
+	[SerializeField]
+	Transform homingMissileSpawnPosition1, homingMissileSpawnPosition2, homingMissileSpawnPosition3, homingMissileSpawnPosition4, homingMissileSpawnPosition5, homingMissileSpawnPosition6;
+	[SerializeField]
 	GameObject homingMissileVolume;
 	[SerializeField]
 	GameObject aimingCrosshair, notAimingCrosshair;
@@ -52,10 +58,14 @@ public class abilities : MonoBehaviour
 	GameObject forearm;
     // Start is called before the first frame update
 	GameObject missilePrefab;
+	GameObject homingMissilePlaceholder;
 	GameObject spikePrefab;
 	GameObject spikeShellPrefab;
 	[HideInInspector]
 	public UpgradeTracker upgrades;
+	[SerializeField]
+	float homingMissileReloadTime = 10f;
+	float homingMissileReloadCount;
 	[SerializeField]
 	float missileReloadTime = 3f;
 	float missileReloadCount;
@@ -64,6 +74,7 @@ public class abilities : MonoBehaviour
 	float SpikeReloadCount;
 	[SerializeField]
 	GameObject worldMissile;
+	public bool homingMissileReloading;
 	public bool missileReloading;
 	public bool spikeReloading;
 	[SerializeField]
@@ -71,8 +82,23 @@ public class abilities : MonoBehaviour
 	PlayerStats stats;
 	[SerializeField]
 	float shockSpikeDrainAmount = 50f;
+	[SerializeField]
+	[Tooltip("How long between each missile barrage")]
+	float homingMissileSpacingCap = 2f;
+	float homingMissileSpacingCount;
+	bool homingMissileSpacingGate = true;
+	bool homingMissileSpacingGate2 = true;
+	[SerializeField]
+	float homingMissileUpwardForceMax;
+	[SerializeField]
+	float homingMissileUpwardForceMin;
+	float homingMissileUpwardForce;
+
+	Transform homingMissileTarget1, homingMissileTarget2, homingMissileTarget3;
+
     void Start()
 	{
+		
 		stats = GetComponent<PlayerStats>();
 		upgrades = GetComponent<UpgradeTracker>();
 		anim = GetComponentInChildren<Animator>();
@@ -137,11 +163,101 @@ public class abilities : MonoBehaviour
 	void resetDashCooldown(){
 		dashCooldown = false;
 	}
+	void FireMissile1(Transform target){
+		Debug.Log("Firig missile #1 at " + target);
+		homingMissileUpwardForce = UnityEngine.Random.Range(homingMissileUpwardForceMin, homingMissileUpwardForceMax);
+		homingMissilePlaceholder = Instantiate(homingMissilePrefab, homingMissileSpawnPosition1.position, Quaternion.LookRotation(( homingMissileSpawnPosition1.position - aimCast.transform.position), CustomGravity.GetUpAxis(this.transform.position)));
+		if(homingMissilePlaceholder.GetComponent<Thruster>() != null){
+			homingMissilePlaceholder.GetComponent<Rigidbody>().AddForce(this.transform.up * homingMissileUpwardForce);
+			homingMissilePlaceholder.GetComponent<Thruster>().StartForce(target);
+			missile1.SetActive(false);
+		}
+	}
+	void FireMissile2(Transform target){
+		Debug.Log("Firig missile #2 at " + target);
+		homingMissileUpwardForce = UnityEngine.Random.Range(homingMissileUpwardForceMin, homingMissileUpwardForceMax);
+		homingMissilePlaceholder = Instantiate(homingMissilePrefab, homingMissileSpawnPosition2.position, Quaternion.LookRotation(( homingMissileSpawnPosition2.position - aimCast.transform.position), CustomGravity.GetUpAxis(this.transform.position)));
+		if(homingMissilePlaceholder.GetComponent<Thruster>() != null){
+			homingMissilePlaceholder.GetComponent<Rigidbody>().AddForce(this.transform.up * homingMissileUpwardForce);
+			homingMissilePlaceholder.GetComponent<Thruster>().StartForce(target);
+			missile2.SetActive(false);
+		}
+	}
+	void FireMissile3(Transform target){
+		Debug.Log("Firig missile #3 at " + target);
+		homingMissileUpwardForce = UnityEngine.Random.Range(homingMissileUpwardForceMin, homingMissileUpwardForceMax);
+		homingMissilePlaceholder = Instantiate(homingMissilePrefab, homingMissileSpawnPosition3.position, Quaternion.LookRotation(( homingMissileSpawnPosition3.position - aimCast.transform.position), CustomGravity.GetUpAxis(this.transform.position)));
+		if(homingMissilePlaceholder.GetComponent<Thruster>() != null){
+			homingMissilePlaceholder.GetComponent<Rigidbody>().AddForce(this.transform.up * homingMissileUpwardForce);
+			homingMissilePlaceholder.GetComponent<Thruster>().StartForce(target);
+			missile3.SetActive(false);
+		}
+	}
+	void FireMissile4(Transform target){
+		Debug.Log("Firig missile #4 at " + target);
+		homingMissileUpwardForce = UnityEngine.Random.Range(homingMissileUpwardForceMin, homingMissileUpwardForceMax);
+		homingMissilePlaceholder = Instantiate(homingMissilePrefab, homingMissileSpawnPosition4.position, Quaternion.LookRotation(( homingMissileSpawnPosition4.position - aimCast.transform.position), CustomGravity.GetUpAxis(this.transform.position)));
+		if(homingMissilePlaceholder.GetComponent<Thruster>() != null){
+			homingMissilePlaceholder.GetComponent<Rigidbody>().AddForce(this.transform.up * homingMissileUpwardForce);
+			homingMissilePlaceholder.GetComponent<Thruster>().StartForce(target);
+			missile4.SetActive(false);
+		}
+	}
+	void FireMissile5(Transform target){
+		Debug.Log("Firig missile #5 at " + target);
+		homingMissileUpwardForce = UnityEngine.Random.Range(homingMissileUpwardForceMin, homingMissileUpwardForceMax);
+		homingMissilePlaceholder = Instantiate(homingMissilePrefab, homingMissileSpawnPosition5.position, Quaternion.LookRotation(( homingMissileSpawnPosition5.position - aimCast.transform.position), CustomGravity.GetUpAxis(this.transform.position)));
+		if(homingMissilePlaceholder.GetComponent<Thruster>() != null){
+			homingMissilePlaceholder.GetComponent<Rigidbody>().AddForce(this.transform.up * homingMissileUpwardForce);
+			homingMissilePlaceholder.GetComponent<Thruster>().StartForce(target);
+			missile5.SetActive(false);
+		}
+	}
+	void FireMissile6(Transform target){
+		Debug.Log("Firig missile #6 at " + target);
+		homingMissileUpwardForce = UnityEngine.Random.Range(homingMissileUpwardForceMin, homingMissileUpwardForceMax);
+		homingMissilePlaceholder = Instantiate(homingMissilePrefab, homingMissileSpawnPosition6.position, Quaternion.LookRotation(( homingMissileSpawnPosition6.position - aimCast.transform.position), CustomGravity.GetUpAxis(this.transform.position)));
+		if(homingMissilePlaceholder.GetComponent<Thruster>() != null){
+			homingMissilePlaceholder.GetComponent<Rigidbody>().AddForce(this.transform.up * homingMissileUpwardForce);
+			homingMissilePlaceholder.GetComponent<Thruster>().StartForce(target);
+			missile6.SetActive(false);
+		}
+		homingMissileReloading = true;
+		homingMissileReloadCount = 0f;
+	}
 
 	
     // Update is called once per frame
     void Update()
     {
+		if(!homingMissileSpacingGate){
+			if(homingMissileSpacingCount < homingMissileSpacingCap){
+				homingMissileSpacingCount += Time.deltaTime;
+			}
+			else{
+				homingMissileSpacingCount = 0f;
+				homingMissileSpacingGate = true;
+				if(homingMissileTarget2 != null){
+					FireMissile3(homingMissileTarget2);
+					FireMissile4(homingMissileTarget2);
+					homingMissileSpacingGate2 = false;
+				}
+			}
+		}
+		if(!homingMissileSpacingGate2){
+			if(homingMissileSpacingCount < homingMissileSpacingCap){
+				homingMissileSpacingCount += Time.deltaTime;
+			}
+			else{
+				homingMissileSpacingCount = 0f;
+				homingMissileSpacingGate2 = true;
+				if(homingMissileTarget3 != null){
+					FireMissile5(homingMissileTarget3);
+					FireMissile6(homingMissileTarget3);
+
+				}
+			}
+		}
 		//Handles the reloading for missiles
 		if(missileReloading){
 			if(missileReloadCount < missileReloadTime){
@@ -162,6 +278,21 @@ public class abilities : MonoBehaviour
 				worldSpike.SetActive(true);
 				spikeReloading = false;
 				SpikeReloadCount = 0f;
+			}
+		}
+		if(homingMissileReloading){
+			if(homingMissileReloadCount < homingMissileReloadTime){
+				homingMissileReloadCount += Time.deltaTime;
+			}
+			else{
+				missile1.SetActive(true);
+				missile2.SetActive(true);
+				missile3.SetActive(true);
+				missile4.SetActive(true);
+				missile5.SetActive(true);
+				missile6.SetActive(true);
+				homingMissileReloading = false;
+				homingMissileReloadCount = 0f;
 			}
 		}
 		//no aiming in reversed gravity
@@ -187,6 +318,9 @@ public class abilities : MonoBehaviour
 	    }
 		//un-aiming
 	    else if((!Input.GetKey(controls.keys["zoom"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked) || move.delayedIsDashing || swordAttacking){
+			homingMissileSpacingGate = true;
+			homingMissileSpacingGate2 = true;
+			homingMissileSpacingCount = 0f;
 			aimingCrosshair.SetActive(false);
 			notAimingCrosshair.SetActive(true);
 		    rig.weight = 0f;
@@ -223,13 +357,45 @@ public class abilities : MonoBehaviour
 				}
 			}
 			if(upgrades.hasHomingMissiles){
-				if(homingMissileVolume.GetComponent<HomingMissileTracking>().target1 != null){
-					//only one tracked target
-					if(homingMissileVolume.GetComponent<HomingMissileTracking>().target2 != null){
-						//only two tracked targets
-						if(homingMissileVolume.GetComponent<HomingMissileTracking>().target3 != null){
-							//all three targets locked
+				if(Input.GetKeyDown(controls.keys["attack"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked && !homingMissileReloading){
+					if(homingMissileVolume.GetComponent<HomingMissileTracking>().target1 != null){
+						
+						if(homingMissileVolume.GetComponent<HomingMissileTracking>().target2 != null){
+							
+							if(homingMissileVolume.GetComponent<HomingMissileTracking>().target3 != null){
+								//all three targets locked
+								homingMissileReloading = true;
+								homingMissileTarget1 = homingMissileVolume.GetComponent<HomingMissileTracking>().target1.transform;
+								homingMissileTarget2 = homingMissileVolume.GetComponent<HomingMissileTracking>().target2.transform;
+								homingMissileTarget3 = homingMissileVolume.GetComponent<HomingMissileTracking>().target3.transform;
 
+								FireMissile1(homingMissileTarget1);
+								FireMissile2(homingMissileTarget1);
+								homingMissileSpacingGate = false;
+								
+							}	
+							else{
+								//only two tracked targets
+								homingMissileReloading = true;
+								homingMissileTarget1 = homingMissileVolume.GetComponent<HomingMissileTracking>().target1.transform;
+								homingMissileTarget2 = homingMissileVolume.GetComponent<HomingMissileTracking>().target2.transform;
+								homingMissileTarget3 = homingMissileVolume.GetComponent<HomingMissileTracking>().target2.transform;
+
+								FireMissile1(homingMissileTarget1);
+								FireMissile2(homingMissileTarget1);
+								homingMissileSpacingGate = false;
+							}
+						}
+						else{
+							homingMissileReloading = true;
+							homingMissileTarget1 = homingMissileVolume.GetComponent<HomingMissileTracking>().target1.transform;
+							homingMissileTarget2 = homingMissileVolume.GetComponent<HomingMissileTracking>().target1.transform;
+							homingMissileTarget3 = homingMissileVolume.GetComponent<HomingMissileTracking>().target1.transform;
+
+							FireMissile1(homingMissileTarget1);
+							FireMissile2(homingMissileTarget1);
+							homingMissileSpacingGate = false;
+							//only one tracked target
 						}
 					}
 				}

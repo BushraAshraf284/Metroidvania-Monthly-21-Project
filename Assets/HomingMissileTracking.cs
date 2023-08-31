@@ -87,14 +87,14 @@ public class HomingMissileTracking : MonoBehaviour
         nearestTarget = null;
         foreach(GameObject g in inRangeObjects){
             if(Vector3.Distance(g.transform.position, player.transform.position) < shortestDistance){
-                nearestTarget = g;
+                nearestTarget = g.GetComponent<Targetable>().targetFocusPoint.gameObject;
                 shortestDistance = Vector3.Distance(g.transform.position, player.transform.position);
                 lockingCount1 = 0f;
                 target1 = null;
                 homingIcon1.SetActive(true);
                 trackingIcon1.SetActive(true);
                 lockedIcon1.SetActive(false);
-                homingIcon1.GetComponent<TrackUI>().subject = nearestTarget.GetComponent<Targetable>().targetFocusPoint;
+                homingIcon1.GetComponent<TrackUI>().subject = nearestTarget.transform;
             }
         }
     }
@@ -102,16 +102,16 @@ public class HomingMissileTracking : MonoBehaviour
         shortestDistance = 9999f;
         nearestTarget2 = null;
         foreach(GameObject g in inRangeObjects){
-            if(g.gameObject != nearestTarget){
+            if(g.GetComponent<Targetable>().targetFocusPoint.gameObject != nearestTarget){
                 if(Vector3.Distance(g.transform.position, player.transform.position) < shortestDistance){
-                    nearestTarget2 = g;
+                    nearestTarget2 = g.GetComponent<Targetable>().targetFocusPoint.gameObject;
                     shortestDistance = Vector3.Distance(g.transform.position, player.transform.position);
                     lockingCount2 = 0f;
                     target2 = null;
                     homingIcon2.SetActive(true);
                     trackingIcon2.SetActive(true);
                     lockedIcon2.SetActive(false);
-                    homingIcon2.GetComponent<TrackUI>().subject = nearestTarget2.GetComponent<Targetable>().targetFocusPoint;
+                    homingIcon2.GetComponent<TrackUI>().subject = nearestTarget2.transform;
                 }
             }
 
@@ -122,16 +122,16 @@ public class HomingMissileTracking : MonoBehaviour
         shortestDistance = 9999f;
         nearestTarget3 = null;
         foreach(GameObject g in inRangeObjects){
-            if(g.gameObject != nearestTarget && g.gameObject != nearestTarget2){
+            if(g.GetComponent<Targetable>().targetFocusPoint.gameObject != nearestTarget && g.GetComponent<Targetable>().targetFocusPoint.gameObject != nearestTarget2){
                 if(Vector3.Distance(g.transform.position, player.transform.position) < shortestDistance){
-                    nearestTarget3 = g;
+                    nearestTarget3 = g.GetComponent<Targetable>().targetFocusPoint.gameObject;
                     shortestDistance = Vector3.Distance(g.transform.position, player.transform.position);
                     lockingCount3 = 0f;
                     target3 = null;
                     homingIcon3.SetActive(true);
                     trackingIcon3.SetActive(true);
                     lockedIcon3.SetActive(false);
-                    homingIcon3.GetComponent<TrackUI>().subject = nearestTarget3.GetComponent<Targetable>().targetFocusPoint;
+                    homingIcon3.GetComponent<TrackUI>().subject = nearestTarget3.transform;
                 }
             }
 
@@ -142,33 +142,33 @@ public class HomingMissileTracking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(nearestTarget != null && nearestTarget.GetComponent<Targetable>() != null){
+        if(nearestTarget != null){
             lockingCount1 += Time.deltaTime;
             if(lockingCount1 > lockingCap){
                 lockingCount1 = 0f;
                 target1 = nearestTarget;
                 lockedIcon1.SetActive(true);
-                homingIcon1.GetComponent<TrackUI>().subject = nearestTarget.GetComponent<Targetable>().targetFocusPoint;
+                homingIcon1.GetComponent<TrackUI>().subject = nearestTarget.transform;
                 trackingIcon1.SetActive(false);
             }
         }
-        if(nearestTarget2 != null&& nearestTarget2.GetComponent<Targetable>() != null){
+        if(nearestTarget2 != null){
             lockingCount2 += Time.deltaTime;
             if(lockingCount2 > lockingCap){
                 lockingCount2 = 0f;
                 target2 = nearestTarget2;
                 lockedIcon2.SetActive(true);
-                homingIcon2.GetComponent<TrackUI>().subject = nearestTarget2.GetComponent<Targetable>().targetFocusPoint;
+                homingIcon2.GetComponent<TrackUI>().subject = nearestTarget2.transform;
                 trackingIcon2.SetActive(false);
             }
         }
-        if(nearestTarget3 != null&& nearestTarget3.GetComponent<Targetable>() != null){
+        if(nearestTarget3 != null){
             lockingCount3 += Time.deltaTime;
             if(lockingCount3 > lockingCap){
                 lockingCount3 = 0f;
                 target3 = nearestTarget3;
                 lockedIcon3.SetActive(true);
-                homingIcon3.GetComponent<TrackUI>().subject = nearestTarget3.GetComponent<Targetable>().targetFocusPoint;
+                homingIcon3.GetComponent<TrackUI>().subject = nearestTarget3.transform;
                 trackingIcon3.SetActive(false);
             }
         }

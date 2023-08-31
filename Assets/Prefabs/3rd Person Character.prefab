@@ -1951,6 +1951,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d67f2149609d90b46bd765de8fcadaf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missile1: {fileID: 4348713735133110544}
+  missile2: {fileID: 7630592969749837739}
+  missile3: {fileID: 9056800568678768986}
+  missile4: {fileID: 4561668611162834597}
+  missile5: {fileID: 5521547731514521835}
+  missile6: {fileID: 7605476981458392833}
+  homingMissilePrefab: {fileID: 7078151848023102289, guid: a9ee490bfd1c18d409f1e9b02e157941, type: 3}
+  homingMissileSpawnPosition1: {fileID: 0}
+  homingMissileSpawnPosition2: {fileID: 0}
+  homingMissileSpawnPosition3: {fileID: 0}
+  homingMissileSpawnPosition4: {fileID: 0}
+  homingMissileSpawnPosition5: {fileID: 0}
+  homingMissileSpawnPosition6: {fileID: 0}
   homingMissileVolume: {fileID: 6710462169070211665}
   aimingCrosshair: {fileID: 0}
   notAimingCrosshair: {fileID: 0}
@@ -1974,13 +1987,17 @@ MonoBehaviour:
   dashTimer: 0.3
   forearm: {fileID: 5931523488949986523}
   upgrades: {fileID: 0}
+  homingMissileReloadTime: 10
   missileReloadTime: 3
   SpikeReloadTime: 5
   worldMissile: {fileID: 8529515983946041390}
+  homingMissileReloading: 0
   missileReloading: 0
   spikeReloading: 0
   worldSpike: {fileID: 5652215781541566046}
   shockSpikeDrainAmount: 50
+  homingMissileSpacingCap: 2
+  homingMissileUpwardForce: 5000
 --- !u!1 &3287200117868977988
 GameObject:
   m_ObjectHideFlags: 0

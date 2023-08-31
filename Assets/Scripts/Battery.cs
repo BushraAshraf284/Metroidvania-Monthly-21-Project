@@ -63,6 +63,7 @@ public class Battery : MonoBehaviour
             batteryDrainTimer = 0f;
 			charge = maxCharge;
             charging = true;
+            //running a million timesx
             Debug.Log("Battery at capacity!");
 		}
 		else {
