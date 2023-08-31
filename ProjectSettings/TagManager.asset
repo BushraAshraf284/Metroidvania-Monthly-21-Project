@@ -10,6 +10,7 @@ TagManager:
   - Explosive
   - Gibs
   - Interactable
+  - Targetable
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Rigidbodies
   - StuckProjectiles
   - Gibs
-  - 
+  - Targetable
   - 
   - 
   - 
