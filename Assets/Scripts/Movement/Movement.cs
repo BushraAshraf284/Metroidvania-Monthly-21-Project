@@ -65,6 +65,13 @@ public class Movement : MonoBehaviour {
 
 	[SerializeField]
 	LayerMask probeMask = -1, stairsMask = -1;
+
+	[SerializeField]
+	LeftWeaponSelectionMenu leftWeaponMenu;
+	[SerializeField]
+	RightWeaponSelectionMenu rightWeaponMenu;
+	[SerializeField]
+	WeaponManager weaponManager;
 	
 	[HideInInspector]
 	public Rigidbody body, connectedBody; 
@@ -154,6 +161,8 @@ public class Movement : MonoBehaviour {
 			rightAxis = ProjectDirectionOnPlane(Vector3.right, upAxis);
 			forwardAxis = ProjectDirectionOnPlane(Vector3.forward, upAxis);
 		}
+
+		HandleWeaponSelectionInput();
 	}
 	
 	void FixedUpdate() {
@@ -431,5 +440,19 @@ public class Movement : MonoBehaviour {
 	}
 	public Vector3 ProjectDirectionOnPlane (Vector3 direction, Vector3 normal) {
 		return (direction - normal * Vector3.Dot(direction, normal)).normalized;
+	}
+
+	private void HandleWeaponSelectionInput()
+	{
+		if (Input.GetKeyDown(KeyCode.Q))
+		{
+            weaponManager.SelectPreviousWeapon();
+            leftWeaponMenu.UpdateEquippedWeaponUI();
+		}
+		else if (Input.GetKeyDown(KeyCode.E))
+		{
+			weaponManager.SelectNextWeapon();
+			rightWeaponMenu.UpdateEquippedWeaponUI();
+		}
 	}
 }
