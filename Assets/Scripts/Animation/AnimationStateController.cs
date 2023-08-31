@@ -64,7 +64,7 @@ public class AnimationStateController : MonoBehaviour
 	[SerializeField]
 	[Tooltip("How long you need to hold space for for vertical boost")]
 	float jumpHeldCap = 3f;
-	bool canHighJump;
+	public bool canHighJump;
     public void ShootMissile(){
         abilities.fireMissile();
     }
@@ -87,13 +87,22 @@ public class AnimationStateController : MonoBehaviour
         abilities.fireSpike();
     }
     public void JumpAnimEvent(){
-		sphere.JumpTrigger(1f, true);
+	    sphere.JumpTrigger(1f, true);
+	    jumpHeldTimer = 0f;
 	}
     public void DashJumpAnimEvent(){
-		sphere.JumpTrigger(1f, true);
+	    sphere.JumpTrigger(1f, true);
+	    jumpHeldTimer = 0f;
 	}
     public void HighJumpAnimEvent(){
-		sphere.JumpTrigger(1.2f, false);
+	    sphere.JumpTrigger(1f, false);
+	    jumpHeldTimer = 0f;
+    }
+	public void VertBoostJumpAnimEvent(){
+		sphere.JumpTrigger(4f, false);
+		canHighJump = false;
+		jumpHeldTimer = 0f;
+		animator.SetBool("VerticalBoost", false);
 	}
     public void SetCanFollowUpGateTrueAnimEvent(){
         abilities.SetCanFollowUpGateTrue();
@@ -169,13 +178,14 @@ public class AnimationStateController : MonoBehaviour
 
 	void Update() {
 		jumpHeld = Input.GetKey(sphere.controls.keys["jump"]) && !FindObjectOfType<PauseMenu>().isPaused && !sphere.moveBlocked;
-		if(jumpHeld && !canHighJump){
+		if(jumpHeld && !canHighJump && isOnGround){
 			if(jumpHeldTimer < jumpHeldCap){
 				jumpHeldTimer += Time.deltaTime;
 				
 			}
 			else{
-				
+				canHighJump = true;
+				jumpHeldTimer = 0f;
 			}
 		}
 	    speedometer = body.velocity.magnitude / speed.baseSpeed;
@@ -244,14 +254,20 @@ public class AnimationStateController : MonoBehaviour
             animator.SetBool(hasShockSpikeHash, true);
             animator.SetBool(hasMissileHash, false);
         }
-        if(abilities.isAiming && (abilities.upgrades.hasMissiles || abilities.upgrades.hasShockSpike)){
-	        animator.SetLayerWeight(1, 1f);
+		if(abilities.isAiming ){
+			Debug.Log("IsAiminG!");
+			if((abilities.upgrades.hasMissiles || abilities.upgrades.hasShockSpike)){
+				Debug.Log("Setting layer weight to 1 in in statement #1 in anim state controller");
+				animator.SetLayerWeight(1, 1f);		
+			}
+
         }
         if(abilities.isAiming){
 	        animator.SetBool(isAimingHash, true);
         }
         else{
 	        animator.SetBool(isAimingHash, false);
+	        //Debug.Log("Setting layer weight to 0 in in statement #2 in anim state controller");
 	        animator.SetLayerWeight(1, 0f);
         }
         if (isOnGround){

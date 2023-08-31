@@ -449,6 +449,16 @@ public class abilities : MonoBehaviour
 	    if(Input.GetKeyDown(controls.keys["leftWeaponMenu"]) && !FindObjectOfType<PauseMenu>().isPaused && upgrades.wepMan.totalLeftWeapons > 0){
 		    upgrades.wepMan.SelectNextWeaponL();
 	    }
+	    if(Input.GetKeyUp(controls.keys["jump"]) && !FindObjectOfType<PauseMenu>().isPaused && upgrades.hasVertBoost && animCon.canHighJump){
+	    	//Play high jump animation here!
+	    	if(isAiming){
+	    		animCon.canHighJump = false;
+	    	}
+	    	else{
+	    		anim.SetBool("VerticalBoost", true);
+	    	}
+	    	
+	    }
 	    if(Input.GetKeyDown(controls.keys["rightWeaponMenu"]) && !FindObjectOfType<PauseMenu>().isPaused && upgrades.wepMan.totalRightWeapons > 0){
 		    
 		    int test = upgrades.wepMan.currentRightWeaponIndex+1;
@@ -456,18 +466,21 @@ public class abilities : MonoBehaviour
 		    	test = 0;
 		    }
 		    if(upgrades.wepMan.unlockedRightWeapon[test] != "HomingMissiles"){
+		    	//Debug.Log("Switched to something")
 			    homingMissileVolume.SetActive(false);
 			    homingMissileVolume.GetComponent<HomingMissileTracking>().ClearList();
 			    homingMissileSpacingGate = true;
 			    homingMissileSpacingGate2 = true;
-			    if(upgrades.wepMan.unlockedRightWeapon[test] != "None"){
+			    if(upgrades.wepMan.unlockedRightWeapon[test] != "None" && isAiming){
 			    	anim.SetBool("HasArmWeapon", true);
+			    	//Debug.Log("Setting layer weight to 1 in in statement #1 in abilities");
 			    	anim.SetLayerWeight(1, 1f);
 			    }
 			    
 			    
 		    }
 		    else{
+		    	//Debug.Log("Setting layer weight to 0 in in statement #2 in abilities");
 		    	anim.SetBool("HasArmWeapon", false);
 		    	anim.SetLayerWeight(1, 0f);
 		    	homingMissileVolume.SetActive(true);

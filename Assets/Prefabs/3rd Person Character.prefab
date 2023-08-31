@@ -5031,6 +5031,8 @@ MonoBehaviour:
   abilities: {fileID: 759497653412688651}
   movementPressed: 0
   enableDebugMessages: 1
+  jumpHeldCap: 3
+  canHighJump: 0
 --- !u!114 &7182043652414195628
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -328,7 +328,7 @@ public class Movement : MonoBehaviour {
 					velocity += (jumpDirection * .5f * jumpSpeed *.5f) * boost;
 				}
 				Debug.Log("Doing a stationaty jump as velocity: "+ (velocity + (jumpDirection * jumpSpeed)).magnitude);
-				velocity += (jumpDirection * jumpSpeed);
+				velocity += (jumpDirection * jumpSpeed) * boost;
 
 				
 			}

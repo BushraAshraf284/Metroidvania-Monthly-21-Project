@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -71,7 +71,7 @@ public class Thruster : MonoBehaviour
             missileExplosionPos = transform.position;
             Collider[] colliders = Physics.OverlapSphere(missileExplosionPos, missileRadius);
             Collider[] colliders2 = Physics.OverlapSphere(missileExplosionPos, missileRadius/5);
-            Collider[] colliders3 = Physics.OverlapSphere(missileExplosionPos, missileRadius/25);
+	        Collider[] colliders3 = Physics.OverlapSphere(missileExplosionPos, missileRadius/15);
             foreach (Collider hit in colliders3)
         	{
                 if (hit.gameObject.GetComponent<Shatter>() != null){
