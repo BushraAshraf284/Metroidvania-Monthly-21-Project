@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class UpgradeTracker : MonoBehaviour
 {
+	public WeaponManager wepMan;
     [SerializeField]
-    GameObject shockProng, shockSpike, missiles, homingMissiles, jetBoost, vertBoost, sword, swordBlade, shield, hp1, hp11, hp2, bat1, bat2;
+	public GameObject shockProng, shockSpike, missiles, homingMissiles, jetBoost, vertBoost, sword, swordBlade, shield, hp1, hp11, hp2, bat1, bat2;
     public bool hasShockProng, hasShockSpike, hasMissiles, hasHomingMissiles, hasJetBoost, hasVertBoost, hasSword;
     public int heartPieceCount;
     public int shieldPieceCount;
@@ -17,7 +18,12 @@ public class UpgradeTracker : MonoBehaviour
 	public enum RightWeaponEquipped{Missiles, HomingMissiles, ShockSpike, none};
 	public RightWeaponEquipped rightWeapon;
     void Start()
-    {
+	{
+		foreach (GameObject g in GameObject.FindGameObjectsWithTag("Managers")){
+			if(g.GetComponent<WeaponManager>() != null){
+				wepMan = g.GetComponent<WeaponManager>();
+			}
+		}
 	    stats = GetComponent<PlayerStats>();
 	    if(leftWeapon == LeftWeaponEquipped.Sword){
 	    	if(hasSword){
@@ -145,22 +151,30 @@ public class UpgradeTracker : MonoBehaviour
             }
         }
     }
-    void DisableAllLeftHandWeapons()
+	public void DisableAllLeftHandWeapons()
     {
         swordBlade.SetActive(false);
         sword.SetActive(false);
         shockProng.SetActive(false);
         hasSword = false;
-        hasShockProng = false;
+	    hasShockProng = false;
+	    wepMan.swordIcon.SetActive(false);
+	    wepMan.shockProngIcon.SetActive(false);
+	    wepMan.noneLIcon.SetActive(false);
     }
-    void DisableAllRightHandWeapons()
+	public void DisableAllRightHandWeapons()
     {
         shockSpike.SetActive(false);
         missiles.SetActive(false);
         homingMissiles.SetActive(false);
         hasHomingMissiles = false;
         hasShockSpike = false;
-        hasMissiles = false;
+	    hasMissiles = false;
+	    wepMan.missileLauncherIcon.SetActive(false);
+	    wepMan.homingMissileIcon.SetActive(false);
+	    wepMan.shockSpikeIcon.SetActive(false);
+	    wepMan.noneRIcon.SetActive(false);
+	   
     }
     public void UnlockSword()
     {
@@ -168,7 +182,17 @@ public class UpgradeTracker : MonoBehaviour
         DisableAllLeftHandWeapons();
         sword.SetActive(true);
         swordBlade.SetActive(true);
-        hasSword = true;
+	    hasSword = true;
+	    wepMan.EquipSword();
+	    wepMan.totalLeftWeapons++;
+	    if(wepMan.currentLeftWeaponIndex+1 > wepMan.totalLeftWeapons){
+	    	wepMan.currentLeftWeaponIndex = 0;
+	    }
+	    else{
+	    	wepMan.currentLeftWeaponIndex++;
+	    }
+	    wepMan.unlockedLeftWeapon.Add("Sword");
+	    
     }
     public void EquipSword()
     {
@@ -182,7 +206,16 @@ public class UpgradeTracker : MonoBehaviour
         Debug.Log("Equipping Shock Prong!");
         DisableAllLeftHandWeapons();
         shockProng.SetActive(true);
-        hasShockProng = true;
+	    hasShockProng = true;
+	    wepMan.EquipShockProng();
+	    wepMan.totalLeftWeapons++;
+	    if(wepMan.currentLeftWeaponIndex+1 > wepMan.totalLeftWeapons){
+	    	wepMan.currentLeftWeaponIndex = 0;
+	    }
+	    else{
+	    	wepMan.currentLeftWeaponIndex++;
+	    }
+	    wepMan.unlockedLeftWeapon.Add("ShockProng");
     }
     public void EquipShockProng()
     {
@@ -195,7 +228,16 @@ public class UpgradeTracker : MonoBehaviour
         Debug.Log("Equipping Shock Spike!");
         DisableAllRightHandWeapons();
         shockSpike.SetActive(true);
-        hasShockSpike = true;
+	    hasShockSpike = true;
+	    wepMan.totalRightWeapons++;
+	    wepMan.EquipShockSpike();
+	    if(wepMan.currentRightWeaponIndex+1 > wepMan.totalRightWeapons){
+	    	wepMan.currentRightWeaponIndex = 0;
+	    }
+	    else{
+	    	wepMan.currentRightWeaponIndex++;
+	    }
+	    wepMan.unlockedRightWeapon.Add("ShockSpike");
     }
     public void EquipShockSpike()
     {
@@ -208,7 +250,16 @@ public class UpgradeTracker : MonoBehaviour
         Debug.Log("Equipping Missiles!");
         DisableAllRightHandWeapons();
         missiles.SetActive(true);
-        hasMissiles = true;
+	    hasMissiles = true;
+	    wepMan.totalRightWeapons++;
+	    wepMan.EquipMissiles();
+	    if(wepMan.currentRightWeaponIndex+1 > wepMan.totalRightWeapons){
+	    	wepMan.currentRightWeaponIndex = 0;
+	    }
+	    else{
+	    	wepMan.currentRightWeaponIndex++;
+	    }
+	    wepMan.unlockedRightWeapon.Add("Missiles");
     }
     public void EquipMissiles()
     {
@@ -221,7 +272,16 @@ public class UpgradeTracker : MonoBehaviour
         Debug.Log("Unlocking Homing Missiles!");
         DisableAllRightHandWeapons();
         homingMissiles.SetActive(true);
-        hasHomingMissiles = true;
+	    hasHomingMissiles = true;
+	    wepMan.totalRightWeapons++;
+	    wepMan.EquipHomingMissiles();
+	    if(wepMan.currentRightWeaponIndex+1 > wepMan.totalRightWeapons){
+	    	wepMan.currentRightWeaponIndex = 0;
+	    }
+	    else{
+	    	wepMan.currentRightWeaponIndex++;
+	    }
+	    wepMan.unlockedRightWeapon.Add("HomingMissiles");
     }
     public void EquipHomingMissiles()
     {

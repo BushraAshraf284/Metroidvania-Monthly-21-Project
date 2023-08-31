@@ -84,7 +84,7 @@ public class abilities : MonoBehaviour
 	float shockSpikeDrainAmount = 50f;
 	[SerializeField]
 	[Tooltip("How long between each missile barrage")]
-	float homingMissileSpacingCap = 2f;
+	float homingMissileSpacingCap = .5f;
 	float homingMissileSpacingCount;
 	bool homingMissileSpacingGate = true;
 	bool homingMissileSpacingGate2 = true;
@@ -327,10 +327,8 @@ public class abilities : MonoBehaviour
 	    	rot.UnAim();
 	    	isAiming = false;
 	    	aimCast.SetActive(false);
-			if(upgrades.hasHomingMissiles){
-				homingMissileVolume.SetActive(false);
-				homingMissileVolume.GetComponent<HomingMissileTracking>().ClearList();
-			}
+			homingMissileVolume.SetActive(false);
+			homingMissileVolume.GetComponent<HomingMissileTracking>().ClearList();
 	    	
 	    }
 
@@ -448,6 +446,36 @@ public class abilities : MonoBehaviour
 				}
 			}
 		}
+	    if(Input.GetKeyDown(controls.keys["leftWeaponMenu"]) && !FindObjectOfType<PauseMenu>().isPaused && upgrades.wepMan.totalLeftWeapons > 0){
+		    upgrades.wepMan.SelectNextWeaponL();
+	    }
+	    if(Input.GetKeyDown(controls.keys["rightWeaponMenu"]) && !FindObjectOfType<PauseMenu>().isPaused && upgrades.wepMan.totalRightWeapons > 0){
+		    
+		    int test = upgrades.wepMan.currentRightWeaponIndex+1;
+		    if (test > upgrades.wepMan.totalRightWeapons){
+		    	test = 0;
+		    }
+		    if(upgrades.wepMan.unlockedRightWeapon[test] != "HomingMissiles"){
+			    homingMissileVolume.SetActive(false);
+			    homingMissileVolume.GetComponent<HomingMissileTracking>().ClearList();
+			    homingMissileSpacingGate = true;
+			    homingMissileSpacingGate2 = true;
+			    if(upgrades.wepMan.unlockedRightWeapon[test] != "None"){
+			    	anim.SetBool("HasArmWeapon", true);
+			    	anim.SetLayerWeight(1, 1f);
+			    }
+			    
+			    
+		    }
+		    else{
+		    	anim.SetBool("HasArmWeapon", false);
+		    	anim.SetLayerWeight(1, 0f);
+		    	homingMissileVolume.SetActive(true);
+		    	homingMissileVolume.GetComponent<HomingMissileTracking>().ClearList();	
+		    	
+		    }
+		    upgrades.wepMan.SelectNextWeaponR();
 
+	    }
     }
 }

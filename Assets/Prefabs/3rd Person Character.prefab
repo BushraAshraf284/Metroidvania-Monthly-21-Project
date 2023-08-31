@@ -500,6 +500,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6486110458470483911}
   m_LocalEulerAnglesHint: {x: -0.000008711287, y: -1.3841773e-11, z: -6.6155536e-12}
+--- !u!1 &876187885214846455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5329908946579140465}
+  m_Layer: 3
+  m_Name: HomingMIssileSpawnPos (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5329908946579140465
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876187885214846455}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0137, y: -0.0261, z: 0.0472}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8290115595366480450}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &894945427831192251
 GameObject:
   m_ObjectHideFlags: 0
@@ -1776,7 +1807,7 @@ MonoBehaviour:
   delayedIsDashing: 0
   dashSpeed: 3
   maxVJumpSpeed: 11
-  maxHJumpSpeed: 18
+  maxHJumpSpeed: 17
   feet: {fileID: 7300493711148808132}
   parent: {fileID: 3171487718812326108}
   probeDistance: 1
@@ -1899,6 +1930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ed3bf9705a96842ba69153eaf5f8c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wepMan: {fileID: 0}
   shockProng: {fileID: 5648643378000433902}
   shockSpike: {fileID: 3599275347567283102}
   missiles: {fileID: 6974466696473862771}
@@ -1958,12 +1990,12 @@ MonoBehaviour:
   missile5: {fileID: 5521547731514521835}
   missile6: {fileID: 7605476981458392833}
   homingMissilePrefab: {fileID: 7078151848023102289, guid: a9ee490bfd1c18d409f1e9b02e157941, type: 3}
-  homingMissileSpawnPosition1: {fileID: 0}
-  homingMissileSpawnPosition2: {fileID: 0}
-  homingMissileSpawnPosition3: {fileID: 0}
-  homingMissileSpawnPosition4: {fileID: 0}
-  homingMissileSpawnPosition5: {fileID: 0}
-  homingMissileSpawnPosition6: {fileID: 0}
+  homingMissileSpawnPosition1: {fileID: 7894666851346841648}
+  homingMissileSpawnPosition2: {fileID: 3614040008932468041}
+  homingMissileSpawnPosition3: {fileID: 5739870126153608102}
+  homingMissileSpawnPosition4: {fileID: 5329908946579140465}
+  homingMissileSpawnPosition5: {fileID: 356219734605152574}
+  homingMissileSpawnPosition6: {fileID: 4812225163258448412}
   homingMissileVolume: {fileID: 6710462169070211665}
   aimingCrosshair: {fileID: 0}
   notAimingCrosshair: {fileID: 0}
@@ -1996,8 +2028,9 @@ MonoBehaviour:
   spikeReloading: 0
   worldSpike: {fileID: 5652215781541566046}
   shockSpikeDrainAmount: 50
-  homingMissileSpacingCap: 2
-  homingMissileUpwardForce: 5000
+  homingMissileSpacingCap: 0.5
+  homingMissileUpwardForceMax: 7000
+  homingMissileUpwardForceMin: 3500
 --- !u!1 &3287200117868977988
 GameObject:
   m_ObjectHideFlags: 0
@@ -3339,6 +3372,12 @@ Transform:
   - {fileID: 7117875063466790331}
   - {fileID: 7110796010451397905}
   - {fileID: 8573702009043500000}
+  - {fileID: 7894666851346841648}
+  - {fileID: 3614040008932468041}
+  - {fileID: 5739870126153608102}
+  - {fileID: 5329908946579140465}
+  - {fileID: 356219734605152574}
+  - {fileID: 4812225163258448412}
   m_Father: {fileID: 8305469445893596702}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &900046357675247117
@@ -3493,6 +3532,37 @@ Transform:
   - {fileID: 8162689857078266854}
   m_Father: {fileID: 6223728108121408963}
   m_LocalEulerAnglesHint: {x: -29.49602, y: 9.823698, z: -52.004303}
+--- !u!1 &5794146881268283850
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4812225163258448412}
+  m_Layer: 3
+  m_Name: HomingMIssileSpawnPos (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4812225163258448412
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5794146881268283850}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0106, y: -0.0261, z: 0.0465}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8290115595366480450}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5814192707293964390
 GameObject:
   m_ObjectHideFlags: 0
@@ -4007,6 +4077,37 @@ Transform:
   - {fileID: 3968452632897246597}
   m_Father: {fileID: 6223728108121408963}
   m_LocalEulerAnglesHint: {x: -0.000016968757, y: 0.000001013367, z: -6.8352404}
+--- !u!1 &6501020056446468158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7894666851346841648}
+  m_Layer: 3
+  m_Name: HomingMIssileSpawnPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7894666851346841648
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6501020056446468158}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0167, y: -0.0261, z: 0.0511}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8290115595366480450}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6618974797591326885
 GameObject:
   m_ObjectHideFlags: 0
@@ -4279,7 +4380,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6710462169070211665}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4648,17 +4749,9 @@ MonoBehaviour:
   m_Mesh: {fileID: 0}
   m_VersionIndex: 1239
   m_IsSelectable: 1
-  m_SelectedFaces: 03000000
-  m_SelectedEdges:
-  - a: 12
-    b: 13
-  - a: 13
-    b: 14
-  - a: 14
-    b: 15
-  - a: 15
-    b: 12
-  m_SelectedVertices: 0c0000000d0000000e0000000f000000
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!64 &7060113130510924334
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5833,6 +5926,37 @@ Transform:
   - {fileID: 1921206493228382886}
   m_Father: {fileID: 443499796451767440}
   m_LocalEulerAnglesHint: {x: -4.97188, y: 149.1879, z: 0.6193288}
+--- !u!1 &7828772088741453354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 356219734605152574}
+  m_Layer: 3
+  m_Name: HomingMIssileSpawnPos (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &356219734605152574
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7828772088741453354}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0106, y: -0.0261, z: 0.0502}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8290115595366480450}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7899253382117118521
 GameObject:
   m_ObjectHideFlags: 0
@@ -6547,6 +6671,37 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.018968588, y: 0.005395232, z: -0.010543963}
     m_Extent: {x: 0.0040191244, y: 0.010699904, z: 0.0070295297}
   m_DirtyAABB: 0
+--- !u!1 &8551927280259292438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3614040008932468041}
+  m_Layer: 3
+  m_Name: HomingMIssileSpawnPos (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3614040008932468041
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8551927280259292438}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0167, y: -0.0261, z: 0.0462}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8290115595366480450}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8561455607628187322
 GameObject:
   m_ObjectHideFlags: 0
@@ -6611,6 +6766,37 @@ Transform:
   - {fileID: 7326328017089393054}
   m_Father: {fileID: 5665804112351525235}
   m_LocalEulerAnglesHint: {x: 6.2948537, y: 89.99985, z: 179.99875}
+--- !u!1 &8840570671662718210
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5739870126153608102}
+  m_Layer: 3
+  m_Name: HomingMIssileSpawnPos (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5739870126153608102
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8840570671662718210}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0137, y: -0.0261, z: 0.0501}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8290115595366480450}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9056800568678768986
 GameObject:
   m_ObjectHideFlags: 0
