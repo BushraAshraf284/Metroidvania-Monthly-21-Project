@@ -49,7 +49,7 @@ public class PlayerStats : MonoBehaviour
 	BatteryBar batteryBar3;
 	float batteryChargeTimer = 0f;
 	public bool isBatteryCharging;
-    private EventInstance playerBatteryCharge;
+    private EventInstance playerBatteryCharge; // Audio
     [SerializeField]
     [Tooltip("How long it takes for the battery's charge to start to refill again")]
     float batteryChargeCap = 3f;

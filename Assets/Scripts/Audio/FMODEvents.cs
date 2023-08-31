@@ -36,6 +36,8 @@ public class FMODEvents : MonoBehaviour
 
 	[field: Header("NPC SFX")]
 	[field: SerializeField] public EventReference npcSFX { get; private set; }
+	[field: SerializeField] public EventReference turrentShoot { get; private set; }
+	// [field: SerializeField] public EventReference turrentRotationSound { get; private set; }
 
 	[field: Header("Platform SFX")]
 	[field: SerializeField] public EventReference doorSFX { get; private set; }

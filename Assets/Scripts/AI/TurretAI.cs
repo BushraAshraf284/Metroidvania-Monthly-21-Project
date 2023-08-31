@@ -162,6 +162,8 @@ public class TurretAI : MonoBehaviour
             Debug.DrawLine(BulletEmitter.transform.position, hit.point, Color.green, 5f );
             bullet.GetComponent<BulletLerper>().Lerp(hit.point, BulletEmitter.transform.forward);
         }
+
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.turrentShoot, this.transform.position);
     }
 
     void OnReloadEnter()
