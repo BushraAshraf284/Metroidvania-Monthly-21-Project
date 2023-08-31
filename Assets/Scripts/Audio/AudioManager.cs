@@ -9,8 +9,11 @@ public class AudioManager : MonoBehaviour
     [Header("Volume")]
     [Range(0, 1)]
     public float masterVolume = 1;
+    [Range(0, 1)]
+    public float testVolume = 1;
 
     private Bus masterBus;
+    private Bus testBus;
 
     private List<EventInstance> eventInstances;
     private List<StudioEventEmitter> eventEmitters;
@@ -32,11 +35,13 @@ public class AudioManager : MonoBehaviour
         eventEmitters = new List<StudioEventEmitter>();
 
         masterBus = RuntimeManager.GetBus("bus:/");
+        testBus = RuntimeManager.GetBus("bus:/Test");
     }
 
     private void Update()
     {
         masterBus.setVolume(masterVolume);
+        testBus.setVolume(testVolume);
     }
 
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
