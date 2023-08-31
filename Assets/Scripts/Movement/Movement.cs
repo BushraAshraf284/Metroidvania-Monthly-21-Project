@@ -432,4 +432,5 @@ public class Movement : MonoBehaviour {
 	public Vector3 ProjectDirectionOnPlane (Vector3 direction, Vector3 normal) {
 		return (direction - normal * Vector3.Dot(direction, normal)).normalized;
 	}
+
 }
