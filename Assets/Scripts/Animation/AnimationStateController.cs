@@ -58,7 +58,13 @@ public class AnimationStateController : MonoBehaviour
     private string lastAnimationName = "";
     private bool noAnimationMessagePrinted = false;
     public bool enableDebugMessages = true;
-    bool dashingGate = false;
+	bool dashingGate = false;
+	bool jumpHeld;
+	float jumpHeldTimer;
+	[SerializeField]
+	[Tooltip("How long you need to hold space for for vertical boost")]
+	float jumpHeldCap = 3f;
+	bool canHighJump;
     public void ShootMissile(){
         abilities.fireMissile();
     }
@@ -101,6 +107,7 @@ public class AnimationStateController : MonoBehaviour
     }  
 
 	void Start() {
+		
         controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
         body = player.GetComponent<Rigidbody>();
         speed = player.GetComponent<MovementSpeedController>(); 
@@ -161,6 +168,16 @@ public class AnimationStateController : MonoBehaviour
     }
 
 	void Update() {
+		jumpHeld = Input.GetKey(sphere.controls.keys["jump"]) && !FindObjectOfType<PauseMenu>().isPaused && !sphere.moveBlocked;
+		if(jumpHeld && !canHighJump){
+			if(jumpHeldTimer < jumpHeldCap){
+				jumpHeldTimer += Time.deltaTime;
+				
+			}
+			else{
+				
+			}
+		}
 	    speedometer = body.velocity.magnitude / speed.baseSpeed;
         animator.SetFloat(speedHash, speedometer, .1f, Time.deltaTime);
         
@@ -198,7 +215,8 @@ public class AnimationStateController : MonoBehaviour
 
 
         BoolAdjuster();
-        bool JumpPressed = Input.GetKeyDown(sphere.controls.keys["jump"]) && !FindObjectOfType<PauseMenu>().isPaused && !sphere.moveBlocked;
+		bool JumpPressed = Input.GetKeyDown(sphere.controls.keys["jump"]) && !FindObjectOfType<PauseMenu>().isPaused && !sphere.moveBlocked;
+		
         
         isOnGround = isOnGroundADJ;
         bool isFalling = animator.GetBool(isFallingHash);
