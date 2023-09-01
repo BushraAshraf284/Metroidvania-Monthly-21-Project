@@ -335,7 +335,7 @@ public class abilities : MonoBehaviour
 	    if(isAiming){
 			//shoot missiles
 			if(upgrades.hasMissiles){
-				if(Input.GetKey(controls.keys["attack"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked && !missileReloading){
+				if(Input.GetKeyDown(controls.keys["attack"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked && !missileReloading){
 					anim.SetBool("isFiring", true);
 					Invoke("ResetFiring", .1f);
 
@@ -343,7 +343,7 @@ public class abilities : MonoBehaviour
 			}
 			//shoot shock spike
 			if(upgrades.hasShockSpike){
-				if(Input.GetKey(controls.keys["attack"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked && !spikeReloading){
+				if(Input.GetKeyDown(controls.keys["attack"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked && !spikeReloading){
 					if(stats.charge - shockSpikeDrainAmount > 0){
 						anim.SetBool("isFiring", true);
 						Invoke("ResetFiring", .1f);

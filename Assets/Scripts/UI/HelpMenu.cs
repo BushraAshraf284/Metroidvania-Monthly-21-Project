@@ -26,11 +26,14 @@ public class HelpMenu : MonoBehaviour
     GameObject rebindTxt;
 
     Controls controls;
+    [SerializeField]
+    InteractButtonUpdate[] update;
 
     private static IEnumerator err;
 
     private void Start()
     {
+        
         //Assign components
         controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
         //aim = GameObject.Find("Aim").GetComponent<Image>();
@@ -167,5 +170,8 @@ public class HelpMenu : MonoBehaviour
         dash.sprite = Resources.Load<Sprite>(dashKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(dashKey.ToString());
         interact.sprite = Resources.Load<Sprite>(interKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(interKey.ToString());
         attack.sprite = Resources.Load<Sprite>(attackKey.ToString()) == null ? Resources.Load<Sprite>("Blank") : Resources.Load<Sprite>(attackKey.ToString());
+        foreach(InteractButtonUpdate u in update){
+            u.image.sprite = interact.sprite;
+        }
     }
 }

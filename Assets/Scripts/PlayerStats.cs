@@ -92,7 +92,7 @@ public class PlayerStats : MonoBehaviour
             
         }
 		else {
-			//Debug.Log("Went from "+hp+" to "+ Mathf.Round(hp-damage));
+			Debug.Log("Drained "+drain+" from total amount "+ charge+ " for a total " + (charge-drain));
 			if(charge != charge-drain){
                 batteryChargeTimer = 0f;
 				charge = charge-drain;

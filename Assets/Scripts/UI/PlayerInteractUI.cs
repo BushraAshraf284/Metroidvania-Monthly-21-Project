@@ -6,16 +6,27 @@ public class PlayerInteractUI : MonoBehaviour
 {
     [SerializeField] private GameObject containerGameObject;
     [SerializeField] private Interaction playerInteraction;
-
+    DialogueManager manager;
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
+    void Start()
+    {
+        manager = GameObject.Find("Dialogue Manager").GetComponent<DialogueManager>();
+    }
     private void Update()
     {
 	    if (playerInteraction.GetInteractableObject() != null || playerInteraction.GetNPCInteractableObject() != null || playerInteraction.GetInteractableConsole() != null)
         {
-            Show();
+            if(manager.isDialoging){
+                Hide();
+            }
+            else{
+                Show();
+            }
+            
         } 
-        else if(playerInteraction.GetInteractableConsole() != null){
-            Show();
-        }
         else
         {
             Hide();

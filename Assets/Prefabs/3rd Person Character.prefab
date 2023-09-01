@@ -1806,8 +1806,6 @@ MonoBehaviour:
   delayedIsDashingTimer: 0.5
   delayedIsDashing: 0
   dashSpeed: 3
-  maxVJumpSpeed: 11
-  maxHJumpSpeed: 17
   feet: {fileID: 7300493711148808132}
   parent: {fileID: 3171487718812326108}
   probeDistance: 1
@@ -1816,8 +1814,6 @@ MonoBehaviour:
   maxStairsAngle: 50
   maxAcceleration: 80
   maxAirAcceleration: 10
-  jumpHeight: 2
-  movingJumpHeightV: 14
   movingJumpHeightH: 4
   probeMask:
     serializedVersion: 2
@@ -1971,6 +1967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nearestInteractable: {fileID: 0}
   interactRange: 3
+  inDialogue: 0
 --- !u!114 &759497653412688651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4125,7 +4122,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3615395559522239414
 Transform:
   m_ObjectHideFlags: 0
@@ -4136,7 +4133,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.70710576, y: -0, z: -0, w: 0.70710784}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.24236271, y: 0.24236271, z: 0.24236271}
+  m_LocalScale: {x: 0.24236275, y: 0.24236275, z: 0.24236275}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4028041511318198632}

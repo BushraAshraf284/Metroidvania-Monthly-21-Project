@@ -31,7 +31,7 @@ public class PauseMenu : MonoBehaviour
         backgrnd = gameObject.transform.Find("Background").gameObject;
         //Debug.Log(backgrnd);
         backgrnd.SetActive(false);
-        backgrnd.transform.localScale = new Vector3(Screen.width, Screen.height, 1);
+        //backgrnd.transform.localScale = new Vector3(Screen.width, Screen.height, 1);
     }
 
     private void Update()

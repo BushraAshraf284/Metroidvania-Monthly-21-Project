@@ -20,16 +20,28 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> sentences; 
     public GameObject dialogueBox;
     float gate;
+    Interaction playerInt;
+    [SerializeField]
+    GameObject interactText;
+    public bool isDialoging;
 
     // Start is called before the first frame update
     void Start()
     {
+        foreach (GameObject g in GameObject.FindGameObjectsWithTag("Player")){
+            if(g.GetComponent<Interaction>() != null){
+                playerInt = g.GetComponent<Interaction>();
+            }
+        }
+        
         sentences = new Queue<string>();
     }
 
     public void StartDialogue(AltDialogue dialogue) //creates our queue of sentences, locks the player, enables the cursor, and activates dialogue UI
     {
+        isDialoging = true;
         //Debug.Log("Starting conversation with "+dialogue.name);
+        interactText.SetActive(false);
         movement.blockMovement();
         cameraMovement.enabled = false;
         Cursor.visible = true; //makes cursor visible
@@ -78,6 +90,8 @@ public class DialogueManager : MonoBehaviour
     }
     public void EndDialogue()
     {
+        isDialoging = false;
+        playerInt.inDialogue = false;
         movement.unblockMovement();
         cameraMovement.enabled = true;
 

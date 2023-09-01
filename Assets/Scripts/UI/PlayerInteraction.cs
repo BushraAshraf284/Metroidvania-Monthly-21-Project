@@ -11,10 +11,13 @@ public class Interaction : MonoBehaviour
     [SerializeField]
     float interactRange = 2.5f;
     float minDistance = 999f;
+    public bool inDialogue;
+    DialogueManager manager;
 
     private void Start()
     {
         controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
+        manager = GameObject.Find("Dialogue Manager").GetComponentInChildren<DialogueManager>();
         interactables = GameObject.FindGameObjectsWithTag("Interactable");
         npcs = GameObject.FindGameObjectsWithTag("NPC");
         foreach(GameObject g in interactables){
@@ -38,7 +41,6 @@ public class Interaction : MonoBehaviour
 
         if (Input.GetKeyDown(controls.keys["interact"]))
         {
-        	
 		        foreach (Collider collider in colliderArray)
 		        {
 		        	if(collider.gameObject.tag == "Interactable" || collider.gameObject.tag == "NPC"){
@@ -48,7 +50,13 @@ public class Interaction : MonoBehaviour
 			            }
 			            if (collider.TryGetComponent(out NPCInteractables npcInteractable))
 			            {
-			                npcInteractable.NPCInteract();
+                            if(!inDialogue){
+			                    npcInteractable.NPCInteract();
+                                inDialogue = true;
+                            }
+                            else{
+                                manager.DisplayNextSentence();
+                            }
 			            }
 			            if (collider.TryGetComponent(out Console console))
 			            {
