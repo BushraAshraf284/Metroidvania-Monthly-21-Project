@@ -40,7 +40,7 @@ public class Shatter : MonoBehaviour
             if((other.gameObject.GetComponent<Rigidbody>() != null && (other.gameObject.GetComponent<Rigidbody>().velocity.magnitude > breakSpeed) || (this.gameObject.GetComponent<Rigidbody>().velocity.magnitude > breakSpeed )) ){
                 oneShot(0);
                 //if (other.gameObject.tag == "Explosive") {
-                  //  bombAudioSource.Play(); }
+                //  bombAudioSource.Play(); }
 
             }
         }
@@ -51,14 +51,17 @@ public class Shatter : MonoBehaviour
         color = GetComponent<Renderer>();
     }
     public void oneShot(float time){
-	    if(!boomBlocked){
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.objectDestorySound, this.transform.position);
+        if (!boomBlocked){
 	        Invoke("spawnShatter", time);
 
         }
     }
     public void takeDamage(){
         if (Damagestate < hitPoints){
-            foreach(Material m in color.materials ){
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.objectBreakingSound, this.transform.position);
+
+            foreach (Material m in color.materials ){
                 //m.SetColor("_EmissionColor", Color.grey * darken);
                 m.SetColor("_Color", Color.grey * darken);
                 Damagestate++;
@@ -67,6 +70,7 @@ public class Shatter : MonoBehaviour
         }
         else if ( Damagestate >= hitPoints){
 	        Invoke("spawnShatter", 0);
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.objectDestorySound, this.transform.position);
 
         }
     }
@@ -82,7 +86,7 @@ public class Shatter : MonoBehaviour
         if(explosionEffect != null){
             Instantiate(explosionEffect, transform.position, transform.rotation);
 
-            
+
         }
         Destroy(this.gameObject);
     }

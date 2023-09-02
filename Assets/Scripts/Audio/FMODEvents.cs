@@ -46,6 +46,14 @@ public class FMODEvents : MonoBehaviour
 
 	[field: Header("Interact SFX")]
 	[field: SerializeField] public EventReference interactSFX { get; private set; }
+	[field: SerializeField] public EventReference objectBreakingSound { get; private set; }
+	[field: SerializeField] public EventReference objectDestorySound { get; private set; }
+
+	[field: Header("Testing Audio")]
+	[field: SerializeField] public EventReference testOneShot { get; private set; }
+	[field: SerializeField] public EventReference testOneShotWorld { get; private set; }
+	[field: SerializeField] public EventReference testLooping { get; private set; }
+	[field: SerializeField] public EventReference testLoopingWorld { get; private set; }
 
 	public static FMODEvents instance { get; private set; }
 
