@@ -99,7 +99,7 @@ public class PlayerStats : MonoBehaviour
 			}
 		}
         
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.playerBatteryDrain, this.transform.position);
+        // AudioManager.instance.PlayOneShot(FMODEvents.instance.playerBatteryDrain, this.transform.position);
     }
     public void ResetHasIFrames(){
         hasIFrames = false;
