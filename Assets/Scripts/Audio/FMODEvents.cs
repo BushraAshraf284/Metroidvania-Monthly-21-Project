@@ -41,14 +41,17 @@ public class FMODEvents : MonoBehaviour
 	[field: SerializeField] public EventReference turrentShoot { get; private set; }
 	// [field: SerializeField] public EventReference turrentRotationSound { get; private set; }
 
-	[field: Header("Platform SFX")]
+	[field: Header("World SFX")]
 	[field: SerializeField] public EventReference doorSFX { get; private set; }
-
-	[field: Header("Interact SFX")]
-	[field: SerializeField] public EventReference interactSFX { get; private set; }
 	[field: SerializeField] public EventReference objectBreakingSound { get; private set; }
 	[field: SerializeField] public EventReference objectDestorySound { get; private set; }
 	[field: SerializeField] public EventReference gravitySwitchSound { get; private set; }
+
+	[field: Header("UI SFX")]
+	[field: SerializeField] public EventReference interactSFX { get; private set; }
+	[field: SerializeField] public EventReference pauseGameAudio { get; private set; }
+	[field: SerializeField] public EventReference resumeGameAudio { get; private set; }
+
 
 	[field: Header("Testing Audio")]
 	[field: SerializeField] public EventReference testOneShot { get; private set; }

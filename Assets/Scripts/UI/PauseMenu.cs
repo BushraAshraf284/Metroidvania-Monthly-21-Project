@@ -42,11 +42,13 @@ public class PauseMenu : MonoBehaviour
             //IF not paused, pause
             if (!isPaused)
             {
+                AudioManager.instance.PlayOneShot(FMODEvents.instance.pauseGameAudio, this.transform.position);
                 pause();
             }
             //IF paused, resume
             else
             {
+                AudioManager.instance.PlayOneShot(FMODEvents.instance.resumeGameAudio, this.transform.position);
                 resume();
             }
         }
