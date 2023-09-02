@@ -122,8 +122,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: 
-    sentences: []
+    name: Mr Sir
+    sentences:
+    - 'you '
+    - 'got to go '
+    - dig those holes
   dialogueBox: {fileID: 0}
 --- !u!114 &727440780679268508
 MonoBehaviour:
@@ -138,4 +141,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   diag: {fileID: 0}
-  npcDiag: {fileID: 0}
+  npcDiag: {fileID: 6644388879759496408}
