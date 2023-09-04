@@ -30,7 +30,7 @@ public class FMODEvents : MonoBehaviour
 	[field: SerializeField] public EventReference playerHeal { get; private set; }
 	[field: SerializeField] public EventReference playerHurt { get; private set; }
 	[field: SerializeField] public EventReference playerBatteryCharge { get; private set; }
-	[field: SerializeField] public EventReference playerBatteryDrain { get; private set; }
+	// [field: SerializeField] public EventReference playerBatteryDrain { get; private set; }
 
 	[field: Header("Collectable SFX")]
 	[field: SerializeField] public EventReference upgradeCollectedSound { get; private set; }
@@ -41,11 +41,23 @@ public class FMODEvents : MonoBehaviour
 	[field: SerializeField] public EventReference turrentShoot { get; private set; }
 	// [field: SerializeField] public EventReference turrentRotationSound { get; private set; }
 
-	[field: Header("Platform SFX")]
+	[field: Header("World SFX")]
 	[field: SerializeField] public EventReference doorSFX { get; private set; }
+	[field: SerializeField] public EventReference objectBreakingSound { get; private set; }
+	[field: SerializeField] public EventReference objectDestorySound { get; private set; }
+	[field: SerializeField] public EventReference gravitySwitchSound { get; private set; }
 
-	[field: Header("Interact SFX")]
+	[field: Header("UI SFX")]
 	[field: SerializeField] public EventReference interactSFX { get; private set; }
+	[field: SerializeField] public EventReference pauseGameAudio { get; private set; }
+	[field: SerializeField] public EventReference resumeGameAudio { get; private set; }
+
+
+	[field: Header("Testing Audio")]
+	[field: SerializeField] public EventReference testOneShot { get; private set; }
+	[field: SerializeField] public EventReference testOneShotWorld { get; private set; }
+	[field: SerializeField] public EventReference testLooping { get; private set; }
+	[field: SerializeField] public EventReference testLoopingWorld { get; private set; }
 
 	public static FMODEvents instance { get; private set; }
 

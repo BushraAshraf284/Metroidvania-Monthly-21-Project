@@ -14,7 +14,8 @@ public class StartMagneticField : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if(polarity){
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.gravitySwitchSound, this.transform.position);
+        if (polarity){
             if(other.gameObject.tag == "Player"){
                 if(plane.gravity < 0){
                     plane.gravity = plane.gravity * -1f;
