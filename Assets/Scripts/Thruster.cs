@@ -63,6 +63,7 @@ public class Thruster : MonoBehaviour
                 stuckSpike.transform.forward = -transform.forward;
                 //stuckSpike.transform.SetParent(other.collider.transform, true);
                 stuckSpike.transform.parent = other.collider.transform;
+                Debug.Log("Struck " + other.gameObject.name);
                 Destroy(gameObject);
             }
 

@@ -13,6 +13,10 @@ public class Targetable : MonoBehaviour
 	public float resetTime = 5f;
 	[SerializeField]
 	bool animatorInParent;
+	[SerializeField]
+	bool hasManager;
+	[SerializeField]
+	GameObject targetManager;
 	public void ResetAnim(){
 		if(animatorInParent){
 			if(this.transform.parent.gameObject.GetComponent<Animator>()!= null){
@@ -22,6 +26,11 @@ public class Targetable : MonoBehaviour
 		else{
 			if(this.gameObject.GetComponent<Animator>()!= null){
 				this.gameObject.GetComponent<Animator>().SetBool("Activated", false);
+			}
+		}
+		if(hasManager){
+			if(targetManager.GetComponent<TargetManager>()!=null){
+				targetManager.GetComponent<TargetManager>().ResetTarget();
 			}
 		}
 	}
@@ -48,6 +57,11 @@ public class Targetable : MonoBehaviour
 						Invoke("ResetAnim", resetTime);
 					}
 				}
+			}
+		}
+		if(hasManager){
+			if(targetManager.GetComponent<TargetManager>()!=null){
+				targetManager.GetComponent<TargetManager>().HitTarget();
 			}
 		}
 	}

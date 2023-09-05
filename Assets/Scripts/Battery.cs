@@ -41,6 +41,7 @@ public class Battery : MonoBehaviour
                             if(extraActivation){
                                 Debug.Log("Moving a platform");
                                 p.GetComponent<platformAnimController>().ExtraActivated();
+                                beenCharged = true;
                             }
                             else{
                                 Debug.Log("Moving a platform", this.gameObject);
