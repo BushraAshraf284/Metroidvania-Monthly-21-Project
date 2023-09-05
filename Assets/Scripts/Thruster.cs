@@ -94,11 +94,7 @@ public class Thruster : MonoBehaviour
                     rb.AddExplosionForce(missilePower, missileExplosionPos, missileRadius, missileUpModifier);
                 }
 	        	if(hit.gameObject.GetComponent<Targetable>()!= null){
-	        		//Debug.Log("HIT A TARGETABLE THINGY");
-		        	if(hit.gameObject.GetComponent<Targetable>().HasEvent){
-		        		//Debug.Log("targetably thingy has an event");
-			        	hit.gameObject.GetComponent<Targetable>().Triggered();
-		        	}
+			        hit.gameObject.GetComponent<Targetable>().Triggered();
 	        	}
                 
         	}

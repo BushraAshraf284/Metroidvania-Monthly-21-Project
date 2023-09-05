@@ -17,7 +17,6 @@ public class WeaponManager : MonoBehaviour
 	public int currentLeftWeaponIndex = 0; 
 	public int currentRightWeaponIndex = 0; 
     GameObject shockProng, shockSpike, missiles, homingMissiles, sword, swordBlade;
-    public bool hasShockProng, hasShockSpike, hasMissiles, hasHomingMissiles, hasSword;
     public enum LeftWeaponEquipped { Sword, ShockProng, none };
     public LeftWeaponEquipped leftWeapon;
     public enum RightWeaponEquipped { Missiles, HomingMissiles, ShockSpike, none };
@@ -111,8 +110,8 @@ public class WeaponManager : MonoBehaviour
         swordBlade.SetActive(false);
         sword.SetActive(false);
         shockProng.SetActive(false);
-        hasSword = false;
-	    hasShockProng = false;
+        upgrades.hasSword = false;
+	    upgrades.hasShockProng = false;
 	    swordIcon.SetActive(false);
 	    shockProngIcon.SetActive(false);
 	    noneLIcon.SetActive(false);
@@ -125,9 +124,9 @@ public class WeaponManager : MonoBehaviour
         shockSpike.SetActive(false);
         missiles.SetActive(false);
         homingMissiles.SetActive(false);
-        hasHomingMissiles = false;
-        hasShockSpike = false;
-	    hasMissiles = false;
+        upgrades.hasHomingMissiles = false;
+        upgrades.hasShockSpike = false;
+	    upgrades.hasMissiles = false;
 	    shockSpikeIcon.SetActive(false);
 	    missileLauncherIcon.SetActive(false);
 	    homingMissileIcon.SetActive(false);
