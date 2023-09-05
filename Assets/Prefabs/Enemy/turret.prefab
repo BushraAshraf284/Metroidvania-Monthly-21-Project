@@ -97,7 +97,6 @@ GameObject:
   - component: {fileID: 2348273475983393029}
   - component: {fileID: 6915633008443759198}
   - component: {fileID: 3760528507564660010}
-  - component: {fileID: 8101711841972058311}
   m_Layer: 7
   m_Name: Bullet Emitter
   m_TagString: Untagged
@@ -170,27 +169,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8101711841972058311
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5899079800368372897}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5912961300495008002
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,11 +579,12 @@ MonoBehaviour:
   BulletEmitter: {fileID: 5899079800368372897}
   BulletPrefab: {fileID: 7078151848023102289, guid: b0dad4a53c3672c4d800bb0a5cb86090, type: 3}
   ForwardForce: 150000
+  inaccurateTarget: {fileID: 0}
   ReloadTime: 5
   AttackTime: {x: 10, y: 15}
   ShootInterval: 0.15
   radius: 50
-  angle: 113
+  angle: 49
   playerRef: {fileID: 0}
   targetMask:
     serializedVersion: 2
