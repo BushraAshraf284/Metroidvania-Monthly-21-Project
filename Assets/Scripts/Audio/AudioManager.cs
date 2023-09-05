@@ -49,6 +49,18 @@ public class AudioManager : MonoBehaviour
         RuntimeManager.PlayOneShot(sound, worldPos);
     }
 
+    public void PlaySoundFromAnimation(EventInstance sound)
+    {
+        if (currentSoundInstance.isValid())
+        {
+            currentSoundInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            currentSoundInstance.release();
+        }
+
+        sound.start();
+        currentSoundInstance = sound;
+    }
+
     public EventInstance CreateEventInstance(EventReference eventReference)
     {
         EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
@@ -62,18 +74,6 @@ public class AudioManager : MonoBehaviour
         emitter.EventReference = eventReference;
         eventEmitters.Add(emitter);
         return emitter;
-    }
-
-    public void PlaySoundFromAnimation(EventInstance sound)
-    {
-        if (currentSoundInstance.isValid())
-        {
-            currentSoundInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            currentSoundInstance.release();
-        }
-
-        sound.start();
-        currentSoundInstance = sound;
     }
 
     private void CleanUp()
