@@ -19,8 +19,8 @@ public class BulletLerper : MonoBehaviour
         Destroy(this.gameObject, 5f);
     }
 
-    [SerializeField]
-    float damageAmount = 5f;
+    //[SerializeField]
+    //float damageAmount = 5f;
 	void OnCollisionEnter(Collision other)
 	{
 	//    if(other.gameObject.tag == "Player"){

@@ -149,7 +149,7 @@ public class TurretAI : MonoBehaviour
 
     void OnAttackExit()
     {
-        Debug.Log("Attack Exit");
+        //Debug.Log("Attack Exit");
         //Aimtarget.transform.position = InitialPosition;
     }
 
@@ -159,12 +159,12 @@ public class TurretAI : MonoBehaviour
         bullet.transform.position = BulletEmitter.transform.position;
         bullet.transform.forward = -BulletEmitter.transform.forward;
         //would be nice to add some variance to this so its no soo precise
-	    if(Physics.Raycast(BulletEmitter.transform.position,(inaccurateTarget.position - BulletEmitter.transform.position) , out RaycastHit hit, 900f, obstructionMask )){
+	    if(Physics.SphereCast(BulletEmitter.transform.position, 5f,(inaccurateTarget.position - BulletEmitter.transform.position) , out RaycastHit hit, 900f, obstructionMask )){
             Debug.DrawLine(BulletEmitter.transform.position, hit.point, Color.green, 5f );
 		    bullet.GetComponent<BulletLerper>().Lerp(hit.point, BulletEmitter.transform.forward);
 		    //Debug.Log("Hit " + hit.transform.gameObject.name);
 		    if(hit.transform.gameObject.tag == "Player"){
-		    	//Debug.Log("Dealth Damage");
+		    	Debug.Log("Dealt Damage");
 		    	playerStats.TakeDamage(Damage);
 		    }
         }

@@ -2293,8 +2293,8 @@ MonoBehaviour:
   cont: {fileID: 1579194358718184086}
   timerCap: 0.1
   movingRange: 10
-  dashingRange: 0
-  startingRange: 5
+  dashingRange: 15
+  startingRange: 2
 --- !u!1 &3726327887929117025
 GameObject:
   m_ObjectHideFlags: 0

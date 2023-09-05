@@ -93,7 +93,7 @@ public class PlayerStats : MonoBehaviour
             
         }
 		else {
-			Debug.Log("Drained "+drain+" from total amount "+ charge+ " for a total " + (charge-drain));
+			//Debug.Log("Drained "+drain+" from total amount "+ charge+ " for a total " + (charge-drain));
 			if(charge != charge-drain){
                 batteryChargeTimer = 0f;
 				charge = charge-drain;
@@ -469,7 +469,7 @@ public class PlayerStats : MonoBehaviour
         ChargeBattery();
     }
 	public void ForceIFramesStart(){
-		Debug.Log("starting");
+		Debug.Log("Iframes On");
 		hasIFrames = true;
 		iFrameCount = 0f;
 		iFrameCooldownBlock = true;
@@ -477,7 +477,7 @@ public class PlayerStats : MonoBehaviour
 	}
 	public void ForceIFramesStop(){
 		hasIFrames = false;
-		Debug.Log("stopping");
+		Debug.Log("Iframes Off");
 		iFrameCount = 0f;
 		iFrameCooldownBlock = false;
 	}

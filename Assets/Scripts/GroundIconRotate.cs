@@ -6,7 +6,7 @@ public class GroundIconRotate : MonoBehaviour
 {
     Interaction interact; 
     // Start is called before the first frame update
-    float lockPos = 0f;
+    //float lockPos = 0f;
     float xStore;
     float yStore;
     void Start()

@@ -305,16 +305,16 @@ public class Movement : MonoBehaviour {
 				jumpSpeed = 10f;
 				jumpDirection = contactNormal - ((feet.transform.position - rotator.point.transform.position) * 3f);
 				if(delayedIsDashing){
-					Debug.Log("Dash Jump!!!");
+					//Debug.Log("Dash Jump!!!");
 					jumpDirection = contactNormal - ((feet.transform.position - rotator.point.transform.position) * 4f);
 					jumpSpeed = 8f;
 				}
 				if(gravity.y > 0){
-					Debug.Log("Gravity Flipped! ");
+					//Debug.Log("Gravity Flipped! ");
 					velocity += (jumpDirection.normalized * jumpSpeed * .5f) + (contactNormal * (movingJumpHeightH *.5f));
 				}
 				else{
-					Debug.Log("Doing a moving jump at velocity:" + (velocity + (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH)).magnitude);
+					//Debug.Log("Doing a moving jump at velocity:" + (velocity + (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH)).magnitude);
 					velocity += (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH);
 				}
 
@@ -324,10 +324,10 @@ public class Movement : MonoBehaviour {
 				jumpDirection = (jumpDirection + upAxis).normalized;
 				alignedSpeed = Vector3.Dot(velocity, jumpDirection);
 				if(gravity.y > 0){
-					Debug.Log("Gravity Flipped! ");
+					//Debug.Log("Gravity Flipped! ");
 					velocity += (jumpDirection * .5f * jumpSpeed *.5f) * boost;
 				}
-				Debug.Log("Doing a stationaty jump as velocity: "+ (velocity + (jumpDirection * jumpSpeed)).magnitude);
+				//Debug.Log("Doing a stationaty jump as velocity: "+ (velocity + (jumpDirection * jumpSpeed)).magnitude);
 				velocity += (jumpDirection * jumpSpeed) * boost;
 
 				

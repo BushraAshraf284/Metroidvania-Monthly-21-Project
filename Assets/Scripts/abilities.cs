@@ -435,7 +435,7 @@ public class abilities : MonoBehaviour
 				//Debug.Log("Trying to dash!");
 				if(!dashCooldown){
 					if(stats.charge - dashEnergyCost < 0){
-						Debug.Log("Not enough Battery!");
+						//Debug.Log("Not enough Battery!");
 					}
 					else{
 						stats.DrainBattery(dashEnergyCost);
