@@ -194,7 +194,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  platforms: []
+  platforms:
+  - {fileID: 0}
   oneWay: 1
   time: 0
 --- !u!1 &5492175979036847261 stripped
