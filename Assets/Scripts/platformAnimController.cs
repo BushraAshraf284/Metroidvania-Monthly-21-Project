@@ -30,8 +30,17 @@ public class platformAnimController : MonoBehaviour
         anim.SetBool("Activated", false);
         isActivated = false;
     }
+    public void ResetExtraActivated(){
+        anim.SetBool("ExtraActivation", false);
+        isActivated = false;
+    }
     public void Activated(){
         anim.SetBool("Activated", true);
+	    isActivated = true;
+	    isOpened = true;
+    }
+    public void ExtraActivated(){
+        anim.SetBool("v", true);
 	    isActivated = true;
 	    isOpened = true;
     }

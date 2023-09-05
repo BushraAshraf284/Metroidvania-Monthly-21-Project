@@ -4,7 +4,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 //placed on the abttery object, similar to console except dependent on a charge
 public class Battery : MonoBehaviour
-{   
+{   [SerializeField]
+    bool extraActivation;
     [SerializeField]
     public List<GameObject> platforms = new List<GameObject>();
     [SerializeField]
@@ -24,8 +25,9 @@ public class Battery : MonoBehaviour
     bool activationGate2 = false;
     //added recently
     bool beenCharged;
+    SkinnedMeshRenderer skin;
     void Start(){
-
+        skin = GetComponent<SkinnedMeshRenderer>();
     }
     void Update()
     {
@@ -35,10 +37,16 @@ public class Battery : MonoBehaviour
                 activationGate2 = false;
                 activationGate = true;
                 foreach (GameObject p in platforms){
-                    if(p.GetComponent<platformAnimController>() != null){
-                            Debug.Log("Moving a platform", this.gameObject);
-                            p.GetComponent<platformAnimController>().Activated();
-                            beenCharged = true;
+                        if(p.GetComponent<platformAnimController>() != null){
+                            if(extraActivation){
+                                Debug.Log("Moving a platform");
+                                p.GetComponent<platformAnimController>().ExtraActivated();
+                            }
+                            else{
+                                Debug.Log("Moving a platform", this.gameObject);
+                                p.GetComponent<platformAnimController>().Activated();
+                                beenCharged = true;
+                            }
                     }
                 }
             }
@@ -50,13 +58,20 @@ public class Battery : MonoBehaviour
                     activationGate2 = true;
                     foreach (GameObject p in platforms){
                         if(p.GetComponent<platformAnimController>() != null){
+                            if(extraActivation){
+                                Debug.Log("Reverting a platform", this.gameObject);
+                                p.GetComponent<platformAnimController>().ResetExtraActivated();
+                            }
+                            else{
                                 Debug.Log("Reverting a platform", this.gameObject);
                                 p.GetComponent<platformAnimController>().ResetActivated();
+                            }
                         }
                     }
                 }
             }
         }
+        skin.SetBlendShapeWeight(0, 100-(charge/maxCharge)*100);
     }
     public void ChargeBattery(){
 		if (charge + (Time.deltaTime*chargeRate) > maxCharge){
@@ -99,8 +114,14 @@ public class Battery : MonoBehaviour
         if(platforms.Count > 0){
             foreach (GameObject p in platforms){
                 if(p.GetComponent<platformAnimController>() != null){
-                    Debug.Log("Moving a platform");
-                    p.GetComponent<platformAnimController>().Activated();
+                    if(extraActivation){
+                        Debug.Log("Moving a platform");
+                        p.GetComponent<platformAnimController>().ExtraActivated();
+                    }
+                    else{
+                        Debug.Log("Moving a platform");
+                        p.GetComponent<platformAnimController>().Activated();
+                    }
                 }
             }
         }
