@@ -32,6 +32,8 @@ public class AnimationStateController : MonoBehaviour
 
     bool isOnGround;
 
+	[SerializeField]
+	PlayerStats stats;
     [HideInInspector]
     public bool isOnGroundADJ;
     bool isOnSteep;
@@ -65,6 +67,12 @@ public class AnimationStateController : MonoBehaviour
 	[Tooltip("How long you need to hold space for for vertical boost")]
 	float jumpHeldCap = 3f;
 	public bool canHighJump;
+	public void ForceIFramesStart(){
+		stats.ForceIFramesStart();
+	}
+	public void ForceIFramesStop(){
+		stats.ForceIFramesStop();
+	}
     public void ShootMissile(){
         abilities.fireMissile();
     }

@@ -70,7 +70,8 @@ public class PlayerStats : MonoBehaviour
     [SerializeField]
     [Tooltip("How long the player is invincible after taking damage")]
     public float iFrameCooldown = 1f;
-    float iFrameCount;
+	float iFrameCount;
+	bool iFrameCooldownBlock;
 
 
     public void RestoreHP(float healAmount){
@@ -165,7 +166,7 @@ public class PlayerStats : MonoBehaviour
             }   
         }
         else{
-            //Debug.Log("Took Damage during I Frames!");
+            Debug.Log("Took Damage during I Frames!");
         }
         
     }
@@ -432,15 +433,17 @@ public class PlayerStats : MonoBehaviour
     }
 
     void Update()
-    {
-        if(hasIFrames){
-            if(iFrameCount < iFrameCooldown ){
-                iFrameCount += Time.deltaTime;
-            }
-            else{
-                hasIFrames = false;
-            }
-        }
+	{
+		if(!iFrameCooldownBlock){
+	        if(hasIFrames){
+	            if(iFrameCount < iFrameCooldown ){
+	                iFrameCount += Time.deltaTime;
+	            }
+	            else{
+	                hasIFrames = false;
+	            }
+	        }
+		}
         //updates the slider value to match the current hp value
         if(healthphase == HPPhase.Phase1){
             healthBar.SetHealth(hp);
@@ -465,5 +468,18 @@ public class PlayerStats : MonoBehaviour
         }
         ChargeBattery();
     }
+	public void ForceIFramesStart(){
+		Debug.Log("starting");
+		hasIFrames = true;
+		iFrameCount = 0f;
+		iFrameCooldownBlock = true;
+		Invoke("ForceIFramesStop", 1f);
+	}
+	public void ForceIFramesStop(){
+		hasIFrames = false;
+		Debug.Log("stopping");
+		iFrameCount = 0f;
+		iFrameCooldownBlock = false;
+	}
 
 }

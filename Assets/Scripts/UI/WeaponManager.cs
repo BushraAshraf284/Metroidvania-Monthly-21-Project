@@ -121,7 +121,7 @@ public class WeaponManager : MonoBehaviour
     }
     void DisableAllRightHandWeapons()
 	{
-		Debug.Log("Disabling all right hand weapons");
+		//Debug.Log("Disabling all right hand weapons");
         shockSpike.SetActive(false);
         missiles.SetActive(false);
         homingMissiles.SetActive(false);

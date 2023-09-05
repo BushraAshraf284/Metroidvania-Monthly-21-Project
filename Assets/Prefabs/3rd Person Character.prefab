@@ -5021,13 +5021,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 3171487718812326108}
+  stats: {fileID: 4154119855871724817}
   isOnGroundADJ: 0
   OnGroundBuffer: 0.25
   JumpBuffer: 0.5
   controls: {fileID: 0}
   abilities: {fileID: 759497653412688651}
   movementPressed: 0
-  enableDebugMessages: 1
+  enableDebugMessages: 0
   jumpHeldCap: 3
   canHighJump: 0
 --- !u!114 &7182043652414195628

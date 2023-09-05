@@ -9,7 +9,6 @@ public class BulletLerper : MonoBehaviour
     Vector3 dest;
     [SerializeField]
     float time = .001f;
-    [SerializeField]
 	//float bulletLerpDistance = .005f;
     Rigidbody body;
     Vector3 start;
@@ -22,29 +21,32 @@ public class BulletLerper : MonoBehaviour
 
     [SerializeField]
     float damageAmount = 5f;
-    void OnCollisionEnter(Collision other)
-    {
-        if(other.gameObject.tag == "Player"){
-            if(other.gameObject.GetComponent<PlayerStats>()!= null){
-                other.gameObject.GetComponent<PlayerStats>().TakeDamage(damageAmount);
-            }
-        }
-        Destroy(this.gameObject);
-    }
+	void OnCollisionEnter(Collision other)
+	{
+	//    if(other.gameObject.tag == "Player"){
+	//        if(other.gameObject.GetComponent<PlayerStats>()!= null){
+	//            other.gameObject.GetComponent<PlayerStats>().TakeDamage(damageAmount);
+	//        }
+	//    }
+	    Destroy(this.gameObject);
+	}
 
     // Update is called once per frame
     void FixedUpdate()
     {
         if(!gate){
             
-            body.MovePosition(this.transform.position + start * (Time.deltaTime * time));
+	        //body.MovePosition(dest);
+	        body.MovePosition(this.transform.position + start * (Time.deltaTime * time));
             //body.velocity = (dest - start).normalized * (Time.deltaTime * time) ;
         }
     }
-    public void Lerp(Vector3 dest2, Vector3 origin){
+	public void Lerp(Vector3 dest2, Vector3 origin){
+		dest = dest2;
+		start = origin;
+		this.transform.rotation = Quaternion.LookRotation((transform.position - dest), CustomGravity.GetUpAxis(this.transform.position));
         gate = false;
-        dest = dest2;
-        start = origin;
-        this.transform.rotation = Quaternion.LookRotation((transform.position - dest), CustomGravity.GetUpAxis(this.transform.position));
-    }
+
+	}
+        
 }
