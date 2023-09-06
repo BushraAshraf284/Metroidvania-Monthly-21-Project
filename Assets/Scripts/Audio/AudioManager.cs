@@ -15,8 +15,8 @@ public class AudioManager : MonoBehaviour
     private Bus masterBus;
     private Bus testBus;
 
-    private List<EventInstance> eventInstances;
-    private List<StudioEventEmitter> eventEmitters;
+    private List<EventInstance> eventInstances = new List<EventInstance>();
+    private List<StudioEventEmitter> eventEmitters = new List<StudioEventEmitter>();
 
     private EventInstance currentSoundInstance;
 
@@ -30,9 +30,6 @@ public class AudioManager : MonoBehaviour
         }
         
         instance = this;
-
-        eventInstances = new List<EventInstance>();
-        eventEmitters = new List<StudioEventEmitter>();
 
         masterBus = RuntimeManager.GetBus("bus:/");
         testBus = RuntimeManager.GetBus("bus:/Test");
@@ -91,7 +88,7 @@ public class AudioManager : MonoBehaviour
 
     }
 
-    private void OnDestory()
+    private void OnDestroy()
         {
             CleanUp();
         }
