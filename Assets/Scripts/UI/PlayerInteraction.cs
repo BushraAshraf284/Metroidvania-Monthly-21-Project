@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interaction : MonoBehaviour
+public class PlayerInteraction : MonoBehaviour
 {
     public Transform nearestInteractable;
     GameObject[] interactables;

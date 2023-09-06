@@ -20,7 +20,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> sentences; 
     public GameObject dialogueBox;
     float gate;
-    Interaction playerInt;
+    PlayerInteraction playerInt;
     [SerializeField]
     GameObject interactText;
     public bool isDialoging;
@@ -29,8 +29,8 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         foreach (GameObject g in GameObject.FindGameObjectsWithTag("Player")){
-            if(g.GetComponent<Interaction>() != null){
-                playerInt = g.GetComponent<Interaction>();
+            if(g.GetComponent<PlayerInteraction>() != null){
+                playerInt = g.GetComponent<PlayerInteraction>();
             }
         }
         

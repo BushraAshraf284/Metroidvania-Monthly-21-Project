@@ -22,7 +22,7 @@ public class Dialogue : MonoBehaviour
     private GameObject diagBoxGameObject;
 
     [SerializeField] 
-    private Interaction playerInteraction;
+    private PlayerInteraction playerInteraction;
 
     private void Start()
     {

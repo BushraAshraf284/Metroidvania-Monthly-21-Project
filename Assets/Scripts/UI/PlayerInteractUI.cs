@@ -7,7 +7,7 @@ public class PlayerInteractUI : MonoBehaviour
     [SerializeField]
     GameObject interactableIcon;
     [SerializeField] private GameObject containerGameObject;
-    [SerializeField] private Interaction playerInteraction;
+    public PlayerInteraction playerInteraction;
     DialogueManager manager;
     /// <summary>
     /// Start is called on the frame when a script is enabled just before

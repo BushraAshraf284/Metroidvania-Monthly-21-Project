@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class GroundIconRotate : MonoBehaviour
 {
-    Interaction interact; 
+    PlayerInteraction interact; 
     // Start is called before the first frame update
     //float lockPos = 0f;
     float xStore;
     float yStore;
     void Start()
     {
-        interact = GameObject.Find("3rd Person Character").GetComponent<Interaction>();
+        interact = GameObject.Find("3rd Person Character").GetComponent<PlayerInteraction>();
     }
 
     // Update is called once per frame
