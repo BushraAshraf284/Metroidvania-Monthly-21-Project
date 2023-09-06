@@ -16,7 +16,11 @@ public class Upgrade : MonoBehaviour
     [SerializeField]
     [Tooltip("How long until this pickup reappears?")]
 	float reappearTimer = 5f;
-	protected void Start()
+    private void Awake()
+    {
+        isPickedUp = SaveData.Instance.isPickedUp;
+    }
+    protected void Start()
 	{
 		if(isPickedUp){
 			if(reappear){
@@ -38,6 +42,8 @@ public class Upgrade : MonoBehaviour
         if(GetComponent<BoxCollider>() != null){
 	        if(GetComponent<MeshRenderer>()!= null){
 		        isPickedUp = false;
+                SaveData.Instance.isPickedUp = isPickedUp;
+                SaveLoad.SaveProgress();
                 GetComponent<BoxCollider>().enabled = true;
                 GetComponent<MeshRenderer>().enabled = true;
             }
@@ -101,7 +107,9 @@ public class Upgrade : MonoBehaviour
                 }
             }
 	        isPickedUp = true;
-            if(dissapear){
+            SaveData.Instance.isPickedUp = isPickedUp;
+            SaveLoad.SaveProgress();
+            if (dissapear){
                 if(reappear){
                     if(GetComponent<BoxCollider>() != null){
                         if(GetComponent<MeshRenderer>()!= null){

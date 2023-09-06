@@ -6,18 +6,65 @@ public class SaveData{
 
 	public static SaveData Instance;
 
-	public bool RemoveAds = false;
-	public int Level = 1;
-    public int Coins = 0;
+	// Player Health
+	public float playerHP = 0;
+	
+	// Player Shield
+	public bool hasSheild = false;
+	public float shieldCharge = 0;
 
-	//Constructor to save actual GameData
-	public SaveData(){}
+	// Player Weapons
+	public bool HasShockProng;
+	public bool HasMissiles;
+	public bool HasSword;
+	public bool HasHomingMissiles;
+	public bool HasJetBoost;
+	public bool HasVertBoost;
+	public bool HasShockSpike;
+    public int LeftWeaponEquipped;
+	public int RightWeaponEquipped;
+
+	//Player Upgrades
+	public bool HasShieldUpgrade;
+	public int HPPhase;
+	public int BatteryPhase;
+	public int HeartPieceCount;
+	public int ShieldPieceCount;
+	public int BatteryPieceCount;
+
+	//World Upgrade
+	public bool isPickedUp;
+
+
+
+    //Constructor to save actual GameData
+    public SaveData(){}
 
 	//Constructor to check any tampering with the SaveData
-	public SaveData(bool ads, int levels, int coins){
-		RemoveAds = ads;
-		Level = levels;
-		Coins = coins;
-	}
+    public SaveData(float hp, bool hasShield, float shieldCharge, bool hasShockProng, bool hasMissiles, bool hasSword, bool hasHomingMissiles, bool hasJetBoost, bool hasVertBoost, bool hasShockSpike,
+        int leftweapon, int rightWeapon, bool hasShieldUpgrade, int hpPhase, int batteryPhase, int heartPieceCount, int shieldPieceCount, int batteryPieceCount, bool isPickedUp)
+    {
+        playerHP = hp;
+        hasSheild = hasShield;
+        this.shieldCharge = shieldCharge;
+        HasShockProng = hasShockProng;
+        HasMissiles = hasMissiles;
+        HasSword = hasSword;
+        HasHomingMissiles = hasHomingMissiles;
+        HasJetBoost = hasJetBoost;
+        HasVertBoost = hasVertBoost;
+        HasShockSpike = hasShockSpike;
+        LeftWeaponEquipped = leftweapon;
+        RightWeaponEquipped = rightWeapon;
+        HasShieldUpgrade = hasShieldUpgrade;
+        HPPhase = hpPhase;
+        BatteryPhase = batteryPhase;
+        HeartPieceCount = heartPieceCount;
+        ShieldPieceCount = shieldPieceCount;
+        BatteryPieceCount = batteryPieceCount;
+        this.isPickedUp = isPickedUp;
+    }
+
+
 
 }

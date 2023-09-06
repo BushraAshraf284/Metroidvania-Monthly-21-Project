@@ -21,13 +21,17 @@ public class WeaponManager : MonoBehaviour
     public LeftWeaponEquipped leftWeapon;
     public enum RightWeaponEquipped { Missiles, HomingMissiles, ShockSpike, none };
     public RightWeaponEquipped rightWeapon;
+    private void Awake()
+    {
+		rightWeapon = (RightWeaponEquipped)SaveData.Instance.RightWeaponEquipped;
+        leftWeapon = (LeftWeaponEquipped)SaveData.Instance.LeftWeaponEquipped;
+    }
 
     void Start()
 	{
 		unlockedRightWeapon.Add("None");
 		unlockedLeftWeapon.Add("None");
-		rightWeapon = RightWeaponEquipped.none;
-		leftWeapon = LeftWeaponEquipped.none;
+		
 		foreach(GameObject g in GameObject.FindGameObjectsWithTag("Player")){
 			if(g.GetComponent<UpgradeTracker>() != null){
 				upgrades = g.GetComponent<UpgradeTracker>();
@@ -116,6 +120,8 @@ public class WeaponManager : MonoBehaviour
 	    shockProngIcon.SetActive(false);
 	    noneLIcon.SetActive(false);
 	    leftWeapon = LeftWeaponEquipped.none;
+        SaveData.Instance.LeftWeaponEquipped = (int)leftWeapon;
+        SaveLoad.SaveProgress();
 	    upgrades.DisableAllLeftHandWeapons();
     }
     void DisableAllRightHandWeapons()
@@ -132,7 +138,9 @@ public class WeaponManager : MonoBehaviour
 	    homingMissileIcon.SetActive(false);
 	    noneRIcon.SetActive(false);
 	    rightWeapon = RightWeaponEquipped.none;
-	    upgrades.DisableAllRightHandWeapons();
+        SaveData.Instance.RightWeaponEquipped = (int)rightWeapon;
+        SaveLoad.SaveProgress();
+        upgrades.DisableAllRightHandWeapons();
     }
 
     public void EquipSword()
@@ -144,6 +152,9 @@ public class WeaponManager : MonoBehaviour
 	    swordIcon.SetActive(true);
 	    leftWeapon = LeftWeaponEquipped.Sword;
 	    upgrades.hasSword = true;
+        SaveData.Instance.HasSword = upgrades.hasSword;
+        SaveData.Instance.LeftWeaponEquipped = (int)leftWeapon;
+        SaveLoad.SaveProgress();
     }
 
 	public void EquipShockProng()
@@ -155,6 +166,9 @@ public class WeaponManager : MonoBehaviour
 	    shockProngIcon.SetActive(true);
 	    leftWeapon = LeftWeaponEquipped.ShockProng;
 	    upgrades.hasShockProng = true;
+		SaveData.Instance.HasShockProng = upgrades.hasShockProng;
+		SaveData.Instance.LeftWeaponEquipped = (int)leftWeapon;
+		SaveLoad.SaveProgress();
     }
 	public void EquipNoneLeft()
 	{
@@ -162,8 +176,10 @@ public class WeaponManager : MonoBehaviour
 		DisableAllLeftHandWeapons();
 		noneLIcon.SetActive(true);
 		leftWeapon = LeftWeaponEquipped.none;
-		
-	}
+        SaveData.Instance.LeftWeaponEquipped = (int)leftWeapon;
+        SaveLoad.SaveProgress();
+
+    }
 
     public void EquipShockSpike()
     {
@@ -173,17 +189,25 @@ public class WeaponManager : MonoBehaviour
 	    shockSpikeIcon.SetActive(true);
 	    rightWeapon = RightWeaponEquipped.ShockSpike;
 	    upgrades.hasShockSpike = true;
+
+        SaveData.Instance.HasShockSpike = upgrades.hasShockSpike;
+        SaveData.Instance.RightWeaponEquipped = (int)rightWeapon;
+        SaveLoad.SaveProgress();
     }
 
     public void EquipMissiles()
-        {
-            Debug.Log("Equipping Missiles!");
-            DisableAllRightHandWeapons();
-	        missiles.SetActive(true);
-	        missileLauncherIcon.SetActive(true);
-	        rightWeapon = RightWeaponEquipped.Missiles;
-	        upgrades.hasMissiles = true;
-        }
+    {
+        Debug.Log("Equipping Missiles!");
+        DisableAllRightHandWeapons();
+	    missiles.SetActive(true);
+	    missileLauncherIcon.SetActive(true);
+	    rightWeapon = RightWeaponEquipped.Missiles;
+	    upgrades.hasMissiles = true;
+
+        SaveData.Instance.HasMissiles = upgrades.hasMissiles;
+        SaveData.Instance.RightWeaponEquipped = (int)rightWeapon;
+        SaveLoad.SaveProgress();
+    }
 
     public void EquipHomingMissiles()
         {
@@ -193,14 +217,19 @@ public class WeaponManager : MonoBehaviour
 	        homingMissileIcon.SetActive(true);
 	        rightWeapon = RightWeaponEquipped.HomingMissiles;
 	        upgrades.hasHomingMissiles = true;
-        }
+            SaveData.Instance.HasHomingMissiles = upgrades.hasHomingMissiles;
+            SaveData.Instance.RightWeaponEquipped = (int)rightWeapon;
+            SaveLoad.SaveProgress();
+    }
 	public void EquipNoneRight()
 	{
 		Debug.Log("Equipping None!");
 		DisableAllRightHandWeapons();
 		noneRIcon.SetActive(true);
 		rightWeapon = RightWeaponEquipped.none;
-	}
+        SaveData.Instance.RightWeaponEquipped = (int)rightWeapon;
+        SaveLoad.SaveProgress();
+    }
 
 	public void SelectNextWeaponR()
     {
