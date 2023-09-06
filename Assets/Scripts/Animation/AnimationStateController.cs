@@ -220,10 +220,10 @@ public class AnimationStateController : MonoBehaviour
 	    }
         
 
-	    animator.SetFloat(movementZHash, (Input.GetKey(controls.keys["walkUp"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkDown"]) ? 1 : 0), .05f, Time.deltaTime); //this should be the forward back axis
-		animator.SetFloat(movementXHash, (Input.GetKey(controls.keys["walkRight"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkLeft"]) ? 1 : 0), .05f, Time.deltaTime); //this should be the left right axis
-		debugtext2.text = ((Input.GetKey(controls.keys["walkRight"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkLeft"]) ? 1 : 0), .05f, Time.deltaTime).ToString();
-		debugtext.text = (movementZHash, (Input.GetKey(controls.keys["walkUp"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkDown"]) ? 1 : 0), .05f, Time.deltaTime).ToString();
+	    animator.SetFloat(movementZHash, (Input.GetKey(controls.keys["walkUp"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkDown"]) ? 1 : 0)); //this should be the forward back axis
+		animator.SetFloat(movementXHash, (Input.GetKey(controls.keys["walkRight"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkLeft"]) ? 1 : 0)); //this should be the left right axis
+		debugtext2.text = ((Input.GetKey(controls.keys["walkRight"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkLeft"]) ? 1 : 0)).ToString();
+		debugtext.text = (movementZHash, (Input.GetKey(controls.keys["walkUp"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkDown"]) ? 1 : 0)).ToString();
            // animator.SetFloat(movementZHash, (Input.GetKey(controls.keys["walkUp"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkDown"]) ? 1 : 0)); //this should be the forward back axis
            // animator.SetFloat(movementXHash, (Input.GetKey(controls.keys["walkRight"])? 1 : 0) - (Input.GetKey(controls.keys["walkLeft"])? 1: 0)); //this should be the left right axis
         
