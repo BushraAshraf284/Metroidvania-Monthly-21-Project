@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
+using UnityEngine.UI;
 public class abilities : MonoBehaviour
 {
+	[SerializeField]
+	public GameObject reloadingSpikeIcon, reloadingMissileIcon, reloadingHomingMissileIcon, verticalBoostIcon, reloadingSpikeSlider, reloadingMissileSlider, reloadingHomingMissileSlider, VerticalBoostSlider;
 	[SerializeField]
 	GameObject missile1, missile2, missile3, missile4, missile5, missile6;
 	[SerializeField]
@@ -135,6 +138,7 @@ public class abilities : MonoBehaviour
 		missilePrefab = Instantiate(missile, missileSpawnPos.position, Quaternion.LookRotation(( missileSpawnPos.position - aimCast.transform.position), CustomGravity.GetUpAxis(this.transform.position)));
 		if(missilePrefab.GetComponent<Thruster>() != null){
 			missilePrefab.GetComponent<Thruster>().StartForce(aimCast.transform);
+			reloadingMissileIcon.SetActive(true);
 			missileReloading = true;
 			missileReloadCount = 0f;
 			worldMissile.SetActive(false);
@@ -148,6 +152,7 @@ public class abilities : MonoBehaviour
 			if(spikeShellPrefab.GetComponent<Rigidbody>() != null){
 				spikeShellPrefab.GetComponent<Rigidbody>().velocity = ((spikeshellSpawnPos.position - aimCast.transform.position).normalized * 5f + CustomGravity.GetUpAxis(this.transform.position) * 5f);
 			}
+			reloadingSpikeIcon.SetActive(true);
 			spikeReloading = true;
 			SpikeReloadCount = 0f;
 			worldSpike.SetActive(false);
@@ -225,6 +230,7 @@ public class abilities : MonoBehaviour
 			missile6.SetActive(false);
 		}
 		homingMissileReloading = true;
+		reloadingHomingMissileIcon.SetActive(true);
 		homingMissileReloadCount = 0f;
 	}
 
@@ -264,8 +270,12 @@ public class abilities : MonoBehaviour
 		if(missileReloading){
 			if(missileReloadCount < missileReloadTime){
 				missileReloadCount += Time.deltaTime;
+				//reloadingMissileIcon .SetActive(true);
+				reloadingMissileSlider.GetComponent<Slider>().value = missileReloadCount/missileReloadTime;
 			}
 			else{
+				reloadingMissileIcon .SetActive(false);
+				reloadingMissileSlider.GetComponent<Slider>().value = 0f;
 				worldMissile.SetActive(true);
 				missileReloading = false;
 				missileReloadCount = 0f;
@@ -275,8 +285,12 @@ public class abilities : MonoBehaviour
 		if(spikeReloading){
 			if(SpikeReloadCount < SpikeReloadTime){
 				SpikeReloadCount += Time.deltaTime;
+				//reloadingSpikeIcon .SetActive(true);
+				reloadingSpikeSlider.GetComponent<Slider>().value = SpikeReloadCount/SpikeReloadTime;
 			}
 			else{
+				reloadingSpikeIcon .SetActive(false);
+				reloadingSpikeSlider.GetComponent<Slider>().value = 0f;
 				worldSpike.SetActive(true);
 				spikeReloading = false;
 				SpikeReloadCount = 0f;
@@ -285,8 +299,12 @@ public class abilities : MonoBehaviour
 		if(homingMissileReloading){
 			if(homingMissileReloadCount < homingMissileReloadTime){
 				homingMissileReloadCount += Time.deltaTime;
+				//reloadingHomingMissileIcon .SetActive(true);
+				reloadingHomingMissileSlider.GetComponent<Slider>().value = homingMissileReloadCount/homingMissileReloadTime;
 			}
 			else{
+				reloadingHomingMissileIcon .SetActive(false);
+				reloadingHomingMissileSlider.GetComponent<Slider>().value = 0f;
 				missile1.SetActive(true);
 				missile2.SetActive(true);
 				missile3.SetActive(true);
@@ -459,9 +477,17 @@ public class abilities : MonoBehaviour
 	    	else{
 	    		anim.SetBool("VerticalBoost", true);
 				stats.DrainBattery(vertBoostEnergyCost);
+				verticalBoostIcon.SetActive(false);
+				VerticalBoostSlider.GetComponent<Slider>().value = 0f;
 	    	}
 	    	
 	    }
+		else if(Input.GetKeyUp(controls.keys["jump"])){
+			animCon.canHighJump = false;
+			animCon.jumpHeldTimer = 0f;
+			verticalBoostIcon.SetActive(false);
+			VerticalBoostSlider.GetComponent<Slider>().value = 0f;
+		}
 	    if(Input.GetKeyDown(controls.keys["rightWeaponMenu"]) && !FindObjectOfType<PauseMenu>().isPaused && upgrades.wepMan.totalRightWeapons > 0){
 		    
 		    int test = upgrades.wepMan.currentRightWeaponIndex+1;

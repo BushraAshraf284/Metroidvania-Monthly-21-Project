@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 //I need to properly use hashes, im kinda half assing it here
 
@@ -62,7 +63,8 @@ public class AnimationStateController : MonoBehaviour
     public bool enableDebugMessages = true;
 	//bool dashingGate = false;
 	bool jumpHeld;
-	float jumpHeldTimer;
+    [SerializeField]
+	public float jumpHeldTimer;
 	[SerializeField]
 	[Tooltip("How long you need to hold space for for vertical boost")]
 	float jumpHeldCap = 3f;
@@ -185,11 +187,12 @@ public class AnimationStateController : MonoBehaviour
     }
 
 	void Update() {
-		jumpHeld = Input.GetKey(sphere.controls.keys["jump"]) && !FindObjectOfType<PauseMenu>().isPaused && !sphere.moveBlocked;
+		jumpHeld = Input.GetKey(sphere.controls.keys["jump"]) && !FindObjectOfType<PauseMenu>().isPaused && !sphere.moveBlocked && abilities.upgrades.hasVertBoost;
 		if(jumpHeld && !canHighJump && isOnGround){
 			if(jumpHeldTimer < jumpHeldCap){
 				jumpHeldTimer += Time.deltaTime;
-				
+				abilities.verticalBoostIcon.SetActive(true);
+                abilities.VerticalBoostSlider.GetComponent<Slider>().value = (jumpHeldTimer/jumpHeldCap)*100;
 			}
 			else{
 				canHighJump = true;

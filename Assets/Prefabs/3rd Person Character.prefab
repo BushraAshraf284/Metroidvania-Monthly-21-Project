@@ -1980,6 +1980,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d67f2149609d90b46bd765de8fcadaf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reloadingSpikeIcon: {fileID: 0}
+  reloadingMissileIcon: {fileID: 0}
+  reloadingHomingMissileIcon: {fileID: 0}
+  verticalBoostIcon: {fileID: 0}
+  reloadingSpikeSlider: {fileID: 0}
+  reloadingMissileSlider: {fileID: 0}
+  reloadingHomingMissileSlider: {fileID: 0}
+  VerticalBoostSlider: {fileID: 0}
   missile1: {fileID: 4348713735133110544}
   missile2: {fileID: 7630592969749837739}
   missile3: {fileID: 9056800568678768986}
@@ -3400,7 +3408,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8290115595366480450
 Transform:
   m_ObjectHideFlags: 0
@@ -4166,9 +4174,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3615395559522239414}
   - component: {fileID: 3357164750942085730}
-  - component: {fileID: 78957982552683771}
   - component: {fileID: 2598229454076899391}
-  - component: {fileID: 1294919564192267820}
+  - component: {fileID: 3009710920915338154}
+  - component: {fileID: 5447904373836936670}
   m_Layer: 0
   m_Name: Interactable Icon
   m_TagString: Untagged
@@ -4243,18 +4251,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &78957982552683771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6618974797591326885}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ec45a73f44adb4a8b27270405619c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &2598229454076899391
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4277,7 +4273,29 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!54 &1294919564192267820
+--- !u!64 &3009710920915338154
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6618974797591326885}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
+--- !u!54 &5447904373836936670
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5131,6 +5149,7 @@ MonoBehaviour:
   abilities: {fileID: 759497653412688651}
   movementPressed: 0
   enableDebugMessages: 0
+  jumpHeldTimer: 0
   jumpHeldCap: 3
   canHighJump: 0
 --- !u!114 &7182043652414195628
