@@ -18,6 +18,10 @@ public class NPCInteractables : MonoBehaviour
 	public bool doneIntro;
 	GameObject player;
 	OrbitCamera cameraMovement;
+	public bool hasEvent;
+	
+	[SerializeField]
+	public bool nonDiagPopUp = false;
 	
 	public void DismissUI(){
 		UIPrompt.SetActive(false);
@@ -26,27 +30,27 @@ public class NPCInteractables : MonoBehaviour
 		cameraMovement.enabled = true;
 		Cursor.lockState = CursorLockMode.Locked;
 		player.GetComponent<PlayerInteraction>().inDialogue = false;
+		nonDiagPopUp = false;
 	}
 	
 	public void NPCRepair(){
-		if(!player.GetComponent<PlayerInteraction>().inDialogue){
-			Debug.Log("entered NPC repair");
-			if(player.GetComponent<UpgradeTracker>().repairKitCount > 0){
-				Debug.Log("repaired NPC!");
-				player.GetComponent<UpgradeTracker>().repairKitCount--;
-				repaired = true;
-				DismissUI();
-			}
-			else{
-				Debug.Log("not enough kits!");
-				DismissUI();
-				notEnoughKitsUI.SetActive(true);
-				player.GetComponent<Movement>().blockMovement();
-				cameraMovement.enabled = false;
-				Cursor.visible = true; //makes cursor visible
-				Cursor.lockState = CursorLockMode.None;//makes cursor moveable
-				player.GetComponent<PlayerInteraction>().inDialogue = true;
-			}
+		Debug.Log("entered NPC repair");
+		if(player.GetComponent<UpgradeTracker>().repairKitCount > 0){
+			Debug.Log("repaired NPC!");
+			player.GetComponent<UpgradeTracker>().repairKitCount--;
+			repaired = true;
+			DismissUI();
+		}
+		else{
+			Debug.Log("not enough kits!");
+			DismissUI();
+			notEnoughKitsUI.SetActive(true);
+			player.GetComponent<Movement>().blockMovement();
+			cameraMovement.enabled = false;
+			Cursor.visible = true; //makes cursor visible
+			Cursor.lockState = CursorLockMode.None;//makes cursor moveable
+			player.GetComponent<PlayerInteraction>().inDialogue = true;
+			nonDiagPopUp = true;
 		}
 	}
 
@@ -63,37 +67,37 @@ public class NPCInteractables : MonoBehaviour
 
     public void NPCInteract()
 	{
-		if(!player.GetComponent<PlayerInteraction>().inDialogue){
-			if(repaired){
-				Debug.Log("entered repaired npc dialogue");
-				if(!doneIntro){
-					diag.StartDialogue(npcDiag.introDialogue);
-					doneIntro = true;
-				}
-				else{
-					if(player.GetComponent<UpgradeTracker>().enteredWorld1){
-						diag.StartDialogue(npcDiag.enteredWorld1Dialgue);
-					}
-					else if(player.GetComponent<UpgradeTracker>().enteredWorld2){
-						diag.StartDialogue(npcDiag.enteredWorld2Dialgue);
-					}
-					else if(player.GetComponent<UpgradeTracker>().enteredBossArea){
-						diag.StartDialogue(npcDiag.preBossFightDialogue);
-					}
-					else{
-						diag.StartDialogue(npcDiag.hubWorldDialogue);
-					}
-				}
+		if(repaired){	
+			nonDiagPopUp = false;
+			Debug.Log("entered repaired npc dialogue");
+			if(!doneIntro){
+				diag.StartDialogue(npcDiag.introDialogue);
+				doneIntro = true;
 			}
 			else{
-				Debug.Log("initiated NPC repair");
-				player.GetComponent<Movement>().blockMovement();
-				cameraMovement.enabled = false;
-				Cursor.visible = true; //makes cursor visible
-				Cursor.lockState = CursorLockMode.None;//makes cursor moveable
-				UIPrompt.SetActive(true);
-				player.GetComponent<PlayerInteraction>().inDialogue = true;
+				if(player.GetComponent<UpgradeTracker>().enteredWorld1){
+					diag.StartDialogue(npcDiag.enteredWorld1Dialgue);
+				}
+				else if(player.GetComponent<UpgradeTracker>().enteredWorld2){
+					diag.StartDialogue(npcDiag.enteredWorld2Dialgue);
+				}
+				else if(player.GetComponent<UpgradeTracker>().enteredBossArea){
+					diag.StartDialogue(npcDiag.preBossFightDialogue);
+				}
+				else{
+					diag.StartDialogue(npcDiag.hubWorldDialogue);
+				}
 			}
 		}
-    }
+		else{
+			nonDiagPopUp = true;
+			Debug.Log("initiated NPC repair");
+			player.GetComponent<Movement>().blockMovement();
+			cameraMovement.enabled = false;
+			Cursor.visible = true; //makes cursor visible
+			Cursor.lockState = CursorLockMode.None;//makes cursor moveable
+			UIPrompt.SetActive(true);
+			player.GetComponent<PlayerInteraction>().inDialogue = true;
+		}
+	}
 }

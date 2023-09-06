@@ -1971,6 +1971,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactRange: 3
   inDialogue: 0
+  interactiveConvo: 0
+  nonDiagPopUp: 0
+  tempConsole: {fileID: 0}
 --- !u!114 &759497653412688651
 MonoBehaviour:
   m_ObjectHideFlags: 0

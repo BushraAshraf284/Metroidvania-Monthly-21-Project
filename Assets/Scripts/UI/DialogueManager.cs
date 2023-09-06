@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -94,9 +94,17 @@ public class DialogueManager : MonoBehaviour
         playerInt.inDialogue = false;
         movement.unblockMovement();
         cameraMovement.enabled = true;
-
+		
         dialogueBox.SetActive(false); //makes dialogue box disapear
-        Cursor.lockState = CursorLockMode.Locked;
+	    Cursor.lockState = CursorLockMode.Locked;
+	    if(!playerInt.nonDiagPopUp){
+		    if(playerInt.interactiveConvo){
+		    	if(playerInt.tempConsole != null){
+			    	playerInt.tempConsole.Interact();
+			    	playerInt.interactiveConvo = false;
+		    	}
+		    }
+	    }
     }
     
 }

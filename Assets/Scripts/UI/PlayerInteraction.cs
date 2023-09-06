@@ -8,7 +8,11 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField]
     float interactRange = 2.5f;
     public bool inDialogue;
-    DialogueManager manager;
+	DialogueManager manager;
+	public bool interactiveConvo;
+	public bool nonDiagPopUp;
+	public Console tempConsole;
+	
 
     private void Start()
     {
@@ -32,18 +36,35 @@ public class PlayerInteraction : MonoBehaviour
 			            }
 			            if (collider.TryGetComponent(out NPCInteractables npcInteractable))
 			            {
-                            if(!inDialogue){
+				            if(!inDialogue){
+					            nonDiagPopUp = false;
 			                    npcInteractable.NPCInteract();
-                                inDialogue = true;
+	                            inDialogue = true;
+	                            if(npcInteractable.hasEvent){
+		                            interactiveConvo = true;
+		                            if(npcInteractable.gameObject.GetComponent<Console>() != null){
+			                            tempConsole = npcInteractable.gameObject.GetComponent<Console>();
+			                            npcInteractable.hasEvent = false;
+		                            }
+	                            }
                             }
                             else{
-                            	//THIS IS AN ISSUE< WHEN YOU ARE DOING NON_DIALOGUE STUFF THUS FUCKS UP< FIX!!!
-                                manager.DisplayNextSentence();
+                            	if(npcInteractable.nonDiagPopUp){
+                            		nonDiagPopUp = true;
+                            	}
+                            	else{
+                            		nonDiagPopUp = false;
+                            		manager.DisplayNextSentence();
+                            	}
+                                
                             }
+
 			            }
 			            if (collider.TryGetComponent(out Console console))
 			            {
-			                console.Interact();
+			            	if(collider.gameObject.tag != "NPC"){
+				            	console.Interact();
+			            	}
 			            }
 		        	}
 		        }
