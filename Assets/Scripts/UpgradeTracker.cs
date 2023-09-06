@@ -17,6 +17,9 @@ public class UpgradeTracker : MonoBehaviour
 	public LeftWeaponEquipped leftWeapon;
 	public enum RightWeaponEquipped{Missiles, HomingMissiles, ShockSpike, none};
 	public RightWeaponEquipped rightWeapon;
+	public int repairKitCount;
+	[SerializeField]
+	public bool enteredWorld1, enteredWorld2, enteredBossArea;
     void Start()
 	{
 		foreach (GameObject g in GameObject.FindGameObjectsWithTag("Managers")){
@@ -72,7 +75,10 @@ public class UpgradeTracker : MonoBehaviour
 	    	DisableAllRightHandWeapons();
 	    }
     }
-    // Start is called before the first frame update
+	// Start is called before the first frame update
+	public void GetRepairKit(){
+		repairKitCount++;
+	}
     public void GetShieldUpgrade()
     {
         if (shieldPieceCount < 3)

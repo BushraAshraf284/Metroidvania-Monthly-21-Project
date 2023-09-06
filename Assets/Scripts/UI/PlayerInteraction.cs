@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    public Transform nearestInteractable;
-    GameObject[] interactables;
-    GameObject[] npcs;
     Controls controls;
     [SerializeField]
     float interactRange = 2.5f;
-    float minDistance = 999f;
     public bool inDialogue;
     DialogueManager manager;
 
@@ -18,20 +14,6 @@ public class PlayerInteraction : MonoBehaviour
     {
         controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
         manager = GameObject.Find("Dialogue Manager").GetComponentInChildren<DialogueManager>();
-        interactables = GameObject.FindGameObjectsWithTag("Interactable");
-        npcs = GameObject.FindGameObjectsWithTag("NPC");
-        foreach(GameObject g in interactables){
-            if(Vector3.Distance(this.transform.position, g.transform.position) < minDistance){
-                nearestInteractable = g.transform;
-                minDistance = Vector3.Distance(this.transform.position, g.transform.position);
-            }
-        }
-        foreach(GameObject g in npcs){
-            if(Vector3.Distance(this.transform.position, g.transform.position) < minDistance){
-                nearestInteractable = g.transform;
-                minDistance = Vector3.Distance(this.transform.position, g.transform.position);
-            }
-        }
     }
 
     private void Update()
@@ -55,6 +37,7 @@ public class PlayerInteraction : MonoBehaviour
                                 inDialogue = true;
                             }
                             else{
+                            	//THIS IS AN ISSUE< WHEN YOU ARE DOING NON_DIALOGUE STUFF THUS FUCKS UP< FIX!!!
                                 manager.DisplayNextSentence();
                             }
 			            }
