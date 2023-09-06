@@ -5,7 +5,7 @@ using UnityEngine;
 public class Upgrade : MonoBehaviour
 {
 	public bool isPickedUp;
-    public enum upgrade{ShockProng, ShockSpike, Missile, HomingMissiles, JetBooster, VerticalBooster, Sword, BatteryPiece, HeartPiece, ShieldPiece};
+	public enum upgrade{ShockProng, ShockSpike, Missile, HomingMissiles, JetBooster, VerticalBooster, Sword, BatteryPiece, HeartPiece, ShieldPiece, RepairKit};
     public upgrade whatUpgrade;
     [SerializeField]
     [Tooltip("Will this pickup dissapear when picked up?")]
@@ -99,6 +99,11 @@ public class Upgrade : MonoBehaviour
                 if( other.transform.root.gameObject.GetComponent<UpgradeTracker>() != null ){
                     other.transform.root.gameObject.GetComponent<UpgradeTracker>().GetBatteryUpgrade();
                 }
+            }
+            else if(whatUpgrade == upgrade.RepairKit){
+	            if( other.transform.root.gameObject.GetComponent<UpgradeTracker>() != null ){
+		            other.transform.root.gameObject.GetComponent<UpgradeTracker>().GetRepairKit();
+	            }
             }
 	        isPickedUp = true;
             if(dissapear){
