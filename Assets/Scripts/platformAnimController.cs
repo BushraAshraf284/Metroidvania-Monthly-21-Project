@@ -27,27 +27,37 @@ public class platformAnimController : MonoBehaviour
 	    }
     }
     public void ResetActivated(){
-        anim.SetBool("Activated", false);
-        isActivated = false;
+        if(isActivated){
+            anim.SetBool("Activated", false);
+            isActivated = false;
+        }
     }
     public void ResetExtraActivated(){
-        anim.SetBool("ExtraActivation", false);
-        isActivated = false;
+        if(isActivated){
+            anim.SetBool("ExtraActivation", false);
+            isActivated = false;
+        }
     }
     public void Activated(){
-        anim.SetBool("Activated", true);
-	    isActivated = true;
-	    isOpened = true;
+        if(!isActivated){
+            anim.SetBool("Activated", true);
+            isActivated = true;
+            isOpened = true;
+        }
     }
     public void ExtraActivated(){
-        anim.SetBool("ExtraActivation", true);
-	    isActivated = true;
-	    isOpened = true;
+        if(!isActivated){
+            anim.SetBool("ExtraActivation", true);
+            isActivated = true;
+            isOpened = true;
+        }
     }
     public void TempActivation(float time){
-        isActivated = true;
-        anim.SetBool("Activated", true);
-        Invoke("ResetActivated", time);
+        if(!isActivated){
+            isActivated = true;
+            anim.SetBool("Activated", true);
+            Invoke("ResetActivated", time);
+        }
         
     }
      public bool AnimatorIsPlaying(){

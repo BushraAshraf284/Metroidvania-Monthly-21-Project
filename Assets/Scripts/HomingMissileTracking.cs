@@ -34,8 +34,8 @@ public class HomingMissileTracking : MonoBehaviour
             }
             else{
                 RaycastHit hit;
-                if(Physics.Raycast(player.transform.position, (other.transform.position - player.transform.position), out hit, Mathf.Infinity, mask)){
-                    Debug.DrawRay(player.transform.position, (other.transform.position - player.transform.position), Color.green, 5f);
+                if(Physics.Raycast(player.transform.position, (other.gameObject.GetComponent<Targetable>().targetFocusPoint.position - player.transform.position), out hit, Mathf.Infinity, mask)){
+                    Debug.DrawRay(player.transform.position, (other.gameObject.GetComponent<Targetable>().targetFocusPoint.position - player.transform.position), Color.green, 5f);
                     if(hit.collider.gameObject.tag == "Targetable" && hit.collider.gameObject.GetComponent<Targetable>() != null){
                         inRangeObjects.Add(other.gameObject);
                         FindClosestTarget();

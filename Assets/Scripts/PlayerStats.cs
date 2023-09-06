@@ -188,16 +188,16 @@ public class PlayerStats : MonoBehaviour
 	}
     public void GetBatteryUpgrade(){
         if(batteryphase == BAPhase.Phase1){
-            batteryphase = BAPhase.Phase2;
+            batteryphase = BAPhase.Phase3;
             UpdateBatteryMaxes();
             batteryBar.gameObject.SetActive(false);
-            batteryBar2.gameObject.SetActive(true);
+            batteryBar3.gameObject.SetActive(true);
 
-            if(batteryBar2.batterySlider.GetComponent<Slider>() != null){
-                if(batteryBar2.fill.GetComponent<RectTransform>() != null){
+            if(batteryBar3.batterySlider.GetComponent<Slider>() != null){
+                if(batteryBar3.fill.GetComponent<RectTransform>() != null){
                     
-                    batteryBar2.batterySlider.GetComponent<Slider>().maxValue = MaxChargePhase2;
-                    batteryBar2.batterySlider.GetComponent<Slider>().fillRect = batteryBar2.fill.GetComponent<RectTransform>();
+                    batteryBar3.batterySlider.GetComponent<Slider>().maxValue = MaxChargePhase2;
+                    batteryBar3.batterySlider.GetComponent<Slider>().fillRect = batteryBar3.fill.GetComponent<RectTransform>();
                 }
             }
         }
@@ -262,14 +262,14 @@ public class PlayerStats : MonoBehaviour
     public void GetHPUpgrade(){
         if(healthphase == HPPhase.Phase1){
             healthBar.gameObject.SetActive(false);
-            healthBar2.gameObject.SetActive(true);
-            healthphase = HPPhase.Phase2;
+            healthBar3.gameObject.SetActive(true);
+            healthphase = HPPhase.Phase3;
             UpdateHPMaxes();
 
-            if(healthBar2.healthSlider.GetComponent<Slider>() != null){
-                if(healthBar2.fill.GetComponent<RectTransform>() != null){
-                    healthBar2.healthSlider.GetComponent<Slider>().maxValue = MaxHpPhase2;
-                    healthBar2.healthSlider.GetComponent<Slider>().fillRect = healthBar2.fill.GetComponent<RectTransform>();
+            if(healthBar3.healthSlider.GetComponent<Slider>() != null){
+                if(healthBar3.fill.GetComponent<RectTransform>() != null){
+                    healthBar3.healthSlider.GetComponent<Slider>().maxValue = MaxHpPhase2;
+                    healthBar3.healthSlider.GetComponent<Slider>().fillRect = healthBar3.fill.GetComponent<RectTransform>();
                 }
             }
         }

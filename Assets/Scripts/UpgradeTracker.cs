@@ -101,19 +101,9 @@ public class UpgradeTracker : MonoBehaviour
                 stats.GetHPUpgrade();
                 stats.hp = stats.MaxHP;
                 heartPieceCount = 0;
-                if (!hp1.activeInHierarchy)
-                {
-                    hp1.SetActive(true);
-                    hp11.SetActive(true);
-                }
-                else if (!hp2.activeInHierarchy)
-                {
-                    hp2.SetActive(true);
-                }
-                else
-                {
-                    Debug.Log("Already Have all Upgraddes!");
-                }
+                hp1.SetActive(true);
+                hp11.SetActive(true);
+                hp2.SetActive(true);
             }
             else
             {
@@ -128,21 +118,11 @@ public class UpgradeTracker : MonoBehaviour
         {
             if (batteryPieceCount + 1 >= 3)
             {
-                Debug.Log("Got All Three Pieces! Giving Shield Upgrade");
+                Debug.Log("Got All Three Pieces! Giving Battery Upgrade");
                 stats.GetBatteryUpgrade();
                 batteryPieceCount = 0;
-                if (!bat1.activeInHierarchy)
-                {
-                    bat1.SetActive(true);
-                }
-                else if (!bat2.activeInHierarchy)
-                {
-                    bat2.SetActive(true);
-                }
-                else
-                {
-                    Debug.Log("Already Have all Upgraddes!");
-                }
+                bat1.SetActive(true);
+                bat2.SetActive(true);
             }
             else
             {

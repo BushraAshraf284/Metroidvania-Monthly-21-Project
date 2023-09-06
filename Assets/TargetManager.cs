@@ -13,6 +13,7 @@ public class TargetManager : MonoBehaviour
     public void HitTarget(){
         targetsHit += 1;
         if(targetsHit >= targetAmount){
+            Debug.Log("SUCCESS!!");
             if(GetComponent<Console>()!=null){
                 GetComponent<Console>().Interact();
             }
