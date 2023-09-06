@@ -74,7 +74,7 @@ public class PlayerStats : MonoBehaviour
 	bool iFrameCooldownBlock;
 
     private void Awake()
-    {      
+    {
         hp = SaveData.Instance.playerHP;
         hasShield = SaveData.Instance.hasSheild;
         shieldCharge = SaveData.Instance.shieldCharge;
@@ -96,13 +96,13 @@ public class PlayerStats : MonoBehaviour
         SaveData.Instance.playerHP = hp;
         SaveLoad.SaveProgress();
     }
-    
+
 	public void DrainBattery(float drain){
 		if (charge - drain < 0){
 			//Debug.Log("Went from "+hp+" to 0");
             batteryChargeTimer = 0f;
 			charge = 0;
-            
+
         }
 		else {
 			//Debug.Log("Drained "+drain+" from total amount "+ charge+ " for a total " + (charge-drain));
@@ -111,7 +111,7 @@ public class PlayerStats : MonoBehaviour
 				charge = charge-drain;
 			}
 		}
-        
+
         // AudioManager.instance.PlayOneShot(FMODEvents.instance.playerBatteryDrain, this.transform.position);
     }
     public void ResetHasIFrames(){
@@ -125,7 +125,7 @@ public class PlayerStats : MonoBehaviour
             {
                 playerBatteryCharge.start();
             }
-            
+
         } else{
             playerBatteryCharge.stop(STOP_MODE.ALLOWFADEOUT);
         }
@@ -180,16 +180,16 @@ public class PlayerStats : MonoBehaviour
                 hasShield = false;
                 shieldCharge = 0f;
 
-                SaveData.Instance.hasSheild = hasShield; 
+                SaveData.Instance.hasSheild = hasShield;
                 SaveData.Instance.shieldCharge = shieldCharge;
                 SaveLoad.SaveProgress();
-            }   
+            }
         }
         else{
             Debug.Log("Took Damage during I Frames!");
         }
 
-       
+
 
     }
     public void GetShieldUpgrade(){
@@ -215,16 +215,16 @@ public class PlayerStats : MonoBehaviour
 	}
     public void GetBatteryUpgrade(){
         if(batteryphase == BAPhase.Phase1){
-            batteryphase = BAPhase.Phase2;
+            batteryphase = BAPhase.Phase3;
             UpdateBatteryMaxes();
             batteryBar.gameObject.SetActive(false);
-            batteryBar2.gameObject.SetActive(true);
+            batteryBar3.gameObject.SetActive(true);
 
-            if(batteryBar2.batterySlider.GetComponent<Slider>() != null){
-                if(batteryBar2.fill.GetComponent<RectTransform>() != null){
-                    
-                    batteryBar2.batterySlider.GetComponent<Slider>().maxValue = MaxChargePhase2;
-                    batteryBar2.batterySlider.GetComponent<Slider>().fillRect = batteryBar2.fill.GetComponent<RectTransform>();
+            if(batteryBar3.batterySlider.GetComponent<Slider>() != null){
+                if(batteryBar3.fill.GetComponent<RectTransform>() != null){
+
+                    batteryBar3.batterySlider.GetComponent<Slider>().maxValue = MaxChargePhase2;
+                    batteryBar3.batterySlider.GetComponent<Slider>().fillRect = batteryBar3.fill.GetComponent<RectTransform>();
                 }
             }
         }
@@ -269,7 +269,7 @@ public class PlayerStats : MonoBehaviour
 
 			if(batteryBar2.batterySlider.GetComponent<Slider>() != null){
 				if(batteryBar2.fill.GetComponent<RectTransform>() != null){
-                    
+
 					batteryBar2.batterySlider.GetComponent<Slider>().maxValue = MaxChargePhase2;
 					batteryBar2.batterySlider.GetComponent<Slider>().fillRect = batteryBar2.fill.GetComponent<RectTransform>();
 				}
@@ -292,15 +292,14 @@ public class PlayerStats : MonoBehaviour
     public void GetHPUpgrade(){
         if(healthphase == HPPhase.Phase1){
             healthBar.gameObject.SetActive(false);
-            healthBar2.gameObject.SetActive(true);
-            healthphase = HPPhase.Phase2;
-          
+            healthBar3.gameObject.SetActive(true);
+            healthphase = HPPhase.Phase3;
             UpdateHPMaxes();
 
-            if(healthBar2.healthSlider.GetComponent<Slider>() != null){
-                if(healthBar2.fill.GetComponent<RectTransform>() != null){
-                    healthBar2.healthSlider.GetComponent<Slider>().maxValue = MaxHpPhase2;
-                    healthBar2.healthSlider.GetComponent<Slider>().fillRect = healthBar2.fill.GetComponent<RectTransform>();
+            if(healthBar3.healthSlider.GetComponent<Slider>() != null){
+                if(healthBar3.fill.GetComponent<RectTransform>() != null){
+                    healthBar3.healthSlider.GetComponent<Slider>().maxValue = MaxHpPhase2;
+                    healthBar3.healthSlider.GetComponent<Slider>().fillRect = healthBar3.fill.GetComponent<RectTransform>();
                 }
             }
         }
@@ -324,7 +323,7 @@ public class PlayerStats : MonoBehaviour
     }
 	public void CheckHPUpgrade(){
 		if(healthphase == HPPhase.Phase1){
-			
+
 			if(healthBar3.gameObject.activeInHierarchy){
 				healthBar3.gameObject.SetActive(false);
 			}
@@ -378,7 +377,7 @@ public class PlayerStats : MonoBehaviour
 	}
     public void ChargeShield(float shieldChargeAmount){
         if (shieldCharge + shieldChargeAmount >= maxShieldCharge){
-            shieldCharge = maxShieldCharge; 
+            shieldCharge = maxShieldCharge;
             hasShield = true;
         }
         else{
@@ -401,7 +400,7 @@ public class PlayerStats : MonoBehaviour
 	        	//if it does equal zero, its coming from a fresh started scene
 	        	hp = MaxHpPhase1;
 	        }
-            
+
         }
         else if(healthphase == HPPhase.Phase2){
             Debug.Log("Got Health Upgrade #1!, Set max HP to " + MaxHpPhase2 + " From " + MaxCharge);
@@ -467,7 +466,7 @@ public class PlayerStats : MonoBehaviour
         //when game is started, it sets the slider max value to hp value
 		//healthBar.SetMaxHealth(hp);
 		if(hasShield){
-			
+
 		}
     }
 

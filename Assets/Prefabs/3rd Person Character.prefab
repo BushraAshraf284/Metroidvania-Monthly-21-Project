@@ -2028,6 +2028,7 @@ MonoBehaviour:
   homingMissileSpacingCap: 0.5
   homingMissileUpwardForceMax: 7000
   homingMissileUpwardForceMin: 3500
+  vertBoostEnergyCost: 25
 --- !u!1 &3287200117868977988
 GameObject:
   m_ObjectHideFlags: 0

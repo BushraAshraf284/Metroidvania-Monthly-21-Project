@@ -17,7 +17,9 @@ public class Targetable : MonoBehaviour
 	bool hasManager;
 	[SerializeField]
 	GameObject targetManager;
+	bool down;
 	public void ResetAnim(){
+		down = false;
 		if(animatorInParent){
 			if(this.transform.parent.gameObject.GetComponent<Animator>()!= null){
 				this.transform.parent.gameObject.GetComponent<Animator>().SetBool("Activated", false);
@@ -35,35 +37,37 @@ public class Targetable : MonoBehaviour
 		}
 	}
 	public void Triggered(){
-		if(HasEvent){
-			if(this.gameObject.GetComponent<Console>()!= null){
-				Debug.Log("Targetable thing you hit has has a valid console script!");
-				this.gameObject.GetComponent<Console>().Interact();
+		if(!down){
+			down = true;
+			if(HasEvent){
+				if(this.gameObject.GetComponent<Console>()!= null){
+					Debug.Log("Targetable thing you hit has has a valid console script!");
+					this.gameObject.GetComponent<Console>().Interact();
+				}
 			}
-		}
-		if(hasAnim){
-			if(animatorInParent){
-				if(this.transform.parent.gameObject.GetComponent<Animator>()!= null){
-					this.transform.parent.gameObject.GetComponent<Animator>().SetBool("Activated", true);
-					if(hasResetTime){
-						Invoke("ResetAnim", resetTime);
+			if(hasAnim){
+				if(animatorInParent){
+					if(this.transform.parent.gameObject.GetComponent<Animator>()!= null){
+						this.transform.parent.gameObject.GetComponent<Animator>().SetBool("Activated", true);
+						if(hasResetTime){
+							Invoke("ResetAnim", resetTime);
+						}
+					}
+				}
+				else{
+					if(this.gameObject.GetComponent<Animator>()!= null){
+						this.gameObject.GetComponent<Animator>().SetBool("Activated", true);
+						if(hasResetTime){
+							Invoke("ResetAnim", resetTime);
+						}
 					}
 				}
 			}
-			else{
-				if(this.gameObject.GetComponent<Animator>()!= null){
-					this.gameObject.GetComponent<Animator>().SetBool("Activated", true);
-					if(hasResetTime){
-						Invoke("ResetAnim", resetTime);
-					}
+			if(hasManager){
+				if(targetManager.GetComponent<TargetManager>()!=null){
+					targetManager.GetComponent<TargetManager>().HitTarget();
 				}
-			}
-		}
-		if(hasManager){
-			if(targetManager.GetComponent<TargetManager>()!=null){
-				targetManager.GetComponent<TargetManager>().HitTarget();
 			}
 		}
 	}
-
 }

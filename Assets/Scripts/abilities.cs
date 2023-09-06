@@ -93,6 +93,8 @@ public class abilities : MonoBehaviour
 	[SerializeField]
 	float homingMissileUpwardForceMin;
 	float homingMissileUpwardForce;
+	[SerializeField]
+	float vertBoostEnergyCost;
 
 	Transform homingMissileTarget1, homingMissileTarget2, homingMissileTarget3;
 
@@ -456,6 +458,7 @@ public class abilities : MonoBehaviour
 	    	}
 	    	else{
 	    		anim.SetBool("VerticalBoost", true);
+				stats.DrainBattery(vertBoostEnergyCost);
 	    	}
 	    	
 	    }
