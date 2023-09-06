@@ -21,6 +21,9 @@ public class FMODEvents : MonoBehaviour
 	[field: SerializeField] public EventReference playerJogJumpStop { get; private set; }
 	[field: SerializeField] public EventReference playerJogJumpLand { get; private set; }
 	[field: SerializeField] public EventReference playerShootMissle { get; private set; }
+	[field: SerializeField] public EventReference playerSwordAttack { get; private set; }
+	[field: SerializeField] public EventReference playerSwordAttackTwo { get; private set; }
+	[field: SerializeField] public EventReference playerSwordAttackThree { get; private set; }
 
 	[field: Header("Player Animation SFX - Flavor")]
 	[field: SerializeField] public EventReference playerServoSmall { get; private set; }
