@@ -19,6 +19,8 @@ public class NPCInteractables : MonoBehaviour
 	GameObject player;
 	OrbitCamera cameraMovement;
 	public bool hasEvent;
+	[SerializeField]
+	bool hasWakeAnim;
 	
 	[SerializeField]
 	public bool nonDiagPopUp = false;
@@ -40,6 +42,9 @@ public class NPCInteractables : MonoBehaviour
 			player.GetComponent<UpgradeTracker>().repairKitCount--;
 			repaired = true;
 			DismissUI();
+			if(hasWakeAnim){
+				GetComponent<Animator>().SetBool("Activated", true);
+			}
 		}
 		else{
 			Debug.Log("not enough kits!");
