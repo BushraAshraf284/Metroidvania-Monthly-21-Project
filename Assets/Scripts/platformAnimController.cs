@@ -9,6 +9,9 @@ public class platformAnimController : MonoBehaviour
     Animator anim;
     // Start is called before the first frame update
     public bool isActivated;
+    [SerializeField]
+
+    bool blocked;
     //soundeffect sound
 
     // public void startSound(){
@@ -27,36 +30,51 @@ public class platformAnimController : MonoBehaviour
 	    }
     }
     public void ResetActivated(){
-        if(isActivated){
-            anim.SetBool("Activated", false);
-            isActivated = false;
+        if(!blocked){
+            if(isActivated){
+                anim.SetBool("Activated", false);
+                isActivated = false;
+            }
         }
     }
     public void ResetExtraActivated(){
-        if(isActivated){
-            anim.SetBool("ExtraActivation", false);
-            isActivated = false;
+        if(!blocked){
+            if(isActivated){
+                anim.SetBool("ExtraActivation", false);
+                isActivated = false;
+            }
         }
     }
     public void Activated(){
-        if(!isActivated){
-            anim.SetBool("Activated", true);
-            isActivated = true;
-            isOpened = true;
+        if(!blocked){
+            if(!isActivated){
+                anim.SetBool("Activated", true);
+                isActivated = true;
+            }
         }
     }
+    public void ForceActivated(){
+        anim.SetBool("Activated", true);
+        isActivated = true;
+        isOpened = true;
+        blocked = true;
+    }
     public void ExtraActivated(){
-        if(!isActivated){
-            anim.SetBool("ExtraActivation", true);
-            isActivated = true;
-            isOpened = true;
+        if(!blocked){
+            if(!isActivated){
+                anim.SetBool("ExtraActivation", true);
+                isActivated = true;
+                isOpened = true;
+            }
         }
     }
     public void TempActivation(float time){
-        if(!isActivated){
-            isActivated = true;
-            anim.SetBool("Activated", true);
-            Invoke("ResetActivated", time);
+        if(!blocked){
+            if(!isActivated){
+                isActivated = true;
+                anim.SetBool("Activated", true);
+                Invoke("ResetActivated", time);
+            }
         }
         
     }

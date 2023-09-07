@@ -31,7 +31,7 @@ public class Console : MonoBehaviour
                             //p.GetComponent<platformAnimController>().sound.start()
                             gate = false;
                             Debug.Log("Moving a platform");
-                            p.GetComponent<platformAnimController>().Activated();
+                            p.GetComponent<platformAnimController>().ForceActivated();
                         }
                         else
                         {
