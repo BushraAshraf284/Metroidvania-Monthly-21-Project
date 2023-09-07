@@ -1041,7 +1041,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1414050341}
+    m_TransformParent: {fileID: 1109541309}
     m_Modifications:
     - target: {fileID: 1375935890778521068, guid: 1f1e341a41f5f1243a2f2b92de3b3190, type: 3}
       propertyPath: m_LocalScale.x
@@ -1449,11 +1449,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &124208885 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8866684653453386605, guid: 1f1e341a41f5f1243a2f2b92de3b3190, type: 3}
-  m_PrefabInstance: {fileID: 554995423}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &135452870 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 359b1df2ba5f9a342a4e6ba2e1e9443b, type: 3}
@@ -9392,7 +9387,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1414050341}
+    m_TransformParent: {fileID: 1109541309}
     m_Modifications:
     - target: {fileID: 1375935890778521068, guid: 1f1e341a41f5f1243a2f2b92de3b3190, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16690,6 +16685,8 @@ Transform:
   - {fileID: 652003248}
   - {fileID: 1228399106}
   - {fileID: 1051994709}
+  - {fileID: 1073562793}
+  - {fileID: 694994540}
   m_Father: {fileID: 1414050341}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1111339839 stripped
@@ -21750,8 +21747,6 @@ Transform:
   - {fileID: 704957632}
   - {fileID: 1469192795}
   - {fileID: 878034698}
-  - {fileID: 1073562793}
-  - {fileID: 694994540}
   - {fileID: 71620977}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -36044,6 +36039,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1241240851243652461, guid: dd8d4d526d9ebee498ef364052312c8e, type: 3}
+      propertyPath: Upgrades.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241240851243652461, guid: dd8d4d526d9ebee498ef364052312c8e, type: 3}
       propertyPath: Upgrades.Array.data[0]
       value: 
       objectReference: {fileID: 1182766372}
@@ -36062,7 +36061,7 @@ PrefabInstance:
     - target: {fileID: 1241240851243652461, guid: dd8d4d526d9ebee498ef364052312c8e, type: 3}
       propertyPath: Upgrades.Array.data[4]
       value: 
-      objectReference: {fileID: 124208885}
+      objectReference: {fileID: 71620976}
     - target: {fileID: 1241240851243652461, guid: dd8d4d526d9ebee498ef364052312c8e, type: 3}
       propertyPath: Upgrades.Array.data[5]
       value: 
