@@ -10,12 +10,12 @@ using TMPro;
 
 public class AnimationStateController : MonoBehaviour
 {
-	[SerializeField]
-	TextMeshProUGUI debugtext;
-	[SerializeField]
-	TextMeshProUGUI debugtext2;
-	[SerializeField]
-	TextMeshProUGUI debugtext3;
+	//[SerializeField]
+	//TextMeshProUGUI debugtext;
+	//[SerializeField]
+	//TextMeshProUGUI debugtext2;
+	//[SerializeField]
+	//TextMeshProUGUI debugtext3;
     public GameObject player = default;
     Movement sphere = default; 
     Animator animator;
@@ -208,48 +208,48 @@ public class AnimationStateController : MonoBehaviour
 		}
 	    speedometer = body.velocity.magnitude / speed.baseSpeed;
 		animator.SetFloat(speedHash, speedometer, .1f, Time.deltaTime);
-		debugtext3.text = speedometer.ToString();
+		//debugtext3.text = speedometer.ToString();
         
 	    if(animator.GetFloat(speedHash) < .001f) {
 		    animator.SetFloat(speedHash, 0f);
-		    debugtext3.text = "0";
+		    //debugtext3.text = "0";
 	    }
 	    else if( animator.GetFloat(speedHash) > .980){
 		    animator.SetFloat(speedHash, 1f);
-		    debugtext3.text = "1";
+		    //debugtext3.text = "1";
 	    }
         
 
 	    animator.SetFloat(movementZHash, (Input.GetKey(controls.keys["walkUp"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkDown"]) ? 1 : 0)); //this should be the forward back axis
 		animator.SetFloat(movementXHash, (Input.GetKey(controls.keys["walkRight"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkLeft"]) ? 1 : 0)); //this should be the left right axis
-		debugtext2.text = ((Input.GetKey(controls.keys["walkRight"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkLeft"]) ? 1 : 0)).ToString();
-		debugtext.text = (movementZHash, (Input.GetKey(controls.keys["walkUp"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkDown"]) ? 1 : 0)).ToString();
+		//debugtext2.text = ((Input.GetKey(controls.keys["walkRight"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkLeft"]) ? 1 : 0)).ToString();
+		//debugtext.text = (movementZHash, (Input.GetKey(controls.keys["walkUp"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkDown"]) ? 1 : 0)).ToString();
            // animator.SetFloat(movementZHash, (Input.GetKey(controls.keys["walkUp"]) ? 1 : 0) - (Input.GetKey(controls.keys["walkDown"]) ? 1 : 0)); //this should be the forward back axis
            // animator.SetFloat(movementXHash, (Input.GetKey(controls.keys["walkRight"])? 1 : 0) - (Input.GetKey(controls.keys["walkLeft"])? 1: 0)); //this should be the left right axis
         
         if(animator.GetFloat(movementXHash) > .9f){
 	        animator.SetFloat(movementXHash, 1f);
-	        debugtext2.text = "1";
+	        //debugtext2.text = "1";
         }
         if(animator.GetFloat(movementXHash) < -.9f){
 	        animator.SetFloat(movementXHash, -1f);
-	        debugtext2.text = "-1";
+	        //debugtext2.text = "-1";
         }
         else if( animator.GetFloat(movementXHash) < .05f && animator.GetFloat(movementXHash) > -.05f){
 	        animator.SetFloat(movementXHash, 0f);
-	        debugtext2.text = "0";
+	        //debugtext2.text = "0";
         }
         if(animator.GetFloat(movementZHash) > .9f){
 	        animator.SetFloat(movementZHash, 1f);
-	        debugtext.text = "1";
+	        //debugtext.text = "1";
         }
         if(animator.GetFloat(movementZHash) < -.9f){
 	        animator.SetFloat(movementZHash, -1f);
-	        debugtext.text = "-1";
+	        //debugtext.text = "-1";
         }
         else if( animator.GetFloat(movementZHash) < .05f && animator.GetFloat(movementZHash) > -.05f){
 	        animator.SetFloat(movementZHash, 0f);
-	        debugtext.text = "0";
+	        //debugtext.text = "0";
         }
 
 
