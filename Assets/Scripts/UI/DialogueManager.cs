@@ -71,7 +71,8 @@ public class DialogueManager : MonoBehaviour
     }
 
     IEnumerator TypeSentence (string sentence)//displays words in sentence with a delay
-    {
+	{
+		
         dialogueText.text = "";
         gate = 5;
         foreach (char letter in sentence.ToCharArray())
