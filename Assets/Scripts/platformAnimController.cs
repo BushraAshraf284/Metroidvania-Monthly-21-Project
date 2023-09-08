@@ -8,7 +8,8 @@ public class platformAnimController : MonoBehaviour
 	public bool isOpened;
     Animator anim;
     // Start is called before the first frame update
-    public bool isActivated;
+	public bool isActivated;
+	public bool isXTRAActivated;
     [SerializeField]
 
     bool blocked;
@@ -38,12 +39,10 @@ public class platformAnimController : MonoBehaviour
         }
     }
     public void ResetExtraActivated(){
-        if(!blocked){
-            if(isActivated){
-                anim.SetBool("ExtraActivation", false);
-                isActivated = false;
-            }
-        }
+	    if(isXTRAActivated){
+	        anim.SetBool("ExtraActivation", false);
+	        isXTRAActivated = false;
+	    }
     }
     public void Activated(){
         if(!blocked){
@@ -60,12 +59,9 @@ public class platformAnimController : MonoBehaviour
         blocked = true;
     }
     public void ExtraActivated(){
-        if(!blocked){
-            if(!isActivated){
-                anim.SetBool("ExtraActivation", true);
-                isActivated = true;
-                isOpened = true;
-            }
+        if(!isXTRAActivated){
+            anim.SetBool("ExtraActivation", true);
+            isXTRAActivated = true;
         }
     }
     public void TempActivation(float time){
