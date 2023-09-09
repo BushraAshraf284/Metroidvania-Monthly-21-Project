@@ -22,13 +22,15 @@ public class platformAnimController : MonoBehaviour
     // public void stop sound(){
         //Sound.stop;
     //}
-    void Start()
+
+    public void Init()
     {
-	    anim = GetComponent<Animator>();
-	    if(isOpened){
-		    anim.SetBool("Activated", true);
-		    isActivated = true;
-	    }
+        anim = GetComponent<Animator>();
+        if (isOpened)
+        {
+            anim.SetBool("Activated", true);
+            isActivated = true;
+        }
     }
     public void ResetActivated(){
         if(!blocked){
@@ -56,7 +58,9 @@ public class platformAnimController : MonoBehaviour
         anim.SetBool("Activated", true);
         isActivated = true;
         isOpened = true;
+
         blocked = true;
+        SaveManager.Instance.SaveDoorData();
     }
     public void ExtraActivated(){
         if(!isXTRAActivated){

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class SaveData{
@@ -33,7 +34,10 @@ public class SaveData{
 	public int BatteryPieceCount;
 
 	//World Upgrade
-	public bool isPickedUp;
+	public List<bool> UpgradesPickedUp;
+
+    //Door Upgrade
+    public List<bool> DoorsOpened;
 
 
 
@@ -42,7 +46,7 @@ public class SaveData{
 
 	//Constructor to check any tampering with the SaveData
     public SaveData(float hp, bool hasShield, float shieldCharge, bool hasShockProng, bool hasMissiles, bool hasSword, bool hasHomingMissiles, bool hasJetBoost, bool hasVertBoost, bool hasShockSpike,
-        int leftweapon, int rightWeapon, bool hasShieldUpgrade, int hpPhase, int batteryPhase, int heartPieceCount, int shieldPieceCount, int batteryPieceCount, bool isPickedUp)
+        int leftweapon, int rightWeapon, bool hasShieldUpgrade, int hpPhase, int batteryPhase, int heartPieceCount, int shieldPieceCount, int batteryPieceCount, List<bool> isPickedUp, List<bool> doorsOpened)
     {
         playerHP = hp;
         hasSheild = hasShield;
@@ -62,7 +66,8 @@ public class SaveData{
         HeartPieceCount = heartPieceCount;
         ShieldPieceCount = shieldPieceCount;
         BatteryPieceCount = batteryPieceCount;
-        this.isPickedUp = isPickedUp;
+        UpgradesPickedUp = isPickedUp;
+        DoorsOpened = doorsOpened;
     }
 
 

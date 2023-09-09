@@ -7,4 +7,9 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField]
     public List<GameObject> Upgrades = new List<GameObject>();
 
+    private void Awake()
+    {
+        SaveManager.Instance.LoadUpgrades();
+    }
+
 }
