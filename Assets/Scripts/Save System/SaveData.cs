@@ -33,20 +33,23 @@ public class SaveData{
 	public int ShieldPieceCount;
 	public int BatteryPieceCount;
 
-	//World Upgrade
-	public List<bool> UpgradesPickedUp;
-
-    //Door Upgrade
-    public List<bool> DoorsOpened;
+    public SceneData HubData;
+    public SceneData CaveData;
+    public SceneData ShipData;
 
 
 
     //Constructor to save actual GameData
-    public SaveData(){}
+    public SaveData(){
+
+    HubData = new SceneData();
+        CaveData = new SceneData();
+        ShipData = new SceneData();
+    }
 
 	//Constructor to check any tampering with the SaveData
     public SaveData(float hp, bool hasShield, float shieldCharge, bool hasShockProng, bool hasMissiles, bool hasSword, bool hasHomingMissiles, bool hasJetBoost, bool hasVertBoost, bool hasShockSpike,
-        int leftweapon, int rightWeapon, bool hasShieldUpgrade, int hpPhase, int batteryPhase, int heartPieceCount, int shieldPieceCount, int batteryPieceCount, List<bool> isPickedUp, List<bool> doorsOpened)
+        int leftweapon, int rightWeapon, bool hasShieldUpgrade, int hpPhase, int batteryPhase, int heartPieceCount, int shieldPieceCount, int batteryPieceCount, SceneData hubData, SceneData caveData, SceneData shipData)
     {
         playerHP = hp;
         hasSheild = hasShield;
@@ -66,10 +69,26 @@ public class SaveData{
         HeartPieceCount = heartPieceCount;
         ShieldPieceCount = shieldPieceCount;
         BatteryPieceCount = batteryPieceCount;
-        UpgradesPickedUp = isPickedUp;
-        DoorsOpened = doorsOpened;
+        HubData = hubData;
+        CaveData = caveData;
+        ShipData = shipData;
     }
 
 
 
 }
+
+[System.Serializable]
+public class SceneData
+{
+   public List<bool> DoorsOpened;
+   public List<bool> UpgradesPickedUp;
+
+    public SceneData() { 
+        DoorsOpened = new List<bool>();
+        UpgradesPickedUp = new List<bool>();
+    
+    }
+}
+
+public enum sceneType { Cave, Hub, Ship };

@@ -16,16 +16,19 @@ public class platformAnimController : MonoBehaviour
     //soundeffect sound
 
     // public void startSound(){
-        //Sound.play;
+    //Sound.play;
     //}
 
     // public void stop sound(){
-        //Sound.stop;
+    //Sound.stop;
     //}
-
-    public void Init()
+    private void Start()
     {
         anim = GetComponent<Animator>();
+    }
+    public void Init()
+    {
+       
         if (isOpened)
         {
             anim.SetBool("Activated", true);
