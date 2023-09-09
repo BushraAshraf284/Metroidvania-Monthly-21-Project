@@ -16,28 +16,36 @@ public class Upgrade : MonoBehaviour
     [SerializeField]
     [Tooltip("How long until this pickup reappears?")]
 	float reappearTimer = 5f;
-	protected void Start()
-	{
-		if(isPickedUp){
-			if(reappear){
-				if(GetComponent<BoxCollider>() != null){
-					if(GetComponent<MeshRenderer>()!= null){
-						GetComponent<BoxCollider>().enabled = false;
-						GetComponent<MeshRenderer>().enabled = false;
-						Invoke("ReappearTrigger", reappearTimer);
-					}
-				}
-			}
-			else{
-				Destroy(this.gameObject);
-			}
-                
-		}
-	}
+   
+
+    public void Init()
+    {
+        if (isPickedUp)
+        {
+            if (reappear)
+            {
+                if (GetComponent<BoxCollider>() != null)
+                {
+                    if (GetComponent<MeshRenderer>() != null)
+                    {
+                        GetComponent<BoxCollider>().enabled = false;
+                        GetComponent<MeshRenderer>().enabled = false;
+                        Invoke("ReappearTrigger", reappearTimer);
+                    }
+                }
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
+
+        }
+    }
     void ReappearTrigger(){
         if(GetComponent<BoxCollider>() != null){
 	        if(GetComponent<MeshRenderer>()!= null){
 		        isPickedUp = false;
+                SaveManager.Instance.SaveUpgrades();
                 GetComponent<BoxCollider>().enabled = true;
                 GetComponent<MeshRenderer>().enabled = true;
             }
@@ -106,7 +114,8 @@ public class Upgrade : MonoBehaviour
 	            }
             }
 	        isPickedUp = true;
-            if(dissapear){
+           SaveManager.Instance.SaveUpgrades();
+            if (dissapear){
                 if(reappear){
                     if(GetComponent<BoxCollider>() != null){
                         if(GetComponent<MeshRenderer>()!= null){
