@@ -2,36 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interaction : MonoBehaviour
+public class PlayerInteraction : MonoBehaviour
 {
-    public Transform nearestInteractable;
-    GameObject[] interactables;
-    GameObject[] npcs;
     Controls controls;
     [SerializeField]
     float interactRange = 2.5f;
-    float minDistance = 999f;
     public bool inDialogue;
-    DialogueManager manager;
+	DialogueManager manager;
+	public bool interactiveConvo;
+	public bool nonDiagPopUp;
+	public Console tempConsole;
+	
 
     private void Start()
     {
         controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
         manager = GameObject.Find("Dialogue Manager").GetComponentInChildren<DialogueManager>();
-        interactables = GameObject.FindGameObjectsWithTag("Interactable");
-        npcs = GameObject.FindGameObjectsWithTag("NPC");
-        foreach(GameObject g in interactables){
-            if(Vector3.Distance(this.transform.position, g.transform.position) < minDistance){
-                nearestInteractable = g.transform;
-                minDistance = Vector3.Distance(this.transform.position, g.transform.position);
-            }
-        }
-        foreach(GameObject g in npcs){
-            if(Vector3.Distance(this.transform.position, g.transform.position) < minDistance){
-                nearestInteractable = g.transform;
-                minDistance = Vector3.Distance(this.transform.position, g.transform.position);
-            }
-        }
     }
 
     private void Update()
@@ -50,17 +36,35 @@ public class Interaction : MonoBehaviour
 			            }
 			            if (collider.TryGetComponent(out NPCInteractables npcInteractable))
 			            {
-                            if(!inDialogue){
+				            if(!inDialogue){
+					            nonDiagPopUp = false;
 			                    npcInteractable.NPCInteract();
-                                inDialogue = true;
+	                            inDialogue = true;
+	                            if(npcInteractable.hasEvent){
+		                            interactiveConvo = true;
+		                            if(npcInteractable.gameObject.GetComponent<Console>() != null){
+			                            tempConsole = npcInteractable.gameObject.GetComponent<Console>();
+			                            npcInteractable.hasEvent = false;
+		                            }
+	                            }
                             }
                             else{
-                                manager.DisplayNextSentence();
+                            	if(npcInteractable.nonDiagPopUp){
+                            		nonDiagPopUp = true;
+                            	}
+                            	else{
+                            		nonDiagPopUp = false;
+                            		manager.DisplayNextSentence();
+                            	}
+                                
                             }
+
 			            }
 			            if (collider.TryGetComponent(out Console console))
 			            {
-			                console.Interact();
+			            	if(collider.gameObject.tag != "NPC"){
+				            	console.Interact();
+			            	}
 			            }
 		        	}
 		        }

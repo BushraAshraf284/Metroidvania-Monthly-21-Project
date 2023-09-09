@@ -3,7 +3,92 @@ guid: 583ebdee896ed6747a38c676a26d8948
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Battery.003
+    second: {fileID: 2100000, guid: 0b165ad450213dc438a91d4933b57498, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Breakable_Objects.003
+    second: {fileID: 2100000, guid: a71fc172cbc7adf42b48342c0b68e1d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brushed Rusted
+    second: {fileID: 2100000, guid: 90f04256c95f34d41a2eda3eaeb8f126, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Console.003
+    second: {fileID: 2100000, guid: 1668825d9ceab90448cddcbc67df429b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dark Brushed Metal
+    second: {fileID: 2100000, guid: d748a2046c69a6f48a87d1ace5f9251a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Door.003
+    second: {fileID: 2100000, guid: 295b14dd721b58e4ba6c2d5f954cde54, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Enemies.003
+    second: {fileID: 2100000, guid: 7af272891e9b2454394ea9070e826a55, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Heart_Piece.003
+    second: {fileID: 2100000, guid: e09660550df99c94288b817498a00083, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal Plating
+    second: {fileID: 2100000, guid: f27da926bb2080a41987dbb65ee565b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Moving_Platforms.003
+    second: {fileID: 2100000, guid: cb7a16cdfd6969944a32ce0817effd78, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: NPC.003
+    second: {fileID: 2100000, guid: b4a3545fdb41dd44a965ca106be8711f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: New_Material_2.003
+    second: {fileID: 2100000, guid: c354a9be0f09d394389a6298a2c377b2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ProBuilderDefault.003
+    second: {fileID: 2100000, guid: 2bdc8398bd8b0604293d2fa7bece20c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Repair_Kit.003
+    second: {fileID: 2100000, guid: 90559297aecd85f41a3f92319ca37ede, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Save_Point.003
+    second: {fileID: 2100000, guid: 205f53975a7da99459dd13f66e9bf9aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shield_Piece.003
+    second: {fileID: 2100000, guid: a531c431b8633414f856604d513ed583, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Upgrade.003
+    second: {fileID: 2100000, guid: 4775c0315ed2d164a8a038f730582487, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

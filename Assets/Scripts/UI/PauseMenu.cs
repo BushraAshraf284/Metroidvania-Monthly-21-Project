@@ -1,4 +1,4 @@
-//Author: Brian Meginness
+﻿//Author: Brian Meginness
 //Debugging: Brian Meginness, Travis Parks, Andrew Rodriguez
 using System.Collections;
 using System.Collections.Generic;
@@ -12,7 +12,8 @@ public class PauseMenu : MonoBehaviour
     GameObject pauseUI;
     GameObject settingUI;
     GameObject helpUI;
-    GameObject backgrnd;
+	GameObject backgrnd;
+	PlayerInteraction playerInt;
 
     //Flipflop bool to pause and unpause with the same button
     public bool isPaused = false;
@@ -21,7 +22,8 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Get components, make sure the game can't start paused
+	    //Get components, make sure the game can't start paused
+	    playerInt = GameObject.Find("3rd Person Character").GetComponent<PlayerInteraction>();
         pauseUI = gameObject.transform.Find("Top").gameObject;
         pauseUI.SetActive(false);
         settingUI = gameObject.transform.Find("Settings").gameObject;
@@ -39,18 +41,21 @@ public class PauseMenu : MonoBehaviour
         //IF pause key is pressed
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            //IF not paused, pause
-            if (!isPaused)
-            {
-                AudioManager.instance.PlayOneShot(FMODEvents.instance.pauseGameAudio, this.transform.position);
-                pause();
-            }
-            //IF paused, resume
-            else
-            {
-                AudioManager.instance.PlayOneShot(FMODEvents.instance.resumeGameAudio, this.transform.position);
-                resume();
-            }
+        	if(!playerInt.inDialogue){
+	            //IF not paused, pause
+	            if (!isPaused)
+	            {
+	                AudioManager.instance.PlayOneShot(FMODEvents.instance.pauseGameAudio, this.transform.position);
+	                pause();
+	            }
+	            //IF paused, resume
+	            else
+	            {
+	                AudioManager.instance.PlayOneShot(FMODEvents.instance.resumeGameAudio, this.transform.position);
+	                resume();
+	            }
+        	}
+            
         }
     }
 

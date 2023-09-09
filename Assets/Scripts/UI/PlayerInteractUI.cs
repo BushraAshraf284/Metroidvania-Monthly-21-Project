@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerInteractUI : MonoBehaviour
 {
+    [SerializeField]
+    GameObject interactableIcon;
     [SerializeField] private GameObject containerGameObject;
-    [SerializeField] private Interaction playerInteraction;
+    public PlayerInteraction playerInteraction;
     DialogueManager manager;
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -36,10 +38,12 @@ public class PlayerInteractUI : MonoBehaviour
     private void Show()
     {
         containerGameObject.SetActive(true);
+        interactableIcon.SetActive(true);
     }
 
     private void Hide()
     {
         containerGameObject.SetActive(false);
+        interactableIcon.SetActive(false);
     }
 }

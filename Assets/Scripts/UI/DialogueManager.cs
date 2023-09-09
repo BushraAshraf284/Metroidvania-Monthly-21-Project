@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,7 +20,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> sentences; 
     public GameObject dialogueBox;
     float gate;
-    Interaction playerInt;
+    PlayerInteraction playerInt;
     [SerializeField]
     GameObject interactText;
     public bool isDialoging;
@@ -29,8 +29,8 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         foreach (GameObject g in GameObject.FindGameObjectsWithTag("Player")){
-            if(g.GetComponent<Interaction>() != null){
-                playerInt = g.GetComponent<Interaction>();
+            if(g.GetComponent<PlayerInteraction>() != null){
+                playerInt = g.GetComponent<PlayerInteraction>();
             }
         }
         
@@ -71,7 +71,8 @@ public class DialogueManager : MonoBehaviour
     }
 
     IEnumerator TypeSentence (string sentence)//displays words in sentence with a delay
-    {
+	{
+		
         dialogueText.text = "";
         gate = 5;
         foreach (char letter in sentence.ToCharArray())
@@ -94,9 +95,17 @@ public class DialogueManager : MonoBehaviour
         playerInt.inDialogue = false;
         movement.unblockMovement();
         cameraMovement.enabled = true;
-
+		
         dialogueBox.SetActive(false); //makes dialogue box disapear
-        Cursor.lockState = CursorLockMode.Locked;
+	    Cursor.lockState = CursorLockMode.Locked;
+	    if(!playerInt.nonDiagPopUp){
+		    if(playerInt.interactiveConvo){
+		    	if(playerInt.tempConsole != null){
+			    	playerInt.tempConsole.Interact();
+			    	playerInt.interactiveConvo = false;
+		    	}
+		    }
+	    }
     }
     
 }

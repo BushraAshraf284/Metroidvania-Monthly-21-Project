@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class WeaponManager : MonoBehaviour
 {
+	abilities abil;
 	[SerializeField]
 	public GameObject swordIcon, shockProngIcon, noneLIcon, shockSpikeIcon, missileLauncherIcon, homingMissileIcon, noneRIcon;
 	UpgradeTracker upgrades;
@@ -29,12 +30,16 @@ public class WeaponManager : MonoBehaviour
 
     void Start()
 	{
+		
 		unlockedRightWeapon.Add("None");
 		unlockedLeftWeapon.Add("None");
 		
 		foreach(GameObject g in GameObject.FindGameObjectsWithTag("Player")){
 			if(g.GetComponent<UpgradeTracker>() != null){
 				upgrades = g.GetComponent<UpgradeTracker>();
+			}
+			if(g.GetComponent<abilities>() != null){
+				abil = g.GetComponent<abilities>();
 			}
 		}
 		shockProng = upgrades.shockProng;
@@ -140,7 +145,10 @@ public class WeaponManager : MonoBehaviour
 	    rightWeapon = RightWeaponEquipped.none;
         SaveData.Instance.RightWeaponEquipped = (int)rightWeapon;
         SaveLoad.SaveProgress();
-        upgrades.DisableAllRightHandWeapons();
+	    upgrades.DisableAllRightHandWeapons();
+		abil.reloadingSpikeIcon.SetActive(false);
+		abil.reloadingHomingMissileIcon.SetActive(false);
+		abil.reloadingMissileIcon.SetActive(false);
     }
 
     public void EquipSword()
@@ -188,26 +196,35 @@ public class WeaponManager : MonoBehaviour
 	    shockSpike.SetActive(true);
 	    shockSpikeIcon.SetActive(true);
 	    rightWeapon = RightWeaponEquipped.ShockSpike;
-	    upgrades.hasShockSpike = true;
-
-        SaveData.Instance.HasShockSpike = upgrades.hasShockSpike;
+	    upgrades.hasShockSpike = true;       
+    
+		if(abil.spikeReloading){
+			abil.reloadingSpikeIcon.SetActive(true);
+			abil.reloadingHomingMissileIcon.SetActive(false);
+			abil.reloadingMissileIcon.SetActive(false);
+		}
+		 SaveData.Instance.HasShockSpike = upgrades.hasShockSpike;
         SaveData.Instance.RightWeaponEquipped = (int)rightWeapon;
         SaveLoad.SaveProgress();
     }
 
     public void EquipMissiles()
-    {
-        Debug.Log("Equipping Missiles!");
-        DisableAllRightHandWeapons();
-	    missiles.SetActive(true);
-	    missileLauncherIcon.SetActive(true);
-	    rightWeapon = RightWeaponEquipped.Missiles;
-	    upgrades.hasMissiles = true;
-
-        SaveData.Instance.HasMissiles = upgrades.hasMissiles;
-        SaveData.Instance.RightWeaponEquipped = (int)rightWeapon;
-        SaveLoad.SaveProgress();
-    }
+        {
+            Debug.Log("Equipping Missiles!");
+            DisableAllRightHandWeapons();
+	        missiles.SetActive(true);
+	        missileLauncherIcon.SetActive(true);
+	        rightWeapon = RightWeaponEquipped.Missiles;
+	        upgrades.hasMissiles = true;
+			if(abil.missileReloading){
+				abil.reloadingSpikeIcon.SetActive(false);
+				abil.reloadingHomingMissileIcon.SetActive(false);
+				abil.reloadingMissileIcon.SetActive(true);
+			}
+			 SaveData.Instance.HasMissiles = upgrades.hasMissiles;
+			SaveData.Instance.RightWeaponEquipped = (int)rightWeapon;
+			SaveLoad.SaveProgress();
+        }
 
     public void EquipHomingMissiles()
         {
@@ -220,7 +237,14 @@ public class WeaponManager : MonoBehaviour
             SaveData.Instance.HasHomingMissiles = upgrades.hasHomingMissiles;
             SaveData.Instance.RightWeaponEquipped = (int)rightWeapon;
             SaveLoad.SaveProgress();
-    }
+    
+			if(abil.homingMissileReloading){
+				abil.reloadingSpikeIcon.SetActive(false);
+				abil.reloadingHomingMissileIcon.SetActive(true);
+				abil.reloadingMissileIcon.SetActive(false);
+			}
+        }
+		
 	public void EquipNoneRight()
 	{
 		Debug.Log("Equipping None!");
@@ -229,7 +253,10 @@ public class WeaponManager : MonoBehaviour
 		rightWeapon = RightWeaponEquipped.none;
         SaveData.Instance.RightWeaponEquipped = (int)rightWeapon;
         SaveLoad.SaveProgress();
-    }
+		abil.reloadingSpikeIcon.SetActive(false);
+		abil.reloadingHomingMissileIcon.SetActive(false);
+		abil.reloadingMissileIcon.SetActive(false);
+	}
 
 	public void SelectNextWeaponR()
     {

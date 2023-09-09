@@ -8,7 +8,11 @@ public class platformAnimController : MonoBehaviour
 	public bool isOpened;
     Animator anim;
     // Start is called before the first frame update
-    public bool isActivated;
+	public bool isActivated;
+	public bool isXTRAActivated;
+    [SerializeField]
+
+    bool blocked;
     //soundeffect sound
 
     // public void startSound(){
@@ -27,27 +31,47 @@ public class platformAnimController : MonoBehaviour
 	    }
     }
     public void ResetActivated(){
-        anim.SetBool("Activated", false);
-        isActivated = false;
+        if(!blocked){
+            if(isActivated){
+                anim.SetBool("Activated", false);
+                isActivated = false;
+            }
+        }
     }
     public void ResetExtraActivated(){
-        anim.SetBool("ExtraActivation", false);
-        isActivated = false;
+	    if(isXTRAActivated){
+	        anim.SetBool("ExtraActivation", false);
+	        isXTRAActivated = false;
+	    }
     }
     public void Activated(){
+        if(!blocked){
+            if(!isActivated){
+                anim.SetBool("Activated", true);
+                isActivated = true;
+            }
+        }
+    }
+    public void ForceActivated(){
         anim.SetBool("Activated", true);
-	    isActivated = true;
-	    isOpened = true;
+        isActivated = true;
+        isOpened = true;
+        blocked = true;
     }
     public void ExtraActivated(){
-        anim.SetBool("ExtraActivation", true);
-	    isActivated = true;
-	    isOpened = true;
+        if(!isXTRAActivated){
+            anim.SetBool("ExtraActivation", true);
+            isXTRAActivated = true;
+        }
     }
     public void TempActivation(float time){
-        isActivated = true;
-        anim.SetBool("Activated", true);
-        Invoke("ResetActivated", time);
+        if(!blocked){
+            if(!isActivated){
+                isActivated = true;
+                anim.SetBool("Activated", true);
+                Invoke("ResetActivated", time);
+            }
+        }
         
     }
      public bool AnimatorIsPlaying(){
