@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,14 +29,14 @@ public class HomingMissileTracking : MonoBehaviour
     /// <param name="other">The other Collider involved in this collision.</param>
     void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.tag == "Targetable" && other.gameObject.GetComponent<Targetable>() != null){
+	    if((other.gameObject.tag == "Breakable" || other.gameObject.tag == "Targetable") && other.gameObject.GetComponent<Targetable>() != null){
             if(inRangeObjects.Contains(other.gameObject)){
             }
             else{
                 RaycastHit hit;
                 if(Physics.Raycast(player.transform.position, (other.gameObject.GetComponent<Targetable>().targetFocusPoint.position - player.transform.position), out hit, Mathf.Infinity, mask)){
                     Debug.DrawRay(player.transform.position, (other.gameObject.GetComponent<Targetable>().targetFocusPoint.position - player.transform.position), Color.green, 5f);
-                    if(hit.collider.gameObject.tag == "Targetable" && hit.collider.gameObject.GetComponent<Targetable>() != null){
+	                if((hit.collider.gameObject.tag == "Breakable" || hit.collider.gameObject.tag == "Targetable") && hit.collider.gameObject.GetComponent<Targetable>() != null){
                         inRangeObjects.Add(other.gameObject);
                         FindClosestTarget();
                         FindSecondClosestTarget();
@@ -49,7 +49,7 @@ public class HomingMissileTracking : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.tag == "Targetable"){
+	    if(other.gameObject.tag == "Targetable" || other.gameObject.tag == "Breakable"){
             if(inRangeObjects.Contains(other.gameObject)){
                 inRangeObjects.Remove(other.gameObject);
                 FindClosestTarget();
@@ -76,6 +76,11 @@ public class HomingMissileTracking : MonoBehaviour
         homingIcon3.SetActive(false);
 
     }
+	public void ClearHud(){
+		homingIcon1.SetActive(false);
+		homingIcon2.SetActive(false);
+		homingIcon3.SetActive(false);
+	}
     // Start is called before the first frame update
     void Start()
     {

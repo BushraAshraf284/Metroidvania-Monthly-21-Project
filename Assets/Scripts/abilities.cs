@@ -383,6 +383,7 @@ public class abilities : MonoBehaviour
 			}
 			if(upgrades.hasHomingMissiles){
 				if(Input.GetKeyDown(controls.keys["attack"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked && !homingMissileReloading){
+					homingMissileVolume.GetComponent<HomingMissileTracking>().ClearHud();
 					if(homingMissileVolume.GetComponent<HomingMissileTracking>().target1 != null){
 						
 						if(homingMissileVolume.GetComponent<HomingMissileTracking>().target2 != null){
