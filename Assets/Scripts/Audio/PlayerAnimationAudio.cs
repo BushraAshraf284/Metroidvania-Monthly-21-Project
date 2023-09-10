@@ -106,6 +106,11 @@ public class PlayerAnimationAudio : MonoBehaviour
         PlayEvent(FMODEvents.instance.playerJogJumpLand);
     }
 
+    private void PlayVerticalBoost()
+    {
+        PlayEvent(FMODEvents.instance.playerVerticalBoost);
+    }
+
     private void PlayServoSmall()
     {
         AudioManager.instance.PlayOneShot(FMODEvents.instance.playerServoSmall, this.transform.position);

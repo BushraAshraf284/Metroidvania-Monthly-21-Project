@@ -20,6 +20,7 @@ public class FMODEvents : MonoBehaviour
 	[field: SerializeField] public EventReference playerJogJumpStart { get; private set; }
 	[field: SerializeField] public EventReference playerJogJumpStop { get; private set; }
 	[field: SerializeField] public EventReference playerJogJumpLand { get; private set; }
+	[field: SerializeField] public EventReference playerVerticalBoost { get; private set; }
 	[field: SerializeField] public EventReference playerShootMissle { get; private set; }
 	[field: SerializeField] public EventReference playerShockProngStart { get; private set; }
 	[field: SerializeField] public EventReference playerShockProngMid { get; private set; }
