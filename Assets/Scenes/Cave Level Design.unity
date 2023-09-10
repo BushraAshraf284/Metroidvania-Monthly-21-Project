@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.004
   m_LinearFogStart: -11.13
   m_LinearFogEnd: 293.19
-  m_AmbientSkyColor: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
+  m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1.79
@@ -3581,6 +3581,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 795569950}
+    - target: {fileID: 3332404802634451923, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332404802634451923, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473416939995107911, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473416939995107911, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3566879502321441327, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4003,6 +4019,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5938611391457604281, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
       propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983751825947850679, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5983751825947850679, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6012035546521624931, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
@@ -4436,6 +4460,14 @@ PrefabInstance:
     - target: {fileID: 8679735439991911765, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 8751245891487736978, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8751245891487736978, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8818141674630695142, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
       propertyPath: m_LocalScale.x
