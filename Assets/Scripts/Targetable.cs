@@ -20,6 +20,7 @@ public class Targetable : MonoBehaviour
 	bool down;
 	public void ResetAnim(){
 		down = false;
+		gameObject.tag = "Targetable";
 		if(animatorInParent){
 			if(this.transform.parent.gameObject.GetComponent<Animator>()!= null){
 				this.transform.parent.gameObject.GetComponent<Animator>().SetBool("Activated", false);
@@ -39,6 +40,7 @@ public class Targetable : MonoBehaviour
 	public void Triggered(){
 		if(!down){
 			down = true;
+			gameObject.tag = "Untagged";
 			if(HasEvent){
 				if(this.gameObject.GetComponent<Console>()!= null){
 					Debug.Log("Targetable thing you hit has has a valid console script!");

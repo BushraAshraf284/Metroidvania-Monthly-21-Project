@@ -176,7 +176,7 @@ public class abilities : MonoBehaviour
 		homingMissileUpwardForce = UnityEngine.Random.Range(homingMissileUpwardForceMin, homingMissileUpwardForceMax);
 		homingMissilePlaceholder = Instantiate(homingMissilePrefab, homingMissileSpawnPosition1.position, Quaternion.LookRotation(( homingMissileSpawnPosition1.position - aimCast.transform.position), CustomGravity.GetUpAxis(this.transform.position)));
 		if(homingMissilePlaceholder.GetComponent<Thruster>() != null){
-			homingMissilePlaceholder.GetComponent<Rigidbody>().AddForce(this.transform.up * homingMissileUpwardForce);
+			homingMissilePlaceholder.GetComponent<Rigidbody>().AddForce(CustomGravity.GetUpAxis(this.transform.position) * homingMissileUpwardForce);
 			homingMissilePlaceholder.GetComponent<Thruster>().StartForce(target);
 			missile1.SetActive(false);
 		}
@@ -186,7 +186,7 @@ public class abilities : MonoBehaviour
 		homingMissileUpwardForce = UnityEngine.Random.Range(homingMissileUpwardForceMin, homingMissileUpwardForceMax);
 		homingMissilePlaceholder = Instantiate(homingMissilePrefab, homingMissileSpawnPosition2.position, Quaternion.LookRotation(( homingMissileSpawnPosition2.position - aimCast.transform.position), CustomGravity.GetUpAxis(this.transform.position)));
 		if(homingMissilePlaceholder.GetComponent<Thruster>() != null){
-			homingMissilePlaceholder.GetComponent<Rigidbody>().AddForce(this.transform.up * homingMissileUpwardForce);
+			homingMissilePlaceholder.GetComponent<Rigidbody>().AddForce(CustomGravity.GetUpAxis(this.transform.position) * homingMissileUpwardForce);
 			homingMissilePlaceholder.GetComponent<Thruster>().StartForce(target);
 			missile2.SetActive(false);
 		}
@@ -196,7 +196,7 @@ public class abilities : MonoBehaviour
 		homingMissileUpwardForce = UnityEngine.Random.Range(homingMissileUpwardForceMin, homingMissileUpwardForceMax);
 		homingMissilePlaceholder = Instantiate(homingMissilePrefab, homingMissileSpawnPosition3.position, Quaternion.LookRotation(( homingMissileSpawnPosition3.position - aimCast.transform.position), CustomGravity.GetUpAxis(this.transform.position)));
 		if(homingMissilePlaceholder.GetComponent<Thruster>() != null){
-			homingMissilePlaceholder.GetComponent<Rigidbody>().AddForce(this.transform.up * homingMissileUpwardForce);
+			homingMissilePlaceholder.GetComponent<Rigidbody>().AddForce(CustomGravity.GetUpAxis(this.transform.position) * homingMissileUpwardForce);
 			homingMissilePlaceholder.GetComponent<Thruster>().StartForce(target);
 			missile3.SetActive(false);
 		}
@@ -206,7 +206,7 @@ public class abilities : MonoBehaviour
 		homingMissileUpwardForce = UnityEngine.Random.Range(homingMissileUpwardForceMin, homingMissileUpwardForceMax);
 		homingMissilePlaceholder = Instantiate(homingMissilePrefab, homingMissileSpawnPosition4.position, Quaternion.LookRotation(( homingMissileSpawnPosition4.position - aimCast.transform.position), CustomGravity.GetUpAxis(this.transform.position)));
 		if(homingMissilePlaceholder.GetComponent<Thruster>() != null){
-			homingMissilePlaceholder.GetComponent<Rigidbody>().AddForce(this.transform.up * homingMissileUpwardForce);
+			homingMissilePlaceholder.GetComponent<Rigidbody>().AddForce(CustomGravity.GetUpAxis(this.transform.position) * homingMissileUpwardForce);
 			homingMissilePlaceholder.GetComponent<Thruster>().StartForce(target);
 			missile4.SetActive(false);
 		}
@@ -216,7 +216,7 @@ public class abilities : MonoBehaviour
 		homingMissileUpwardForce = UnityEngine.Random.Range(homingMissileUpwardForceMin, homingMissileUpwardForceMax);
 		homingMissilePlaceholder = Instantiate(homingMissilePrefab, homingMissileSpawnPosition5.position, Quaternion.LookRotation(( homingMissileSpawnPosition5.position - aimCast.transform.position), CustomGravity.GetUpAxis(this.transform.position)));
 		if(homingMissilePlaceholder.GetComponent<Thruster>() != null){
-			homingMissilePlaceholder.GetComponent<Rigidbody>().AddForce(this.transform.up * homingMissileUpwardForce);
+			homingMissilePlaceholder.GetComponent<Rigidbody>().AddForce(CustomGravity.GetUpAxis(this.transform.position) * homingMissileUpwardForce);
 			homingMissilePlaceholder.GetComponent<Thruster>().StartForce(target);
 			missile5.SetActive(false);
 		}
@@ -226,7 +226,7 @@ public class abilities : MonoBehaviour
 		homingMissileUpwardForce = UnityEngine.Random.Range(homingMissileUpwardForceMin, homingMissileUpwardForceMax);
 		homingMissilePlaceholder = Instantiate(homingMissilePrefab, homingMissileSpawnPosition6.position, Quaternion.LookRotation(( homingMissileSpawnPosition6.position - aimCast.transform.position), CustomGravity.GetUpAxis(this.transform.position)));
 		if(homingMissilePlaceholder.GetComponent<Thruster>() != null){
-			homingMissilePlaceholder.GetComponent<Rigidbody>().AddForce(this.transform.up * homingMissileUpwardForce);
+			homingMissilePlaceholder.GetComponent<Rigidbody>().AddForce(CustomGravity.GetUpAxis(this.transform.position) * homingMissileUpwardForce);
 			homingMissilePlaceholder.GetComponent<Thruster>().StartForce(target);
 			missile6.SetActive(false);
 		}
