@@ -36,6 +36,21 @@ public class PlayerAnimationAudio : MonoBehaviour
         PlayEvent(FMODEvents.instance.playerShootMissle);
     }
 
+    private void PlayShockProngStart()
+    {
+        PlayEvent(FMODEvents.instance.playerShockProngStart);
+    }
+
+    private void PlayShockProngMid()
+    {
+        PlayEvent(FMODEvents.instance.playerShockProngMid);
+    }
+
+    private void PlayShockProngEnd()
+    {
+        PlayEvent(FMODEvents.instance.playerShockProngEnd);
+    }
+
     private void PlaySwordAttack()
     {
         PlayEvent(FMODEvents.instance.playerSwordAttack);
