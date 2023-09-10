@@ -11,6 +11,10 @@ public class MainMenuManager : MonoBehaviour
     private string sceneName;
     public void StartGame()
     {
+        // Loading Data
+        SaveData.Instance = new SaveData();
+        SaveLoad.LoadProgress();
+
         sceneName = "Hub Level Design";
         SceneManager.LoadScene(sceneName);
     }
