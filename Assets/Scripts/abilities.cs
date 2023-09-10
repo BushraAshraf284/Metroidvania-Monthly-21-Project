@@ -6,6 +6,7 @@ using UnityEngine.Animations.Rigging;
 using UnityEngine.UI;
 public class abilities : MonoBehaviour
 {
+	bool gravSwapping;
 	[SerializeField]
 	public GameObject reloadingSpikeIcon, reloadingMissileIcon, reloadingHomingMissileIcon, verticalBoostIcon, reloadingSpikeSlider, reloadingMissileSlider, reloadingHomingMissileSlider, VerticalBoostSlider;
 	[SerializeField]
@@ -237,7 +238,13 @@ public class abilities : MonoBehaviour
 	
     // Update is called once per frame
     void Update()
-    {
+	{
+		if( !Mathf.Approximately(rot.transform.up.y, CustomGravity.GetUpAxis(this.transform.position).y)){
+			gravSwapping = true;
+		}
+		else{
+			gravSwapping = false;
+		}
 		if(!homingMissileSpacingGate){
 			if(homingMissileSpacingCount < homingMissileSpacingCap){
 				homingMissileSpacingCount += Time.deltaTime;
@@ -324,7 +331,7 @@ public class abilities : MonoBehaviour
 		//}
 
 		//aiming
-	    if(Input.GetKey(controls.keys["zoom"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked && !move.delayedIsDashing && !swordAttacking){
+		if(Input.GetKey(controls.keys["zoom"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked && !move.delayedIsDashing && !swordAttacking && !gravSwapping){
 			aimingCrosshair.SetActive(true);
 			notAimingCrosshair.SetActive(false);
 			rot.Aim();
@@ -337,7 +344,7 @@ public class abilities : MonoBehaviour
 			
 	    }
 		//un-aiming
-	    else if((!Input.GetKey(controls.keys["zoom"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked) || move.delayedIsDashing || swordAttacking){
+		else if((!Input.GetKey(controls.keys["zoom"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked) || move.delayedIsDashing || swordAttacking || gravSwapping){
 			homingMissileSpacingGate = true;
 			homingMissileSpacingGate2 = true;
 			homingMissileSpacingCount = 0f;

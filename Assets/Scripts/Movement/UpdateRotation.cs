@@ -81,7 +81,8 @@ public class UpdateRotation : MonoBehaviour
 			}
 		}
 
-		if(this.transform.up != CustomGravity.GetUpAxis(this.transform.position)){
+		if( !Mathf.Approximately(this.transform.up.y, CustomGravity.GetUpAxis(this.transform.position).y)){
+			//Debug.Log("TESTING ROTATION" + this.transform.up.y + " vs " +CustomGravity.GetUpAxis(this.transform.position).y );
 			Quaternion toRotation = Quaternion.LookRotation( transform.forward , CustomGravity.GetUpAxis(this.transform.position) );
 			this.transform.rotation = Quaternion.RotateTowards (transform.rotation, toRotation, (gravRotationSpeed) * Time.deltaTime);
 		}
