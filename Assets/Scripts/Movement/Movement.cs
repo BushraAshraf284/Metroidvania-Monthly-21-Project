@@ -311,7 +311,7 @@ public class Movement : MonoBehaviour {
 				}
 				if(gravity.y > 0){
 					//Debug.Log("Gravity Flipped! ");
-					velocity += (jumpDirection.normalized * jumpSpeed * .5f) + (contactNormal * (movingJumpHeightH *.5f));
+					velocity += (jumpDirection.normalized * jumpSpeed * .7f) + (contactNormal * (movingJumpHeightH *.7f));
 				}
 				else{
 					//Debug.Log("Doing a moving jump at velocity:" + (velocity + (jumpDirection.normalized * jumpSpeed) + (contactNormal * movingJumpHeightH)).magnitude);

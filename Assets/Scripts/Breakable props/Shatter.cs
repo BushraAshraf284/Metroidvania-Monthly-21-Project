@@ -30,7 +30,9 @@ public class Shatter : MonoBehaviour
 	public bool bombBreak;
 	[SerializeField]
 	bool hasEvent;
-    public string breakSoundEvent;
+	public string breakSoundEvent;
+	public bool destroyRoot;
+	bool broken;
 	public void setBoomBlocked(bool plug){
 		
         boomBlocked = plug;
@@ -77,19 +79,30 @@ public class Shatter : MonoBehaviour
         }
     }
 	void spawnShatter(){
-		if(hasEvent){
-			if(this.gameObject.GetComponent<Console>()!= null){
-				this.gameObject.GetComponent<Console>().Interact();
+		if(!broken){
+			broken = true;
+			if(hasEvent){
+				if(this.gameObject.GetComponent<Console>()!= null){
+					this.gameObject.GetComponent<Console>().Interact();
+				}
+			}
+	        GameObject realShatter;
+	        realShatter = shatterPrefab[Random.Range(0, shatterPrefab.Length-1)];
+	        Instantiate(realShatter, shatterSpawnPos.transform.position, shatterSpawnPos.transform.rotation);
+	        if(explosionEffect != null){
+	            Instantiate(explosionEffect, transform.position, transform.rotation);
+	
+	
+	        }
+	        
+			
+			if(destroyRoot){
+				Destroy(this.transform.parent.gameObject);
+			}
+			else{
+				Destroy(this.gameObject);
 			}
 		}
-        GameObject realShatter;
-        realShatter = shatterPrefab[Random.Range(0, shatterPrefab.Length-1)];
-        Instantiate(realShatter, shatterSpawnPos.transform.position, shatterSpawnPos.transform.rotation);
-        if(explosionEffect != null){
-            Instantiate(explosionEffect, transform.position, transform.rotation);
-
-
-        }
-        Destroy(this.gameObject);
+		
     }
 }

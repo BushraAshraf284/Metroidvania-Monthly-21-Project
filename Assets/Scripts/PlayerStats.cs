@@ -73,16 +73,6 @@ public class PlayerStats : MonoBehaviour
 	float iFrameCount;
 	bool iFrameCooldownBlock;
 
-    private void Awake()
-    {      
-        hp = SaveData.Instance.playerHP;
-        hasShield = SaveData.Instance.hasSheild;
-        shieldCharge = SaveData.Instance.shieldCharge;
-        hasShieldUpgrade = SaveData.Instance.HasShieldUpgrade;
-        batteryphase = (BAPhase)SaveData.Instance.BatteryPhase;
-        healthphase =(HPPhase) SaveData.Instance.HPPhase;
-    }
-
 
     public void RestoreHP(float healAmount){
         AudioManager.instance.PlayOneShot(FMODEvents.instance.playerHeal, this.transform.position);
@@ -93,8 +83,6 @@ public class PlayerStats : MonoBehaviour
         else{
             hp += healAmount;
         }
-        SaveData.Instance.playerHP = hp;
-        SaveLoad.SaveProgress();
     }
     
 	public void DrainBattery(float drain){
@@ -156,8 +144,6 @@ public class PlayerStats : MonoBehaviour
                     AudioManager.instance.PlayOneShot(FMODEvents.instance.playerDeath, this.transform.position);
 
                     hp = 0;
-                    SaveData.Instance.playerHP = hp;
-                    SaveLoad.SaveProgress();
                 }
                 else {
 
@@ -168,8 +154,6 @@ public class PlayerStats : MonoBehaviour
                         hasIFrames = true;
                         iFrameCount = 0f;
                         hp = Mathf.Round(hp-damage);
-                        SaveData.Instance.playerHP = hp;
-                        SaveLoad.SaveProgress();
                     }
                 }
             }
@@ -179,29 +163,18 @@ public class PlayerStats : MonoBehaviour
                 iFrameCount = 0f;
                 hasShield = false;
                 shieldCharge = 0f;
-
-                SaveData.Instance.hasSheild = hasShield; 
-                SaveData.Instance.shieldCharge = shieldCharge;
-                SaveLoad.SaveProgress();
             }   
         }
         else{
             Debug.Log("Took Damage during I Frames!");
         }
-
-       
-
+        
     }
     public void GetShieldUpgrade(){
         if(!hasShieldUpgrade){
             shieldCell.transform.parent.gameObject.SetActive(true);
             hasShieldUpgrade = true;
             hasShield = true;
-
-            SaveData.Instance.hasSheild = hasShield;
-            SaveData.Instance.HasShieldUpgrade = hasShieldUpgrade;
-            SaveLoad.SaveProgress();
-
             Debug.Log("Got Shield Upgrade!");
         }
         else{
@@ -244,9 +217,6 @@ public class PlayerStats : MonoBehaviour
         else if(batteryphase == BAPhase.Phase3){
             Debug.Log("You already have all battery upgrades!");
         }
-
-        SaveData.Instance.BatteryPhase = (int)batteryphase;
-        SaveLoad.SaveProgress();
     }
 	public void CheckBatteryUpgrade(){
 		if(batteryphase == BAPhase.Phase1){
@@ -318,8 +288,6 @@ public class PlayerStats : MonoBehaviour
         else if(healthphase == HPPhase.Phase3){
             Debug.Log("You already have all Health upgrades!");
         }
-        SaveData.Instance.HPPhase = (int)healthphase;
-        SaveLoad.SaveProgress();
     }
 	public void CheckHPUpgrade(){
 		if(healthphase == HPPhase.Phase1){
@@ -383,10 +351,6 @@ public class PlayerStats : MonoBehaviour
         else{
             shieldCharge += shieldChargeAmount;
         }
-
-        SaveData.Instance.hasSheild = hasShield;
-        SaveData.Instance.shieldCharge = shieldCharge;
-        SaveLoad.SaveProgress();
     }
     void UpdateHPMaxes(){
         if(healthphase == HPPhase.Phase1){
@@ -424,8 +388,6 @@ public class PlayerStats : MonoBehaviour
 	        	hp = MaxHpPhase3;
 	        }
         }
-        SaveData.Instance.playerHP = hp;
-        SaveLoad.SaveProgress();
     }
     void UpdateShieldMaxes(){
         if(hasShieldUpgrade){

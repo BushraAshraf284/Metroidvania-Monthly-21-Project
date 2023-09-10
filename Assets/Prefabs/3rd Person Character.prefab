@@ -1871,7 +1871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseSpeed: 5
-  walkSpeed: 2.5
+  walkSpeed: 3.5
   currentSpeed: 0
   factor: 1
   slowed: 0
@@ -5072,9 +5072,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0316f09cc58f25e4a845451b443262af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugtext: {fileID: 0}
-  debugtext2: {fileID: 0}
-  debugtext3: {fileID: 0}
   player: {fileID: 3171487718812326108}
   stats: {fileID: 4154119855871724817}
   isOnGroundADJ: 0

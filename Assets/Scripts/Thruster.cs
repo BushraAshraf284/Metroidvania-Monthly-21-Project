@@ -39,10 +39,16 @@ public class Thruster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gate == false){
+	    if(gate == false){
+		    if(target != null){
+            	this.transform.rotation = Quaternion.LookRotation((transform.position - target.position), CustomGravity.GetUpAxis(this.transform.position));
+			    body.velocity = (target.position - this.transform.position).normalized * missileSpeed ;
+		    }
+		    else{
+			    this.transform.rotation = Quaternion.LookRotation((transform.position - transform.forward), CustomGravity.GetUpAxis(this.transform.position));
+			    body.velocity = (transform.forward - this.transform.position).normalized * missileSpeed ;
+		    }
             
-            this.transform.rotation = Quaternion.LookRotation((transform.position - target.position), CustomGravity.GetUpAxis(this.transform.position));
-            body.velocity = (target.position - this.transform.position).normalized * missileSpeed ;
         }
         if(burstGate == false){
             this.transform.rotation = Quaternion.LookRotation((transform.position - target.position), CustomGravity.GetUpAxis(this.transform.position));
@@ -76,7 +82,8 @@ public class Thruster : MonoBehaviour
             foreach (Collider hit in colliders3)
         	{
                 if (hit.gameObject.GetComponent<Shatter>() != null){
-                    hit.gameObject.GetComponent<Shatter>().oneShot(0);
+	                hit.gameObject.GetComponent<Shatter>().oneShot(0);
+                    
                 }
 
             }
