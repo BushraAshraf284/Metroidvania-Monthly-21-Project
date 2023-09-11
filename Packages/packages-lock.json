@@ -8,11 +8,10 @@
       "url": "https://packages.unity.com"
     },
     "com.poiyomi.toon": {
-      "version": "https://github.com/poiyomi/PoiyomiToonShader.git",
+      "version": "file:C:/Users/travp/Desktop/PoiyomiToonShader-master/PoiyomiToonShader-master",
       "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "4a540c0b0448311c20f5adcab64478ee61af8843"
+      "source": "local",
+      "dependencies": {}
     },
     "com.unity.ai.navigation": {
       "version": "1.1.4",
