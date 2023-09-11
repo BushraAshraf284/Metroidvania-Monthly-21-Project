@@ -10,7 +10,7 @@ public class DoorManager : MonoBehaviour
 
     private void Start()
     {
-        SaveManager.Instance.LoadDoors();
+        SaveManager.Instance.LoadDoors(type);
     }
 
 }

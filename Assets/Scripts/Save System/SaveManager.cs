@@ -79,10 +79,9 @@ public class SaveManager : MonoBehaviour
             }
         }
 
-        SaveLoad.SaveProgress();
     }
 
-    public void LoadDoors()
+    public void LoadDoors(sceneType sceneType)
     {
         if (sceneType == sceneType.Hub)
         {
@@ -192,10 +191,9 @@ public class SaveManager : MonoBehaviour
                 
             }
         }
-        SaveLoad.SaveProgress();
     }
 
-    public void LoadUpgrades()
+    public void LoadUpgrades(sceneType sceneType)
     { 
 
         if(sceneType == sceneType.Hub)

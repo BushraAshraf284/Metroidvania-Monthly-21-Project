@@ -125,8 +125,7 @@ public class WeaponManager : MonoBehaviour
 	    shockProngIcon.SetActive(false);
 	    noneLIcon.SetActive(false);
 	    leftWeapon = LeftWeaponEquipped.none;
-        SaveData.Instance.LeftWeaponEquipped = (int)leftWeapon;
-        SaveLoad.SaveProgress();
+		SaveData.Instance.LeftWeaponEquipped = (int)leftWeapon;
 	    upgrades.DisableAllLeftHandWeapons();
     }
     void DisableAllRightHandWeapons()
@@ -144,7 +143,6 @@ public class WeaponManager : MonoBehaviour
 	    noneRIcon.SetActive(false);
 	    rightWeapon = RightWeaponEquipped.none;
         SaveData.Instance.RightWeaponEquipped = (int)rightWeapon;
-        SaveLoad.SaveProgress();
 	    upgrades.DisableAllRightHandWeapons();
 		abil.reloadingSpikeIcon.SetActive(false);
 		abil.reloadingHomingMissileIcon.SetActive(false);
@@ -162,7 +160,6 @@ public class WeaponManager : MonoBehaviour
 	    upgrades.hasSword = true;
         SaveData.Instance.HasSword = upgrades.hasSword;
         SaveData.Instance.LeftWeaponEquipped = (int)leftWeapon;
-        SaveLoad.SaveProgress();
     }
 
 	public void EquipShockProng()
@@ -176,7 +173,6 @@ public class WeaponManager : MonoBehaviour
 	    upgrades.hasShockProng = true;
 		SaveData.Instance.HasShockProng = upgrades.hasShockProng;
 		SaveData.Instance.LeftWeaponEquipped = (int)leftWeapon;
-		SaveLoad.SaveProgress();
     }
 	public void EquipNoneLeft()
 	{
@@ -185,7 +181,6 @@ public class WeaponManager : MonoBehaviour
 		noneLIcon.SetActive(true);
 		leftWeapon = LeftWeaponEquipped.none;
         SaveData.Instance.LeftWeaponEquipped = (int)leftWeapon;
-        SaveLoad.SaveProgress();
 
     }
 
@@ -205,7 +200,6 @@ public class WeaponManager : MonoBehaviour
 		}
 		 SaveData.Instance.HasShockSpike = upgrades.hasShockSpike;
         SaveData.Instance.RightWeaponEquipped = (int)rightWeapon;
-        SaveLoad.SaveProgress();
     }
 
     public void EquipMissiles()
@@ -223,7 +217,6 @@ public class WeaponManager : MonoBehaviour
 			}
 			 SaveData.Instance.HasMissiles = upgrades.hasMissiles;
 			SaveData.Instance.RightWeaponEquipped = (int)rightWeapon;
-			SaveLoad.SaveProgress();
         }
 
     public void EquipHomingMissiles()
@@ -236,7 +229,6 @@ public class WeaponManager : MonoBehaviour
 	        upgrades.hasHomingMissiles = true;
             SaveData.Instance.HasHomingMissiles = upgrades.hasHomingMissiles;
             SaveData.Instance.RightWeaponEquipped = (int)rightWeapon;
-            SaveLoad.SaveProgress();
     
 			if(abil.homingMissileReloading){
 				abil.reloadingSpikeIcon.SetActive(false);
@@ -252,7 +244,6 @@ public class WeaponManager : MonoBehaviour
 		noneRIcon.SetActive(true);
 		rightWeapon = RightWeaponEquipped.none;
         SaveData.Instance.RightWeaponEquipped = (int)rightWeapon;
-        SaveLoad.SaveProgress();
 		abil.reloadingSpikeIcon.SetActive(false);
 		abil.reloadingHomingMissileIcon.SetActive(false);
 		abil.reloadingMissileIcon.SetActive(false);

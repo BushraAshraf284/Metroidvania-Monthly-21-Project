@@ -94,7 +94,6 @@ public class PlayerStats : MonoBehaviour
             hp += healAmount;
         }
         SaveData.Instance.playerHP = hp;
-        SaveLoad.SaveProgress();
     }
     
 	public void DrainBattery(float drain){
@@ -157,7 +156,6 @@ public class PlayerStats : MonoBehaviour
 
                     hp = 0;
                     SaveData.Instance.playerHP = hp;
-                    SaveLoad.SaveProgress();
                 }
                 else {
 
@@ -169,7 +167,6 @@ public class PlayerStats : MonoBehaviour
                         iFrameCount = 0f;
                         hp = Mathf.Round(hp-damage);
                         SaveData.Instance.playerHP = hp;
-                        SaveLoad.SaveProgress();
                     }
                 }
             }
@@ -182,7 +179,6 @@ public class PlayerStats : MonoBehaviour
 
                 SaveData.Instance.hasSheild = hasShield; 
                 SaveData.Instance.shieldCharge = shieldCharge;
-                SaveLoad.SaveProgress();
             }   
         }
         else{
@@ -200,7 +196,6 @@ public class PlayerStats : MonoBehaviour
 
             SaveData.Instance.hasSheild = hasShield;
             SaveData.Instance.HasShieldUpgrade = hasShieldUpgrade;
-            SaveLoad.SaveProgress();
 
             Debug.Log("Got Shield Upgrade!");
         }
@@ -246,7 +241,6 @@ public class PlayerStats : MonoBehaviour
         }
 
         SaveData.Instance.BatteryPhase = (int)batteryphase;
-        SaveLoad.SaveProgress();
     }
 	public void CheckBatteryUpgrade(){
 		if(batteryphase == BAPhase.Phase1){
@@ -319,7 +313,6 @@ public class PlayerStats : MonoBehaviour
             Debug.Log("You already have all Health upgrades!");
         }
         SaveData.Instance.HPPhase = (int)healthphase;
-        SaveLoad.SaveProgress();
     }
 	public void CheckHPUpgrade(){
 		if(healthphase == HPPhase.Phase1){
@@ -386,7 +379,6 @@ public class PlayerStats : MonoBehaviour
 
         SaveData.Instance.hasSheild = hasShield;
         SaveData.Instance.shieldCharge = shieldCharge;
-        SaveLoad.SaveProgress();
     }
     void UpdateHPMaxes(){
         if(healthphase == HPPhase.Phase1){
@@ -425,7 +417,6 @@ public class PlayerStats : MonoBehaviour
 	        }
         }
         SaveData.Instance.playerHP = hp;
-        SaveLoad.SaveProgress();
     }
     void UpdateShieldMaxes(){
         if(hasShieldUpgrade){
