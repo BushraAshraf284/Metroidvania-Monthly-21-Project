@@ -3557,6 +3557,14 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 170982129}
+    - target: {fileID: 764136955108117154, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
+      propertyPath: movement
+      value: 
+      objectReference: {fileID: 8676506}
+    - target: {fileID: 764136955108117154, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
+      propertyPath: cameraMovement
+      value: 
+      objectReference: {fileID: 236561298891365342}
     - target: {fileID: 764645794776491900, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -5174,6 +5182,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3566879502321441327, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
   m_PrefabInstance: {fileID: 458049919}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &458049923 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 764136955108117154, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
+  m_PrefabInstance: {fileID: 458049919}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ee1fb561edf6a4ab7e2844d7e7af4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &462138484 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6249043298797568936, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
@@ -13322,6 +13341,10 @@ PrefabInstance:
       propertyPath: wepMan
       value: 
       objectReference: {fileID: 586351944}
+    - target: {fileID: 5137862782602509900, guid: b030f36c590bc2140b4000c11f065699, type: 3}
+      propertyPath: itemScreen
+      value: 
+      objectReference: {fileID: 458049923}
     - target: {fileID: 5640127131531885126, guid: b030f36c590bc2140b4000c11f065699, type: 3}
       propertyPath: m_Mesh
       value: 

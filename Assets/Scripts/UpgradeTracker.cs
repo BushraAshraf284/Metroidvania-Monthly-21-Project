@@ -22,9 +22,9 @@ public class UpgradeTracker : MonoBehaviour
     [SerializeField]
     GetItemScreen itemScreen;
 
-    string heartDesc = "Collect 3 of these to increase your maximum health!";
-    string batteryDesc = "Collect 3 of these to increase your maximum battery!";
-    string shieldDesc = "Collect 3 of these to increase your maximum shield!";
+	string heartDesc = "You have increased your maximum health points!";
+	string batteryDesc = "You have increased your maximum battery charge!";
+	string shieldDesc = "You have unlocked the shield!";
 
     private void Awake()
     {

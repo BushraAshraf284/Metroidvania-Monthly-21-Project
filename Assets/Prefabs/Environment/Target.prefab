@@ -111,6 +111,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 8417361359673230750, guid: 5c11c9d688af590449991903c75d9581, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 382ea66e4d9ea394698cc461e7ab32ae, type: 2}
+    - target: {fileID: 8417361359673230750, guid: 5c11c9d688af590449991903c75d9581, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 488d5b6e127d597429102169bd6b115a, type: 2}
+    - target: {fileID: 8417361359673230750, guid: 5c11c9d688af590449991903c75d9581, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: fb477419bc928ab4c8b9edc815c54394, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -181,6 +193,8 @@ MonoBehaviour:
   hasResetTime: 1
   resetTime: 5
   animatorInParent: 1
+  hasManager: 0
+  targetManager: {fileID: 0}
 --- !u!114 &52380254316921016
 MonoBehaviour:
   m_ObjectHideFlags: 0

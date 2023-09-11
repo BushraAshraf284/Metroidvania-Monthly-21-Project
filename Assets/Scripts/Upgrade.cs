@@ -19,11 +19,11 @@ public class Upgrade : MonoBehaviour
 
     GetItemScreen itemScreen;
 
-    string shockProngDesc = "Press the attack button to swing this weapon and shock enemies hit.";
-    string shockSpikeDesc = "Aim and press the attack button to throw this item and shock your enemies from a distance!";
-    string missileDesc = "Aim to shoot these free aim missiles. You aim influences the missiles' direction.";
+	string shockProngDesc = "Press and hold the attack buton to charge nearby batteries";
+	string shockSpikeDesc = "Send a charge from a distance! Aim and fire to charge batteries far away";
+	string missileDesc = "Aim and fire to shoot a missile! Steer the missile to precisely hit your target";
     string homeMissileDesc = "Aim to lock onto enemies, and fire using the attack button.";
-    string jetBoostDesc = "Allows you to boost yourself forward by pressing the dash button.";
+	string jetBoostDesc = "Allows you to boost yourself forward by pressing the dash button. Jump while dashing for an extra boost!";
     string vertBoostDesc = "Allows you to jump higher by pressing and holding the jump button.";
     string swordDesc = "Press the attack button to swing your sword. Time your swings to do a triple attack!";
     string repairDesc = "Use this item to repair broken robots found throughout the hub.";
@@ -71,13 +71,13 @@ public class Upgrade : MonoBehaviour
     {
         if(other.gameObject.tag == "Player"){
             if(whatUpgrade == upgrade.ShockProng){
-                itemScreen.ShowItem("ShockProng", 6, shockProngDesc);
+                itemScreen.ShowItem("Shock Prong", 6, shockProngDesc);
                 if ( other.transform.root.gameObject.GetComponent<UpgradeTracker>() != null ){
                     other.transform.root.gameObject.GetComponent<UpgradeTracker>().UnlockShockProng();
                 }
             }
             else if(whatUpgrade == upgrade.ShockSpike){
-                itemScreen.ShowItem("ShockSpike", 7, shockSpikeDesc);
+                itemScreen.ShowItem("Shock Spike", 7, shockSpikeDesc);
                 if ( other.transform.root.gameObject.GetComponent<UpgradeTracker>() != null ){
                     other.transform.root.gameObject.GetComponent<UpgradeTracker>().UnlockShockSpike();
                 }
@@ -90,19 +90,19 @@ public class Upgrade : MonoBehaviour
                 
             }
             else if(whatUpgrade == upgrade.HomingMissiles){
-                itemScreen.ShowItem("HomingMissiles", 3, homeMissileDesc);
+                itemScreen.ShowItem("Homing Missiles", 3, homeMissileDesc);
                 if ( other.transform.root.gameObject.GetComponent<UpgradeTracker>() != null ){
                     other.transform.root.gameObject.GetComponent<UpgradeTracker>().UnlockHomingMissiles();
                 }
             }
             else if(whatUpgrade == upgrade.JetBooster){
-                itemScreen.ShowItem("JetBooster", 1, jetBoostDesc);
+                itemScreen.ShowItem("Jet Booster", 1, jetBoostDesc);
                 if ( other.transform.root.gameObject.GetComponent<UpgradeTracker>() != null ){
                     other.transform.root.gameObject.GetComponent<UpgradeTracker>().UnlockJetBoost();
                 }
             }
             else if(whatUpgrade == upgrade.VerticalBooster){
-                itemScreen.ShowItem("VerticalBooster", 9, vertBoostDesc);
+                itemScreen.ShowItem("Vertical Booster", 9, vertBoostDesc);
                 if ( other.transform.root.gameObject.GetComponent<UpgradeTracker>() != null ){
                     other.transform.root.gameObject.GetComponent<UpgradeTracker>().UnlockVertBoost();
                 }
