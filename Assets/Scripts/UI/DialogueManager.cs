@@ -77,7 +77,7 @@ public class DialogueManager : MonoBehaviour
         gate = 5;
         foreach (char letter in sentence.ToCharArray())
         {
-            if(gate == 5){
+	        if(gate == 5){
                 // NPC Dialogue Audio
                 AudioManager.instance.PlayOneShot(FMODEvents.instance.npcSFX, this.transform.position);
                 gate = 0;

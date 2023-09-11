@@ -16,19 +16,25 @@ public class platformAnimController : MonoBehaviour
     //soundeffect sound
 
     // public void startSound(){
-        //Sound.play;
+    //Sound.play;
     //}
 
     // public void stop sound(){
-        //Sound.stop;
+    //Sound.stop;
     //}
-    void Start()
+    private void Start()
     {
-	    anim = GetComponent<Animator>();
-	    if(isOpened){
-		    anim.SetBool("Activated", true);
-		    isActivated = true;
-	    }
+        anim = GetComponent<Animator>();
+    }
+    public void Init()
+    {
+       
+        if (isOpened)
+        {
+        	anim = GetComponent<Animator>();
+            anim.SetBool("Activated", true);
+            isActivated = true;
+        }
     }
     public void ResetActivated(){
         if(!blocked){
@@ -56,7 +62,9 @@ public class platformAnimController : MonoBehaviour
         anim.SetBool("Activated", true);
         isActivated = true;
         isOpened = true;
+
         blocked = true;
+        SaveManager.Instance.SaveDoorData();
     }
     public void ExtraActivated(){
         if(!isXTRAActivated){

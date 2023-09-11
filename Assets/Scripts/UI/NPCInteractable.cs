@@ -39,6 +39,7 @@ public class NPCInteractables : MonoBehaviour
 		Debug.Log("entered NPC repair");
 		if(player.GetComponent<UpgradeTracker>().repairKitCount > 0){
 			Debug.Log("repaired NPC!");
+			AudioManager.instance.PlayOneShot(FMODEvents.instance.npcRepairSuccessSFX, this.transform.position);
 			player.GetComponent<UpgradeTracker>().repairKitCount--;
 			repaired = true;
 			DismissUI();
@@ -48,6 +49,7 @@ public class NPCInteractables : MonoBehaviour
 		}
 		else{
 			Debug.Log("not enough kits!");
+			AudioManager.instance.PlayOneShot(FMODEvents.instance.npcRepairFailSFX, this.transform.position);
 			DismissUI();
 			notEnoughKitsUI.SetActive(true);
 			player.GetComponent<Movement>().blockMovement();
@@ -99,6 +101,7 @@ public class NPCInteractables : MonoBehaviour
 			Debug.Log("initiated NPC repair");
 			player.GetComponent<Movement>().blockMovement();
 			cameraMovement.enabled = false;
+			AudioManager.instance.PlayOneShot(FMODEvents.instance.npcPreChatSFX, this.transform.position);
 			Cursor.visible = true; //makes cursor visible
 			Cursor.lockState = CursorLockMode.None;//makes cursor moveable
 			UIPrompt.SetActive(true);
