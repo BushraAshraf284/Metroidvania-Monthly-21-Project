@@ -19,6 +19,13 @@ public class UpgradeTracker : MonoBehaviour
 	public enum RightWeaponEquipped{Missiles, HomingMissiles, ShockSpike, none};
 	public RightWeaponEquipped rightWeapon;
 
+    [SerializeField]
+    GetItemScreen itemScreen;
+
+    string heartDesc = "Collect 3 of these to increase your maximum health!";
+    string batteryDesc = "Collect 3 of these to increase your maximum battery!";
+    string shieldDesc = "Collect 3 of these to increase your maximum shield!";
+
     private void Awake()
     {
         heartPieceCount = SaveData.Instance.HeartPieceCount;
@@ -101,6 +108,7 @@ public class UpgradeTracker : MonoBehaviour
             if (shieldPieceCount + 1 >= 3)
             {
                 Debug.Log("Got All Three Pieces! Giving shield Upgrade");
+                itemScreen.ShowItem("ShieldPiece", 5, shieldDesc);
                 stats.GetShieldUpgrade();
                 shieldPieceCount = 0;
                 shield.SetActive(true);
@@ -121,6 +129,7 @@ public class UpgradeTracker : MonoBehaviour
             if (heartPieceCount + 1 >= 3)
             {
                 Debug.Log("Got All Three Pieces! Giving Health Upgrade");
+                itemScreen.ShowItem("HeartPiece", 2, heartDesc);
                 stats.GetHPUpgrade();
                 stats.hp = stats.MaxHP;
                 heartPieceCount = 0;
@@ -144,6 +153,7 @@ public class UpgradeTracker : MonoBehaviour
             if (batteryPieceCount + 1 >= 3)
             {
                 Debug.Log("Got All Three Pieces! Giving Battery Upgrade");
+                itemScreen.ShowItem("BatteryPiece", 0, batteryDesc);
                 stats.GetBatteryUpgrade();
                 batteryPieceCount = 0;
                 bat1.SetActive(true);
