@@ -481,11 +481,11 @@ MonoBehaviour:
     Path: event:/Player/Animation/Dash
   <playerDashStart>k__BackingField:
     Guid:
-      Data1: 1106595935
-      Data2: 1224382332
-      Data3: -1816544353
-      Data4: 12573969
-    Path: event:/Test/Test OneShot
+      Data1: 1995504347
+      Data2: 1161065982
+      Data3: -453089873
+      Data4: 787810020
+    Path: event:/Player/Animation/Dash
   <playerDashStop>k__BackingField:
     Guid:
       Data1: 1106595935
@@ -521,7 +521,35 @@ MonoBehaviour:
       Data3: -1816544353
       Data4: 12573969
     Path: event:/Test/Test OneShot
+  <playerVerticalBoost>k__BackingField:
+    Guid:
+      Data1: 1106595935
+      Data2: 1224382332
+      Data3: -1816544353
+      Data4: 12573969
+    Path: event:/Test/Test OneShot
   <playerShootMissle>k__BackingField:
+    Guid:
+      Data1: 1106595935
+      Data2: 1224382332
+      Data3: -1816544353
+      Data4: 12573969
+    Path: event:/Test/Test OneShot
+  <playerShockProngStart>k__BackingField:
+    Guid:
+      Data1: 1106595935
+      Data2: 1224382332
+      Data3: -1816544353
+      Data4: 12573969
+    Path: event:/Test/Test OneShot
+  <playerShockProngMid>k__BackingField:
+    Guid:
+      Data1: 1106595935
+      Data2: 1224382332
+      Data3: -1816544353
+      Data4: 12573969
+    Path: event:/Test/Test OneShot
+  <playerShockProngEnd>k__BackingField:
     Guid:
       Data1: 1106595935
       Data2: 1224382332
@@ -618,8 +646,29 @@ MonoBehaviour:
       Data2: 1112105558
       Data3: 756147620
       Data4: 1632129926
-    Path: event:/SFX/Battery Emitter
+    Path: event:/SFX/Emitter/Battery Emitter
   <npcSFX>k__BackingField:
+    Guid:
+      Data1: -1044998792
+      Data2: 1127959476
+      Data3: -1180990046
+      Data4: -878782857
+    Path: event:/SFX/NPC
+  <npcPreChatSFX>k__BackingField:
+    Guid:
+      Data1: 1106595935
+      Data2: 1224382332
+      Data3: -1816544353
+      Data4: 12573969
+    Path: event:/Test/Test OneShot
+  <npcRepairFailSFX>k__BackingField:
+    Guid:
+      Data1: 1106595935
+      Data2: 1224382332
+      Data3: -1816544353
+      Data4: 12573969
+    Path: event:/Test/Test OneShot
+  <npcRepairSuccessSFX>k__BackingField:
     Guid:
       Data1: 1106595935
       Data2: 1224382332
@@ -670,18 +719,25 @@ MonoBehaviour:
     Path: event:/Test/Test OneShot
   <pauseGameAudio>k__BackingField:
     Guid:
-      Data1: 1106595935
-      Data2: 1224382332
-      Data3: -1816544353
-      Data4: 12573969
-    Path: event:/Test/Test OneShot
+      Data1: 1223383888
+      Data2: 1124778661
+      Data3: 384692671
+      Data4: -1629982274
+    Path: event:/SFX/UI/Pause
   <resumeGameAudio>k__BackingField:
     Guid:
-      Data1: 1106595935
-      Data2: 1224382332
-      Data3: -1816544353
-      Data4: 12573969
-    Path: event:/Test/Test OneShot
+      Data1: 1973260849
+      Data2: 1255620272
+      Data3: 816526267
+      Data4: 1386470213
+    Path: event:/SFX/UI/Resume
+  <startGameAudio>k__BackingField:
+    Guid:
+      Data1: -933469392
+      Data2: 1288834525
+      Data3: 900931969
+      Data4: -847448106
+    Path: event:/SFX/UI/Start Game
   <testOneShot>k__BackingField:
     Guid:
       Data1: 1106595935

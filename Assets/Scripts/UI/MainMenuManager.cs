@@ -12,12 +12,20 @@ public class MainMenuManager : MonoBehaviour
     public void StartGame()
     {
         // Loading Data
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.startGameAudio, this.transform.position);
         SaveData.Instance = new SaveData();
         SaveLoad.LoadProgress();
 
         sceneName = "Hub Level Design";
         SceneManager.LoadScene(sceneName);
     }
+
+    /* Audio for options
+     For entering the options menu:
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.pauseGameAudio, this.transform.position);
+     For exiting the options menu:
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.resumeGameAudio, this.transform.position);
+     */
 
     public void QuitGame()
     {
