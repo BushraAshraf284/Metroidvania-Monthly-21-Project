@@ -145,9 +145,17 @@ public class SaveManager : MonoBehaviour
             for (int i = 0; i < upgradeManager.Upgrades.Count; i++)
             {
                if(upgradeManager.Upgrades[i] !=null)
-                {
-                    SaveData.Instance.HubData.UpgradesPickedUp[i] = upgradeManager.Upgrades[i].GetComponent<Upgrade>().isPickedUp;
-                    Debug.Log("i:" + i + "upgrade value" + SaveData.Instance.HubData.UpgradesPickedUp[i]);
+                {   
+                    if(i >= SaveData.Instance.HubData.UpgradesPickedUp.Count)
+                    {
+                        SaveData.Instance.HubData.UpgradesPickedUp.Add(upgradeManager.Upgrades[i].GetComponent<Upgrade>().isPickedUp);
+                    }
+                    else
+                    {
+                        SaveData.Instance.HubData.UpgradesPickedUp[i] = upgradeManager.Upgrades[i].GetComponent<Upgrade>().isPickedUp;
+                        Debug.Log("i:" + i + "upgrade value" + SaveData.Instance.HubData.UpgradesPickedUp[i]);
+                    }
+                   
                 }
                
             }
