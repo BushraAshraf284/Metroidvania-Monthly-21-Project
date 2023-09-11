@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,7 +9,9 @@ public class SaveManager : MonoBehaviour
     public sceneType sceneType;
     public DoorManager doorManager;
     public UpgradeManager upgradeManager;
+    public NPCManager NPCManager;
 
+    private List<NPCInteractables> interactables;
     public static SaveManager Instance { get; private set; }
 
     private void Awake()
@@ -24,6 +27,64 @@ public class SaveManager : MonoBehaviour
             Instance = this;
         }
 
+    }
+    private void Start()
+    {
+        if (NPCManager)
+        {
+            interactables = new List<NPCInteractables>();
+           for (int i = 0; i < NPCManager.NPCs.Count; i++)
+            {
+                interactables.Add(NPCManager.NPCs[i].GetComponent<NPCInteractables>());
+            }
+            LoadNPCData();
+           
+        }
+    }
+
+    public void SaveNPCsData()
+    {
+        if (SaveData.Instance.NPCsData == null)
+        {
+            SaveData.Instance.NPCsData = new NPCsData();
+        }
+        if (SaveData.Instance.NPCsData.NPCs.Count == 0)
+        {
+            for (int i = 0; i < interactables.Count; i++)
+            {
+                SaveData.Instance.NPCsData.NPCs.Add(new NPC(false, false));
+            }
+        }
+        for (int i = 0; i < interactables.Count; i++)
+        {
+            int index = i;
+            SaveData.Instance.NPCsData.NPCs[index].DoneIntro = interactables[index].doneIntro;
+            SaveData.Instance.NPCsData.NPCs[index].Repaired = interactables[index].repaired;
+        }
+    }
+
+    public void LoadNPCData()
+    {
+       if(NPCManager)
+        {
+            if (SaveData.Instance.NPCsData == null)
+            {
+                Debug.Log("Save data is null");
+                SaveData.Instance.NPCsData = new NPCsData();
+            }
+            for (int i = 0; i < interactables.Count; i++)
+            {
+                Debug.Log(SaveData.Instance.NPCsData.NPCs.Count);
+
+                if (i < SaveData.Instance.NPCsData.NPCs.Count)
+                {
+                    int index = i;
+                    interactables[index].doneIntro = SaveData.Instance.NPCsData.NPCs[index].DoneIntro;
+                    interactables[index].repaired = SaveData.Instance.NPCsData.NPCs[index].Repaired;
+                }
+                    
+            }
+        }
     }
 
 

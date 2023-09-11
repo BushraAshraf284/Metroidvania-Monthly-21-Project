@@ -46,6 +46,7 @@ public class NPCInteractables : MonoBehaviour
 			if(hasWakeAnim){
 				GetComponent<Animator>().SetBool("Activated", true);
 			}
+			SaveManager.Instance.SaveNPCsData();
 		}
 		else{
 			Debug.Log("not enough kits!");
@@ -80,7 +81,8 @@ public class NPCInteractables : MonoBehaviour
 			if(!doneIntro){
 				diag.StartDialogue(npcDiag.introDialogue);
 				doneIntro = true;
-			}
+                SaveManager.Instance.SaveNPCsData();
+            }
 			else{
 				if(player.GetComponent<UpgradeTracker>().enteredWorld1){
 					diag.StartDialogue(npcDiag.enteredWorld1Dialgue);

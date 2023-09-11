@@ -32,8 +32,6 @@ public class SaveLoadTrigger: MonoBehaviour
                 }
                 SceneManager.LoadScene(sceneName);
             }
-            else
-                Destroy(gameObject);
            
            
         }

@@ -33,10 +33,14 @@ public class SaveData{
 	public int ShieldPieceCount;
 	public int BatteryPieceCount;
 
+    // Each Scene Data (Doors and Upgrades)
     public SceneData HubData;
     public SceneData CaveData;
     public SceneData ShipData;
 
+    // NPC Data
+
+    public NPCsData NPCsData;
 
 
     //Constructor to save actual GameData
@@ -49,7 +53,7 @@ public class SaveData{
 
 	//Constructor to check any tampering with the SaveData
     public SaveData(float hp, bool hasShield, float shieldCharge, bool hasShockProng, bool hasMissiles, bool hasSword, bool hasHomingMissiles, bool hasJetBoost, bool hasVertBoost, bool hasShockSpike,
-        int leftweapon, int rightWeapon, bool hasShieldUpgrade, int hpPhase, int batteryPhase, int heartPieceCount, int shieldPieceCount, int batteryPieceCount, SceneData hubData, SceneData caveData, SceneData shipData)
+        int leftweapon, int rightWeapon, bool hasShieldUpgrade, int hpPhase, int batteryPhase, int heartPieceCount, int shieldPieceCount, int batteryPieceCount, SceneData hubData, SceneData caveData, SceneData shipData, NPCsData nPCsData)
     {
         playerHP = hp;
         hasSheild = hasShield;
@@ -72,6 +76,7 @@ public class SaveData{
         HubData = hubData;
         CaveData = caveData;
         ShipData = shipData;
+        NPCsData = nPCsData;
     }
 
 
@@ -89,6 +94,29 @@ public class SceneData
         UpgradesPickedUp = new List<bool>();
     
     }
+}
+
+[System.Serializable]
+public class NPCsData
+{
+    public List <NPC> NPCs;
+
+    public NPCsData()
+    {
+        NPCs = new List<NPC>();
+    }
+}
+
+[System.Serializable]
+public class NPC
+{
+    public bool DoneIntro;
+    public bool Repaired;
+
+    public NPC (bool doneIntro, bool repaired)
+    { this.DoneIntro = doneIntro; this.Repaired = repaired;}
+
+   
 }
 
 public enum sceneType { Cave, Hub, Ship };
