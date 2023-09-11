@@ -38,6 +38,8 @@ public class UpgradeTracker : MonoBehaviour
         hasJetBoost = SaveData.Instance.HasJetBoost;
         hasVertBoost = SaveData.Instance.HasVertBoost;
         hasShockSpike = SaveData.Instance.HasShockSpike;
+        leftWeapon = (LeftWeaponEquipped)SaveData.Instance.LeftWeaponEquipped;
+        rightWeapon = (RightWeaponEquipped)SaveData.Instance.RightWeaponEquipped;
     }
 	public int repairKitCount;
 	[SerializeField]
@@ -119,7 +121,6 @@ public class UpgradeTracker : MonoBehaviour
                 shieldPieceCount += 1;
             }
             SaveData.Instance.ShieldPieceCount = shieldPieceCount;
-            SaveLoad.SaveProgress();
         }
     }
     public void GetHeartUpgrade()
@@ -143,7 +144,6 @@ public class UpgradeTracker : MonoBehaviour
                 heartPieceCount += 1;
             }
             SaveData.Instance.HeartPieceCount = heartPieceCount;
-            SaveLoad.SaveProgress();
         }
     }
     public void GetBatteryUpgrade()
@@ -165,7 +165,6 @@ public class UpgradeTracker : MonoBehaviour
                 batteryPieceCount += 1;
             }
             SaveData.Instance.BatteryPieceCount = batteryPieceCount;
-            SaveLoad.SaveProgress();
         }
     }
 	public void DisableAllLeftHandWeapons()
@@ -177,7 +176,6 @@ public class UpgradeTracker : MonoBehaviour
 	    hasShockProng = false;
         SaveData.Instance.HasSword = hasSword;
         SaveData.Instance.HasShockProng = hasShockProng;
-        SaveLoad.SaveProgress();
         wepMan.swordIcon.SetActive(false);
 	    wepMan.shockProngIcon.SetActive(false);
 	    wepMan.noneLIcon.SetActive(false);
@@ -194,7 +192,7 @@ public class UpgradeTracker : MonoBehaviour
         SaveData.Instance.HasShockSpike = hasShockSpike;
         SaveData.Instance.HasHomingMissiles = hasHomingMissiles;
         SaveData.Instance.HasMissiles = hasMissiles;
-        SaveLoad.SaveProgress();
+     
 
         wepMan.missileLauncherIcon.SetActive(false);
 	    wepMan.homingMissileIcon.SetActive(false);
@@ -210,7 +208,6 @@ public class UpgradeTracker : MonoBehaviour
         swordBlade.SetActive(true);
 	    hasSword = true;
         SaveData.Instance.HasSword = hasSword;
-        SaveLoad.SaveProgress();
         wepMan.EquipSword();
 	    wepMan.totalLeftWeapons++;
 	    if(wepMan.currentLeftWeaponIndex+1 > wepMan.totalLeftWeapons){
@@ -237,8 +234,6 @@ public class UpgradeTracker : MonoBehaviour
 	    hasShockProng = true;
 
         SaveData.Instance.HasShockProng = hasShockProng;
-        SaveLoad.SaveProgress();
-
         wepMan.EquipShockProng();
 	    wepMan.totalLeftWeapons++;
 	    if(wepMan.currentLeftWeaponIndex+1 > wepMan.totalLeftWeapons){
@@ -262,7 +257,6 @@ public class UpgradeTracker : MonoBehaviour
         shockSpike.SetActive(true);
 	    hasShockSpike = true;
         SaveData.Instance.HasShockSpike = hasShockSpike;
-        SaveLoad.SaveProgress();
         wepMan.totalRightWeapons++;
 	    wepMan.EquipShockSpike();
 	    if(wepMan.currentRightWeaponIndex+1 > wepMan.totalRightWeapons){
@@ -287,7 +281,6 @@ public class UpgradeTracker : MonoBehaviour
 	    hasMissiles = true;
 
         SaveData.Instance.HasMissiles = hasMissiles;
-        SaveLoad.SaveProgress();
 
         wepMan.totalRightWeapons++;
 	    wepMan.EquipMissiles();
@@ -313,7 +306,6 @@ public class UpgradeTracker : MonoBehaviour
 	    hasHomingMissiles = true;
 
         SaveData.Instance.HasHomingMissiles= homingMissiles;
-        SaveLoad.SaveProgress(); 
 
         wepMan.totalRightWeapons++;
 	    wepMan.EquipHomingMissiles();
@@ -337,7 +329,6 @@ public class UpgradeTracker : MonoBehaviour
         jetBoost.SetActive(true);
         hasJetBoost = true;
         SaveData.Instance.HasJetBoost = hasJetBoost;
-        SaveLoad.SaveProgress();
     }
     public void UnlockVertBoost()
     {
@@ -345,7 +336,6 @@ public class UpgradeTracker : MonoBehaviour
         vertBoost.SetActive(true);
         hasVertBoost = true;
         SaveData.Instance.HasVertBoost = hasVertBoost;
-        SaveLoad.SaveProgress();
     }
 
 

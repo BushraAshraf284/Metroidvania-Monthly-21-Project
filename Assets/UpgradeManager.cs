@@ -10,7 +10,7 @@ public class UpgradeManager : MonoBehaviour
 
     private void Awake()
     {
-        SaveManager.Instance.LoadUpgrades();
+        SaveManager.Instance.LoadUpgrades(type);
     }
 
 }
