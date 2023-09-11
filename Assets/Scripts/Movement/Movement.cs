@@ -6,6 +6,8 @@ public class Movement : MonoBehaviour {
 	//CAN I DIFFERENTIATE BETWEEN CERTAIN TYPES OF STEEPS? ie a straight wall vs a sloped ramp? this would be nice!
 	//This script controls the movement of the character. Adapted from https://catlikecoding.com/unity/tutorials/movement/ by Travis Parks
 	[SerializeField]
+	GameObject [] boosters;
+	[SerializeField]
 	public Transform playerCenter;
 	[SerializeField]
 	public bool dashing;
@@ -119,6 +121,8 @@ public class Movement : MonoBehaviour {
 	}
     public Controls controls;
 	float boost;
+	bool boosterGate = false;
+	bool boosterGate2 = false;
 	//runs when object becomes active
 	void Awake () {
 		playerInputSpace = GameObject.Find("3rd Person Camera Empty").transform;
@@ -134,6 +138,24 @@ public class Movement : MonoBehaviour {
 	}
 	//runs every frame
 	void Update () {
+		if(delayedIsDashing){
+			if(!boosterGate){
+				boosterGate = true;
+				boosterGate2 = false;
+				foreach(GameObject g in boosters){
+					g.SetActive(true);
+				}
+			}
+		}
+		else if(!delayedIsDashing){
+			if(!boosterGate2){
+				boosterGate2 = true;
+				boosterGate = false;
+				foreach(GameObject g in boosters){
+					g.SetActive(false);
+				}
+			}
+		}
 		//responds to the jump keybind to allow jumping
 		//desiredJump |= Input.GetKeyDown(controls.keys["jump"]) && !FindObjectOfType<PauseMenu>().isPaused && !moveBlocked;
 
