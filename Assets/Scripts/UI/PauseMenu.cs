@@ -45,13 +45,11 @@ public class PauseMenu : MonoBehaviour
 	            //IF not paused, pause
 	            if (!isPaused)
 	            {
-	                AudioManager.instance.PlayOneShot(FMODEvents.instance.pauseGameAudio, this.transform.position);
 	                pause();
 	            }
 	            //IF paused, resume
 	            else
 	            {
-	                AudioManager.instance.PlayOneShot(FMODEvents.instance.resumeGameAudio, this.transform.position);
 	                resume();
 	            }
         	}
@@ -62,6 +60,7 @@ public class PauseMenu : MonoBehaviour
     //Pause the game by freezing time and enabling the menu
     void pause()
     {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.pauseGameAudio, this.transform.position);
         Time.timeScale = 0;
         pauseUI.SetActive(true);
         backgrnd.SetActive(true);
@@ -73,6 +72,7 @@ public class PauseMenu : MonoBehaviour
     //Unfreeze time, hide the menu
     public void resume()
     {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.resumeGameAudio, this.transform.position);
         Time.timeScale = 1;
         pauseUI.SetActive(false);
         helpUI.SetActive(false);
@@ -86,6 +86,7 @@ public class PauseMenu : MonoBehaviour
     //Show settings menu
     public void settings()
     {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.pauseGameAudio, this.transform.position);
         pauseUI.SetActive(false);
         settingUI.SetActive(true);
     }
@@ -93,6 +94,7 @@ public class PauseMenu : MonoBehaviour
     //Show help menu
     public void help()
     {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.pauseGameAudio, this.transform.position);
         pauseUI.SetActive(false);
         helpUI.SetActive(true);
     }
@@ -100,6 +102,7 @@ public class PauseMenu : MonoBehaviour
     //Return to top level pause menu
     public void back()
     {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.resumeGameAudio, this.transform.position);
         pauseUI.SetActive(true);
         helpUI.SetActive(false);
         settingUI.SetActive(false);
@@ -108,6 +111,7 @@ public class PauseMenu : MonoBehaviour
     //Return to main menu
     public void mainMenu()
     {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.pauseGameAudio, this.transform.position);
         Time.timeScale = 1;
         isPaused = false;
         SceneManager.LoadScene(0);

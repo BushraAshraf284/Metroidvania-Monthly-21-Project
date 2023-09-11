@@ -1880,7 +1880,7 @@ MonoBehaviour:
       Data2: 1074081054
       Data3: -1729246824
       Data4: -2049309086
-    Path: event:/SFX/Moving Platform
+    Path: event:/SFX/Emitter/Moving Platform
   Event: 
   PlayEvent: 1
   StopEvent: 0
@@ -32640,7 +32640,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 3b800ce3f3667d548b76a8cb794faf84, type: 3}
 --- !u!4 &2049380599 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6392432292319222001, guid: 3b800ce3f3667d548b76a8cb794faf84, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6098164313519264288, guid: 3b800ce3f3667d548b76a8cb794faf84, type: 3}
   m_PrefabInstance: {fileID: 2049380598}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2066026430
@@ -46153,166 +46153,6 @@ PrefabInstance:
     - target: {fileID: 6113672597100727410, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
       propertyPath: m_Name
       value: Audio Manager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <npcSFX>k__BackingField.Path
-      value: event:/SFX/NPC
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <npcSFX>k__BackingField.Guid.Data1
-      value: -1044998792
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <npcSFX>k__BackingField.Guid.Data2
-      value: 1127959476
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <npcSFX>k__BackingField.Guid.Data3
-      value: -1180990046
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <npcSFX>k__BackingField.Guid.Data4
-      value: -878782857
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <npcPreChatSFX>k__BackingField.Path
-      value: event:/Test/Test OneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <playerDashStart>k__BackingField.Path
-      value: event:/Player/Animation/Dash
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <npcRepairFailSFX>k__BackingField.Path
-      value: event:/Test/Test OneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <npcPreChatSFX>k__BackingField.Guid.Data1
-      value: 1106595935
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <npcPreChatSFX>k__BackingField.Guid.Data2
-      value: 1224382332
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <npcPreChatSFX>k__BackingField.Guid.Data3
-      value: -1816544353
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <npcPreChatSFX>k__BackingField.Guid.Data4
-      value: 12573969
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <npcRepairSuccessSFX>k__BackingField.Path
-      value: event:/Test/Test OneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <playerShockProngEnd>k__BackingField.Path
-      value: event:/Test/Test OneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <playerShockProngMid>k__BackingField.Path
-      value: event:/Test/Test OneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <playerDashStart>k__BackingField.Guid.Data1
-      value: 1995504347
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <playerDashStart>k__BackingField.Guid.Data2
-      value: 1161065982
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <playerDashStart>k__BackingField.Guid.Data3
-      value: -453089873
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <playerDashStart>k__BackingField.Guid.Data4
-      value: 787810020
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <playerShockProngStart>k__BackingField.Path
-      value: event:/Test/Test OneShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <npcRepairFailSFX>k__BackingField.Guid.Data1
-      value: 1106595935
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <npcRepairFailSFX>k__BackingField.Guid.Data2
-      value: 1224382332
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <npcRepairFailSFX>k__BackingField.Guid.Data3
-      value: -1816544353
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <npcRepairFailSFX>k__BackingField.Guid.Data4
-      value: 12573969
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <npcRepairSuccessSFX>k__BackingField.Guid.Data1
-      value: 1106595935
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <npcRepairSuccessSFX>k__BackingField.Guid.Data2
-      value: 1224382332
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <npcRepairSuccessSFX>k__BackingField.Guid.Data3
-      value: -1816544353
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <npcRepairSuccessSFX>k__BackingField.Guid.Data4
-      value: 12573969
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <playerShockProngEnd>k__BackingField.Guid.Data1
-      value: 1106595935
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <playerShockProngEnd>k__BackingField.Guid.Data2
-      value: 1224382332
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <playerShockProngEnd>k__BackingField.Guid.Data3
-      value: -1816544353
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <playerShockProngEnd>k__BackingField.Guid.Data4
-      value: 12573969
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <playerShockProngMid>k__BackingField.Guid.Data1
-      value: 1106595935
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <playerShockProngMid>k__BackingField.Guid.Data2
-      value: 1224382332
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <playerShockProngMid>k__BackingField.Guid.Data3
-      value: -1816544353
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <playerShockProngMid>k__BackingField.Guid.Data4
-      value: 12573969
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <playerShockProngStart>k__BackingField.Guid.Data1
-      value: 1106595935
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <playerShockProngStart>k__BackingField.Guid.Data2
-      value: 1224382332
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <playerShockProngStart>k__BackingField.Guid.Data3
-      value: -1816544353
-      objectReference: {fileID: 0}
-    - target: {fileID: 6591679595806927947, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
-      propertyPath: <playerShockProngStart>k__BackingField.Guid.Data4
-      value: 12573969
       objectReference: {fileID: 0}
     - target: {fileID: 8384032269744895725, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
       propertyPath: m_LocalPosition.x

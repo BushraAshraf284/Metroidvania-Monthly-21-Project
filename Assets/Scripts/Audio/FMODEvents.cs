@@ -64,6 +64,7 @@ public class FMODEvents : MonoBehaviour
 	[field: SerializeField] public EventReference interactSFX { get; private set; }
 	[field: SerializeField] public EventReference pauseGameAudio { get; private set; }
 	[field: SerializeField] public EventReference resumeGameAudio { get; private set; }
+	[field: SerializeField] public EventReference startGameAudio { get; private set; }
 
 
 	[field: Header("Testing Audio")]
