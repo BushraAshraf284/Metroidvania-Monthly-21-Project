@@ -8,10 +8,11 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Alien Plating
-  m_Shader: {fileID: 4800000, guid: 784867d15973a4847b1a6048d42c1565, type: 3}
+  m_Shader: {fileID: 4800000, guid: a6822787db2d95945b03705fb55b172f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
+  m_ValidKeywords: []
+  m_InvalidKeywords:
   - MOCHIE_PBR
   - POI_VERTEX_GLITCHING_TEXTURE
   - VIGNETTE_MASKED
@@ -20,12 +21,12 @@ Material:
   - _RIM2STYLE_POIYOMI
   - _RIMSTYLE_POIYOMI
   - _STOCHASTICMODE_DELIOT_HEITZ
-  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
+    AllLockedGUIDS: 38a4d0b579ce8084c928783a8a470195
     OriginalKeywords: MOCHIE_PBR POI_VERTEX_GLITCHING_TEXTURE VIGNETTE_MASKED _GLOSSYREFLECTIONS_OFF
       _LIGHTINGMODE_REALISTIC _RIM2STYLE_POIYOMI _RIMSTYLE_POIYOMI _STOCHASTICMODE_DELIOT_HEITZ
     OriginalShader: .poiyomi/Poiyomi 8.1/Poiyomi World
@@ -1649,7 +1650,7 @@ Material:
     - _LightingAdditiveLimited: 0
     - _LightingAdditiveMonochromatic: 0
     - _LightingAdditivePassthrough: 0.5
-    - _LightingAdditiveType: 1
+    - _LightingAdditiveType: 0
     - _LightingCap: 1
     - _LightingCapEnabled: 1
     - _LightingCastedShadows: 0
@@ -2157,7 +2158,7 @@ Material:
     - _Set_RimLightMaskChannel: 1
     - _Set_RimLightMaskUV: 0
     - _ShadeColor_Step: 0
-    - _ShaderOptimizerEnabled: 0
+    - _ShaderOptimizerEnabled: 1
     - _ShaderUIWarning0: -0
     - _ShaderUIWarning1: -0
     - _ShadingEnabled: 1
@@ -2624,7 +2625,7 @@ Material:
     - m_start_Matcap4: 0
     - m_start_PathAudioLink: 0
     - m_start_PoiLightData: 0
-    - m_start_PoiShading: 0
+    - m_start_PoiShading: 1
     - m_start_RGBAColors: 0
     - m_start_RGBMask: 0
     - m_start_Rim2AudioLink: 0

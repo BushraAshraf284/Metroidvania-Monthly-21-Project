@@ -8,23 +8,28 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Neuron Wall
-  m_Shader: {fileID: 4800000, guid: 784867d15973a4847b1a6048d42c1565, type: 3}
+  m_Shader: {fileID: 4800000, guid: f009a8af2ba4bb34d8d2169b0b73b80b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
+  m_ValidKeywords: []
+  m_InvalidKeywords:
   - MOCHIE_PBR
   - VIGNETTE_MASKED
   - _GLOSSYREFLECTIONS_OFF
-  - _LIGHTINGMODE_FLAT
+  - _LIGHTINGMODE_REALISTIC
   - _RIM2STYLE_POIYOMI
   - _RIMSTYLE_POIYOMI
   - _STOCHASTICMODE_DELIOT_HEITZ
-  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
-  stringTagMap: {}
+  stringTagMap:
+    AllLockedGUIDS: 21b1f1ac940458e4fbb97fa0f1a529bb
+    OriginalKeywords: MOCHIE_PBR VIGNETTE_MASKED _GLOSSYREFLECTIONS_OFF _LIGHTINGMODE_REALISTIC
+      _RIM2STYLE_POIYOMI _RIMSTYLE_POIYOMI _STOCHASTICMODE_DELIOT_HEITZ
+    OriginalShader: .poiyomi/Poiyomi 8.1/Poiyomi World
+    RenderType: Opaque
   disabledShaderPasses: []
   m_LockedProperties: _Metallic _MetallicGlossMap
   m_SavedProperties:
@@ -1627,7 +1632,7 @@ Material:
     - _LightingAdditiveLimited: 0
     - _LightingAdditiveMonochromatic: 0
     - _LightingAdditivePassthrough: 0.5
-    - _LightingAdditiveType: 1
+    - _LightingAdditiveType: 0
     - _LightingCap: 1
     - _LightingCapEnabled: 1
     - _LightingCastedShadows: 0
@@ -1647,7 +1652,7 @@ Material:
     - _LightingIndirectUsesNormals: 0
     - _LightingMapMode: 0
     - _LightingMinLightBrightness: 0
-    - _LightingMode: 5
+    - _LightingMode: 6
     - _LightingMonochromatic: 0
     - _LightingMulitlayerNonLinear: 1
     - _LightingShadowMaskStrengthA: 0
@@ -2135,7 +2140,7 @@ Material:
     - _Set_RimLightMaskChannel: 1
     - _Set_RimLightMaskUV: 0
     - _ShadeColor_Step: 0
-    - _ShaderOptimizerEnabled: 0
+    - _ShaderOptimizerEnabled: 1
     - _ShaderUIWarning0: -0
     - _ShaderUIWarning1: -0
     - _ShadingEnabled: 1

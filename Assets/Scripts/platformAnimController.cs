@@ -31,6 +31,7 @@ public class platformAnimController : MonoBehaviour
        
         if (isOpened)
         {
+        	anim = GetComponent<Animator>();
             anim.SetBool("Activated", true);
             isActivated = true;
         }
