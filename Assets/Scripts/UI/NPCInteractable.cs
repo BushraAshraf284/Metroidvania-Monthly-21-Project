@@ -71,6 +71,9 @@ public class NPCInteractables : MonoBehaviour
 	    		player = g;
 	    	}
 	    }
+		if(repaired){
+			GetComponent<Animator>().SetBool("Activated", true);
+		}
     }
 
     public void NPCInteract()
