@@ -88,6 +88,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 94edcef3e7343134e97ebede72e0737c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7569508998475427179}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 94edcef3e7343134e97ebede72e0737c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7867933245884504695}
   m_SourcePrefab: {fileID: 100100000, guid: 94edcef3e7343134e97ebede72e0737c, type: 3}
 --- !u!1 &8936191340930747844 stripped
 GameObject:
@@ -130,6 +133,7 @@ MonoBehaviour:
   speed: 1
   height: 0.5
   rotation: 15
+  boostAmount: 200
 --- !u!108 &3945309513188273831
 Light:
   m_ObjectHideFlags: 0
@@ -209,3 +213,34 @@ MonoBehaviour:
   dissapear: 1
   reappear: 0
   reappearTimer: 5
+--- !u!114 &7867933245884504695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8936191340930747844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1376320317
+      Data2: 1112105558
+      Data3: 756147620
+      Data4: 1632129926
+    Path: event:/SFX/Emitter/Battery Emitter
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 5
+  OverrideMaxDistance: 10
