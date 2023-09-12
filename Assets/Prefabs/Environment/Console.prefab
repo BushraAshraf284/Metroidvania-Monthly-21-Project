@@ -183,6 +183,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3f49f46c44707c14086cf24fcf864940, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7537690243623980067}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3f49f46c44707c14086cf24fcf864940, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4568746595879351642}
   m_SourcePrefab: {fileID: 100100000, guid: 3f49f46c44707c14086cf24fcf864940, type: 3}
 --- !u!1 &3480055507010720613 stripped
 GameObject:
@@ -226,6 +229,37 @@ MonoBehaviour:
   platforms: []
   oneWay: 0
   time: 0
+--- !u!114 &4568746595879351642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3480055507010720613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1156265764
+      Data2: 1324335198
+      Data3: 2132801467
+      Data4: 1103506682
+    Path: event:/SFX/Emitter/Console Emitter
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 10
+  OverrideMaxDistance: 20
 --- !u!4 &4251526309864557023 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3f49f46c44707c14086cf24fcf864940, type: 3}
