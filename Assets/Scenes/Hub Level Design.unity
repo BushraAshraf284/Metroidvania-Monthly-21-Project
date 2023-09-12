@@ -35628,8 +35628,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2115811068}
+  - component: {fileID: 2115811069}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Target Hub Door Audio Emitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35650,6 +35651,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4973716129511118913}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2115811069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115811067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1560583243
+      Data2: 1327925016
+      Data3: 2012412095
+      Data4: -66907443
+    Path: event:/SFX/Emitter/Target Door Breaking Emitter
+  Event: 
+  PlayEvent: 2
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 10
+  OverrideMaxDistance: 50
 --- !u!1001 &2118494554
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45481,6 +45513,7 @@ GameObject:
   - component: {fileID: 825477158}
   - component: {fileID: 7231786261855365823}
   - component: {fileID: 7231786261855365822}
+  - component: {fileID: 7231786261855365824}
   m_Layer: 0
   m_Name: ' Target Hub Missile Door Target'
   m_TagString: Breakable
@@ -45530,6 +45563,37 @@ MonoBehaviour:
   hasEvent: 1
   breakSoundEvent: 
   destroyRoot: 0
+--- !u!114 &7231786261855365824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7231786261855365821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Event: 
+  PlayEvent: 2
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
 --- !u!23 &7234246689400879175
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -47632,7 +47696,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5964235134849218423, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
       propertyPath: masterVolume
-      value: 0.608
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6113672597100727410, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
       propertyPath: m_Name
