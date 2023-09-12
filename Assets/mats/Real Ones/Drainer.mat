@@ -8,20 +8,28 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Drainer
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: db82508fb98c141479737f6ee5324907, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _EMISSION
-  - _GLOSSYREFLECTIONS_OFF
-  - _SPECULARHIGHLIGHTS_OFF
+  m_ValidKeywords: []
   m_InvalidKeywords:
   - VIGNETTE_MASKED
+  - _EMISSION
+  - _LIGHTINGMODE_FLAT
+  - _RIM2STYLE_POIYOMI
+  - _RIMSTYLE_POIYOMI
+  - _STOCHASTICMODE_DELIOT_HEITZ
+  - _SUNDISK_SIMPLE
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 2000
+  stringTagMap:
+    AllLockedGUIDS: 35f73e4b13c9b2447b97b64945cbdee7
+    OriginalKeywords: VIGNETTE_MASKED _EMISSION _LIGHTINGMODE_FLAT _RIM2STYLE_POIYOMI
+      _RIMSTYLE_POIYOMI _STOCHASTICMODE_DELIOT_HEITZ _SUNDISK_SIMPLE
+    OriginalShader: .poiyomi/Poiyomi 8.1/Poiyomi World
+    RenderType: Opaque
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
@@ -1294,7 +1302,7 @@ Material:
     - _EmissionCenterOutEnabled1: 0
     - _EmissionCenterOutEnabled2: 0
     - _EmissionCenterOutEnabled3: 0
-    - _EmissionCenterOutSpeed: 5
+    - _EmissionCenterOutSpeed: 1
     - _EmissionCenterOutSpeed1: 5
     - _EmissionCenterOutSpeed2: 5
     - _EmissionCenterOutSpeed3: 5
@@ -1302,7 +1310,7 @@ Material:
     - _EmissionColor2ThemeIndex: 0
     - _EmissionColor3ThemeIndex: 0
     - _EmissionColorThemeIndex: 0
-    - _EmissionHueShift: 0
+    - _EmissionHueShift: 0.159
     - _EmissionHueShift1: 0
     - _EmissionHueShift2: 0
     - _EmissionHueShift3: 0
@@ -1355,7 +1363,7 @@ Material:
     - _EmissionScrollingVertexColor1: 0
     - _EmissionScrollingVertexColor2: 0
     - _EmissionScrollingVertexColor3: 0
-    - _EmissionStrength: 0
+    - _EmissionStrength: 4.6
     - _EmissionStrength1: 0
     - _EmissionStrength2: 0
     - _EmissionStrength3: 0
@@ -1395,7 +1403,7 @@ Material:
     - _EnableDissolveAudioLink: 0
     - _EnableDistortion: 0
     - _EnableDistortionAudioLink: 0
-    - _EnableEmission: 0
+    - _EnableEmission: 1
     - _EnableEmission1: 0
     - _EnableEmission1CenterOutAudioLink: 0
     - _EnableEmission1StrengthAudioLink: 0
@@ -1489,37 +1497,37 @@ Material:
     - _GITDEWorldOrMesh2: 0
     - _GITDEWorldOrMesh3: 0
     - _GlitterAngleRange: 90
-    - _GlitterBias: 0.8
-    - _GlitterBlendType: 0
-    - _GlitterBrightness: 3
-    - _GlitterCenterSize: 0.08
+    - _GlitterBias: 0.424
+    - _GlitterBlendType: 1
+    - _GlitterBrightness: 40
+    - _GlitterCenterSize: 0.034
     - _GlitterColorMapUV: 0
     - _GlitterColorThemeIndex: 0
-    - _GlitterContrast: 300
-    - _GlitterEnable: 0
-    - _GlitterFrequency: 300
-    - _GlitterHideInShadow: 0
+    - _GlitterContrast: 682
+    - _GlitterEnable: 1
+    - _GlitterFrequency: 306.6
+    - _GlitterHideInShadow: 0.031
     - _GlitterHueShift: 0
     - _GlitterHueShiftEnabled: 0
     - _GlitterHueShiftSpeed: 0
     - _GlitterJaggyFix: 0
-    - _GlitterJitter: 1
+    - _GlitterJitter: 0
     - _GlitterMaskChannel: 0
     - _GlitterMaskGlobalMask: 0
     - _GlitterMaskGlobalMaskBlendType: 2
     - _GlitterMaskUV: 0
-    - _GlitterMinBrightness: 0
-    - _GlitterMode: 0
-    - _GlitterRandomColors: 0
-    - _GlitterRandomRotation: 0
-    - _GlitterRandomSize: 0
-    - _GlitterShape: 0
-    - _GlitterSize: 0.3
+    - _GlitterMinBrightness: 0.293
+    - _GlitterMode: 1
+    - _GlitterRandomColors: 1
+    - _GlitterRandomRotation: 1
+    - _GlitterRandomSize: 1
+    - _GlitterShape: 1
+    - _GlitterSize: 0.535
     - _GlitterSpeed: 10
-    - _GlitterTextureRotation: 0
-    - _GlitterUV: 0
-    - _GlitterUseNormals: 0
-    - _GlitterUseSurfaceColor: 0
+    - _GlitterTextureRotation: -242.5
+    - _GlitterUV: 8
+    - _GlitterUseNormals: 1
+    - _GlitterUseSurfaceColor: 0.877
     - _GlobalMaskBackface_0: 0
     - _GlobalMaskBackface_1: 0
     - _GlobalMaskBackface_10: 0
@@ -2177,16 +2185,16 @@ Material:
     - _ParallaxInternalHueShiftEnabled: 0
     - _ParallaxInternalHueShiftPerLevel: 0
     - _ParallaxInternalHueShiftSpeed: 0
-    - _ParallaxInternalIterations: 4
+    - _ParallaxInternalIterations: 15
     - _ParallaxInternalMapEnabled: 0
     - _ParallaxInternalMapMaskChannel: 0
     - _ParallaxInternalMapMaskUV: 0
     - _ParallaxInternalMaxColorThemeIndex: 0
     - _ParallaxInternalMaxDepth: 0.1
-    - _ParallaxInternalMaxFade: 0.1
+    - _ParallaxInternalMaxFade: 3.59
     - _ParallaxInternalMinColorThemeIndex: 0
     - _ParallaxInternalMinDepth: 0
-    - _ParallaxInternalMinFade: 1
+    - _ParallaxInternalMinFade: 2.71
     - _ParallaxMap: 0
     - _ParallaxStrength: 0
     - _ParallaxUV: 0
@@ -2433,7 +2441,7 @@ Material:
     - _Set_RimLightMaskChannel: 1
     - _Set_RimLightMaskUV: 0
     - _ShadeColor_Step: 0
-    - _ShaderOptimizerEnabled: 0
+    - _ShaderOptimizerEnabled: 1
     - _ShaderUIWarning0: -0
     - _ShaderUIWarning1: -0
     - _ShadingEnabled: 1
@@ -2672,7 +2680,7 @@ Material:
     - _VertexSphereRadius: 1
     - _VertexUnwrap: 0
     - _VertexWorldTranslationALBand: 0
-    - _VideoBacklight: 1
+    - _VideoBacklight: 1.3
     - _VideoCRTPixelEnergizedTime: 1.9
     - _VideoCRTRefreshRate: 24
     - _VideoContrast: 0
@@ -2683,7 +2691,7 @@ Material:
     - _VideoPixelTextureUV: 0
     - _VideoPixelateToResolution: 0
     - _VideoSaturation: 0
-    - _VideoType: 3
+    - _VideoType: 5
     - _VisibilityMode: 1
     - _VisibilityVRCCameraDesktop: 1
     - _VisibilityVRCCameraScreenshot: 1
@@ -2694,7 +2702,7 @@ Material:
     - _ZTest: 4
     - _ZWrite: 1
     - _commentIfZero_EnableOutlinePass: 0
-    - _glitterFrequencyLinearEmissive: 20
+    - _glitterFrequencyLinearEmissive: 100
     - footer_discord: 0
     - footer_github: 0
     - footer_patreon: 0
@@ -2943,7 +2951,7 @@ Material:
     - m_end_vertexManipulation: 0
     - m_end_videoEffects: 0
     - m_end_voronoiRandom: 0
-    - m_lightingCategory: 0
+    - m_lightingCategory: 1
     - m_lightingOptions: 0
     - m_mainCategory: 0
     - m_mainOptions: 0
@@ -2952,7 +2960,7 @@ Material:
     - m_postprocessing: 0
     - m_renderingCategory: 0
     - m_renderingOptions: 0
-    - m_specialFXCategory: 0
+    - m_specialFXCategory: 1
     - m_start_ALDecalSpectrum: 0
     - m_start_ALVolumeColor: 0
     - m_start_Alpha: 0
@@ -2986,7 +2994,7 @@ Material:
     - m_start_FlipbookAudioLink: 0
     - m_start_FresnelAlpha: 0
     - m_start_Gameboy: 0
-    - m_start_GlitterRandomStuff: 0
+    - m_start_GlitterRandomStuff: 1
     - m_start_GlobalMask: 0
     - m_start_GlobalMaskDistanceM_0: 0
     - m_start_GlobalMaskDistanceM_1: 0
@@ -3093,10 +3101,10 @@ Material:
     - m_start_emission1Options: 0
     - m_start_emission2Options: 0
     - m_start_emission3Options: 0
-    - m_start_emissionOptions: 0
+    - m_start_emissionOptions: 1
     - m_start_flipBook: 0
     - m_start_flipbookHueShift: 0
-    - m_start_glitter: 0
+    - m_start_glitter: 1
     - m_start_glitterHueShift: 0
     - m_start_glitterRandom: 0
     - m_start_glowInDarkEmissionOptions: 0
@@ -3339,12 +3347,12 @@ Material:
     - _FlipbookScaleOffset: {r: 1, g: 1, b: 0, a: 0}
     - _FlipbookSideOffset: {r: 0, g: 0, b: 0, a: 0}
     - _FlipbookTexArrayPan: {r: 0, g: 0, b: 0, a: 0}
-    - _GlitterColor: {r: 1, g: 1, b: 1, a: 1}
+    - _GlitterColor: {r: 0, g: 0.14685814, b: 0.9056604, a: 1}
     - _GlitterColorMapPan: {r: 0, g: 0, b: 0, a: 0}
     - _GlitterMaskPan: {r: 0, g: 0, b: 0, a: 0}
-    - _GlitterMinMaxBrightness: {r: 0.8, g: 1, b: 0, a: 1}
-    - _GlitterMinMaxSaturation: {r: 0.8, g: 1, b: 0, a: 1}
-    - _GlitterMinMaxSize: {r: 0.1, g: 0.5, b: 0, a: 1}
+    - _GlitterMinMaxBrightness: {r: 0.6175896, g: 0.8175895, b: 0, a: 1}
+    - _GlitterMinMaxSaturation: {r: 0.3309446, g: 0.5309446, b: 0, a: 1}
+    - _GlitterMinMaxSize: {r: 0.6, g: 1, b: 0, a: 1}
     - _GlitterPan: {r: 0, g: 0, b: 0, a: 0}
     - _GlitterTexturePan: {r: 0, g: 0, b: 0, a: 0}
     - _GlitterUVPanning: {r: 0, g: 0, b: 0, a: 0}

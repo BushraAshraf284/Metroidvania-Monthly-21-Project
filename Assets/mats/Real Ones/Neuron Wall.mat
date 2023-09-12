@@ -8,10 +8,11 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Neuron Wall
-  m_Shader: {fileID: 4800000, guid: c933bce24d9d90747a5def016febd042, type: 3}
+  m_Shader: {fileID: 4800000, guid: 6b145c18ac0dfc848934efe76b412f24, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
+  m_ValidKeywords: []
+  m_InvalidKeywords:
   - MOCHIE_PBR
   - POI_LIGHT_DATA_ADDITIVE_DIRECTIONAL_ENABLE
   - POI_LIGHT_DATA_ADDITIVE_ENABLE
@@ -20,16 +21,17 @@ Material:
   - _GLOSSYREFLECTIONS_OFF
   - _LIGHTINGMODE_REALISTIC
   - _RIMSTYLE_POIYOMI
-  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
     AllLockedGUIDS: 21b1f1ac940458e4fbb97fa0f1a529bb
-    OriginalKeywords: MOCHIE_PBR VIGNETTE_MASKED _GLOSSYREFLECTIONS_OFF _LIGHTINGMODE_REALISTIC
-      _RIM2STYLE_POIYOMI _RIMSTYLE_POIYOMI _STOCHASTICMODE_DELIOT_HEITZ
-    OriginalShader: .poiyomi/Poiyomi 8.1/Poiyomi World
+    OriginalKeywords: MOCHIE_PBR POI_LIGHT_DATA_ADDITIVE_DIRECTIONAL_ENABLE POI_LIGHT_DATA_ADDITIVE_ENABLE
+      POI_VERTEXLIGHT_ON VIGNETTE_MASKED _GLOSSYREFLECTIONS_OFF _LIGHTINGMODE_REALISTIC
+      _RIMSTYLE_POIYOMI
+    OriginalShader: .poiyomi/Poiyomi 8.0/Poiyomi World
+    RenderType: Opaque
   disabledShaderPasses: []
   m_LockedProperties: _Metallic _MetallicGlossMap
   m_SavedProperties:
@@ -2141,7 +2143,7 @@ Material:
     - _Set_RimLightMaskChannel: 1
     - _Set_RimLightMaskUV: 0
     - _ShadeColor_Step: 0
-    - _ShaderOptimizerEnabled: 0
+    - _ShaderOptimizerEnabled: 1
     - _ShaderUIWarning0: -0
     - _ShaderUIWarning1: -0
     - _ShadingEnabled: 1

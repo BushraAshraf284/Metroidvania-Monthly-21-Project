@@ -8,18 +8,17 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Metal Plating norust
-  m_Shader: {fileID: 4800000, guid: c933bce24d9d90747a5def016febd042, type: 3}
+  m_Shader: {fileID: 4800000, guid: c407c76fc39fdd041be1648dc6fccbcc, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
+  m_ValidKeywords: []
+  m_InvalidKeywords:
   - MOCHIE_PBR
-  - POI_LIGHT_DATA_ADDITIVE_DIRECTIONAL_ENABLE
-  - POI_LIGHT_DATA_ADDITIVE_ENABLE
-  - POI_VERTEXLIGHT_ON
   - VIGNETTE_MASKED
   - _LIGHTINGMODE_REALISTIC
+  - _RIM2STYLE_POIYOMI
   - _RIMSTYLE_POIYOMI
-  m_InvalidKeywords: []
+  - _STOCHASTICMODE_DELIOT_HEITZ
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -29,6 +28,7 @@ Material:
     OriginalKeywords: MOCHIE_PBR VIGNETTE_MASKED _LIGHTINGMODE_REALISTIC _RIM2STYLE_POIYOMI
       _RIMSTYLE_POIYOMI _STOCHASTICMODE_DELIOT_HEITZ
     OriginalShader: .poiyomi/Poiyomi 8.1/Poiyomi World
+    RenderType: Opaque
   disabledShaderPasses: []
   m_LockedProperties: _Metallic _MetallicGlossMap
   m_SavedProperties:
@@ -386,6 +386,14 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _OutlineMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OutlineTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _PPMask:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -703,6 +711,8 @@ Material:
     - _AudioLinkFlipbookFrameBand: 0
     - _AudioLinkFlipbookScaleBand: 0
     - _AudioLinkHelp: 0
+    - _AudioLinkOutlineEmissionBand: 0
+    - _AudioLinkOutlineSizeBand: 0
     - _AudioLinkPathEmissionAddBandA: 0
     - _AudioLinkPathEmissionAddBandB: 0
     - _AudioLinkPathEmissionAddBandG: 0
@@ -1212,6 +1222,7 @@ Material:
     - _EnableGITDEmission3: 0
     - _EnableIridescence: 0
     - _EnableMirrorOptions: 0
+    - _EnableOutlines: 0
     - _EnablePathing: 0
     - _EnableRim2Lighting: 0
     - _EnableRimLighting: 0
@@ -1663,6 +1674,8 @@ Material:
     - _LightingVertexLightingEnabled: 1
     - _LightingWrappedNormalization: 0
     - _LightingWrappedWrap: 0
+    - _LineColorThemeIndex: 0
+    - _LineWidth: 1
     - _LockTooltip: 0
     - _MainALHueShiftBand: 0
     - _MainALHueShiftCTIndex: 0
@@ -1873,6 +1886,35 @@ Material:
     - _OcclusionStrength: 1
     - _OffsetFactor: 0
     - _OffsetUnits: 0
+    - _Offset_Z: 0
+    - _OutlineClipAtZeroWidth: 0
+    - _OutlineCull: 1
+    - _OutlineDstBlend: 0
+    - _OutlineEmission: 0
+    - _OutlineExpansionMode: 1
+    - _OutlineFixedSize: 0
+    - _OutlineHueOffset: 0
+    - _OutlineHueOffsetSpeed: 0
+    - _OutlineHueShift: 0
+    - _OutlineLit: 1
+    - _OutlineMaskUV: 0
+    - _OutlineOverrideAlpha: 0
+    - _OutlineRimLightBlend: 0
+    - _OutlineShadowStrength: 0
+    - _OutlineSpace: 0
+    - _OutlineSrcBlend: 1
+    - _OutlineStencilCompareFunction: 8
+    - _OutlineStencilFailOp: 0
+    - _OutlineStencilPassOp: 0
+    - _OutlineStencilReadMask: 255
+    - _OutlineStencilRef: 0
+    - _OutlineStencilWriteMask: 255
+    - _OutlineStencilZFailOp: 0
+    - _OutlineTextureUV: 0
+    - _OutlineTintMix: 0
+    - _OutlineUseVertexColors: 0
+    - _OutlineZTest: 4
+    - _OutlinesMaxDistance: 9999
     - _PBRNormalSelect: 1
     - _PBRSplitMaskSample: 0
     - _PBRSplitMaskStochastic: 0
@@ -2140,7 +2182,7 @@ Material:
     - _Set_RimLightMaskChannel: 1
     - _Set_RimLightMaskUV: 0
     - _ShadeColor_Step: 0
-    - _ShaderOptimizerEnabled: 0
+    - _ShaderOptimizerEnabled: 1
     - _ShaderUIWarning0: -0
     - _ShaderUIWarning1: -0
     - _ShadingEnabled: 1
@@ -2406,6 +2448,7 @@ Material:
     - g_start_deliot: 0
     - g_start_hextile: 0
     - m_AudioLinkCategory: 0
+    - m_OutlineCategory: 0
     - m_end_ALDecalSpectrum: 0
     - m_end_ALVolumeColor: 0
     - m_end_Alpha: 0
@@ -2469,6 +2512,8 @@ Material:
     - m_end_Matcap2: 0
     - m_end_Matcap3: 0
     - m_end_Matcap4: 0
+    - m_end_OutlineAudioLink: 0
+    - m_end_OutlineStencil: 0
     - m_end_PathAudioLink: 0
     - m_end_PoiLightData: 0
     - m_end_PoiShading: 0
@@ -2518,6 +2563,8 @@ Material:
     - m_end_matcap: 0
     - m_end_mirrorOptions: 0
     - m_end_normalCorrect: 0
+    - m_end_outlineAdvanced: 0
+    - m_end_outlineBlending: 0
     - m_end_parallax: 0
     - m_end_pathing: 0
     - m_end_pointToPoint: 0
@@ -2606,6 +2653,8 @@ Material:
     - m_start_Matcap2: 0
     - m_start_Matcap3: 0
     - m_start_Matcap4: 0
+    - m_start_OutlineAudioLink: 0
+    - m_start_OutlineStencil: 0
     - m_start_PathAudioLink: 0
     - m_start_PoiLightData: 0
     - m_start_PoiShading: 1
@@ -2655,6 +2704,8 @@ Material:
     - m_start_matcap: 0
     - m_start_mirrorOptions: 0
     - m_start_normalCorrect: 0
+    - m_start_outlineAdvanced: 0
+    - m_start_outlineBlending: 0
     - m_start_parallax: 0
     - m_start_pathing: 0
     - m_start_pointToPoint: 0
@@ -2740,6 +2791,8 @@ Material:
     - _AudioLinkFlipbookEmission: {r: 0, g: 0, b: 0, a: 0}
     - _AudioLinkFlipbookFrame: {r: 0, g: 0, b: 0, a: 0}
     - _AudioLinkFlipbookScale: {r: 0, g: 0, b: 0, a: 0}
+    - _AudioLinkOutlineEmission: {r: 0, g: 0, b: 0, a: 0}
+    - _AudioLinkOutlineSize: {r: 0, g: 0, b: 0, a: 0}
     - _AudioLinkPathEmissionAddA: {r: 0, g: 0, b: 0, a: 1}
     - _AudioLinkPathEmissionAddB: {r: 0, g: 0, b: 0, a: 1}
     - _AudioLinkPathEmissionAddG: {r: 0, g: 0, b: 0, a: 1}
@@ -2929,6 +2982,7 @@ Material:
     - _LightingShadowColor: {r: 1, g: 1, b: 1, a: 1}
     - _LightingShadowMasksPan: {r: 0, g: 0, b: 0, a: 0}
     - _LightngForcedDirection: {r: 0, g: 0, b: 0, a: 1}
+    - _LineColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainColorAdjustTexturePan: {r: 0, g: 0, b: 0, a: 0}
     - _MainTexPan: {r: 0, g: 0, b: 0, a: 0}
     - _MatCap2ndBlendUV1: {r: 0, g: 0, b: 0, a: 0}
@@ -2955,6 +3009,10 @@ Material:
     - _MochieSpecularTint: {r: 1, g: 1, b: 1, a: 1}
     - _MultilayerMathBlurMapPan: {r: 0, g: 0, b: 0, a: 0}
     - _NormalCorrectOrigin: {r: 0, g: 0.4, b: -0.025, a: 1}
+    - _OutlineDropShadowOffset: {r: 1, g: 0, b: 0, a: 0}
+    - _OutlineMaskPan: {r: 0, g: 0, b: 0, a: 0}
+    - _OutlinePersonaDirection: {r: 1, g: 0, b: 0, a: 0}
+    - _OutlineTexturePan: {r: 0, g: 0, b: 0, a: 0}
     - _PBRMaskScaleTiling: {r: 1, g: 1, b: 0, a: 0}
     - _PPMaskPan: {r: 0, g: 0, b: 0, a: 0}
     - _PPRGB: {r: 1, g: 1, b: 1, a: 1}
