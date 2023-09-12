@@ -558,25 +558,32 @@ MonoBehaviour:
     Path: event:/Test/Test OneShot
   <playerSwordAttack>k__BackingField:
     Guid:
-      Data1: 1106595935
-      Data2: 1224382332
-      Data3: -1816544353
-      Data4: 12573969
-    Path: event:/Test/Test OneShot
+      Data1: -2073313339
+      Data2: 1220885627
+      Data3: -218515834
+      Data4: -1445942093
+    Path: event:/Player/Animation/Sword
   <playerSwordAttackTwo>k__BackingField:
     Guid:
-      Data1: 1106595935
-      Data2: 1224382332
-      Data3: -1816544353
-      Data4: 12573969
-    Path: event:/Test/Test OneShot
+      Data1: -824244690
+      Data2: 1333286733
+      Data3: 911248023
+      Data4: 96939373
+    Path: event:/Player/Animation/Sword 2
   <playerSwordAttackThree>k__BackingField:
     Guid:
-      Data1: 1106595935
-      Data2: 1224382332
-      Data3: -1816544353
-      Data4: 12573969
-    Path: event:/Test/Test OneShot
+      Data1: 1845074654
+      Data2: 1131906236
+      Data3: -1228415575
+      Data4: 1433543393
+    Path: event:/Player/Animation/Sword 3
+  <playerSwordAttackHit>k__BackingField:
+    Guid:
+      Data1: 1665519168
+      Data2: 1219778187
+      Data3: -1257328720
+      Data4: -19354621
+    Path: event:/Player/Animation/Sword Hit
   <playerServoSmall>k__BackingField:
     Guid:
       Data1: 39386371

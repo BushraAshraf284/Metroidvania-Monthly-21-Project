@@ -8,6 +8,7 @@ public class SwordVolume : MonoBehaviour
     {
         if(other.gameObject.GetComponent<Shatter>()!=null){
             other.gameObject.GetComponent<Shatter>().takeDamage();
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.playerSwordAttackHit, this.transform.position);
         }
     }
 }
