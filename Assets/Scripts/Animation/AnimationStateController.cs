@@ -10,6 +10,8 @@ using TMPro;
 
 public class AnimationStateController : MonoBehaviour
 {
+	[SerializeField]
+	GameObject[] vertBoosterParts;
 	//[SerializeField]
 	//TextMeshProUGUI debugtext;
 	//[SerializeField]
@@ -75,6 +77,16 @@ public class AnimationStateController : MonoBehaviour
 	[Tooltip("How long you need to hold space for for vertical boost")]
 	float jumpHeldCap = 3f;
 	public bool canHighJump;
+	public void hideVertBoosters(){
+		foreach(GameObject g in vertBoosterParts){
+			g.SetActive(false);
+		}
+	}
+	public void showVertBoosters(){
+		foreach(GameObject g in vertBoosterParts){
+			g.SetActive(true);
+		}
+	}
 	public void ForceIFramesStart(){
 		stats.ForceIFramesStart();
 	}
