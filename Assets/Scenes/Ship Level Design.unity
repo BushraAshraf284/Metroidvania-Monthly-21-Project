@@ -467,7 +467,8 @@ PrefabInstance:
       value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9006531572000636731, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
@@ -1193,6 +1194,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Negative Charge Magnetic Field (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 7729332969420555919, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0592
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729332969420555919, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.9145
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729332969420555919, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.5000018
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729332969420555919, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.4999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729332969420555919, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.50000036
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729332969420555919, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.49999824
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729332969420555919, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 630
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1842,7 +1871,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147777011}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2190,7 +2219,8 @@ PrefabInstance:
       value: Negative Charge Magnetic Field (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7731867436258593195, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
@@ -2386,6 +2416,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1278221959}
     m_Modifications:
     - target: {fileID: 5934887039104022156, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 67.00868
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934887039104022156, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
       propertyPath: m_LocalPosition.x
       value: 417.94
       objectReference: {fileID: 0}
@@ -2395,7 +2429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5934887039104022156, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -141.70471
+      value: -153.84
       objectReference: {fileID: 0}
     - target: {fileID: 5934887039104022156, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2428,6 +2462,14 @@ PrefabInstance:
     - target: {fileID: 6419640466264632374, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
       propertyPath: m_Name
       value: Negative Charge Magnetic Field (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7634824361771409737, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 42.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729332969420555919, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.1347
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2909,7 +2951,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 331358234}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3388,7 +3430,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 386078212}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3736,7 +3778,8 @@ PrefabInstance:
       value: Negative Charge Magnetic Field (10)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7731867436258593195, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
@@ -3897,7 +3940,8 @@ PrefabInstance:
       value: Negative Charge Magnetic Field
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7731867436258593195, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
@@ -3974,7 +4018,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426968164}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4838,7 +4882,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489746462}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5371,7 +5415,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491798622}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5983,6 +6027,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9004005909561454623, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0689
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004005909561454623, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0012
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004005909561454623, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0236
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6097,6 +6153,18 @@ PrefabInstance:
     - target: {fileID: 977977694400088464, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004005909561454623, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.064
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004005909561454623, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004005909561454623, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6566,6 +6634,10 @@ PrefabInstance:
     - target: {fileID: 6419640466264632374, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
       propertyPath: m_Name
       value: Negative Charge Magnetic Field (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729332969420555919, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0605
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7408,7 +7480,8 @@ PrefabInstance:
       value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9006531572000636731, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
@@ -7645,7 +7718,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9006531572000636731, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
@@ -7707,7 +7781,8 @@ PrefabInstance:
       value: 270
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9006531572000636731, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
@@ -7925,7 +8000,8 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9006531572000636731, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
@@ -8170,6 +8246,18 @@ PrefabInstance:
     - target: {fileID: 6419640466264632374, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
       propertyPath: m_Name
       value: Negative Charge Magnetic Field (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7634824361771409737, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 5.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7634824361771409737, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 23.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729332969420555919, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8575,7 +8663,8 @@ PrefabInstance:
       value: -90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9006531572000636731, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
@@ -8630,6 +8719,26 @@ PrefabInstance:
     - target: {fileID: 977977694400088464, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004005909561454623, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.1578
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004005909561454623, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0352
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004005909561454623, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0236
+      objectReference: {fileID: 0}
+    - target: {fileID: 9098648417781454809, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 6.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 9098648417781454809, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 19.85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8734,6 +8843,18 @@ PrefabInstance:
     - target: {fileID: 977977694400088464, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004005909561454623, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.067
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004005909561454623, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004005909561454623, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9007,6 +9128,22 @@ PrefabInstance:
     - target: {fileID: 6419640466264632374, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
       propertyPath: m_Name
       value: Negative Charge Magnetic Field (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7634824361771409737, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7634824361771409737, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 68.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729332969420555919, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0197
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729332969420555919, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.017
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9457,7 +9594,8 @@ PrefabInstance:
       value: Negative Charge Magnetic Field (11)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7731867436258593195, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
@@ -9974,7 +10112,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091461251}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -10458,7 +10596,8 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9006531572000636731, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
@@ -10859,7 +10998,8 @@ PrefabInstance:
       value: Negative Charge Magnetic Field (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7731867436258593195, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
@@ -10936,7 +11076,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1158703470}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -11288,6 +11428,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Negative Charge Magnetic Field (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7729332969420555919, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.1195
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729332969420555919, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729332969420555919, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.02
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11433,7 +11585,8 @@ PrefabInstance:
       value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9006531572000636731, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
@@ -11495,7 +11648,8 @@ PrefabInstance:
       value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9006531572000636731, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
@@ -12425,7 +12579,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313887918}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -12976,7 +13130,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1325480740}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -13489,7 +13643,8 @@ PrefabInstance:
       value: Negative Charge Magnetic Field (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7731867436258593195, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
@@ -14291,7 +14446,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466471542}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -14643,6 +14798,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Negative Charge Magnetic Field (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7729332969420555919, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0569
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14910,6 +15069,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 38a4d0b579ce8084c928783a8a470195, type: 2}
+    - target: {fileID: -4683669308469848369, guid: ebcea593ec475df4382571714ec0680d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: ebcea593ec475df4382571714ec0680d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -15392,6 +15555,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Negative Charge Magnetic Field (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 7634824361771409737, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 24.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729332969420555919, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.029
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15640,7 +15811,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515771467}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -16107,7 +16278,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520428940}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -16769,7 +16940,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1537108967}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -17134,7 +17305,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553840687}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -17617,6 +17788,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1278221959}
     m_Modifications:
     - target: {fileID: 5934887039104022156, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 67.00868
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934887039104022156, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
       propertyPath: m_LocalPosition.x
       value: 417.94
       objectReference: {fileID: 0}
@@ -17626,7 +17801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5934887039104022156, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -141.70471
+      value: -153.83997
       objectReference: {fileID: 0}
     - target: {fileID: 5934887039104022156, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17661,7 +17836,8 @@ PrefabInstance:
       value: Negative Charge Magnetic Field (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7731867436258593195, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
@@ -17743,7 +17919,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1582761258}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -18089,6 +18265,14 @@ PrefabInstance:
     - target: {fileID: 977977694400088464, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004005909561454623, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.062
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004005909561454623, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18515,7 +18699,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612203177}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -18810,6 +18994,119 @@ Transform:
   m_Children: []
   m_Father: {fileID: 569019639}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1612942911
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 0ef05d667c307844bb82860b90049218, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 12.127
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0ef05d667c307844bb82860b90049218, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 12.127
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0ef05d667c307844bb82860b90049218, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 12.127
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0ef05d667c307844bb82860b90049218, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17.9
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0ef05d667c307844bb82860b90049218, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 164.67
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0ef05d667c307844bb82860b90049218, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1079.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0ef05d667c307844bb82860b90049218, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0ef05d667c307844bb82860b90049218, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0ef05d667c307844bb82860b90049218, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0ef05d667c307844bb82860b90049218, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0ef05d667c307844bb82860b90049218, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0ef05d667c307844bb82860b90049218, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0ef05d667c307844bb82860b90049218, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: 0ef05d667c307844bb82860b90049218, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.407
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: 0ef05d667c307844bb82860b90049218, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.127
+      objectReference: {fileID: 0}
+    - target: {fileID: -4683669308469848369, guid: 0ef05d667c307844bb82860b90049218, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 21b1f1ac940458e4fbb97fa0f1a529bb, type: 2}
+    - target: {fileID: 919132149155446097, guid: 0ef05d667c307844bb82860b90049218, type: 3}
+      propertyPath: m_Name
+      value: Pillar
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: -8700617353114198275, guid: 0ef05d667c307844bb82860b90049218, type: 3}
+    - {fileID: 65702495048144492, guid: 0ef05d667c307844bb82860b90049218, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -8391222552659086748, guid: 0ef05d667c307844bb82860b90049218, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1612942913}
+  m_SourcePrefab: {fileID: 100100000, guid: 0ef05d667c307844bb82860b90049218, type: 3}
+--- !u!1 &1612942912 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: 0ef05d667c307844bb82860b90049218, type: 3}
+  m_PrefabInstance: {fileID: 1612942911}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1612942913
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612942912}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5495902117074765545, guid: 0ef05d667c307844bb82860b90049218, type: 3}
 --- !u!1 &1630680627
 GameObject:
   m_ObjectHideFlags: 0
@@ -18957,7 +19254,8 @@ PrefabInstance:
       value: Negative Charge Magnetic Field (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7731867436258593195, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
@@ -19186,6 +19484,22 @@ PrefabInstance:
     - target: {fileID: 977977694400088464, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004005909561454623, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004005909561454623, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0012
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004005909561454623, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0236
+      objectReference: {fileID: 0}
+    - target: {fileID: 9098648417781454809, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 39
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19492,7 +19806,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1655324275}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -19887,7 +20201,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661329587}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -20323,7 +20637,8 @@ PrefabInstance:
       value: -90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9006531572000636731, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
@@ -20473,8 +20788,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Negative Charge Magnetic Field (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 7634824361771409737, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 27.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729332969420555919, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.219
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729332969420555919, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729332969420555919, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.02
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7731867436258593195, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
@@ -20579,7 +20911,8 @@ PrefabInstance:
       value: Negative Charge Magnetic Field (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7731867436258593195, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
@@ -20809,7 +21142,8 @@ PrefabInstance:
       value: 270
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9006531572000636731, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
@@ -20977,6 +21311,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Negative Charge Magnetic Field (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 7634824361771409737, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 5.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7634824361771409737, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 22.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729332969420555919, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729332969420555919, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21139,7 +21489,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1819245595}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -22506,6 +22856,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9004005909561454623, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0097
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004005909561454623, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0012
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004005909561454623, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0236
+      objectReference: {fileID: 0}
+    - target: {fileID: 9098648417781454809, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 10.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 9098648417781454809, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 70.38
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22516,6 +22886,143 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 977977694400088464, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
   m_PrefabInstance: {fileID: 1941013900}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1954282494
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1775406099119076, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: m_Name
+      value: FireFlies
+      objectReference: {fileID: 0}
+    - target: {fileID: 4693653493845900, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5.4904
+      objectReference: {fileID: 0}
+    - target: {fileID: 4693653493845900, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9026171
+      objectReference: {fileID: 0}
+    - target: {fileID: 4693653493845900, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5.4904
+      objectReference: {fileID: 0}
+    - target: {fileID: 4693653493845900, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 4693653493845900, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 227.3466
+      objectReference: {fileID: 0}
+    - target: {fileID: 4693653493845900, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1079.1877
+      objectReference: {fileID: 0}
+    - target: {fileID: 4693653493845900, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4693653493845900, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4693653493845900, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4693653493845900, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4693653493845900, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4693653493845900, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4693653493845900, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198929192870305122, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: ShapeModule.m_Scale.z
+      value: 38.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 198929192870305122, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 5.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 198929192870305122, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198929192870305122, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198929192870305122, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key0.g
+      value: 0.031372547
+      objectReference: {fileID: 0}
+    - target: {fileID: 198929192870305122, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key0.r
+      value: 0.086825565
+      objectReference: {fileID: 0}
+    - target: {fileID: 198929192870305122, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key1.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198929192870305122, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key1.g
+      value: 0.045587063
+      objectReference: {fileID: 0}
+    - target: {fileID: 198929192870305122, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key1.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198929192870305122, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key2.b
+      value: 0.88235295
+      objectReference: {fileID: 0}
+    - target: {fileID: 198929192870305122, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key2.g
+      value: 0.2472902
+      objectReference: {fileID: 0}
+    - target: {fileID: 198929192870305122, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key2.r
+      value: 0.015686294
+      objectReference: {fileID: 0}
+    - target: {fileID: 198929192870305122, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key3.b
+      value: 0.50980395
+      objectReference: {fileID: 0}
+    - target: {fileID: 198929192870305122, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key3.g
+      value: 0.3316785
+      objectReference: {fileID: 0}
+    - target: {fileID: 198929192870305122, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key3.r
+      value: 0.023529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 198929192870305122, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.m_ColorSpace
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 199751831200023354, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
 --- !u!43 &1955025066
 Mesh:
   m_ObjectHideFlags: 0
@@ -22734,7 +23241,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9006531572000636731, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
@@ -22927,7 +23435,8 @@ PrefabInstance:
       value: Negative Charge Magnetic Field (5)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7731867436258593195, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
@@ -23004,7 +23513,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992887057}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -23383,7 +23892,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026436506}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -25340,7 +25849,8 @@ PrefabInstance:
       value: Negative Charge Magnetic Field
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7731867436258593195, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdfe88b30991d1a4e917b2f9d3eaf719, type: 3}
@@ -27416,6 +27926,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 2150844119480988415, guid: 20d6914d573c5b045930f59ee52d07cc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 38a4d0b579ce8084c928783a8a470195, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27518,3 +28032,5 @@ SceneRoots:
   - {fileID: 977506212}
   - {fileID: 82156431}
   - {fileID: 630461379}
+  - {fileID: 1612942911}
+  - {fileID: 1954282494}

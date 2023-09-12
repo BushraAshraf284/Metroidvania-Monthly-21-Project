@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Thruster : MonoBehaviour
 {
+	[SerializeField]
+	GameObject boomEffect;
     [SerializeField]
     bool isSpike;
     [SerializeField]
@@ -105,6 +107,7 @@ public class Thruster : MonoBehaviour
 	        	}
                 
         	}
+        	Instantiate(boomEffect, this.transform.position, Quaternion.identity);
 	        Destroy(gameObject);
         }
         

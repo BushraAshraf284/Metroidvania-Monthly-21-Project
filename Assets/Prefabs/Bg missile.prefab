@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e44d5acc396661b42b7ea1129492b54e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boomEffect: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
   isSpike: 0
   stuckSpikePrefab: {fileID: 0}
   isMissile: 1

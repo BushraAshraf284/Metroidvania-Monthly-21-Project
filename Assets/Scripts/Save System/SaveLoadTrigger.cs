@@ -11,9 +11,20 @@ public class SaveLoadTrigger: MonoBehaviour
     public SaveType saveType;
     public sceneType sceneType;
 	private string sceneName;
+	GameObject saveProgressIcon;
+	
+	void Start(){
+		saveProgressIcon = GameObject.Find("Saving Progress Icon").transform.GetChild(0).gameObject;
+	}
+	
+	void resetIcon(){
+		saveProgressIcon.SetActive(false);
+	}
 	
 	public void SAVE(){
 		SaveLoad.SaveProgress();
+		saveProgressIcon.SetActive(true);
+		Invoke("resetIcon", 5f);
 		if(rotator.GetComponent<Rotator>()!= null){
 			rotator.GetComponent<Rotator>().RampRotation();
 		}
