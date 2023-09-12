@@ -33,19 +33,21 @@ public class Shatter : MonoBehaviour
 	public string breakSoundEvent;
 	public bool destroyRoot;
 	bool broken;
+	[SerializeField]
+	bool paperThin;
 	public void setBoomBlocked(bool plug){
 		
         boomBlocked = plug;
 	}
 	protected void OnTriggerEnter(Collider other)
 	{
-		
-		if(other.gameObject.GetComponent<Rigidbody>() != null){
-			Debug.Log(other.gameObject.name + "ENTERES!");
-			oneShot(0);
-		}
-		if(other.transform.root.gameObject.GetComponent<Rigidbody>() != null){
-			oneShot(0);
+		if(paperThin){
+			if(other.gameObject.GetComponent<Rigidbody>() != null){
+				oneShot(0);
+			}
+			if(other.transform.root.gameObject.GetComponent<Rigidbody>() != null){
+				oneShot(0);
+			}
 		}
 	}
     void OnCollisionEnter(Collision other) {
@@ -108,11 +110,7 @@ public class Shatter : MonoBehaviour
 	        Instantiate(realShatter, shatterSpawnPos.transform.position, shatterSpawnPos.transform.rotation);
 	        if(explosionEffect != null){
 	            Instantiate(explosionEffect, transform.position, transform.rotation);
-	
-	
 	        }
-	        
-			
 			if(destroyRoot){
 				Destroy(this.transform.parent.gameObject);
 			}

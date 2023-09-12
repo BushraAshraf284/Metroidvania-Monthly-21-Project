@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,9 +8,12 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField]
     public List<GameObject> Upgrades = new List<GameObject>();
 
+	void LateAwake(){
+		SaveManager.Instance.LoadUpgrades(type);
+	}
     private void Awake()
     {
-        SaveManager.Instance.LoadUpgrades(type);
+	    Invoke("LateAwake", .1f);
     }
 
 }
