@@ -41087,21 +41087,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 338608880316989403, guid: 763f334c2ae291148a00acec673b3b87, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: f2f835f8a620bab489f2abf504beb3ad, type: 2}
-    - target: {fileID: 338608880316989403, guid: 763f334c2ae291148a00acec673b3b87, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4697786404976501805, guid: 763f334c2ae291148a00acec673b3b87, type: 3}
       propertyPath: m_Name
       value: Save Point
-      objectReference: {fileID: 0}
-    - target: {fileID: 4697786404976501805, guid: 763f334c2ae291148a00acec673b3b87, type: 3}
-      propertyPath: m_TagString
-      value: Interactable
       objectReference: {fileID: 0}
     - target: {fileID: 5366658483334217367, guid: 763f334c2ae291148a00acec673b3b87, type: 3}
       propertyPath: m_LocalPosition.x
