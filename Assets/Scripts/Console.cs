@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,11 +41,22 @@ public class Console : MonoBehaviour
                             p.GetComponent<platformAnimController>().TempActivation(time);
                         }
                     }
+
                 }
             }
         }
         else if (type == consoleType.Event)
         {
+	        if (platforms.Count > 0)
+	        {
+		        foreach (GameObject p in platforms)
+		        {
+			        if (p.GetComponent<SaveLoadTrigger>() != null)
+			        {
+				        p.GetComponent<SaveLoadTrigger>().SAVE();
+			        }
+		        }
+	        }
         }
     }
 

@@ -166,6 +166,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Save Point
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7d0d2ba76ad77ea41bbcbda17f24dd9e, type: 3}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -179,6 +183,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7d0d2ba76ad77ea41bbcbda17f24dd9e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5349698859643882660}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7d0d2ba76ad77ea41bbcbda17f24dd9e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1997045501741888854}
     - targetCorrespondingSourceObject: {fileID: -516098083770646512, guid: 7d0d2ba76ad77ea41bbcbda17f24dd9e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5070546829329207742}
@@ -203,6 +210,7 @@ MonoBehaviour:
   speed: 1
   height: 0.5
   rotation: 15
+  boostAmount: 8000
 --- !u!1 &4697786404976501805 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7d0d2ba76ad77ea41bbcbda17f24dd9e, type: 3}
@@ -215,7 +223,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4697786404976501805}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: f2f835f8a620bab489f2abf504beb3ad, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -223,7 +231,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -241,8 +249,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a959a4c2e05bb074fa492eb566be0d47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotator: {fileID: 3830022927727909228}
   saveType: 1
   sceneType: 0
+--- !u!114 &1997045501741888854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4697786404976501805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8715511bdcebdca4fa48d059cf4fa060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  platforms:
+  - {fileID: 4697786404976501805}
+  oneWay: 0
+  time: 0
 --- !u!4 &8456362212865196241 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4083501151425157549, guid: 7d0d2ba76ad77ea41bbcbda17f24dd9e, type: 3}
