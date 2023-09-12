@@ -106,6 +106,9 @@ PrefabInstance:
       addedObject: {fileID: 7688925299592770443}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6992b63615243d149af5b0e67c59230b, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1922782573382153625}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6992b63615243d149af5b0e67c59230b, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1206208987957462322}
   m_SourcePrefab: {fileID: 100100000, guid: 6992b63615243d149af5b0e67c59230b, type: 3}
 --- !u!1 &8619386310935306630 stripped
@@ -159,6 +162,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.02, z: 0.02}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1922782573382153625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8619386310935306630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -7317777
+      Data2: 1139626354
+      Data3: 906973569
+      Data4: -1884716134
+    Path: event:/SFX/Emitter/Crate Breaking Emitter
+  Event: 
+  PlayEvent: 2
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!54 &1206208987957462322
 Rigidbody:
   m_ObjectHideFlags: 0
