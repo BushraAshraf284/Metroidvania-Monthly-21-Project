@@ -21,6 +21,8 @@ public class UpgradeTracker : MonoBehaviour
 
     [SerializeField]
     GetItemScreen itemScreen;
+    [SerializeField]
+    UpgradeMenu upgradeMenu;
 
 	string heartDesc = "You have increased your maximum health points!";
 	string batteryDesc = "You have increased your maximum battery charge!";
@@ -158,7 +160,8 @@ public class UpgradeTracker : MonoBehaviour
     {
         Debug.Log("Equipping Sword!");
         DisableAllLeftHandWeapons();
-        sword.SetActive(true);
+        upgradeMenu.ShowUpgrade("Sword", 0);
+        sword.SetActive(true); ;
         swordBlade.SetActive(true);
 	    hasSword = true;
         SaveData.Instance.HasSword = hasSword;
@@ -185,6 +188,7 @@ public class UpgradeTracker : MonoBehaviour
     public void UnlockShockProng()
     {
         Debug.Log("Equipping Shock Prong!");
+        upgradeMenu.ShowUpgrade("ShockProng", 1);
         DisableAllLeftHandWeapons();
         shockProng.SetActive(true);
 	    hasShockProng = true;
@@ -212,6 +216,7 @@ public class UpgradeTracker : MonoBehaviour
     {
         Debug.Log("Equipping Shock Spike!");
         DisableAllRightHandWeapons();
+        upgradeMenu.ShowUpgrade("ShockSpike", 2);
         shockSpike.SetActive(true);
 	    hasShockSpike = true;
         SaveData.Instance.HasShockSpike = hasShockSpike;
