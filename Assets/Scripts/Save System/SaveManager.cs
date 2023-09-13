@@ -13,6 +13,7 @@ public class SaveManager : MonoBehaviour
     public UpgradeManager upgradeManager;
     public NPCManager NPCManager;
     public Transform Player;
+    public GameObject LoadingScreen;
     private string sceneName;
     private List<NPCInteractables> interactables;
     public static SaveManager Instance { get; private set; }
@@ -29,7 +30,7 @@ public class SaveManager : MonoBehaviour
         {
             Instance = this;
         }
-
+        LoadingScreen.SetActive(true); 
     }
     private void Start()
     {
@@ -60,7 +61,7 @@ public class SaveManager : MonoBehaviour
             {
                 Player.position = SaveData.Instance.playerSavePos;
             }
-           
+           LoadingScreen.SetActive(false);
            
         }
     }
