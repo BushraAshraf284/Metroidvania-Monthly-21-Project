@@ -28,7 +28,7 @@ public class SettingsMenu : MonoBehaviour
         //Get components
         volSlide = GameObject.Find("VolumeSlide").GetComponent<Slider>();
         volSlide.value = 0.5f;
-        resDrop = GameObject.Find("Resolution").GetComponent<Dropdown>();
+        //resDrop = GameObject.Find("Resolution").GetComponent<Dropdown>();
         resolutions = Screen.resolutions.Where(resolution => resolution.refreshRate == Screen.currentResolution.refreshRate).ToArray();
         fullToggle = GameObject.Find("Fullscreen").GetComponent<Toggle>();
         fullToggle.isOn = Screen.fullScreen;
@@ -118,8 +118,8 @@ public class SettingsMenu : MonoBehaviour
         }
 
         //Add options to dropdown, set active to current resolution
-        resDrop.AddOptions(options);
-        resDrop.value = currentResIndex;
+        //resDrop.AddOptions(options);
+        //resDrop.value = currentResIndex;
     }
 
     //Set screen resolution
