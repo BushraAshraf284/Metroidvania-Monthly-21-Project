@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //Apply a shock to anything in its collider, charge batteries
@@ -25,7 +25,7 @@ public class ShockVolume : MonoBehaviour
     {
         stats = GameObject.Find("3rd Person Character").GetComponent<PlayerStats>();
     }
-    void Update(){
+	void FixedUpdate(){
         if(!isSpike){
             stats.DrainBattery(playerBatteryDrainAmount);
         }

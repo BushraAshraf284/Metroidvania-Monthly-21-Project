@@ -1223,7 +1223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd151f9ca045bc245900d7762b3d0fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBatteryDrainAmount: 0.1
+  playerBatteryDrainAmount: 0.5
   isSpike: 0
 --- !u!1 &1425883650771591143
 GameObject:
@@ -2029,6 +2029,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4bb13283de7dca45ae44834f2b50baa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  caveSpawnPos: {fileID: 0}
+  shipSpawnPos: {fileID: 0}
+  comingFromCave: 0
+  comingFromShip: 0
   cam: {fileID: 0}
   X1Base: {fileID: 6725649124275763566}
   X1Chunks: {fileID: 6955450902437163551, guid: 140c348f5447da249bcb46f6b7fc4129, type: 3}
@@ -2097,9 +2101,8 @@ MonoBehaviour:
   heartPieceCount: 0
   shieldPieceCount: 0
   batteryPieceCount: 0
-  leftWeapon: 2
-  rightWeapon: 3
   itemScreen: {fileID: 0}
+  upgradeMenu: {fileID: 0}
   repairKitCount: 0
   enteredWorld1: 0
   enteredWorld2: 0

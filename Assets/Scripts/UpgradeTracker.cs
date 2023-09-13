@@ -85,6 +85,9 @@ public class UpgradeTracker : MonoBehaviour
 	    }
 	    if(heartPieceCount == 3){
 	    	upgradeMenu.UpdateHeartUpgrade();
+		    hp1.SetActive(true);
+	    	hp11.SetActive(true);
+	    	hp2.SetActive(true);
 	    }
 	    if(shieldPieceCount == 1){
 	    	upgradeMenu.ShowShieldUpgrade();
@@ -94,6 +97,7 @@ public class UpgradeTracker : MonoBehaviour
 	    }
 	    if(shieldPieceCount == 3){
 	    	upgradeMenu.UpdateShieldUpgrade();
+	    	shield.SetActive(true);
 	    }
 	    if(batteryPieceCount == 1){
 	    	upgradeMenu.ShowBatteryUpgrade();
@@ -103,12 +107,16 @@ public class UpgradeTracker : MonoBehaviour
 	    }
 	    if(batteryPieceCount == 3){
 	    	upgradeMenu.UpdateBatteryUpgrade();
+		    bat1.SetActive(true);
+		    bat2.SetActive(true);
 	    } 
 	    if(hasJetBoost){
 	    	upgradeMenu.ShowUpgrade("Jet Booster");
+	    	jetBoost.SetActive(true);
 	    }
 	    if(hasVertBoost){
 	    	upgradeMenu.ShowUpgrade("Vertical Booster");
+	    	vertBoost.SetActive(true);
 	    }
 		Invoke("LateAwake", .1f);
 		
