@@ -17072,6 +17072,10 @@ PrefabInstance:
       value: 'SaveManager '
       objectReference: {fileID: 0}
     - target: {fileID: 4377475622642561442, guid: 5238950f42918054eab65ae6f09628fc, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 5206940769439130707}
+    - target: {fileID: 4377475622642561442, guid: 5238950f42918054eab65ae6f09628fc, type: 3}
       propertyPath: sceneType
       value: 2
       objectReference: {fileID: 0}
@@ -31910,6 +31914,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ed3bf9705a96842ba69153eaf5f8c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &5206940769439130707 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4028041511318198632, guid: b030f36c590bc2140b4000c11f065699, type: 3}
+  m_PrefabInstance: {fileID: 5206940769439130705}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5873015213941249872
 PrefabInstance:
   m_ObjectHideFlags: 0

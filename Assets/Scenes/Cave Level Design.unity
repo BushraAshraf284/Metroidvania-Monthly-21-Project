@@ -6876,6 +6876,13 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  <platformMovingSound>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <interactSFX>k__BackingField:
     Guid:
       Data1: 1106595935
@@ -20708,6 +20715,10 @@ PrefabInstance:
       value: 'SaveManager '
       objectReference: {fileID: 0}
     - target: {fileID: 4377475622642561442, guid: 5238950f42918054eab65ae6f09628fc, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 5206940769439130706}
+    - target: {fileID: 4377475622642561442, guid: 5238950f42918054eab65ae6f09628fc, type: 3}
       propertyPath: sceneType
       value: 0
       objectReference: {fileID: 0}
@@ -29513,6 +29524,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1888248821}
   m_SourcePrefab: {fileID: 100100000, guid: b030f36c590bc2140b4000c11f065699, type: 3}
+--- !u!4 &5206940769439130706 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4028041511318198632, guid: b030f36c590bc2140b4000c11f065699, type: 3}
+  m_PrefabInstance: {fileID: 5206940769439130705}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7075655931675118451
 PrefabInstance:
   m_ObjectHideFlags: 0

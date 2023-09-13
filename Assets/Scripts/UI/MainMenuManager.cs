@@ -15,9 +15,23 @@ public class MainMenuManager : MonoBehaviour
         AudioManager.instance.PlayOneShot(FMODEvents.instance.startGameAudio, this.transform.position);
         SaveData.Instance = new SaveData();
         SaveLoad.LoadProgress();
+        sceneType scene = (sceneType) SaveData.Instance.LastSaveScene;
+        switch (scene)
+        {
+            case sceneType.Ship:
+                sceneName = "Ship Level Design";
+                break;
 
-        sceneName = "Hub Level Design";
+            case sceneType.Cave:
+                sceneName = "Cave Level Design";
+                break;
+
+            case sceneType.Hub:
+                sceneName = "Hub Level Design";
+                break;
+        }
         SceneManager.LoadScene(sceneName);
+     
     }
 
     /* Audio for options
@@ -34,5 +48,9 @@ public class MainMenuManager : MonoBehaviour
         #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
         #endif
+    }
+    public void DeleteProgress()
+    {
+        SaveLoad.DeleteProgress();
     }
 }

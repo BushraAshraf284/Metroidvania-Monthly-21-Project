@@ -183,6 +183,7 @@ public class UpgradeTracker : MonoBehaviour
                 hp11.SetActive(true);
                 hp2.SetActive(true);
                 upgradeMenu.UpdateHeartUpgrade();
+                SaveData.Instance.playerHP = stats.hp;
             }
             else
             {

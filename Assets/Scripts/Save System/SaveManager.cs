@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SaveManager : MonoBehaviour
 {
@@ -10,7 +12,8 @@ public class SaveManager : MonoBehaviour
     public DoorManager doorManager;
     public UpgradeManager upgradeManager;
     public NPCManager NPCManager;
-
+    public Transform Player;
+    private string sceneName;
     private List<NPCInteractables> interactables;
     public static SaveManager Instance { get; private set; }
 
@@ -30,6 +33,9 @@ public class SaveManager : MonoBehaviour
     }
     private void Start()
     {
+       
+           
+
         if (NPCManager)
         {
             interactables = new List<NPCInteractables>();
@@ -38,6 +44,23 @@ public class SaveManager : MonoBehaviour
                 interactables.Add(NPCManager.NPCs[i].GetComponent<NPCInteractables>());
             }
             LoadNPCData();
+           
+        }
+        StartCoroutine(LoadPlayerWithDelay());
+    }
+    IEnumerator LoadPlayerWithDelay()
+    {
+        yield return new WaitForSeconds(1f);
+        if (SaveData.Instance.isSaved)
+        {
+           
+            Debug.Log("Tried moving the player");
+            sceneType lastScene = (sceneType) SaveData.Instance.LastSaveScene;
+            if(lastScene == sceneType)
+            {
+                Player.position = SaveData.Instance.playerSavePos;
+            }
+           
            
         }
     }
@@ -194,6 +217,7 @@ public class SaveManager : MonoBehaviour
     {
         if (sceneType == sceneType.Hub)
         {
+           
             if (SaveData.Instance.HubData.UpgradesPickedUp.Count == 0)
             {
                 SaveData.Instance.HubData.UpgradesPickedUp = new List<bool>();
@@ -222,7 +246,12 @@ public class SaveManager : MonoBehaviour
         }
         else if (sceneType == sceneType.Cave)
         {
-            if (SaveData.Instance.CaveData.UpgradesPickedUp.Count == 0)
+            if (SaveData.Instance.CaveData == null)
+            {
+                SaveData.Instance.CaveData = new SceneData();
+            }
+
+             if (SaveData.Instance.CaveData.UpgradesPickedUp.Count == 0)
             {
                 SaveData.Instance.CaveData.UpgradesPickedUp = new List<bool>();
                 for (int i = 0; i < upgradeManager.Upgrades.Count; i++)
@@ -300,6 +329,36 @@ public class SaveManager : MonoBehaviour
                 upgradeManager.Upgrades[i].GetComponent<Upgrade>().Init();
             }
         }
+       
+    }
+
+    public void SavePointInfo()
+    {
+        SaveData.Instance.LastSaveScene =(int) sceneType;
+        SaveData.Instance.playerSavePos = Player.position;
+    }
+
+    public void LoadGameAfterDeath()
+    {
+     
+        SaveLoad.LoadProgress();
+        SaveData.Instance.isSaved = true;
+        SaveLoad.SaveProgress();
+        switch (sceneType)
+        {
+            case sceneType.Ship:
+                sceneName = "Ship Level Design";                
+                break;
+
+            case sceneType.Cave:
+                sceneName = "Cave Level Design";
+                break;
+
+            case sceneType.Hub:
+                sceneName = "Hub Level Design";
+                break;
+        }
+        SceneManager.LoadScene(sceneName);
        
     }
 

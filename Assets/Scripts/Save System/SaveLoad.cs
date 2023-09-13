@@ -12,7 +12,8 @@ public class SaveLoad {
 	public static SaveData SaveObjectCreator(){
 		SaveData CheckSave = new SaveData(SaveData.Instance.playerHP, SaveData.Instance.hasSheild, SaveData.Instance.shieldCharge, SaveData.Instance.HasShockProng, SaveData.Instance.HasMissiles, SaveData.Instance.HasSword,
 			SaveData.Instance.HasHomingMissiles, SaveData.Instance.HasJetBoost, SaveData.Instance.HasVertBoost, SaveData.Instance.HasShockSpike, SaveData.Instance.LeftWeaponEquipped, SaveData.Instance.RightWeaponEquipped,
-			SaveData.Instance.HasShieldUpgrade, SaveData.Instance.HPPhase, SaveData.Instance.BatteryPhase, SaveData.Instance.HeartPieceCount, SaveData.Instance.ShieldPieceCount, SaveData.Instance.BatteryPieceCount, SaveData.Instance.HubData, SaveData.Instance.CaveData, SaveData.Instance.ShipData, SaveData.Instance.NPCsData);
+			SaveData.Instance.HasShieldUpgrade, SaveData.Instance.HPPhase, SaveData.Instance.BatteryPhase, SaveData.Instance.HeartPieceCount, SaveData.Instance.ShieldPieceCount, SaveData.Instance.BatteryPieceCount,
+			SaveData.Instance.HubData, SaveData.Instance.CaveData, SaveData.Instance.ShipData, SaveData.Instance.NPCsData, SaveData.Instance.playerSavePos, SaveData.Instance.LastSaveScene, SaveData.Instance.isSaved);
 		return CheckSave;
 	}
 
