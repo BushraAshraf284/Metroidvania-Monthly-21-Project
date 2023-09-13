@@ -87,6 +87,24 @@ public class PlayerStats : MonoBehaviour
     public float iFrameCooldown = 1f;
 	float iFrameCount;
 	bool iFrameCooldownBlock;
+	
+	void LateAwake(){
+		if(comingFromShip){
+			if(shipSpawnPos != null){
+				this.transform.position = shipSpawnPos.position;
+				comingFromShip = false;
+				SaveData.Instance.comingFromShip = false;
+				
+			}
+		}
+		else if (comingFromCave){
+			if(caveSpawnPos != null){
+				this.transform.position = caveSpawnPos.position;
+				comingFromCave = false;
+				SaveData.Instance.comingFromCave = false;
+			}
+		}
+	}
 
     private void Awake()
 	{      
@@ -112,21 +130,8 @@ public class PlayerStats : MonoBehaviour
 			    }
 		    }
 	    }
-		if(comingFromShip){
-			if(shipSpawnPos != null){
-				this.transform.position = shipSpawnPos.position;
-				comingFromShip = false;
-				SaveData.Instance.comingFromShip = false;
-				
-			}
-		}
-		else if (comingFromCave){
-			if(caveSpawnPos != null){
-				this.transform.position = caveSpawnPos.position;
-				comingFromCave = false;
-				SaveData.Instance.comingFromCave = false;
-			}
-		}
+		Invoke("LateAwake", .5f);
+
     }
 
 
