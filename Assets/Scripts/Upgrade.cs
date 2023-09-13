@@ -137,7 +137,7 @@ public class Upgrade : MonoBehaviour
 	            }
             }
 	        isPickedUp = true;
-           SaveManager.Instance.SaveUpgrades();
+           
             if (dissapear){
                 if(reappear){
                     if(GetComponent<BoxCollider>() != null){
@@ -153,6 +153,7 @@ public class Upgrade : MonoBehaviour
                 }
                 
             }
+	        SaveManager.Instance.SaveUpgrades();
             
         }
     }

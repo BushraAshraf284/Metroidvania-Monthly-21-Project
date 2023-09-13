@@ -24818,6 +24818,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1659435750}
     m_Modifications:
+    - target: {fileID: 1491840646023309773, guid: 58f44b4f3808c614d80d8cc2aa6dbcbd, type: 3}
+      propertyPath: dissapear
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3972586148567535030, guid: 58f44b4f3808c614d80d8cc2aa6dbcbd, type: 3}
       propertyPath: m_Name
       value: Heart Piece
