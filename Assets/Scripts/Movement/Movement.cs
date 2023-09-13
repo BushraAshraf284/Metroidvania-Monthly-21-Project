@@ -125,6 +125,7 @@ public class Movement : MonoBehaviour {
 	bool boosterGate2 = false;
 	//runs when object becomes active
 	void Awake () {
+		
 		playerInputSpace = GameObject.Find("3rd Person Camera Empty").transform;
 		rotator = GetComponentInChildren<UpdateRotation>();
         controls = GameObject.Find("Data").GetComponentInChildren<Controls>();

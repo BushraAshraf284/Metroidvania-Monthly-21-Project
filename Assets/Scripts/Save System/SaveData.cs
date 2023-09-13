@@ -43,8 +43,12 @@ public class SaveData{
     public SceneData ShipData;
 
     // NPC Data
-
     public NPCsData NPCsData;
+
+    //Save Point Info
+    public Vector3 playerSavePos;
+    public int LastSaveScene;
+    public bool isSaved;
 
 
     //Constructor to save actual GameData
@@ -61,7 +65,8 @@ public class SaveData{
 
 	//Constructor to check any tampering with the SaveData
     public SaveData(float hp, bool hasShield, float shieldCharge, bool hasShockProng, bool hasMissiles, bool hasSword, bool hasHomingMissiles, bool hasJetBoost, bool hasVertBoost, bool hasShockSpike,
-        int leftweapon, int rightWeapon, bool hasShieldUpgrade, int hpPhase, int batteryPhase, int heartPieceCount, int shieldPieceCount, int batteryPieceCount, SceneData hubData, SceneData caveData, SceneData shipData, NPCsData nPCsData)
+        int leftweapon, int rightWeapon, bool hasShieldUpgrade, int hpPhase, int batteryPhase, int heartPieceCount, int shieldPieceCount, int batteryPieceCount, SceneData hubData, SceneData caveData, SceneData shipData, NPCsData nPCsData,
+        Vector3 playerSavePos, int lastSaveScene, bool isDead)
     {
         playerHP = hp;
         hasSheild = hasShield;
@@ -85,6 +90,9 @@ public class SaveData{
         CaveData = caveData;
         ShipData = shipData;
         NPCsData = nPCsData;
+        this.playerSavePos = playerSavePos;
+        LastSaveScene = lastSaveScene;
+        this.isSaved = isDead;
     }
 
 

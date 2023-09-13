@@ -26,6 +26,7 @@ public class SaveLoadTrigger: MonoBehaviour
 	public void SAVE(){
 		Debug.Log("SAVE POINT");
 		stats.RestoreHP(stats.MaxHP - stats.hp);
+		SaveManager.Instance.SavePointInfo();
 		SaveLoad.SaveProgress();
 		//visual stuff=---------
 		saveProgressIcon.SetActive(true);
