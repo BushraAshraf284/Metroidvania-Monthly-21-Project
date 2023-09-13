@@ -10,9 +10,14 @@ public class SettingsMenu : MonoBehaviour
 {
     //Menu components
     Slider volSlide;
+    Slider baseFOVSlide;
+    Slider aimFOVSlide;
     Dropdown resDrop;
     Toggle fullToggle;
     Dropdown qualDrop;
+
+    [SerializeField]
+    OrbitCamera orbitCamera;
 
     Resolution[] resolutions;
 
@@ -26,6 +31,10 @@ public class SettingsMenu : MonoBehaviour
         resolutions = Screen.resolutions.Where(resolution => resolution.refreshRate == Screen.currentResolution.refreshRate).ToArray();
         fullToggle = GameObject.Find("Fullscreen").GetComponent<Toggle>();
         fullToggle.isOn = Screen.fullScreen;
+        baseFOVSlide = GameObject.Find("BaseFOVSlider").GetComponent<Slider>();
+        baseFOVSlide.value = 0.5f;
+        aimFOVSlide = GameObject.Find("AimFOVSlider").GetComponent<Slider>();
+        aimFOVSlide.value = 0.5f;
         //qualDrop = GameObject.Find("Quality").GetComponent<Dropdown>();
         //Get available, current resolutions for resolutions dropdown
         GetResolutions();
@@ -42,6 +51,36 @@ public class SettingsMenu : MonoBehaviour
             AudioListener.volume = volSlide.value * 2;
         }
 
+    }
+
+    public void changeBaseFOV()
+    {
+        //Slider OnChange() is called when initialized, sometimes before start() can finish
+        if (baseFOVSlide)
+        {
+            orbitCamera.baseFOV = baseFOVSlide.value;
+        }
+
+    }
+
+    public void changeAimFOV()
+    {
+        //Slider OnChange() is called when initialized, sometimes before start() can finish
+        if (aimFOVSlide)
+        {
+            orbitCamera.aimFOV = aimFOVSlide.value;
+        }
+
+    }
+
+    public void SetDefaultBaseFOV()
+    {
+        orbitCamera.baseFOV = 90;
+    }
+
+    public void SetDefaultAimFOV()
+    {
+        orbitCamera.aimFOV = 50;
     }
 
     //Get available, current resolutions for resolutions dropdown
