@@ -68,7 +68,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5529623610213205446
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3770,7 +3770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5308896474561839942
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8706,7 +8706,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7071750073269231805
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11146,7 +11146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3589963824312925060
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14087,7 +14087,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1000429204274557225
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14129,20 +14129,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f931e33d88bfbae4f9d111f9742e2eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 5558983699282094535}
+  pauseMenu: {fileID: 4806303836998080102}
   upgradeText: {fileID: 8237434627866495848}
   upgradeIcon: {fileID: 5569075891202530362}
   upgradeIcons:
-  - {fileID: 21300000, guid: 9bf2a9ce0bd200a49ab5eec2efea1b49, type: 3}
-  - {fileID: 21300000, guid: 9b1940f240db94d4fa1536d3518b8523, type: 3}
-  - {fileID: 21300000, guid: 138911321cb6eca46a68e8f7b459d61a, type: 3}
-  - {fileID: 21300000, guid: eaadfbbd75be9304db824ff773cec53d, type: 3}
-  - {fileID: 21300000, guid: 288ab659f1baaf04e9166fed67849c5a, type: 3}
-  - {fileID: 21300000, guid: eb3b04150ac27da419df72926b9480c1, type: 3}
-  - {fileID: 21300000, guid: c1c4c6865f761d7479a2f9fb44c29e86, type: 3}
-  - {fileID: 21300000, guid: 5a9e5fad41d563f40bf00dced7fa330b, type: 3}
-  - {fileID: 21300000, guid: 46d76a4b04281364cb0958621834d11b, type: 3}
-  - {fileID: 21300000, guid: cfb96871960adeb48ab7ba6bd1ca1970, type: 3}
+  - {fileID: 5512223789816874379}
+  - {fileID: 7886707834099846842}
+  - {fileID: 5736311976065507039}
+  - {fileID: 107136737629340176}
+  - {fileID: 3777074637777980099}
+  - {fileID: 9178580812236224957}
+  - {fileID: 1817238589032678366}
+  - {fileID: 5105337942366911163}
+  - {fileID: 3258457478191596866}
+  - {fileID: 7154568016804046917}
   upgradeTracker: {fileID: 0}
 --- !u!1 &4836084551770626973
 GameObject:
@@ -14661,7 +14661,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7105921138614610559
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16101,7 +16101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3912550080980560860
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16548,7 +16548,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2247461544158942799
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20678,7 +20678,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5231407152409870702
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23171,7 +23171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2998381172216371930
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26267,7 +26267,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7682954431977641831
 RectTransform:
   m_ObjectHideFlags: 0
