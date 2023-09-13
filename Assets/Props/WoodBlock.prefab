@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &549941434548756226
 Transform:
@@ -94,7 +94,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 96a875f63577f5c44853d3bcfbdf464a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0c1434cf6a4312541ac81706965cd979, type: 2}
+      objectReference: {fileID: 2100000, guid: c638df4b7571f7c42a10a369a453e30a, type: 2}
     - target: {fileID: 919132149155446097, guid: 96a875f63577f5c44853d3bcfbdf464a, type: 3}
       propertyPath: m_Name
       value: WoodBlock
@@ -105,7 +105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 96a875f63577f5c44853d3bcfbdf464a, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -181,6 +181,7 @@ MonoBehaviour:
   hasEvent: 0
   breakSoundEvent: 
   destroyRoot: 0
+  paperThin: 0
 --- !u!54 &4880626842855978819
 Rigidbody:
   m_ObjectHideFlags: 0

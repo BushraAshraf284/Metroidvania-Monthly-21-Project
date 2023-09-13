@@ -12,8 +12,10 @@ public class SaveLoadTrigger: MonoBehaviour
     public sceneType sceneType;
 	private string sceneName;
 	GameObject saveProgressIcon;
+	PlayerStats stats;
 	
 	void Start(){
+		stats = GameObject.Find("3rd Person Character").GetComponent<PlayerStats>();
 		saveProgressIcon = GameObject.Find("Saving Progress Icon").transform.GetChild(0).gameObject;
 	}
 	
@@ -22,15 +24,19 @@ public class SaveLoadTrigger: MonoBehaviour
 	}
 	
 	public void SAVE(){
-		SaveLoad.SaveProgress();
+		Debug.Log("SAVE POINT");
+		stats.hp = stats.MaxHP;
+		//visual stuff=---------
 		saveProgressIcon.SetActive(true);
 		Invoke("resetIcon", 5f);
 		if(rotator.GetComponent<Rotator>()!= null){
 			rotator.GetComponent<Rotator>().RampRotation();
 		}
+		SaveLoad.SaveProgress();
 	}
     private void OnTriggerEnter(Collider other)
-    {
+	{
+		Debug.Log("SCENE SWITCH");
         if (other.gameObject.tag == "Player")
         {
             if (saveType == SaveType.SCENESWITCH)

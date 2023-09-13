@@ -39,19 +39,8 @@ public class UpgradeTracker : MonoBehaviour
         hasVertBoost = SaveData.Instance.HasVertBoost;
         hasShockSpike = SaveData.Instance.HasShockSpike;
         leftWeapon = (LeftWeaponEquipped)SaveData.Instance.LeftWeaponEquipped;
-        rightWeapon = (RightWeaponEquipped)SaveData.Instance.RightWeaponEquipped;
-    }
-	public int repairKitCount;
-	[SerializeField]
-	public bool enteredWorld1, enteredWorld2, enteredBossArea;
-    void Start()
-	{
-		foreach (GameObject g in GameObject.FindGameObjectsWithTag("Managers")){
-			if(g.GetComponent<WeaponManager>() != null){
-				wepMan = g.GetComponent<WeaponManager>();
-			}
-		}
-	    stats = GetComponent<PlayerStats>();
+	    rightWeapon = (RightWeaponEquipped)SaveData.Instance.RightWeaponEquipped;
+	    
 	    if(leftWeapon == LeftWeaponEquipped.Sword){
 	    	if(hasSword){
 		    	EquipSword();
@@ -98,6 +87,19 @@ public class UpgradeTracker : MonoBehaviour
 	    else if(rightWeapon == RightWeaponEquipped.none){
 	    	DisableAllRightHandWeapons();
 	    }
+    }
+	public int repairKitCount;
+	[SerializeField]
+	public bool enteredWorld1, enteredWorld2, enteredBossArea;
+    void Start()
+	{
+		foreach (GameObject g in GameObject.FindGameObjectsWithTag("Managers")){
+			if(g.GetComponent<WeaponManager>() != null){
+				wepMan = g.GetComponent<WeaponManager>();
+			}
+		}
+	    stats = GetComponent<PlayerStats>();
+	    
     }
 	// Start is called before the first frame update
 	public void GetRepairKit(){

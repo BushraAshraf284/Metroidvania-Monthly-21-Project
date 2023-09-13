@@ -10,6 +10,14 @@ using FMOD.Studio;
 //this script will just keep track of the player's various stats and allow other scripts to access and edit them
 public class PlayerStats : MonoBehaviour
 {
+	[SerializeField]
+	OrbitCamera cam;
+	[SerializeField]
+	GameObject X1Base;
+	[SerializeField]
+	GameObject X1Chunks;
+	[SerializeField]
+	GameObject deathScreen;
     [SerializeField]
     [Tooltip("Max HP for the player without any health upgrades")]
 	float MaxHpPhase1 = 100f;
@@ -80,7 +88,9 @@ public class PlayerStats : MonoBehaviour
         shieldCharge = SaveData.Instance.shieldCharge;
         hasShieldUpgrade = SaveData.Instance.HasShieldUpgrade;
         batteryphase = (BAPhase)SaveData.Instance.BatteryPhase;
-        healthphase =(HPPhase) SaveData.Instance.HPPhase;
+	    healthphase =(HPPhase) SaveData.Instance.HPPhase;
+	    UpdateMaxes();
+	    
     }
 
 
@@ -151,9 +161,14 @@ public class PlayerStats : MonoBehaviour
                 if (hp - damage < 0){
                     //Debug.Log("Went from "+hp+" to 0");
                     //Debug.Log("Zero HP!");
-
+	                deathScreen.SetActive(true);
+	                X1Base.SetActive(false);
+	                Instantiate(X1Chunks, this.transform.position, Quaternion.identity);
+	                GetComponent<Movement>().blockMovement();
+	                cam.enabled = false;
+	                Cursor.visible = true; //makes cursor visible
+	                Cursor.lockState = CursorLockMode.None;//makes cursor moveable
                     AudioManager.instance.PlayOneShot(FMODEvents.instance.playerDeath, this.transform.position);
-
                     hp = 0;
                     SaveData.Instance.playerHP = hp;
                 }
