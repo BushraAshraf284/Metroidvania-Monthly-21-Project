@@ -44,26 +44,28 @@ public class SaveLoadTrigger: MonoBehaviour
             if (saveType == SaveType.SCENESWITCH)
             {
             	Debug.Log("SCENE SWITCH");
-            	SaveLoad.SaveProgress();
+            	
                 switch (sceneType)
                 {
                     case sceneType.Ship:
 	                    sceneName = "Ship Level Design";
 	                    stats.comingFromShip = true;
 	                    SaveData.Instance.comingFromShip = true;
-	                    
+                        SaveData.Instance.EnteredWorld2 = true;
                         break;
 
                     case sceneType.Cave:
 	                    sceneName = "Cave Level Design";
 	                    stats.comingFromCave = true;
 	                    SaveData.Instance.comingFromCave = true;
+                        SaveData.Instance.EnteredWorld1 = true;
                         break;
 
                     case sceneType.Hub:
                         sceneName = "Hub Level Design";
                         break;
                 }
+                SaveLoad.SaveProgress();
                 SceneManager.LoadScene(sceneName);
             }
            

@@ -70,7 +70,10 @@ public class UpgradeTracker : MonoBehaviour
         hasJetBoost = SaveData.Instance.HasJetBoost;
         hasVertBoost = SaveData.Instance.HasVertBoost;
 	    hasShockSpike = SaveData.Instance.HasShockSpike;
-	    if(!SaveData.Instance.unlockedLeftWeapon.Contains("None")){
+        enteredWorld1 = SaveData.Instance.EnteredWorld1;
+        enteredWorld2 = SaveData.Instance.EnteredWorld2;
+
+        if (!SaveData.Instance.unlockedLeftWeapon.Contains("None")){
 		    SaveData.Instance.unlockedLeftWeapon.Add("None");
 	    }
 	    if(!SaveData.Instance.unlockedRightWeapon.Contains("None")){
