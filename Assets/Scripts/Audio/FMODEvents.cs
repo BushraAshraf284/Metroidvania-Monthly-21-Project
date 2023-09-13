@@ -60,6 +60,8 @@ public class FMODEvents : MonoBehaviour
 	[field: SerializeField] public EventReference objectBreakingSound { get; private set; }
 	[field: SerializeField] public EventReference objectDestorySound { get; private set; }
 	[field: SerializeField] public EventReference gravitySwitchSound { get; private set; }
+	[field: SerializeField] public EventReference platformMovingSound { get; private set; }
+
 
 	[field: Header("UI SFX")]
 	[field: SerializeField] public EventReference interactSFX { get; private set; }

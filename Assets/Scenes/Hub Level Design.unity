@@ -16144,69 +16144,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5c11c9d688af590449991903c75d9581, type: 3}
   m_PrefabInstance: {fileID: 849027120}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &856385747
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 856385748}
-  - component: {fileID: 856385749}
-  m_Layer: 0
-  m_Name: Platform 1 Audio Emitter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &856385748
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 856385747}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 852.2799, y: -41.699993, z: 172.1202}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8463403410853605315}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &856385749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 856385747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 373049924
-      Data2: 1265855317
-      Data3: -6871935
-      Data4: 64307235
-    Path: event:/Test/Test Looping 3D
-  Event: 
-  PlayEvent: 1
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 1
-  OverrideMinDistance: 12
-  OverrideMaxDistance: 24
 --- !u!4 &860910296 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 916402978739528710, guid: b030f36c590bc2140b4000c11f065699, type: 3}
@@ -40025,6 +39962,7 @@ GameObject:
   - component: {fileID: 557314398}
   - component: {fileID: 557314404}
   - component: {fileID: 557314403}
+  - component: {fileID: 5796042335156679929}
   - component: {fileID: 557314402}
   m_Layer: 0
   m_Name: Elevator before Tall Room
@@ -41183,6 +41121,7 @@ GameObject:
   - component: {fileID: 7234246689400879175}
   - component: {fileID: 7234246689400879176}
   - component: {fileID: 7234246689400879177}
+  - component: {fileID: 7234246689400879178}
   m_Layer: 0
   m_Name: Elevator To Heart Piece
   m_TagString: Untagged
@@ -41772,6 +41711,7 @@ GameObject:
   - component: {fileID: 138665811}
   - component: {fileID: 5446884553695107136}
   - component: {fileID: 5446884553695107137}
+  - component: {fileID: 5446884553695107138}
   m_Layer: 0
   m_Name: Tall Room Moving Pillar
   m_TagString: Untagged
@@ -44719,6 +44659,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5446884553695107138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3835738550857261069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a591216ea3cdad4f99520a497f9ea0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5456141478742126162
 GameObject:
   m_ObjectHideFlags: 0
@@ -44960,6 +44912,7 @@ GameObject:
   - component: {fileID: 7258909083179613199}
   - component: {fileID: 553953068}
   - component: {fileID: 553953072}
+  - component: {fileID: 8968061199771496783}
   m_Layer: 0
   m_Name: Starting Sliding Platform #1
   m_TagString: Untagged
@@ -44991,6 +44944,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010893820206691202}
   m_Mesh: {fileID: -5656828746934027695, guid: 583ebdee896ed6747a38c676a26d8948, type: 3}
+--- !u!114 &5796042335156679929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010893820206691202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a591216ea3cdad4f99520a497f9ea0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &5816308890809884959
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -45265,6 +45230,7 @@ GameObject:
   - component: {fileID: 5227020358891378152}
   - component: {fileID: 837889340}
   - component: {fileID: 7858538646620476953}
+  - component: {fileID: 7858538646620476954}
   - component: {fileID: 7858538646620476952}
   - component: {fileID: 7858538646620476951}
   m_Layer: 0
@@ -47029,7 +46995,6 @@ GameObject:
   - component: {fileID: 825477158}
   - component: {fileID: 7231786261855365823}
   - component: {fileID: 7231786261855365822}
-  - component: {fileID: 7231786261855365824}
   m_Layer: 0
   m_Name: ' Target Hub Missile Door Target'
   m_TagString: Breakable
@@ -47080,37 +47045,6 @@ MonoBehaviour:
   breakSoundEvent: 
   destroyRoot: 0
   paperThin: 0
---- !u!114 &7231786261855365824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7231786261855365821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  Event: 
-  PlayEvent: 2
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
 --- !u!23 &7234246689400879175
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -47191,6 +47125,18 @@ MonoBehaviour:
   isActivated: 0
   isXTRAActivated: 0
   blocked: 0
+--- !u!114 &7234246689400879178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3318135613866667648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a591216ea3cdad4f99520a497f9ea0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &7258909083179613199
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -47522,6 +47468,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7858538646620476954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6031386309171794377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a591216ea3cdad4f99520a497f9ea0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &7860591518314661122
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -47851,6 +47809,7 @@ GameObject:
   - component: {fileID: 6732917085357228026}
   - component: {fileID: 2938443066184022989}
   - component: {fileID: 700539711}
+  - component: {fileID: 8589601142254122579}
   - component: {fileID: 700539715}
   - component: {fileID: 700539716}
   m_Layer: 0
@@ -48293,8 +48252,7 @@ Transform:
   m_LocalPosition: {x: 12.5000305, y: -33.76272, z: -52.5}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 856385748}
+  m_Children: []
   m_Father: {fileID: 543450652085526569}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &8465782746457816898
@@ -48353,6 +48311,7 @@ GameObject:
   - component: {fileID: 1927350093}
   - component: {fileID: 1927350098}
   - component: {fileID: 1927350097}
+  - component: {fileID: 8502427849627660075}
   - component: {fileID: 1927350099}
   m_Layer: 0
   m_Name: Starting Elevator
@@ -48361,6 +48320,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8502427849627660075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8502427849627660074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a591216ea3cdad4f99520a497f9ea0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8517456028773738431
 GameObject:
   m_ObjectHideFlags: 0
@@ -48446,6 +48417,18 @@ Transform:
   - {fileID: 96939385}
   m_Father: {fileID: 543450652085526569}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8589601142254122579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8213812406868356888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a591216ea3cdad4f99520a497f9ea0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &8598914892746495828
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -49207,6 +49190,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5615930973794794589}
   m_Mesh: {fileID: -1960659376324066979, guid: 583ebdee896ed6747a38c676a26d8948, type: 3}
+--- !u!114 &8968061199771496783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5615930973794794589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a591216ea3cdad4f99520a497f9ea0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8983252116606496644
 PrefabInstance:
   m_ObjectHideFlags: 0
