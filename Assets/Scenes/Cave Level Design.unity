@@ -7684,26 +7684,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 345891258994505126, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
-      propertyPath: m_margin.w
-      value: -94.012276
-      objectReference: {fileID: 0}
-    - target: {fileID: 345891258994505126, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
-      propertyPath: m_margin.x
-      value: -270.52896
-      objectReference: {fileID: 0}
-    - target: {fileID: 345891258994505126, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
-      propertyPath: m_margin.y
-      value: -0.7438965
-      objectReference: {fileID: 0}
-    - target: {fileID: 345891258994505126, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
-      propertyPath: m_margin.z
-      value: -269.44196
-      objectReference: {fileID: 0}
     - target: {fileID: 480250503045872170, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1446166245}
+      objectReference: {fileID: 1641981114}
+    - target: {fileID: 480250503045872170, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LOAD
+      objectReference: {fileID: 0}
     - target: {fileID: 701897801822589638, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -7796,10 +7784,6 @@ PrefabInstance:
       propertyPath: cameraMovement
       value: 
       objectReference: {fileID: 236561298891365342}
-    - target: {fileID: 1538567352118618961, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3103169402550660341, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
       propertyPath: m_Name
       value: UI Canvas
@@ -7816,10 +7800,6 @@ PrefabInstance:
       propertyPath: upgradeTracker
       value: 
       objectReference: {fileID: 8676509}
-    - target: {fileID: 6779428210088963810, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7321648985409190532, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
       propertyPath: cam
       value: 
@@ -7835,34 +7815,6 @@ PrefabInstance:
     - target: {fileID: 7672338039184378303, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7736729928378008029, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
-      propertyPath: m_margin.w
-      value: -105.668724
-      objectReference: {fileID: 0}
-    - target: {fileID: 7736729928378008029, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
-      propertyPath: m_margin.x
-      value: -270.81393
-      objectReference: {fileID: 0}
-    - target: {fileID: 7736729928378008029, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
-      propertyPath: m_margin.y
-      value: 9.173187
-      objectReference: {fileID: 0}
-    - target: {fileID: 7736729928378008029, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
-      propertyPath: m_margin.z
-      value: -273.80353
-      objectReference: {fileID: 0}
-    - target: {fileID: 8172624766548239383, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8849672413237412148, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
-      propertyPath: update.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8849672413237412148, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
-      propertyPath: update.Array.data[1]
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9175455275493765668, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
       propertyPath: interactableIcon
@@ -13041,6 +12993,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 059909c086aae404c9d738608c31fcfc, type: 3}
+--- !u!1 &815905509 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2441589317923587063, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
+  m_PrefabInstance: {fileID: 458049919}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &837468653 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8829940884434194078, guid: 21cdbf98e1b568e4c9ec333f280b79ab, type: 3}
@@ -20727,6 +20684,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1846398794}
     - target: {fileID: 4377475622642561442, guid: 5238950f42918054eab65ae6f09628fc, type: 3}
+      propertyPath: LoadingScreen
+      value: 
+      objectReference: {fileID: 815905509}
+    - target: {fileID: 4377475622642561442, guid: 5238950f42918054eab65ae6f09628fc, type: 3}
       propertyPath: upgradeManager
       value: 
       objectReference: {fileID: 1455218796}
@@ -20775,11 +20736,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5238950f42918054eab65ae6f09628fc, type: 3}
---- !u!1 &1446166245 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 755976429041084750, guid: 5238950f42918054eab65ae6f09628fc, type: 3}
-  m_PrefabInstance: {fileID: 1446166244}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1448116690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23681,6 +23637,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7175207904595269970, guid: e8d2b0fc65fcad74293b470b16c266ad, type: 3}
   m_PrefabInstance: {fileID: 1641319829}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1641981114 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7753728701185214135, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
+  m_PrefabInstance: {fileID: 458049919}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458049924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db2595fccccb2204e8e4363882744ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1644577350 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2646993511650516677, guid: e750f13f4aef4a44ba04479da93ee8a8, type: 3}
