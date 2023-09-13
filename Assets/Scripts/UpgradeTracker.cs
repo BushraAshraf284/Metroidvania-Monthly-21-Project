@@ -188,7 +188,7 @@ public class UpgradeTracker : MonoBehaviour
     public void UnlockShockProng()
     {
         Debug.Log("Equipping Shock Prong!");
-        upgradeMenu.ShowUpgrade("ShockProng", 1);
+        upgradeMenu.ShowUpgrade("Shock Prong", 1);
         DisableAllLeftHandWeapons();
         shockProng.SetActive(true);
 	    hasShockProng = true;
@@ -216,7 +216,7 @@ public class UpgradeTracker : MonoBehaviour
     {
         Debug.Log("Equipping Shock Spike!");
         DisableAllRightHandWeapons();
-        upgradeMenu.ShowUpgrade("ShockSpike", 2);
+        upgradeMenu.ShowUpgrade("Shock Spike", 2);
         shockSpike.SetActive(true);
 	    hasShockSpike = true;
         SaveData.Instance.HasShockSpike = hasShockSpike;
@@ -242,6 +242,7 @@ public class UpgradeTracker : MonoBehaviour
     {
         Debug.Log("Equipping Missiles!");
         DisableAllRightHandWeapons();
+        upgradeMenu.ShowUpgrade("Missiles", 3);
         missiles.SetActive(true);
 	    hasMissiles = true;
 
@@ -268,6 +269,7 @@ public class UpgradeTracker : MonoBehaviour
     public void UnlockHomingMissiles()
     {
         Debug.Log("Unlocking Homing Missiles!");
+        upgradeMenu.ShowUpgrade("Homing Missiles", 4);
         DisableAllRightHandWeapons();
         homingMissiles.SetActive(true);
 	    hasHomingMissiles = true;
@@ -297,6 +299,7 @@ public class UpgradeTracker : MonoBehaviour
     {
         Debug.Log("Equipping Jet Boost!");
         jetBoost.SetActive(true);
+        upgradeMenu.ShowUpgrade("Jet Booster", 5);
         hasJetBoost = true;
         SaveData.Instance.HasJetBoost = hasJetBoost;
     }
@@ -304,6 +307,7 @@ public class UpgradeTracker : MonoBehaviour
     {
         Debug.Log("Equipping Vertical Boost!");
         vertBoost.SetActive(true);
+        upgradeMenu.ShowUpgrade("Vertical Booster", 6);
         hasVertBoost = true;
         SaveData.Instance.HasVertBoost = hasVertBoost;
     }
