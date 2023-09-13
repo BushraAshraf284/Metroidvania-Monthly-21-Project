@@ -47,7 +47,7 @@ public class SaveData{
 
     //Save Point Info
     public Vector3 playerSavePos;
-    public int LastSaveScene;
+    public int LastSaveScene = 1;
     public bool isSaved;
 
 
