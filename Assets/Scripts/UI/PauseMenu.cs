@@ -58,7 +58,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     //Pause the game by freezing time and enabling the menu
-    void pause()
+    public void pause()
     {
         AudioManager.instance.PlayOneShot(FMODEvents.instance.pauseGameAudio, this.transform.position);
         Time.timeScale = 0;
