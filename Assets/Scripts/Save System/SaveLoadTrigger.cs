@@ -37,20 +37,26 @@ public class SaveLoadTrigger: MonoBehaviour
 	}
     private void OnTriggerEnter(Collider other)
 	{
-		Debug.Log("SCENE SWITCH");
+		
         if (other.gameObject.tag == "Player")
         {
             if (saveType == SaveType.SCENESWITCH)
             {
+            	Debug.Log("SCENE SWITCH");
             	SaveLoad.SaveProgress();
                 switch (sceneType)
                 {
                     case sceneType.Ship:
-                        sceneName = "Ship Level Design";
+	                    sceneName = "Ship Level Design";
+	                    stats.comingFromShip = true;
+	                    SaveData.Instance.comingFromShip = true;
+	                    
                         break;
 
                     case sceneType.Cave:
-                        sceneName = "Cave Level Design";
+	                    sceneName = "Cave Level Design";
+	                    stats.comingFromCave = true;
+	                    SaveData.Instance.comingFromCave = true;
                         break;
 
                     case sceneType.Hub:

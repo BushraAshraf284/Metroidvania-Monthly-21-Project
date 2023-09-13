@@ -26,10 +26,40 @@ public class UpgradeTracker : MonoBehaviour
 
 	string heartDesc = "You have increased your maximum health points!";
 	string batteryDesc = "You have increased your maximum battery charge!";
-	string shieldDesc = "You have unlocked the shield!";
+	string shieldDesc = "You can now fully block one attack";
+	
+	void LateAwake(){
+		foreach (string s in wepMan.unlockedLeftWeapon){
+			Debug.Log(s);
+			if(s == "Sword"){
+				//Debug.Log("AAAAAAAAAAAAAAAAAAAUnlocking Sword!");
+				upgradeMenu.ShowUpgrade("Sword");
+			}
+			if(s == "ShockProng"){
+				//Debug.Log("AAAAAAAAAAAAAAAAAAAUnlocking Shock prong!");
+				upgradeMenu.ShowUpgrade("Shock Prong");
+			}
+		}
+		foreach (string s in wepMan.unlockedRightWeapon){
+			Debug.Log(s);
+			if(s == "Missiles"){
+				//Debug.Log("AAAAAAAAAAAAAAAAAAAUnlocking Missiles!");
+				upgradeMenu.ShowUpgrade("Missiles");
+			}
+			if(s== "HomingMissiles"){
+				//Debug.Log("AAAAAAAAAAAAAAAAAAAUnlocking Homing Missiles!");
+				upgradeMenu.ShowUpgrade("Homing Missiles");
+			}
+			if(s == "ShockSpike"){
+				//Debug.Log("AAAAAAAAAAAAAAAAAAAUnlocking Shock Spike!");
+				upgradeMenu.ShowUpgrade("Shock Spike");
+			}
+		}
+	}
 
     private void Awake()
-    {
+	{
+		//Debug.LogError("UpgradeTrackerAwake");
         heartPieceCount = SaveData.Instance.HeartPieceCount;
         shieldPieceCount = SaveData.Instance.ShieldPieceCount;
         batteryPieceCount = SaveData.Instance.BatteryPieceCount;
@@ -80,25 +110,8 @@ public class UpgradeTracker : MonoBehaviour
 	    if(hasVertBoost){
 	    	upgradeMenu.ShowUpgrade("Vertical Booster");
 	    }
-	    foreach (string s in wepMan.unlockedLeftWeapon){
-	    	if(s == "Sword"){
-	    		upgradeMenu.ShowUpgrade("Sword");
-	    	}
-	    	if(s == "ShockProng"){
-	    		upgradeMenu.ShowUpgrade("Shock Prong");
-	    	}
-	    }
-	    foreach (string s in wepMan.unlockedRightWeapon){
-	    	if(s == "Missiles"){
-	    		upgradeMenu.ShowUpgrade("Missiles");
-	    	}
-	    	if(s== "HomingMissiles"){
-	    		upgradeMenu.ShowUpgrade("Homing Missiles");
-	    	}
-	    	if(s == "ShockSpike"){
-	    		upgradeMenu.ShowUpgrade("Shock Spike");
-	    	}
-	    }
+		Invoke("LateAwake", .1f);
+		
     }
 	public int repairKitCount;
 	[SerializeField]
@@ -264,7 +277,11 @@ public class UpgradeTracker : MonoBehaviour
 	    	wepMan.currentLeftWeaponIndex++;
 	    	SaveData.Instance.currentLeftWeaponIndex = wepMan.currentLeftWeaponIndex;
 	    }
-	    wepMan.unlockedLeftWeapon.Add("Sword");
+	    
+	    
+	    if(!wepMan.unlockedLeftWeapon.Contains("Sword")){
+	    	wepMan.unlockedLeftWeapon.Add("Sword");
+	    }
 	    SaveData.Instance.unlockedRightWeapon = wepMan.unlockedRightWeapon;
 	    SaveData.Instance.unlockedLeftWeapon = wepMan.unlockedLeftWeapon;
 	    
@@ -296,7 +313,9 @@ public class UpgradeTracker : MonoBehaviour
 	    	wepMan.currentLeftWeaponIndex++;
 	    	SaveData.Instance.currentLeftWeaponIndex = wepMan.currentLeftWeaponIndex;
 	    }
-	    wepMan.unlockedLeftWeapon.Add("ShockProng");
+	    if(!wepMan.unlockedLeftWeapon.Contains("ShockProng")){
+	    	wepMan.unlockedLeftWeapon.Add("ShockProng");
+	    }
 	    SaveData.Instance.unlockedRightWeapon = wepMan.unlockedRightWeapon;
 	    SaveData.Instance.unlockedLeftWeapon = wepMan.unlockedLeftWeapon;
     }
@@ -325,7 +344,9 @@ public class UpgradeTracker : MonoBehaviour
 	    	wepMan.currentRightWeaponIndex++;
 	    	SaveData.Instance.currentRightWeaponIndex = wepMan.currentRightWeaponIndex;
 	    }
-	    wepMan.unlockedRightWeapon.Add("ShockSpike");
+	    if(!wepMan.unlockedRightWeapon.Contains("ShockSpike")){
+	    	wepMan.unlockedRightWeapon.Add("ShockSpike");
+	    }
 	    SaveData.Instance.unlockedRightWeapon = wepMan.unlockedRightWeapon;
 	    SaveData.Instance.unlockedLeftWeapon = wepMan.unlockedLeftWeapon;
     }
@@ -356,7 +377,9 @@ public class UpgradeTracker : MonoBehaviour
 	    	wepMan.currentRightWeaponIndex++;
 	    	SaveData.Instance.currentRightWeaponIndex = wepMan.currentRightWeaponIndex;
 	    }
-	    wepMan.unlockedRightWeapon.Add("Missiles");
+	    if(!wepMan.unlockedRightWeapon.Contains("Missiles")){
+	    	wepMan.unlockedRightWeapon.Add("Missiles");
+	    }
 	    SaveData.Instance.unlockedRightWeapon = wepMan.unlockedRightWeapon;
 	    SaveData.Instance.unlockedLeftWeapon = wepMan.unlockedLeftWeapon;
     }
@@ -387,7 +410,9 @@ public class UpgradeTracker : MonoBehaviour
 	    	wepMan.currentRightWeaponIndex++;
 	    	SaveData.Instance.currentRightWeaponIndex = wepMan.currentRightWeaponIndex;
 	    }
-	    wepMan.unlockedRightWeapon.Add("HomingMissiles");
+	    if(!wepMan.unlockedRightWeapon.Contains("HomingMissiles")){
+	    	wepMan.unlockedRightWeapon.Add("HomingMissiles");
+	    }
 	    SaveData.Instance.unlockedRightWeapon = wepMan.unlockedRightWeapon;
 	    SaveData.Instance.unlockedLeftWeapon = wepMan.unlockedLeftWeapon;
     }

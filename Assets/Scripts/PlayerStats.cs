@@ -11,6 +11,13 @@ using FMOD.Studio;
 public class PlayerStats : MonoBehaviour
 {
 	[SerializeField]
+	Transform caveSpawnPos;
+	[SerializeField]
+	Transform shipSpawnPos;
+	public bool comingFromCave;
+	public bool comingFromShip;
+	
+	[SerializeField]
 	OrbitCamera cam;
 	[SerializeField]
 	GameObject X1Base;
@@ -82,7 +89,9 @@ public class PlayerStats : MonoBehaviour
 	bool iFrameCooldownBlock;
 
     private void Awake()
-    {      
+	{      
+		comingFromCave = SaveData.Instance.comingFromCave;
+		comingFromShip = SaveData.Instance.comingFromShip;
         hp = SaveData.Instance.playerHP;
         hasShield = SaveData.Instance.hasSheild;
         shieldCharge = SaveData.Instance.shieldCharge;
@@ -90,7 +99,34 @@ public class PlayerStats : MonoBehaviour
         batteryphase = (BAPhase)SaveData.Instance.BatteryPhase;
 	    healthphase =(HPPhase) SaveData.Instance.HPPhase;
 	    UpdateMaxes();
-	    
+	    if(batteryphase == BAPhase.Phase3){
+		    UpdateBatteryMaxes();
+		    batteryBar.gameObject.SetActive(false);
+		    batteryBar2.gameObject.SetActive(false);
+		    batteryBar3.gameObject.SetActive(true);
+
+		    if(batteryBar3.batterySlider.GetComponent<Slider>() != null){
+			    if(batteryBar3.fill.GetComponent<RectTransform>() != null){
+				    batteryBar3.batterySlider.GetComponent<Slider>().maxValue = MaxChargePhase3;
+				    batteryBar3.batterySlider.GetComponent<Slider>().fillRect = batteryBar3.fill.GetComponent<RectTransform>();
+			    }
+		    }
+	    }
+		if(comingFromShip){
+			if(shipSpawnPos != null){
+				this.transform.position = shipSpawnPos.position;
+				comingFromShip = false;
+				SaveData.Instance.comingFromShip = false;
+				
+			}
+		}
+		else if (comingFromCave){
+			if(caveSpawnPos != null){
+				this.transform.position = caveSpawnPos.position;
+				comingFromCave = false;
+				SaveData.Instance.comingFromCave = false;
+			}
+		}
     }
 
 
@@ -234,7 +270,7 @@ public class PlayerStats : MonoBehaviour
             if(batteryBar3.batterySlider.GetComponent<Slider>() != null){
                 if(batteryBar3.fill.GetComponent<RectTransform>() != null){
                     
-                    batteryBar3.batterySlider.GetComponent<Slider>().maxValue = MaxChargePhase2;
+	                batteryBar3.batterySlider.GetComponent<Slider>().maxValue = MaxChargePhase3;
                     batteryBar3.batterySlider.GetComponent<Slider>().fillRect = batteryBar3.fill.GetComponent<RectTransform>();
                 }
             }

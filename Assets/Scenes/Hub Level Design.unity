@@ -14301,6 +14301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a959a4c2e05bb074fa492eb566be0d47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPos: {fileID: 0}
   rotator: {fileID: 0}
   saveType: 0
   sceneType: 2
@@ -21072,6 +21073,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5624966767830130801, guid: 583ebdee896ed6747a38c676a26d8948, type: 3}
+--- !u!1 &1126074969
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1126074970}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1126074970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126074969}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 41.89, y: 97.05, z: -1124.72}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1126437349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23045,7 +23077,6 @@ Transform:
   - {fileID: 578876629}
   - {fileID: 1300852016}
   - {fileID: 849027123}
-  - {fileID: 1453873433}
   - {fileID: 477905938}
   - {fileID: 1547803366}
   - {fileID: 1171674818}
@@ -26776,278 +26807,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450684786}
   m_Mesh: {fileID: -5295470027218061905, guid: 583ebdee896ed6747a38c676a26d8948, type: 3}
---- !u!1001 &1453873432
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1278221959}
-    m_Modifications:
-    - target: {fileID: 727440780679268508, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: diag
-      value: 
-      objectReference: {fileID: 795569950}
-    - target: {fileID: 727440780679268508, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: npcDiag
-      value: 
-      objectReference: {fileID: 1453873434}
-    - target: {fileID: 727440780679268508, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: UIPrompt
-      value: 
-      objectReference: {fileID: 2109686192}
-    - target: {fileID: 727440780679268508, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: notEnoughKitsUI
-      value: 
-      objectReference: {fileID: 1441300846}
-    - target: {fileID: 3662505313708989879, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: m_Name
-      value: Test NPC (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5190950549468951473, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: m_Height
-      value: 2.7038934
-      objectReference: {fileID: 0}
-    - target: {fileID: 5190950549468951473, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: m_Radius
-      value: 1.017569
-      objectReference: {fileID: 0}
-    - target: {fileID: 5190950549468951473, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: m_Center.x
-      value: 0.0018605652
-      objectReference: {fileID: 0}
-    - target: {fileID: 5190950549468951473, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: m_Center.y
-      value: -0.16910176
-      objectReference: {fileID: 0}
-    - target: {fileID: 5190950549468951473, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: m_Center.z
-      value: 0.031978823
-      objectReference: {fileID: 0}
-    - target: {fileID: 5795896375120089564, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 192.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 5795896375120089564, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 5795896375120089564, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -31.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5795896375120089564, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5795896375120089564, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5795896375120089564, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5795896375120089564, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5795896375120089564, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5795896375120089564, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5795896375120089564, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5938919708361813154, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 6153a1e8017c92447bc0f8ad91344d9c, type: 2}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: dialogueBox
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: dialogue.name
-      value: Other guy
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: introDialogue.name
-      value: Hole Man
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: hubWorldDialogue.name
-      value: Hole Man
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: enteredWorld1Dialgue.name
-      value: Hole Man
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: enteredWorld2Dialgue.name
-      value: Hole Man
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: preBossFightDialogue.name
-      value: Hole Man
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: dialogue.sentences.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: dialogue.sentences.Array.data[0]
-      value: 'im under the thing im in a hole look at me '
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: dialogue.sentences.Array.data[1]
-      value: howd i get here
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: dialogue.sentences.Array.data[2]
-      value: help fuck
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: introDialogue.sentences.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: hubWorldDialogue.sentences.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: introDialogue.sentences.Array.data[0]
-      value: i am the hole man
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: introDialogue.sentences.Array.data[1]
-      value: look upon my hole, ye mighty, and despair!
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: introDialogue.sentences.Array.data[2]
-      value: thanks for repairing me man, my back was KILLING me, being dead is rough
-        man
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: introDialogue.sentences.Array.data[3]
-      value: they really dont talk about that
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: hubWorldDialogue.sentences.Array.data[0]
-      value: 'This is a pretty nice place huh?  '
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: hubWorldDialogue.sentences.Array.data[1]
-      value: 'Well it was before the ship crashed or whatever. '
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: hubWorldDialogue.sentences.Array.data[2]
-      value: 'Im still not sure how you survived that '
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: hubWorldDialogue.sentences.Array.data[3]
-      value: Whatever...
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: enteredWorld1Dialgue.sentences.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: enteredWorld2Dialgue.sentences.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: preBossFightDialogue.sentences.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: enteredWorld1Dialgue.sentences.Array.data[0]
-      value: So you managed to go into that cave, huh?
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: enteredWorld1Dialgue.sentences.Array.data[1]
-      value: I was hearin some spooky ass noises down there so be careful my guy
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: enteredWorld1Dialgue.sentences.Array.data[2]
-      value: No one wants to see you go hollow
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: enteredWorld1Dialgue.sentences.Array.data[3]
-      value: No one wants to see you go hollow
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: enteredWorld2Dialgue.sentences.Array.data[0]
-      value: How the fuck did you manage to get way up there? that ship is like 500
-        feet in the air!
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: enteredWorld2Dialgue.sentences.Array.data[1]
-      value: if those damn enigneers hadnt decided to board us maybe that ship would
-        still be operational
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: enteredWorld2Dialgue.sentences.Array.data[2]
-      value: then again so would ours...
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: enteredWorld2Dialgue.sentences.Array.data[3]
-      value: ....
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: enteredWorld2Dialgue.sentences.Array.data[4]
-      value: I miss my robot wife man
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: enteredWorld2Dialgue.sentences.Array.data[5]
-      value: she was so hot maaaannnnn
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: preBossFightDialogue.sentences.Array.data[0]
-      value: You're really going to fight that thing huh?
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: preBossFightDialogue.sentences.Array.data[1]
-      value: I suppose you dont have much of a choice, but still...
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: preBossFightDialogue.sentences.Array.data[2]
-      value: be careful around him X1, hes got his patented "Kill Move"
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: preBossFightDialogue.sentences.Array.data[3]
-      value: Thats the move he used on my robot wife
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-      propertyPath: preBossFightDialogue.sentences.Array.data[4]
-      value: that sucked but tbh it was kinda funny so its fine
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
---- !u!4 &1453873433 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5795896375120089564, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-  m_PrefabInstance: {fileID: 1453873432}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1453873434 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6644388879759496408, guid: bb63248b7b6c40c4195dad033add8f59, type: 3}
-  m_PrefabInstance: {fileID: 1453873432}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30191e41722adea4a9da835333af2d2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1456030805
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27802,6 +27561,37 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 691353151}
   m_SourcePrefab: {fileID: 100100000, guid: b4e85ad17f270914fa98396531148621, type: 3}
+--- !u!1 &1513064036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1513064037}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1513064037
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513064036}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.85, y: 5.02, z: -5.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1640291798}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1515754865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30904,7 +30694,8 @@ Transform:
   m_LocalPosition: {x: -53.03299, y: 74.361786, z: -864.8452}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1513064037}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1640291799
@@ -30919,6 +30710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a959a4c2e05bb074fa492eb566be0d47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPos: {fileID: 1513064037}
   rotator: {fileID: 0}
   saveType: 0
   sceneType: 0
@@ -36065,7 +35857,7 @@ MonoBehaviour:
   UIPrompt: {fileID: 2109686192}
   notEnoughKitsUI: {fileID: 1441300846}
   diag: {fileID: 795569950}
-  npcDiag: {fileID: 1453873434}
+  npcDiag: {fileID: 0}
   repaired: 0
   doneIntro: 0
   hasEvent: 0
@@ -45008,6 +44800,14 @@ PrefabInstance:
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 458049921}
+    - target: {fileID: 4154119855871724817, guid: b030f36c590bc2140b4000c11f065699, type: 3}
+      propertyPath: caveSpawnPos
+      value: 
+      objectReference: {fileID: 1513064037}
+    - target: {fileID: 4154119855871724817, guid: b030f36c590bc2140b4000c11f065699, type: 3}
+      propertyPath: shipSpawnPos
+      value: 
+      objectReference: {fileID: 1126074970}
     - target: {fileID: 4393421225808503637, guid: b030f36c590bc2140b4000c11f065699, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0.000000053331263
@@ -51182,3 +50982,4 @@ SceneRoots:
   - {fileID: 1268334045}
   - {fileID: 1515754865}
   - {fileID: 141316747}
+  - {fileID: 1126074970}

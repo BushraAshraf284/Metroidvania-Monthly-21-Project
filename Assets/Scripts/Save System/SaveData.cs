@@ -54,6 +54,10 @@ public class SaveData{
         CaveData = new SceneData();
         ShipData = new SceneData();
     }
+    
+	//bools for map loads
+	public bool comingFromCave;
+	public bool comingFromShip;
 
 	//Constructor to check any tampering with the SaveData
     public SaveData(float hp, bool hasShield, float shieldCharge, bool hasShockProng, bool hasMissiles, bool hasSword, bool hasHomingMissiles, bool hasJetBoost, bool hasVertBoost, bool hasShockSpike,

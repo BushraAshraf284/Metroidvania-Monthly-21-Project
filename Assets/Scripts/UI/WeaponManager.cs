@@ -21,7 +21,10 @@ public class WeaponManager : MonoBehaviour
     public enum LeftWeaponEquipped { Sword, ShockProng, none };
     public LeftWeaponEquipped leftWeapon;
     public enum RightWeaponEquipped { Missiles, HomingMissiles, ShockSpike, none };
-    public RightWeaponEquipped rightWeapon;
+	public RightWeaponEquipped rightWeapon;
+	void LateAwake(){
+		
+	}
     private void Awake()
 	{
 		currentLeftWeaponIndex = SaveData.Instance.currentLeftWeaponIndex;
@@ -52,7 +55,7 @@ public class WeaponManager : MonoBehaviour
 	    {
 		    if (upgrades.hasSword)
 		    {
-		    	upgrades.UnlockSword();
+		    	upgrades.EquipSword();
 			    //EquipSword();
 		    }
 		    else
@@ -65,7 +68,7 @@ public class WeaponManager : MonoBehaviour
 		    if (upgrades.hasShockProng)
 		    {
 			    //EquipShockProng();
-			    upgrades.UnlockShockProng();
+			    upgrades.EquipShockProng();
 		    }
 		    else
 		    {
@@ -81,7 +84,7 @@ public class WeaponManager : MonoBehaviour
 		    if (upgrades.hasMissiles)
 		    {
 			    //EquipMissiles();
-			    upgrades.UnlockMissiles();
+			    upgrades.EquipMissiles();
 		    }
 		    else
 		    {
@@ -92,7 +95,7 @@ public class WeaponManager : MonoBehaviour
 	    {
 		    if (upgrades.hasHomingMissiles)
 		    {
-		    	upgrades.UnlockHomingMissiles();
+		    	upgrades.EquipHomingMissiles();
 			    //EquipHomingMissiles();
 		    }
 		    else
@@ -104,7 +107,7 @@ public class WeaponManager : MonoBehaviour
 	    {
 		    if (upgrades.hasShockSpike)
 		    {
-		    	upgrades.UnlockShockSpike();
+		    	upgrades.EquipShockSpike();
 			    //EquipShockSpike();
 		    }
 		    else
