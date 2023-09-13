@@ -25,14 +25,15 @@ public class SaveLoadTrigger: MonoBehaviour
 	
 	public void SAVE(){
 		Debug.Log("SAVE POINT");
-		stats.hp = stats.MaxHP;
+		stats.RestoreHP(stats.MaxHP - stats.hp);
+		SaveLoad.SaveProgress();
 		//visual stuff=---------
 		saveProgressIcon.SetActive(true);
 		Invoke("resetIcon", 5f);
 		if(rotator.GetComponent<Rotator>()!= null){
 			rotator.GetComponent<Rotator>().RampRotation();
 		}
-		SaveLoad.SaveProgress();
+		
 	}
     private void OnTriggerEnter(Collider other)
 	{

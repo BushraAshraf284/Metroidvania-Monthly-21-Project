@@ -23,9 +23,95 @@ public class WeaponManager : MonoBehaviour
     public enum RightWeaponEquipped { Missiles, HomingMissiles, ShockSpike, none };
     public RightWeaponEquipped rightWeapon;
     private void Awake()
-    {
+	{
+		unlockedLeftWeapon = SaveData.Instance.unlockedLeftWeapon;
+		unlockedRightWeapon = SaveData.Instance.unlockedRightWeapon;
 		rightWeapon = (RightWeaponEquipped)SaveData.Instance.RightWeaponEquipped;
-        leftWeapon = (LeftWeaponEquipped)SaveData.Instance.LeftWeaponEquipped;
+	    leftWeapon = (LeftWeaponEquipped)SaveData.Instance.LeftWeaponEquipped;
+
+	    foreach(GameObject g in GameObject.FindGameObjectsWithTag("Player")){
+		    if(g.GetComponent<UpgradeTracker>() != null){
+			    upgrades = g.GetComponent<UpgradeTracker>();
+		    }
+		    if(g.GetComponent<abilities>() != null){
+			    abil = g.GetComponent<abilities>();
+		    }
+	    }
+	    shockProng = upgrades.shockProng;
+	    shockSpike = upgrades.shockSpike;
+	    missiles = upgrades.missiles;
+	    homingMissiles = upgrades.homingMissiles;
+	    sword = upgrades.sword;
+	    swordBlade = upgrades.swordBlade;
+	    
+	    if (leftWeapon == LeftWeaponEquipped.Sword)
+	    {
+		    if (upgrades.hasSword)
+		    {
+		    	upgrades.UnlockSword();
+			    //EquipSword();
+		    }
+		    else
+		    {
+			    DisableAllLeftHandWeapons();
+		    }
+	    }
+	    else if (leftWeapon == LeftWeaponEquipped.ShockProng)
+	    {
+		    if (upgrades.hasShockProng)
+		    {
+			    //EquipShockProng();
+			    upgrades.UnlockShockProng();
+		    }
+		    else
+		    {
+			    DisableAllLeftHandWeapons();
+		    }
+	    }
+	    else if (leftWeapon == LeftWeaponEquipped.none)
+	    {
+		    DisableAllLeftHandWeapons();
+	    }
+	    if (rightWeapon == RightWeaponEquipped.Missiles)
+	    {
+		    if (upgrades.hasMissiles)
+		    {
+			    //EquipMissiles();
+			    upgrades.UnlockMissiles();
+		    }
+		    else
+		    {
+			    DisableAllRightHandWeapons();
+		    }
+	    }
+	    else if (rightWeapon == RightWeaponEquipped.HomingMissiles)
+	    {
+		    if (upgrades.hasHomingMissiles)
+		    {
+		    	upgrades.UnlockHomingMissiles();
+			    //EquipHomingMissiles();
+		    }
+		    else
+		    {
+			    DisableAllRightHandWeapons();
+		    }
+	    }
+	    else if (rightWeapon == RightWeaponEquipped.ShockSpike)
+	    {
+		    if (upgrades.hasShockSpike)
+		    {
+		    	upgrades.UnlockShockSpike();
+			    //EquipShockSpike();
+		    }
+		    else
+		    {
+			    DisableAllRightHandWeapons();
+		    }
+	    }
+	    else if (rightWeapon == RightWeaponEquipped.none)
+	    {
+		    DisableAllRightHandWeapons();
+	    }
     }
 
     void Start()
@@ -33,6 +119,8 @@ public class WeaponManager : MonoBehaviour
 		
 		unlockedRightWeapon.Add("None");
 		unlockedLeftWeapon.Add("None");
+		SaveData.Instance.unlockedRightWeapon = unlockedRightWeapon;
+		SaveData.Instance.unlockedLeftWeapon = unlockedLeftWeapon;
 		
 		foreach(GameObject g in GameObject.FindGameObjectsWithTag("Player")){
 			if(g.GetComponent<UpgradeTracker>() != null){

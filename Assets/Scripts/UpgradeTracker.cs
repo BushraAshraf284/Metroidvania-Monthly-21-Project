@@ -14,10 +14,10 @@ public class UpgradeTracker : MonoBehaviour
     public int shieldPieceCount;
     public int batteryPieceCount;
 	PlayerStats stats;
-	public enum LeftWeaponEquipped{Sword, ShockProng, none};
-	public LeftWeaponEquipped leftWeapon;
-	public enum RightWeaponEquipped{Missiles, HomingMissiles, ShockSpike, none};
-	public RightWeaponEquipped rightWeapon;
+	enum LeftWeaponEquipped{Sword, ShockProng, none};
+	LeftWeaponEquipped leftWeapon;
+	enum RightWeaponEquipped{Missiles, HomingMissiles, ShockSpike, none};
+	RightWeaponEquipped rightWeapon;
 
     [SerializeField]
     GetItemScreen itemScreen;
@@ -38,55 +38,7 @@ public class UpgradeTracker : MonoBehaviour
         hasJetBoost = SaveData.Instance.HasJetBoost;
         hasVertBoost = SaveData.Instance.HasVertBoost;
         hasShockSpike = SaveData.Instance.HasShockSpike;
-        leftWeapon = (LeftWeaponEquipped)SaveData.Instance.LeftWeaponEquipped;
-	    rightWeapon = (RightWeaponEquipped)SaveData.Instance.RightWeaponEquipped;
 	    
-	    if(leftWeapon == LeftWeaponEquipped.Sword){
-	    	if(hasSword){
-		    	EquipSword();
-	    	}
-	    	else{
-	    		DisableAllRightHandWeapons();
-	    	}
-	    }
-	    else if(leftWeapon == LeftWeaponEquipped.ShockProng){
-	    	if(hasShockProng){
-		    	EquipShockProng();
-	    	}
-	    	else{
-	    		DisableAllRightHandWeapons();
-	    	}
-	    }
-	    else if(leftWeapon == LeftWeaponEquipped.none){
-	    	DisableAllLeftHandWeapons();
-	    }
-	    if(rightWeapon == RightWeaponEquipped.Missiles){
-		    if(hasMissiles){
-		    	EquipMissiles();
-	    	}
-		    else{
-	    		DisableAllRightHandWeapons();
-	    	}
-	    }
-	    else if(rightWeapon == RightWeaponEquipped.HomingMissiles){
-		    if(hasHomingMissiles){
-		    	EquipHomingMissiles();
-	    	}
-		    else{
-	    		DisableAllRightHandWeapons();
-	    	}
-	    }
-	    else if(rightWeapon == RightWeaponEquipped.ShockSpike){
-		    if(hasShockSpike){
-		    	EquipShockSpike();
-	    	}
-	    	else{
-	    		DisableAllRightHandWeapons();
-	    	}
-	    }
-	    else if(rightWeapon == RightWeaponEquipped.none){
-	    	DisableAllRightHandWeapons();
-	    }
     }
 	public int repairKitCount;
 	[SerializeField]
@@ -219,6 +171,8 @@ public class UpgradeTracker : MonoBehaviour
 	    	wepMan.currentLeftWeaponIndex++;
 	    }
 	    wepMan.unlockedLeftWeapon.Add("Sword");
+	    SaveData.Instance.unlockedRightWeapon = wepMan.unlockedRightWeapon;
+	    SaveData.Instance.unlockedLeftWeapon = wepMan.unlockedLeftWeapon;
 	    
     }
     public void EquipSword()
@@ -245,6 +199,8 @@ public class UpgradeTracker : MonoBehaviour
 	    	wepMan.currentLeftWeaponIndex++;
 	    }
 	    wepMan.unlockedLeftWeapon.Add("ShockProng");
+	    SaveData.Instance.unlockedRightWeapon = wepMan.unlockedRightWeapon;
+	    SaveData.Instance.unlockedLeftWeapon = wepMan.unlockedLeftWeapon;
     }
     public void EquipShockProng()
     {
@@ -268,6 +224,8 @@ public class UpgradeTracker : MonoBehaviour
 	    	wepMan.currentRightWeaponIndex++;
 	    }
 	    wepMan.unlockedRightWeapon.Add("ShockSpike");
+	    SaveData.Instance.unlockedRightWeapon = wepMan.unlockedRightWeapon;
+	    SaveData.Instance.unlockedLeftWeapon = wepMan.unlockedLeftWeapon;
     }
     public void EquipShockSpike()
     {
@@ -293,6 +251,8 @@ public class UpgradeTracker : MonoBehaviour
 	    	wepMan.currentRightWeaponIndex++;
 	    }
 	    wepMan.unlockedRightWeapon.Add("Missiles");
+	    SaveData.Instance.unlockedRightWeapon = wepMan.unlockedRightWeapon;
+	    SaveData.Instance.unlockedLeftWeapon = wepMan.unlockedLeftWeapon;
     }
     public void EquipMissiles()
     {
@@ -318,12 +278,15 @@ public class UpgradeTracker : MonoBehaviour
 	    	wepMan.currentRightWeaponIndex++;
 	    }
 	    wepMan.unlockedRightWeapon.Add("HomingMissiles");
+	    SaveData.Instance.unlockedRightWeapon = wepMan.unlockedRightWeapon;
+	    SaveData.Instance.unlockedLeftWeapon = wepMan.unlockedLeftWeapon;
     }
     public void EquipHomingMissiles()
     {
         Debug.Log("Equipping Homing Missiles!");
         DisableAllRightHandWeapons();
-        homingMissiles.SetActive(true);
+	    homingMissiles.SetActive(true);
+        
     }
     public void UnlockJetBoost()
     {
