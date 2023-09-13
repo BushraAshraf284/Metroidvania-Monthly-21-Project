@@ -47,6 +47,58 @@ public class UpgradeTracker : MonoBehaviour
 		    SaveData.Instance.unlockedRightWeapon.Add("None");
 	    }
 	    
+	    if(heartPieceCount == 1){
+	    	upgradeMenu.ShowHeartUpgrade();
+	    }
+	    if(heartPieceCount == 2){
+	    	upgradeMenu.ShowHeartUpgradeTwo();
+	    }
+	    if(heartPieceCount == 3){
+	    	upgradeMenu.UpdateHeartUpgrade();
+	    }
+	    if(shieldPieceCount == 1){
+	    	upgradeMenu.ShowShieldUpgrade();
+	    }
+	    if(shieldPieceCount == 2){
+	    	upgradeMenu.ShowShieldUpgradeTwo();
+	    }
+	    if(shieldPieceCount == 3){
+	    	upgradeMenu.UpdateShieldUpgrade();
+	    }
+	    if(batteryPieceCount == 1){
+	    	upgradeMenu.ShowBatteryUpgrade();
+	    }
+	    if(batteryPieceCount == 2){
+	    	upgradeMenu.ShowBatteryUpgradeTwo();
+	    }
+	    if(batteryPieceCount == 3){
+	    	upgradeMenu.UpdateBatteryUpgrade();
+	    } 
+	    if(hasJetBoost){
+	    	upgradeMenu.ShowUpgrade("Jet Booster");
+	    }
+	    if(hasVertBoost){
+	    	upgradeMenu.ShowUpgrade("Vertical Booster");
+	    }
+	    foreach (string s in wepMan.unlockedLeftWeapon){
+	    	if(s == "Sword"){
+	    		upgradeMenu.ShowUpgrade("Sword");
+	    	}
+	    	if(s == "ShockProng"){
+	    		upgradeMenu.ShowUpgrade("Shock Prong");
+	    	}
+	    }
+	    foreach (string s in wepMan.unlockedRightWeapon){
+	    	if(s == "Missiles"){
+	    		upgradeMenu.ShowUpgrade("Missiles");
+	    	}
+	    	if(s== "HomingMissiles"){
+	    		upgradeMenu.ShowUpgrade("Homing Missiles");
+	    	}
+	    	if(s == "ShockSpike"){
+	    		upgradeMenu.ShowUpgrade("Shock Spike");
+	    	}
+	    }
     }
 	public int repairKitCount;
 	[SerializeField]
@@ -74,7 +126,7 @@ public class UpgradeTracker : MonoBehaviour
                 Debug.Log("Got All Three Pieces! Giving shield Upgrade");
                 itemScreen.ShowItem("ShieldPiece", 5, shieldDesc);
                 stats.GetShieldUpgrade();
-                shieldPieceCount = 0;
+	            shieldPieceCount = 3;
                 shield.SetActive(true);
                 upgradeMenu.UpdateShieldUpgrade();
             }
@@ -105,7 +157,7 @@ public class UpgradeTracker : MonoBehaviour
                 itemScreen.ShowItem("HeartPiece", 2, heartDesc);
                 stats.GetHPUpgrade();
                 stats.hp = stats.MaxHP;
-                heartPieceCount = 0;
+	            heartPieceCount = 3;
                 hp1.SetActive(true);
                 hp11.SetActive(true);
                 hp2.SetActive(true);
@@ -137,7 +189,7 @@ public class UpgradeTracker : MonoBehaviour
                 Debug.Log("Got All Three Pieces! Giving Battery Upgrade");
                 itemScreen.ShowItem("BatteryPiece", 0, batteryDesc);
                 stats.GetBatteryUpgrade();
-                batteryPieceCount = 0;
+	            batteryPieceCount = 3;
                 bat1.SetActive(true);
                 bat2.SetActive(true);
                 upgradeMenu.UpdateBatteryUpgrade();
