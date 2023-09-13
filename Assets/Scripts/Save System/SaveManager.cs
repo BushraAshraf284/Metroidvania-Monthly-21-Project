@@ -341,11 +341,12 @@ public class SaveManager : MonoBehaviour
 
     public void LoadGameAfterDeath()
     {
-     
+        Debug.Log("Load i being called");
         SaveLoad.LoadProgress();
         SaveData.Instance.isSaved = true;
         SaveLoad.SaveProgress();
-        switch (sceneType)
+        sceneType scene = (sceneType) SaveData.Instance.LastSaveScene;
+        switch (scene)
         {
             case sceneType.Ship:
                 sceneName = "Ship Level Design";                
