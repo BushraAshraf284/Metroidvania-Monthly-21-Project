@@ -61,9 +61,10 @@ public class SaveManager : MonoBehaviour
             {
                 Player.position = SaveData.Instance.playerSavePos;
             }
-           LoadingScreen.SetActive(false);
+         
            
         }
+        LoadingScreen.SetActive(false);
     }
 
     public void SaveNPCsData()
@@ -218,7 +219,11 @@ public class SaveManager : MonoBehaviour
     {
         if (sceneType == sceneType.Hub)
         {
-           
+            if (SaveData.Instance.HubData == null)
+            {
+                SaveData.Instance.HubData = new SceneData();
+            }
+
             if (SaveData.Instance.HubData.UpgradesPickedUp.Count == 0)
             {
                 SaveData.Instance.HubData.UpgradesPickedUp = new List<bool>();
@@ -268,6 +273,10 @@ public class SaveManager : MonoBehaviour
         }
         else if (sceneType == sceneType.Ship)
         {
+            if (SaveData.Instance.ShipData == null)
+            {
+                SaveData.Instance.ShipData = new SceneData();
+            }
             if (SaveData.Instance.ShipData.UpgradesPickedUp.Count == 0)
             {
                 SaveData.Instance.ShipData.UpgradesPickedUp = new List<bool>();
