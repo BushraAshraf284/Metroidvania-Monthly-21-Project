@@ -10294,6 +10294,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1961852781}
+    - target: {fileID: 5387095393538771888, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
+      propertyPath: m_Value
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387095393538771888, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
+      propertyPath: m_MaxValue
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387095393538771888, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
+      propertyPath: m_MinValue
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6197620026164973331, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
       propertyPath: upgradeTracker
       value: 
@@ -47887,6 +47899,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 8676498}
+    - target: {fileID: 738463993118708875, guid: cdf2df1cef83335458de55ba090ca39b, type: 3}
+      propertyPath: rotationSpeed
+      value: 360
+      objectReference: {fileID: 0}
     - target: {fileID: 738463993118708875, guid: cdf2df1cef83335458de55ba090ca39b, type: 3}
       propertyPath: playerTransform
       value: 

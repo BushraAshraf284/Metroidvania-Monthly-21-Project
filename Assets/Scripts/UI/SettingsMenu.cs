@@ -12,6 +12,7 @@ public class SettingsMenu : MonoBehaviour
     Slider volSlide;
     Slider baseFOVSlide;
     Slider aimFOVSlide;
+    Slider mouseSens;
     Dropdown resDrop;
     Toggle fullToggle;
     Dropdown qualDrop;
@@ -35,6 +36,8 @@ public class SettingsMenu : MonoBehaviour
         baseFOVSlide.value = 0.5f;
         aimFOVSlide = GameObject.Find("AimFOVSlider").GetComponent<Slider>();
         aimFOVSlide.value = 0.5f;
+        mouseSens = GameObject.Find("MouseSensitivitySlider").GetComponent<Slider>();
+        mouseSens.value = 0.5f;
         //qualDrop = GameObject.Find("Quality").GetComponent<Dropdown>();
         //Get available, current resolutions for resolutions dropdown
         GetResolutions();
@@ -73,14 +76,27 @@ public class SettingsMenu : MonoBehaviour
 
     }
 
+    public void changeMouseSens()
+    {
+        if (mouseSens)
+        {
+            orbitCamera.rotationSpeed = mouseSens.value;
+        }
+    }
+
+    public void SetDefaultMouseSens()
+    {
+        orbitCamera.rotationSpeed = 100f;
+    }
+
     public void SetDefaultBaseFOV()
     {
-        orbitCamera.baseFOV = 90;
+        orbitCamera.baseFOV = 90f;
     }
 
     public void SetDefaultAimFOV()
     {
-        orbitCamera.aimFOV = 50;
+        orbitCamera.aimFOV = 50f;
     }
 
     //Get available, current resolutions for resolutions dropdown

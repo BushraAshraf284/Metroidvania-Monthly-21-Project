@@ -43,9 +43,9 @@ public class OrbitCamera : MonoBehaviour {
 
 	Vector2 orbitAngles = new Vector2(45f, 0f);
 
-	[SerializeField, Range(1f, 360f)]
+	[SerializeField, Range(100f, 600f)]
 	[Tooltip("how fast the camera orbits your target")]
-	float rotationSpeed = 90f;
+	public float rotationSpeed = 100f;
 
     [SerializeField, Range(0f, 1f)]
 	float focusCentering = 0.5f;
