@@ -1,11 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class StatAffector : MonoBehaviour
 {
-    public enum EffectType{HpDrain, BatteryDrain, HpHeal, shieldCharge};
-    public EffectType affect;
+	public enum EffectType{HpDrain, BatteryDrain,  HpHeal, shieldCharge};
+	public EffectType affect;
     [SerializeField]
     float hpEffectAmount;
     [SerializeField]
