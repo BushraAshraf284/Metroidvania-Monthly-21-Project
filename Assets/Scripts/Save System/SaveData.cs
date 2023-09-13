@@ -15,6 +15,8 @@ public class SaveData{
 	public float shieldCharge = 0;
 
 	// Player Weapons
+	public List<string> unlockedLeftWeapon = new List<string>();
+	public List<string> unlockedRightWeapon = new List<string>();
 	public bool HasShockProng;
 	public bool HasMissiles;
 	public bool HasSword;

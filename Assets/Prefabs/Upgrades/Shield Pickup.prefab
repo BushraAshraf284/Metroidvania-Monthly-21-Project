@@ -104,9 +104,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   affect: 3
-  hpEffectAmount: 50
+  hpEffectAmount: 0
   batteryEffectAmount: 0
-  shieldAffectAmount: 0
+  shieldAffectAmount: 50
   dissapear: 1
   reappear: 0
   reappearTimer: 5

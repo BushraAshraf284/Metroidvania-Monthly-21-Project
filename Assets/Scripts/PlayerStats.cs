@@ -208,7 +208,8 @@ public class PlayerStats : MonoBehaviour
             shieldCell.transform.parent.gameObject.SetActive(true);
             hasShieldUpgrade = true;
             hasShield = true;
-
+	        shieldCharge = maxShieldCharge;
+	        SaveData.Instance.shieldCharge = shieldCharge;
             SaveData.Instance.hasSheild = hasShield;
             SaveData.Instance.HasShieldUpgrade = hasShieldUpgrade;
 
@@ -434,24 +435,34 @@ public class PlayerStats : MonoBehaviour
         SaveData.Instance.playerHP = hp;
     }
     void UpdateShieldMaxes(){
-        if(hasShieldUpgrade){
+	    if(hasShieldUpgrade){
+		    shieldCell.transform.parent.gameObject.SetActive(true);
 	        shieldCell.SetMaxCharge(maxShieldCharge);
 
         }
     }
     void UpdateBatteryMaxes(){
-        if(batteryphase == BAPhase.Phase1){
+	    if(batteryphase == BAPhase.Phase1){
+		    batteryBar.gameObject.SetActive(true);
+		    batteryBar2.gameObject.SetActive(false);
+		    batteryBar3.gameObject.SetActive(false);
             MaxCharge = MaxChargePhase1;
             batteryBar.SetMaxCharge(MaxChargePhase1);
 	        charge = MaxCharge;
         }
-        else if(batteryphase == BAPhase.Phase2){
+	    else if(batteryphase == BAPhase.Phase2){
+		    batteryBar.gameObject.SetActive(false);
+		    batteryBar2.gameObject.SetActive(true);
+		    batteryBar3.gameObject.SetActive(false);
             Debug.Log("Got Battery Upgrade #1!, Set max charge to " + MaxChargePhase2 + " From " + MaxCharge);
             MaxCharge = MaxChargePhase2;
             batteryBar2.SetMaxCharge(MaxChargePhase2);
             charge = MaxCharge;
         }
-        else if(batteryphase == BAPhase.Phase3){
+	    else if(batteryphase == BAPhase.Phase3){
+		    batteryBar.gameObject.SetActive(false);
+		    batteryBar2.gameObject.SetActive(false);
+		    batteryBar3.gameObject.SetActive(true);
             Debug.Log("Got Battery Upgrade #2!, Set max charge to " + MaxChargePhase3 + " From " + MaxCharge);
             MaxCharge = MaxChargePhase3;
             batteryBar3.SetMaxCharge(MaxChargePhase3);
