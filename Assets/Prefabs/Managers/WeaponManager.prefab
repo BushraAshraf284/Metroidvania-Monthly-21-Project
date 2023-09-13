@@ -53,8 +53,10 @@ MonoBehaviour:
   noneRIcon: {fileID: 0}
   totalLeftWeapons: 0
   totalRightWeapons: 0
-  unlockedLeftWeapon: []
-  unlockedRightWeapon: []
+  unlockedLeftWeapon:
+  - None
+  unlockedRightWeapon:
+  - None
   currentLeftWeaponIndex: 0
   currentRightWeaponIndex: 0
   leftWeapon: 2

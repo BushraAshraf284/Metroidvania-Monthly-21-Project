@@ -10306,6 +10306,10 @@ PrefabInstance:
       propertyPath: upgradeTracker
       value: 
       objectReference: {fileID: 5206940769439130706}
+    - target: {fileID: 6476649538394939911, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6779428210088963810, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
       propertyPath: m_Name
       value: Saving Progress Icon

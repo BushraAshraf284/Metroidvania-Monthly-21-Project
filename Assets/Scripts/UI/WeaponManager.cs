@@ -24,11 +24,15 @@ public class WeaponManager : MonoBehaviour
     public RightWeaponEquipped rightWeapon;
     private void Awake()
 	{
+		currentLeftWeaponIndex = SaveData.Instance.currentLeftWeaponIndex;
+		currentRightWeaponIndex = SaveData.Instance.currentRightWeaponIndex;
+		totalLeftWeapons = SaveData.Instance.totalLeftWeapons;
+		totalRightWeapons = SaveData.Instance.totalRightWeapons;
+
 		unlockedLeftWeapon = SaveData.Instance.unlockedLeftWeapon;
 		unlockedRightWeapon = SaveData.Instance.unlockedRightWeapon;
 		rightWeapon = (RightWeaponEquipped)SaveData.Instance.RightWeaponEquipped;
-	    leftWeapon = (LeftWeaponEquipped)SaveData.Instance.LeftWeaponEquipped;
-
+		leftWeapon = (LeftWeaponEquipped)SaveData.Instance.LeftWeaponEquipped;
 	    foreach(GameObject g in GameObject.FindGameObjectsWithTag("Player")){
 		    if(g.GetComponent<UpgradeTracker>() != null){
 			    upgrades = g.GetComponent<UpgradeTracker>();
@@ -112,13 +116,29 @@ public class WeaponManager : MonoBehaviour
 	    {
 		    DisableAllRightHandWeapons();
 	    }
+		foreach(string s in unlockedLeftWeapon){
+			if(s == "Sword"){
+				EquipSword();
+			}
+			if(s == "ShockProng"){
+				EquipShockProng();
+			}
+		}
+		foreach(string s in unlockedRightWeapon){
+			if(s == "Missile"){
+				EquipMissiles();
+			}
+			if(s == "HomingMissiles"){
+				EquipHomingMissiles();
+			}
+			if(s == "ShockSpike"){
+				EquipHomingMissiles();
+			}
+		}
     }
 
     void Start()
 	{
-		
-		unlockedRightWeapon.Add("None");
-		unlockedLeftWeapon.Add("None");
 		SaveData.Instance.unlockedRightWeapon = unlockedRightWeapon;
 		SaveData.Instance.unlockedLeftWeapon = unlockedLeftWeapon;
 		
