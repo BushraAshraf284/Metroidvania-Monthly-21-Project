@@ -39,7 +39,13 @@ public class UpgradeTracker : MonoBehaviour
         hasHomingMissiles = SaveData.Instance.HasHomingMissiles;
         hasJetBoost = SaveData.Instance.HasJetBoost;
         hasVertBoost = SaveData.Instance.HasVertBoost;
-        hasShockSpike = SaveData.Instance.HasShockSpike;
+	    hasShockSpike = SaveData.Instance.HasShockSpike;
+	    if(!SaveData.Instance.unlockedLeftWeapon.Contains("None")){
+		    SaveData.Instance.unlockedLeftWeapon.Add("None");
+	    }
+	    if(!SaveData.Instance.unlockedRightWeapon.Contains("None")){
+		    SaveData.Instance.unlockedRightWeapon.Add("None");
+	    }
 	    
     }
 	public int repairKitCount;
@@ -197,11 +203,14 @@ public class UpgradeTracker : MonoBehaviour
         SaveData.Instance.HasSword = hasSword;
         wepMan.EquipSword();
 	    wepMan.totalLeftWeapons++;
+	    SaveData.Instance.totalLeftWeapons = wepMan.totalLeftWeapons;
 	    if(wepMan.currentLeftWeaponIndex+1 > wepMan.totalLeftWeapons){
 	    	wepMan.currentLeftWeaponIndex = 0;
+	    	SaveData.Instance.currentLeftWeaponIndex = wepMan.currentLeftWeaponIndex;
 	    }
 	    else{
 	    	wepMan.currentLeftWeaponIndex++;
+	    	SaveData.Instance.currentLeftWeaponIndex = wepMan.currentLeftWeaponIndex;
 	    }
 	    wepMan.unlockedLeftWeapon.Add("Sword");
 	    SaveData.Instance.unlockedRightWeapon = wepMan.unlockedRightWeapon;
@@ -226,11 +235,14 @@ public class UpgradeTracker : MonoBehaviour
         SaveData.Instance.HasShockProng = hasShockProng;
         wepMan.EquipShockProng();
 	    wepMan.totalLeftWeapons++;
+	    SaveData.Instance.totalLeftWeapons = wepMan.totalLeftWeapons;
 	    if(wepMan.currentLeftWeaponIndex+1 > wepMan.totalLeftWeapons){
 	    	wepMan.currentLeftWeaponIndex = 0;
+	    	SaveData.Instance.currentLeftWeaponIndex = wepMan.currentLeftWeaponIndex;
 	    }
 	    else{
 	    	wepMan.currentLeftWeaponIndex++;
+	    	SaveData.Instance.currentLeftWeaponIndex = wepMan.currentLeftWeaponIndex;
 	    }
 	    wepMan.unlockedLeftWeapon.Add("ShockProng");
 	    SaveData.Instance.unlockedRightWeapon = wepMan.unlockedRightWeapon;
@@ -250,13 +262,16 @@ public class UpgradeTracker : MonoBehaviour
         shockSpike.SetActive(true);
 	    hasShockSpike = true;
         SaveData.Instance.HasShockSpike = hasShockSpike;
-        wepMan.totalRightWeapons++;
+	    wepMan.totalRightWeapons++;
+	    SaveData.Instance.totalRightWeapons = wepMan.totalRightWeapons;
 	    wepMan.EquipShockSpike();
 	    if(wepMan.currentRightWeaponIndex+1 > wepMan.totalRightWeapons){
 	    	wepMan.currentRightWeaponIndex = 0;
+	    	SaveData.Instance.currentRightWeaponIndex = wepMan.currentRightWeaponIndex;
 	    }
 	    else{
 	    	wepMan.currentRightWeaponIndex++;
+	    	SaveData.Instance.currentRightWeaponIndex = wepMan.currentRightWeaponIndex;
 	    }
 	    wepMan.unlockedRightWeapon.Add("ShockSpike");
 	    SaveData.Instance.unlockedRightWeapon = wepMan.unlockedRightWeapon;
@@ -278,13 +293,16 @@ public class UpgradeTracker : MonoBehaviour
 
         SaveData.Instance.HasMissiles = hasMissiles;
 
-        wepMan.totalRightWeapons++;
+	    wepMan.totalRightWeapons++;
+	    SaveData.Instance.totalRightWeapons = wepMan.totalRightWeapons;
 	    wepMan.EquipMissiles();
 	    if(wepMan.currentRightWeaponIndex+1 > wepMan.totalRightWeapons){
 	    	wepMan.currentRightWeaponIndex = 0;
+	    	SaveData.Instance.currentRightWeaponIndex = wepMan.currentRightWeaponIndex;
 	    }
 	    else{
 	    	wepMan.currentRightWeaponIndex++;
+	    	SaveData.Instance.currentRightWeaponIndex = wepMan.currentRightWeaponIndex;
 	    }
 	    wepMan.unlockedRightWeapon.Add("Missiles");
 	    SaveData.Instance.unlockedRightWeapon = wepMan.unlockedRightWeapon;
@@ -306,13 +324,16 @@ public class UpgradeTracker : MonoBehaviour
 
         SaveData.Instance.HasHomingMissiles= homingMissiles;
 
-        wepMan.totalRightWeapons++;
+	    wepMan.totalRightWeapons++;
+	    SaveData.Instance.totalRightWeapons = wepMan.totalRightWeapons;
 	    wepMan.EquipHomingMissiles();
 	    if(wepMan.currentRightWeaponIndex+1 > wepMan.totalRightWeapons){
 	    	wepMan.currentRightWeaponIndex = 0;
+	    	SaveData.Instance.currentRightWeaponIndex = wepMan.currentRightWeaponIndex;
 	    }
 	    else{
 	    	wepMan.currentRightWeaponIndex++;
+	    	SaveData.Instance.currentRightWeaponIndex = wepMan.currentRightWeaponIndex;
 	    }
 	    wepMan.unlockedRightWeapon.Add("HomingMissiles");
 	    SaveData.Instance.unlockedRightWeapon = wepMan.unlockedRightWeapon;
