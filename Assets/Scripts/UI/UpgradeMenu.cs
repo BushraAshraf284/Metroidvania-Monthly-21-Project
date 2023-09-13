@@ -7,24 +7,53 @@ public class UpgradeMenu : MonoBehaviour
     public GameObject pauseMenu;
     public TextMeshProUGUI upgradeText;
     public Image upgradeIcon;
-    public Sprite[] upgradeIcons;
+    public GameObject[] upgradeIcons;
 
     [SerializeField]
     UpgradeTracker upgradeTracker;
 
     private void Start()
     {
-        HideUpgradeUI();
+
     }
 
-    public void ShowUpgrade(string upgradeName, int iconIndex)
+    public void ShowUpgrade(string upgradeName)
     {
-        if(iconIndex >= 0 && iconIndex < upgradeIcons.Length)
+        if (upgradeName == "Sword")
         {
-            upgradeIcon.sprite = upgradeIcons[iconIndex];
-            upgradeText.text = upgradeName;
-            upgradeIcon.enabled = true;
+            upgradeIcons[0].SetActive(true);
         }
+
+        else if (upgradeName == "Shock Prong")
+        {
+            upgradeIcons[1].SetActive(true);
+        }
+
+        else if (upgradeName == "Shock Spike")
+        {
+            upgradeIcons[2].SetActive(true);
+        }
+
+        else if (upgradeName == "Missiles")
+        {
+            upgradeIcons[3].SetActive(true);
+        }
+
+        else if (upgradeName == "Homing Missiles")
+        {
+            upgradeIcons[4].SetActive(true);
+        }
+
+        else if (upgradeName == "Jet Booster")
+        {
+            upgradeIcons[5].SetActive(true);
+        }
+
+        else if (upgradeName == "Vertical Booster")
+        {
+            upgradeIcons[6].SetActive(true);
+        }
+
         else
         {
             upgradeIcon.enabled = false;
@@ -32,9 +61,57 @@ public class UpgradeMenu : MonoBehaviour
         pauseMenu.SetActive(true);
     }
 
-    public void HideUpgradeUI()
+    public void ShowHeartUpgrade()
     {
-        pauseMenu.SetActive(false);
+        upgradeIcons[7].SetActive(true);
+        upgradeIcons[7].transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "1/3";
     }
 
+    public void ShowHeartUpgradeTwo()
+    {
+        upgradeIcons[7].SetActive(true);
+        upgradeIcons[7].transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "2/3";
+    }
+
+    public void UpdateHeartUpgrade()
+    {
+        upgradeIcons[7].SetActive(true);
+        upgradeIcons[7].transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "3/3";
+    }
+
+    public void ShowShieldUpgrade()
+    {
+        upgradeIcons[8].SetActive(true);
+        upgradeIcons[8].transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "1/3";
+    }
+
+    public void ShowShieldUpgradeTwo()
+    {
+        upgradeIcons[8].SetActive(true);
+        upgradeIcons[8].transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "2/3";
+    }
+
+    public void UpdateShieldUpgrade()
+    {
+        upgradeIcons[8].SetActive(true);
+        upgradeIcons[8].transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "3/3";
+    }
+
+    public void ShowBatteryUpgrade()
+    {
+        upgradeIcons[9].SetActive(true);
+        upgradeIcons[9].transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "1/3";
+    }
+
+    public void ShowBatteryUpgradeTwo()
+    {
+        upgradeIcons[9].SetActive(true);
+        upgradeIcons[9].transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "2/3";
+    }
+
+    public void UpdateBatteryUpgrade()
+    {
+        upgradeIcons[9].SetActive(true);
+        upgradeIcons[9].transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "3/3";
+    }
 }

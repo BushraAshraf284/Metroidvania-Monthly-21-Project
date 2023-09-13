@@ -70,11 +70,21 @@ public class UpgradeTracker : MonoBehaviour
                 stats.GetShieldUpgrade();
                 shieldPieceCount = 0;
                 shield.SetActive(true);
+                upgradeMenu.UpdateShieldUpgrade();
             }
             else
             {
                 Debug.Log("Got a shield Piece!");
                 shieldPieceCount += 1;
+                if (shieldPieceCount == 1)
+                {
+                    upgradeMenu.ShowShieldUpgrade();
+                }
+
+                if (shieldPieceCount == 2)
+                {
+                    upgradeMenu.ShowShieldUpgradeTwo();
+                }
             }
             SaveData.Instance.ShieldPieceCount = shieldPieceCount;
         }
@@ -93,11 +103,21 @@ public class UpgradeTracker : MonoBehaviour
                 hp1.SetActive(true);
                 hp11.SetActive(true);
                 hp2.SetActive(true);
+                upgradeMenu.UpdateHeartUpgrade();
             }
             else
             {
                 Debug.Log("Got A Heart Piece");
                 heartPieceCount += 1;
+                if (heartPieceCount == 1)
+                {
+                    upgradeMenu.ShowHeartUpgrade();
+                }
+
+                if (heartPieceCount == 2)
+                {
+                    upgradeMenu.ShowHeartUpgradeTwo();
+                }
             }
             SaveData.Instance.HeartPieceCount = heartPieceCount;
         }
@@ -114,11 +134,21 @@ public class UpgradeTracker : MonoBehaviour
                 batteryPieceCount = 0;
                 bat1.SetActive(true);
                 bat2.SetActive(true);
+                upgradeMenu.UpdateBatteryUpgrade();
             }
             else
             {
                 Debug.Log("Got A Battery Piece");
                 batteryPieceCount += 1;
+                if (batteryPieceCount == 1)
+                {
+                    upgradeMenu.ShowBatteryUpgrade();
+                }
+
+                if (batteryPieceCount == 2)
+                {
+                    upgradeMenu.ShowBatteryUpgradeTwo();
+                }
             }
             SaveData.Instance.BatteryPieceCount = batteryPieceCount;
         }
@@ -160,7 +190,7 @@ public class UpgradeTracker : MonoBehaviour
     {
         Debug.Log("Equipping Sword!");
         DisableAllLeftHandWeapons();
-        upgradeMenu.ShowUpgrade("Sword", 0);
+        upgradeMenu.ShowUpgrade("Sword");
         sword.SetActive(true); ;
         swordBlade.SetActive(true);
 	    hasSword = true;
@@ -188,7 +218,7 @@ public class UpgradeTracker : MonoBehaviour
     public void UnlockShockProng()
     {
         Debug.Log("Equipping Shock Prong!");
-        upgradeMenu.ShowUpgrade("Shock Prong", 1);
+        upgradeMenu.ShowUpgrade("Shock Prong");
         DisableAllLeftHandWeapons();
         shockProng.SetActive(true);
 	    hasShockProng = true;
@@ -216,7 +246,7 @@ public class UpgradeTracker : MonoBehaviour
     {
         Debug.Log("Equipping Shock Spike!");
         DisableAllRightHandWeapons();
-        upgradeMenu.ShowUpgrade("Shock Spike", 2);
+        upgradeMenu.ShowUpgrade("Shock Spike");
         shockSpike.SetActive(true);
 	    hasShockSpike = true;
         SaveData.Instance.HasShockSpike = hasShockSpike;
@@ -242,7 +272,7 @@ public class UpgradeTracker : MonoBehaviour
     {
         Debug.Log("Equipping Missiles!");
         DisableAllRightHandWeapons();
-        upgradeMenu.ShowUpgrade("Missiles", 3);
+        upgradeMenu.ShowUpgrade("Missiles");
         missiles.SetActive(true);
 	    hasMissiles = true;
 
@@ -269,7 +299,7 @@ public class UpgradeTracker : MonoBehaviour
     public void UnlockHomingMissiles()
     {
         Debug.Log("Unlocking Homing Missiles!");
-        upgradeMenu.ShowUpgrade("Homing Missiles", 4);
+        upgradeMenu.ShowUpgrade("Homing Missiles");
         DisableAllRightHandWeapons();
         homingMissiles.SetActive(true);
 	    hasHomingMissiles = true;
@@ -299,7 +329,7 @@ public class UpgradeTracker : MonoBehaviour
     {
         Debug.Log("Equipping Jet Boost!");
         jetBoost.SetActive(true);
-        upgradeMenu.ShowUpgrade("Jet Booster", 5);
+        upgradeMenu.ShowUpgrade("Jet Booster");
         hasJetBoost = true;
         SaveData.Instance.HasJetBoost = hasJetBoost;
     }
@@ -307,7 +337,7 @@ public class UpgradeTracker : MonoBehaviour
     {
         Debug.Log("Equipping Vertical Boost!");
         vertBoost.SetActive(true);
-        upgradeMenu.ShowUpgrade("Vertical Booster", 6);
+        upgradeMenu.ShowUpgrade("Vertical Booster");
         hasVertBoost = true;
         SaveData.Instance.HasVertBoost = hasVertBoost;
     }
