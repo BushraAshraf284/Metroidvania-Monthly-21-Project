@@ -22,6 +22,8 @@ public class SettingsMenu : MonoBehaviour
 	Resolution[] resolutions;
 	protected void Awake()
 	{
+		volSlide = GameObject.Find("VolumeSlide").GetComponent<Slider>();
+		//volSlide.value = 0.5f;
 		//resDrop = GameObject.Find("Resolution").GetComponent<Dropdown>();
 		resolutions = Screen.resolutions.Where(resolution => resolution.refreshRate == Screen.currentResolution.refreshRate).ToArray();
 		fullToggle = GameObject.Find("Fullscreen").GetComponent<Toggle>();
