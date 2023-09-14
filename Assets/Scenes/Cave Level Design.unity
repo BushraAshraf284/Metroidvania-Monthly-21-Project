@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4153,7 +4153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 376307804612587543, guid: e090177890022d548bce5c3624976edc, type: 3}
       propertyPath: Damage
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 376307804612587543, guid: e090177890022d548bce5c3624976edc, type: 3}
       propertyPath: radius
@@ -9143,7 +9143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 376307804612587543, guid: e090177890022d548bce5c3624976edc, type: 3}
       propertyPath: Damage
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 376307804612587543, guid: e090177890022d548bce5c3624976edc, type: 3}
       propertyPath: radius
@@ -10696,7 +10696,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 376307804612587543, guid: e090177890022d548bce5c3624976edc, type: 3}
       propertyPath: Damage
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 376307804612587543, guid: e090177890022d548bce5c3624976edc, type: 3}
       propertyPath: radius
@@ -11902,7 +11902,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 376307804612587543, guid: e090177890022d548bce5c3624976edc, type: 3}
       propertyPath: Damage
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 376307804612587543, guid: e090177890022d548bce5c3624976edc, type: 3}
       propertyPath: radius
@@ -14510,7 +14510,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 376307804612587543, guid: e090177890022d548bce5c3624976edc, type: 3}
       propertyPath: Damage
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 376307804612587543, guid: e090177890022d548bce5c3624976edc, type: 3}
       propertyPath: radius
@@ -15199,7 +15199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 376307804612587543, guid: e090177890022d548bce5c3624976edc, type: 3}
       propertyPath: Damage
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 376307804612587543, guid: e090177890022d548bce5c3624976edc, type: 3}
       propertyPath: radius
@@ -15732,7 +15732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 376307804612587543, guid: e090177890022d548bce5c3624976edc, type: 3}
       propertyPath: Damage
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 376307804612587543, guid: e090177890022d548bce5c3624976edc, type: 3}
       propertyPath: radius
@@ -18270,7 +18270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 376307804612587543, guid: e090177890022d548bce5c3624976edc, type: 3}
       propertyPath: Damage
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 376307804612587543, guid: e090177890022d548bce5c3624976edc, type: 3}
       propertyPath: radius
@@ -18965,7 +18965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 376307804612587543, guid: e090177890022d548bce5c3624976edc, type: 3}
       propertyPath: Damage
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 376307804612587543, guid: e090177890022d548bce5c3624976edc, type: 3}
       propertyPath: radius
@@ -20799,7 +20799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 376307804612587543, guid: e090177890022d548bce5c3624976edc, type: 3}
       propertyPath: Damage
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 376307804612587543, guid: e090177890022d548bce5c3624976edc, type: 3}
       propertyPath: radius
@@ -26968,6 +26968,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bea8d3a3268fb7438dab2249bbf91d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1900761371
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4697786404976501805, guid: 763f334c2ae291148a00acec673b3b87, type: 3}
+      propertyPath: m_Name
+      value: Save Point (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366658483334217367, guid: 763f334c2ae291148a00acec673b3b87, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 450.4402
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366658483334217367, guid: 763f334c2ae291148a00acec673b3b87, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -124.8275
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366658483334217367, guid: 763f334c2ae291148a00acec673b3b87, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1349.1964
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366658483334217367, guid: 763f334c2ae291148a00acec673b3b87, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366658483334217367, guid: 763f334c2ae291148a00acec673b3b87, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366658483334217367, guid: 763f334c2ae291148a00acec673b3b87, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366658483334217367, guid: 763f334c2ae291148a00acec673b3b87, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366658483334217367, guid: 763f334c2ae291148a00acec673b3b87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366658483334217367, guid: 763f334c2ae291148a00acec673b3b87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366658483334217367, guid: 763f334c2ae291148a00acec673b3b87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 763f334c2ae291148a00acec673b3b87, type: 3}
 --- !u!1 &1912761964
 GameObject:
   m_ObjectHideFlags: 0
@@ -27928,7 +27985,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 376307804612587543, guid: e090177890022d548bce5c3624976edc, type: 3}
       propertyPath: Damage
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 376307804612587543, guid: e090177890022d548bce5c3624976edc, type: 3}
       propertyPath: radius
@@ -28032,7 +28089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 376307804612587543, guid: e090177890022d548bce5c3624976edc, type: 3}
       propertyPath: Damage
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 376307804612587543, guid: e090177890022d548bce5c3624976edc, type: 3}
       propertyPath: radius
@@ -30815,3 +30872,4 @@ SceneRoots:
   - {fileID: 303185561}
   - {fileID: 295159265}
   - {fileID: 1005414060}
+  - {fileID: 1900761371}

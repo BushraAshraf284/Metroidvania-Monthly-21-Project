@@ -159,7 +159,7 @@ public class TurretAI : MonoBehaviour
         bullet.transform.position = BulletEmitter.transform.position;
         bullet.transform.forward = -BulletEmitter.transform.forward;
         //would be nice to add some variance to this so its no soo precise
-	    if(Physics.SphereCast(BulletEmitter.transform.position, 1f,(inaccurateTarget.position - BulletEmitter.transform.position) , out RaycastHit hit, 900f, obstructionMask )){
+	    if(Physics.SphereCast(BulletEmitter.transform.position, 2f,(inaccurateTarget.position - BulletEmitter.transform.position) , out RaycastHit hit, 900f, obstructionMask )){
             Debug.DrawLine(BulletEmitter.transform.position, hit.point, Color.green, 5f );
 		    bullet.GetComponent<BulletLerper>().Lerp(hit.point, BulletEmitter.transform.forward);
 		    //Debug.Log("Hit " + hit.transform.gameObject.name);
