@@ -62,6 +62,7 @@ public class OrbitCamera : MonoBehaviour {
     Vector3 focusPoint, previousFocusPoint;
 	PauseMenu pause;
 	Transform playerTransform;
+	
 
 	Vector3 CameraHalfExtends {
 		get {
@@ -124,7 +125,11 @@ public class OrbitCamera : MonoBehaviour {
 		}
 	}
 
-    void Awake () {
+	void Awake () {
+		baseFOV = SaveData.Instance.baseFOV;
+		aimFOV = SaveData.Instance.aimFOV;
+		rotationSpeed = SaveData.Instance.mouseSens;
+		
 	    pause = GameObject.Find("PauseMenu").GetComponent<PauseMenu>();
 	    player = GameObject.Find("3rd Person Character");
 	    sphere = player.GetComponent<Movement>();

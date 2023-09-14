@@ -72,7 +72,10 @@ public class NPCInteractables : MonoBehaviour
 	    	}
 	    }
 		if(repaired){
-			GetComponent<Animator>().SetBool("Activated", true);
+			if(hasWakeAnim){
+				GetComponent<Animator>().SetBool("Activated", true);
+			}
+			
 		}
     }
 

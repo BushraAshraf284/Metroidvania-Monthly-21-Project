@@ -5746,6 +5746,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4230395724828048417, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
+      propertyPath: orbitCamera
+      value: 
+      objectReference: {fileID: 236561298891365342}
     - target: {fileID: 6197620026164973331, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
       propertyPath: upgradeTracker
       value: 

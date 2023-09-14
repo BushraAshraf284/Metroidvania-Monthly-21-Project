@@ -19,8 +19,25 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField]
     OrbitCamera orbitCamera;
 
-    Resolution[] resolutions;
-
+	Resolution[] resolutions;
+	protected void Awake()
+	{
+		volSlide = GameObject.Find("VolumeSlide").GetComponent<Slider>();
+		//volSlide.value = 0.5f;
+		//resDrop = GameObject.Find("Resolution").GetComponent<Dropdown>();
+		resolutions = Screen.resolutions.Where(resolution => resolution.refreshRate == Screen.currentResolution.refreshRate).ToArray();
+		fullToggle = GameObject.Find("Fullscreen").GetComponent<Toggle>();
+		fullToggle.isOn = Screen.fullScreen;
+		baseFOVSlide = GameObject.Find("BaseFOVSlider").GetComponent<Slider>();
+		baseFOVSlide.value = 0.5f;
+		aimFOVSlide = GameObject.Find("AimFOVSlider").GetComponent<Slider>();
+		aimFOVSlide.value = 0.5f;
+		mouseSens = GameObject.Find("MouseSensitivitySlider").GetComponent<Slider>();
+		mouseSens.value = 0.5f;
+		//qualDrop = GameObject.Find("Quality").GetComponent<Dropdown>();
+		//Get available, current resolutions for resolutions dropdown
+		GetResolutions();
+	}
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +64,8 @@ public class SettingsMenu : MonoBehaviour
         //Slider OnChange() is called when initialized, sometimes before start() can finish
         if (baseFOVSlide)
         {
-            orbitCamera.baseFOV = baseFOVSlide.value;
+	        orbitCamera.baseFOV = baseFOVSlide.value;
+	        SaveData.Instance.baseFOV = orbitCamera.baseFOV;
         }
 
     }
@@ -57,7 +75,8 @@ public class SettingsMenu : MonoBehaviour
         //Slider OnChange() is called when initialized, sometimes before start() can finish
         if (aimFOVSlide)
         {
-            orbitCamera.aimFOV = aimFOVSlide.value;
+	        orbitCamera.aimFOV = aimFOVSlide.value;
+	        SaveData.Instance.aimFOV = orbitCamera.aimFOV;
         }
 
     }
@@ -66,7 +85,8 @@ public class SettingsMenu : MonoBehaviour
     {
         if (mouseSens)
         {
-            orbitCamera.rotationSpeed = mouseSens.value;
+	        orbitCamera.rotationSpeed = mouseSens.value;
+	        SaveData.Instance.mouseSens = orbitCamera.rotationSpeed;
         }
     }
 
