@@ -29297,14 +29297,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   introDialogue:
-    name: Hut Man
+    name: X1BD6
     sentences:
-    - Heyyy fuck you mann I was having a good time being dead
-    - You dont know what being dead is like
-    - Shit was uhhhhhh
-    - kinda bussin my man
-    - Hella ghost babes n shit
-    - Whatever get out of my hut man
+    - ...what??
+    - ...do I really have to come back?
+    - Fine...
+    - I guess I get it, we've got our programming and all, it's just...
+    - It was kinda nice, not having to deal with anything, you know?
+    - Thanks for helping, at least, I appreciate the effort, really.
+    - Listen, I'm sorry, but my weapon systems are shot, I couldn't fight even if
+      I wanted to.
+    - You seem to be doing fine on your own, really good, actually.
+    - I'm not really much use to you, so do you mind if I just... enjoy whatever
+      time I have left before I have to get back to fighting?
+    - The ship... it's nice when it's quiet.
   hubWorldDialogue:
     name: Hut Man
     sentences:
@@ -29323,6 +29329,9 @@ MonoBehaviour:
     - You managed to get up on the ship all on your own?
     - Not that im impressed or anything...
     - senpai...
+  enteredWorld1and2Dialgue:
+    name: 
+    sentences: []
   preBossFightDialogue:
     name: Hut Man
     sentences:
@@ -36418,12 +36427,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   introDialogue:
-    name: Hole Man
+    name: X1BD9
     sentences:
-    - i am the hole man
-    - look upon my hole, ye mighty, and despair!
-    - thanks for repairing me man, my back was KILLING me, being dead is rough man
-    - they really dont talk about that
+    - WE'RE UNDER ATTACK!
+    - STUPID SLIME BALLS, THINK YOU CAN TAKE OVER MY SHIP?!?
+    - ...
+    - WHERE THE HELL ARE THE ENEMIES?
+    - 'AND WHY THE HELL CAN''T I MOVE?! '
+    - SOLDIER, GIVE ME A SITUTATION REPORT!
+    - ...
+    - ...SOLIDER? YOU THERE?
+    - SOLDIER!
+    - FINE, KEEP QUIET, YOU SEEM TO BE ABLE TO DO YOUR JOB REGARDLESS.
+    - I'M GONNA HAIL THE CAPTAIN!
+    - ...
+    - WHAT?!?!
+    - WHAT KIND OF SPINELESS, SNIVELING, GOOD FOR NOTHING EXCUSE OF A CAPTAIN ABANDONS
+      THEIR DUTY LIKE THAT?!
+    - ...
+    - ...OH.
+    - HE'S DEAD...
+    - THAT'S A SHAME, HE WAS A GOOD MAN. CHECKING VITALS FOR THE REST OF THE CREW.
+    - ...
+    - DAMN!
+    - WELL, IF THERE'S NO ONE ELSE TO, I'M ASSUMING ACTIVE COMMAND.
+    - SOLDIER! I'M TASKING YOU WITH FINDING US A WAY OUT OF THIS PLACE AND BACK TO
+      THE FRONT LINE!
+    - AND IF YOU SEE THE ARTIFICIER, THE SLIMY BASTARD IS MINE!
   hubWorldDialogue:
     name: Hole Man
     sentences:
@@ -36448,6 +36478,9 @@ MonoBehaviour:
     - ....
     - I miss my robot wife man
     - she was so hot maaaannnnn
+  enteredWorld1and2Dialgue:
+    name: 
+    sentences: []
   preBossFightDialogue:
     name: Hole Man
     sentences:
@@ -36788,25 +36821,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   introDialogue:
-    name: Test1
+    name: X1BD3
     sentences:
-    - Test1 1
-    - Test1 1
+    - S-S-Start up se-sequence i-i-initiated, r-r-running systems diagno-nostic.
+    - 'D-D-D-Damage re-report:'
+    - U-U-U-Unit is rendered im-immobile due to damage, attempting to con-contact
+      ERA.
+    - ...
+    - ERA dece-deceased. Attempting to contact captain.
+    - ...
+    - Captain deceased.
+    - This is a most dire situation, unit.
+    - Worse, it ap-appears that Engineer for-forces have already occ-occ-occupied
+      the Bountiful.
+    - Eve-even worse, it appears you're the only u-u-unit capable of combat.
+    - I have control of the doors keeping you in here, but I am unable to connect
+      to the bridge.
+    - If you are to make contact with command, you will need to find a way to gain
+      access.
+    - Good-good-good luck, unit.
   hubWorldDialogue:
     name: Test1
     sentences:
     - Test1 2
     - Test1 2
   enteredWorld1Dialgue:
-    name: Test1
+    name: X1BD3
     sentences:
-    - Test1 3
-    - Test1 3
+    - Ex-Excell-l-llent work, u-unit.
+    - I have been-been keeping track of your progress, I am im-impressed with your
+      eagerness to escape.
+    - Most un-units would not be able to deal such damage to the En-Engin-gin-gineer
+      forces on its own.
+    - It is also unus-usual for a unit to perform a field upgrade on itself.
+    - Under more nor-normal circumstances, I would have r-r-reported you to Information
+      Technologies.
+    - But perhaps it could benefit us at the present.
+    - In fact, I beli-believe I ha-a-ave found something that may ben-ben-benefit
+      you.
+    - Close by is an Engin-gineer ship, the one that Docked us and C-C-Caused this
+      whole crash to begin with...
+    - ' I have detected an unreg-reg-registered piece of United Human Military technology.'
+    - Perhaps your ab-ab-abnormality can make use of it.
+    - If you relocate into the ARE-A behind me, You can find path to access it on
+      your left
   enteredWorld2Dialgue:
     name: Test1
     sentences:
     - Test1 4
     - Test1 4
+  enteredWorld1and2Dialgue:
+    name: 
+    sentences: []
   preBossFightDialogue:
     name: Test1
     sentences:

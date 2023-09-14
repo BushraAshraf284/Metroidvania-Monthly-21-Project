@@ -87,11 +87,22 @@ public class NPCInteractables : MonoBehaviour
                 SaveManager.Instance.SaveNPCsData();
             }
 			else{
-				if(player.GetComponent<UpgradeTracker>().enteredWorld1){
+				if(player.GetComponent<UpgradeTracker>().enteredWorld1 && !player.GetComponent<UpgradeTracker>().enteredWorld2){
 					diag.StartDialogue(npcDiag.enteredWorld1Dialgue);
+					player.GetComponent<UpgradeTracker>().enteredWorld1 = false;
+					SaveData.Instance.EnteredWorld1 = false;
 				}
-				else if(player.GetComponent<UpgradeTracker>().enteredWorld2){
+				else if(player.GetComponent<UpgradeTracker>().enteredWorld2 && !player.GetComponent<UpgradeTracker>().enteredWorld1){
 					diag.StartDialogue(npcDiag.enteredWorld2Dialgue);
+					player.GetComponent<UpgradeTracker>().enteredWorld2 = false;
+					SaveData.Instance.EnteredWorld2 = false;
+				}
+				else if(player.GetComponent<UpgradeTracker>().enteredWorld1 && player.GetComponent<UpgradeTracker>().enteredWorld2){
+					diag.StartDialogue(npcDiag.enteredWorld1and2Dialgue);
+					player.GetComponent<UpgradeTracker>().enteredWorld1 = false;
+					SaveData.Instance.EnteredWorld1 = false;
+					player.GetComponent<UpgradeTracker>().enteredWorld2 = false;
+					SaveData.Instance.EnteredWorld2 = false;
 				}
 				else if(player.GetComponent<UpgradeTracker>().enteredBossArea){
 					diag.StartDialogue(npcDiag.preBossFightDialogue);

@@ -9,6 +9,7 @@ public class NpcDialogue : MonoBehaviour
 	public AltDialogue hubWorldDialogue;
 	public AltDialogue enteredWorld1Dialgue;
 	public AltDialogue enteredWorld2Dialgue;
+	public AltDialogue enteredWorld1and2Dialgue;
 	public AltDialogue preBossFightDialogue;
     public GameObject dialogueBox;
 
