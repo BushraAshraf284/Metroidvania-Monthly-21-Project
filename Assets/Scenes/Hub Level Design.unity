@@ -34263,6 +34263,139 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5148723063400756775, guid: 059909c086aae404c9d738608c31fcfc, type: 3}
   m_PrefabInstance: {fileID: 1605414227}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1837386632
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5116518293949665987, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: hubWorldDialogue.name
+      value: X1 Unit Instructions
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116518293949665987, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: hubWorldDialogue.sentences.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116518293949665987, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: hubWorldDialogue.sentences.Array.data[0]
+      value: X1 Model Mechs all come equipped with a basic set of movement capabilities
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116518293949665987, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: hubWorldDialogue.sentences.Array.data[1]
+      value: These abilities include basic movement with the movement keys
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116518293949665987, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: hubWorldDialogue.sentences.Array.data[2]
+      value: (these keys are detailed by the user under the "CONTROLS" menu)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116518293949665987, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: hubWorldDialogue.sentences.Array.data[3]
+      value: These units can also perform a jump ability
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116518293949665987, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: hubWorldDialogue.sentences.Array.data[4]
+      value: 'If a jump is performed while stationary, a additional vertical boost
+        is applied. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116518293949665987, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: hubWorldDialogue.sentences.Array.data[5]
+      value: 'If a jump is performed while in motion, that boost is instead applied
+        horizontally. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116518293949665987, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: hubWorldDialogue.sentences.Array.data[6]
+      value: More basically, stand still to jump higher, jump while moving to jump
+        further!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116518293949665987, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: hubWorldDialogue.sentences.Array.data[7]
+      value: 'Engineer ambush, artillery fire dealt heavy damage to Bountiful''s
+        aft engines, '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116518293949665987, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: hubWorldDialogue.sentences.Array.data[8]
+      value: 'infantry gained entrance to the ship from forward service hatches. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116518293949665987, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: hubWorldDialogue.sentences.Array.data[9]
+      value: 'Crew stationed outside of pilot house attempted resistance, but were
+        swiftly dispatched by Engineer forces. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116518293949665987, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: hubWorldDialogue.sentences.Array.data[10]
+      value: 'Captain ordered for onboard cargo, a shipment of one dozen (12) mechanized
+        warsuits, class: Recon.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116518293949665987, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: hubWorldDialogue.sentences.Array.data[11]
+      value: 'The warsuits engaged with Engineer forces, but the continued fire of
+        Engineer artillery lead to loss of altitude, '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116518293949665987, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: hubWorldDialogue.sentences.Array.data[12]
+      value: resulting in the Bountiful's crash onto an unknown planet.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116518293949665987, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: hubWorldDialogue.sentences.Array.data[13]
+      value: 'Report and coordinates of crash submitted to United Human Military
+        command. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147088908952187530, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_Name
+      value: datapad (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 62.536797
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 68.86955
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -930.6635
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.38417116
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.38417122
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5936435
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.59364337
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -114.183
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271329408872509396, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: diag
+      value: 
+      objectReference: {fileID: 795569950}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
 --- !u!1 &1854277524 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5183928657059905337, guid: b030f36c590bc2140b4000c11f065699, type: 3}
@@ -45099,15 +45232,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4028041511318198632, guid: b030f36c590bc2140b4000c11f065699, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.249
+      value: -12.167
       objectReference: {fileID: 0}
     - target: {fileID: 4028041511318198632, guid: b030f36c590bc2140b4000c11f065699, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 69.027
+      value: 68.97
       objectReference: {fileID: 0}
     - target: {fileID: 4028041511318198632, guid: b030f36c590bc2140b4000c11f065699, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -924.806
+      value: -924.547
       objectReference: {fileID: 0}
     - target: {fileID: 4028041511318198632, guid: b030f36c590bc2140b4000c11f065699, type: 3}
       propertyPath: m_LocalRotation.w
@@ -47249,6 +47382,67 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5997281293310498335}
   m_Mesh: {fileID: -5624966767830130801, guid: 583ebdee896ed6747a38c676a26d8948, type: 3}
+--- !u!1001 &6169645700030188637
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7147088908952187530, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_Name
+      value: datapad
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.197229
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 68.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -945.8971
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.38417116
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.38417122
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5936435
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.59364337
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -114.183
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271329408872509396, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: diag
+      value: 
+      objectReference: {fileID: 795569950}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
 --- !u!1001 &6179514423238874636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51555,3 +51749,5 @@ SceneRoots:
   - {fileID: 1515754865}
   - {fileID: 141316747}
   - {fileID: 1126074970}
+  - {fileID: 6169645700030188637}
+  - {fileID: 1837386632}

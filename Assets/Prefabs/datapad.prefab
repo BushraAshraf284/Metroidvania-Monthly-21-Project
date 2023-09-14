@@ -1,0 +1,190 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8065637622098661339
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 50df5da5fb5b1684fb30ae74c072fec3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 56.689
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 50df5da5fb5b1684fb30ae74c072fec3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 56.689
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 50df5da5fb5b1684fb30ae74c072fec3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 56.689
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 50df5da5fb5b1684fb30ae74c072fec3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.197229
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 50df5da5fb5b1684fb30ae74c072fec3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 68.82
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 50df5da5fb5b1684fb30ae74c072fec3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -945.8971
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 50df5da5fb5b1684fb30ae74c072fec3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.38417116
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 50df5da5fb5b1684fb30ae74c072fec3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.38417122
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 50df5da5fb5b1684fb30ae74c072fec3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5936435
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 50df5da5fb5b1684fb30ae74c072fec3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.59364337
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 50df5da5fb5b1684fb30ae74c072fec3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 50df5da5fb5b1684fb30ae74c072fec3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 50df5da5fb5b1684fb30ae74c072fec3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -114.183
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 50df5da5fb5b1684fb30ae74c072fec3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 39a3dae53e305334da2d79d91f350d26, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 50df5da5fb5b1684fb30ae74c072fec3, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 42f762b914be27548aa5c185383d2dff, type: 2}
+    - target: {fileID: 919132149155446097, guid: 50df5da5fb5b1684fb30ae74c072fec3, type: 3}
+      propertyPath: m_Name
+      value: datapad
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 50df5da5fb5b1684fb30ae74c072fec3, type: 3}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 50df5da5fb5b1684fb30ae74c072fec3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6584696868336900633}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 50df5da5fb5b1684fb30ae74c072fec3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5116518293949665987}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 50df5da5fb5b1684fb30ae74c072fec3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8271329408872509396}
+  m_SourcePrefab: {fileID: 100100000, guid: 50df5da5fb5b1684fb30ae74c072fec3, type: 3}
+--- !u!1 &7147088908952187530 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 50df5da5fb5b1684fb30ae74c072fec3, type: 3}
+  m_PrefabInstance: {fileID: 8065637622098661339}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &6584696868336900633
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7147088908952187530}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.038928382, y: 0.03003522, z: 0.00470545}
+  m_Center: {x: 1.6395885e-11, y: -0.0005501546, z: 6.868962e-11}
+--- !u!114 &5116518293949665987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7147088908952187530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30191e41722adea4a9da835333af2d2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  introDialogue:
+    name: 
+    sentences: []
+  hubWorldDialogue:
+    name: Blackbox Report
+    sentences:
+    - 'Date Attached: August 22nd, 2054'
+    - 'Text:
+
+      This is an auto-generated accident report, '
+    - 'generated by the on-board AI of the United Human Navy cargo ship "Bountiful". '
+    - 'Location of Crash: Unknown, Engineer Occupied Space'
+    - 'Severity of Crash: High'
+    - 'Estimated Survivors: 0'
+    - 'State of Cargo: Heavily damaged, possibly irrecoverable'
+    - 'Cause of Crash:'
+    - 'Engineer ambush, artillery fire dealt heavy damage to Bountiful''s aft engines, '
+    - 'infantry gained entrance to the ship from forward service hatches. '
+    - 'Crew stationed outside of pilot house attempted resistance, but were swiftly
+      dispatched by Engineer forces. '
+    - 'Captain ordered for onboard cargo, a shipment of one dozen (12) mechanized
+      warsuits, class: Recon.'
+    - 'The warsuits engaged with Engineer forces, but the continued fire of Engineer
+      artillery lead to loss of altitude, '
+    - resulting in the Bountiful's crash onto an unknown planet.
+    - 'Report and coordinates of crash submitted to United Human Military command. '
+  enteredWorld1Dialgue:
+    name: 
+    sentences: []
+  enteredWorld2Dialgue:
+    name: 
+    sentences: []
+  enteredWorld1and2Dialgue:
+    name: 
+    sentences: []
+  preBossFightDialogue:
+    name: 
+    sentences: []
+  dialogueBox: {fileID: 0}
+--- !u!114 &8271329408872509396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7147088908952187530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7417e15c79adb4eb148041f5c7a09b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIPrompt: {fileID: 0}
+  notEnoughKitsUI: {fileID: 0}
+  diag: {fileID: 0}
+  npcDiag: {fileID: 5116518293949665987}
+  repaired: 1
+  doneIntro: 1
+  hasEvent: 0
+  hasWakeAnim: 0
+  nonDiagPopUp: 0
