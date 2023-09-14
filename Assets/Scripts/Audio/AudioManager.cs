@@ -10,9 +10,18 @@ public class AudioManager : MonoBehaviour
     [Range(0, 1)]
     public float masterVolume = 1;
     [Range(0, 1)]
+    public float musicVolume = 1;
+    [Range(0, 1)]
+    public float ambienceVolume = 1;
+    [Range(0, 1)]
+    public float sfxVolume = 1;
+    [Range(0, 1)]
     public float testVolume = 1;
 
     private Bus masterBus;
+    private Bus musicBus;
+    private Bus ambienceBus;
+    private Bus sfxBus;
     private Bus testBus;
 
     private List<EventInstance> eventInstances = new List<EventInstance>();
@@ -32,12 +41,18 @@ public class AudioManager : MonoBehaviour
         instance = this;
 
         masterBus = RuntimeManager.GetBus("bus:/");
+        musicBus = RuntimeManager.GetBus("bus:/Music");
+        ambienceBus = RuntimeManager.GetBus("bus:/Ambience");
+        sfxBus = RuntimeManager.GetBus("bus:/SFX");
         testBus = RuntimeManager.GetBus("bus:/Test");
     }
 
     private void Update()
     {
         masterBus.setVolume(masterVolume);
+        musicBus.setVolume(musicVolume);
+        ambienceBus.setVolume(ambienceVolume);
+        sfxBus.setVolume(sfxVolume);
         testBus.setVolume(testVolume);
     }
 

@@ -9,7 +9,6 @@ using System.Linq;
 public class SettingsMenu : MonoBehaviour
 {
     //Menu components
-    Slider volSlide;
     Slider baseFOVSlide;
     Slider aimFOVSlide;
     Slider mouseSens;
@@ -26,8 +25,6 @@ public class SettingsMenu : MonoBehaviour
     void Start()
     {
         //Get components
-        volSlide = GameObject.Find("VolumeSlide").GetComponent<Slider>();
-        volSlide.value = 0.5f;
         //resDrop = GameObject.Find("Resolution").GetComponent<Dropdown>();
         resolutions = Screen.resolutions.Where(resolution => resolution.refreshRate == Screen.currentResolution.refreshRate).ToArray();
         fullToggle = GameObject.Find("Fullscreen").GetComponent<Toggle>();
@@ -43,17 +40,6 @@ public class SettingsMenu : MonoBehaviour
         GetResolutions();
 
         //GetQuality();
-    }
-
-    //On volume slider change
-    public void changeVol()
-    {
-        //Slider OnChange() is called when initialized, sometimes before start() can finish
-        if (volSlide)
-        {
-            AudioListener.volume = volSlide.value * 2;
-        }
-
     }
 
     public void changeBaseFOV()
