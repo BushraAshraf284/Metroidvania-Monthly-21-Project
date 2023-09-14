@@ -64,6 +64,12 @@ public class SaveData{
 	//bools for map loads
 	public bool comingFromCave;
 	public bool comingFromShip;
+	
+	//settings	
+	public float aimFOV; 
+	public float baseFOV;
+	public float mouseSens;
+	
 
 	//Constructor to check any tampering with the SaveData
     public SaveData(float hp, bool hasShield, float shieldCharge, bool hasShockProng, bool hasMissiles, bool hasSword, bool hasHomingMissiles, bool hasJetBoost, bool hasVertBoost, bool hasShockSpike,

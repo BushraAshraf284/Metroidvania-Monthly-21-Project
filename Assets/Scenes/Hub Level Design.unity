@@ -10500,6 +10500,10 @@ PrefabInstance:
       propertyPath: upgradeTracker
       value: 
       objectReference: {fileID: 5206940769439130706}
+    - target: {fileID: 6851229939475417502, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 51.7
+      objectReference: {fileID: 0}
     - target: {fileID: 6935593623905786681, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -45232,15 +45236,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4028041511318198632, guid: b030f36c590bc2140b4000c11f065699, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.167
+      value: -57.3
       objectReference: {fileID: 0}
     - target: {fileID: 4028041511318198632, guid: b030f36c590bc2140b4000c11f065699, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 68.97
+      value: 94.08
       objectReference: {fileID: 0}
     - target: {fileID: 4028041511318198632, guid: b030f36c590bc2140b4000c11f065699, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -924.547
+      value: -933.9
       objectReference: {fileID: 0}
     - target: {fileID: 4028041511318198632, guid: b030f36c590bc2140b4000c11f065699, type: 3}
       propertyPath: m_LocalRotation.w
