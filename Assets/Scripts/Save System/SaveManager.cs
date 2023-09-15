@@ -9,9 +9,13 @@ using UnityEngine.SceneManagement;
 public class SaveManager : MonoBehaviour
 {
     public sceneType sceneType;
+    [Header("Managers")]
     public DoorManager doorManager;
     public UpgradeManager upgradeManager;
     public NPCManager NPCManager;
+    public PauseMenu pause;
+
+    [Header("Other references")]
     public Transform Player;
     public GameObject LoadingScreen;
     private string sceneName;
@@ -47,12 +51,13 @@ public class SaveManager : MonoBehaviour
             LoadNPCData();
            
         }
+       
         StartCoroutine(LoadPlayerWithDelay());
     }
     IEnumerator LoadPlayerWithDelay()
     {
 	    yield return new WaitForSeconds(2f);
-        if (SaveData.Instance.isSaved)
+        if (SaveData.Instance.isSaved && CheckIfSceneSwitch() ) 
         {
            
             Debug.Log("Tried moving the player");
@@ -61,10 +66,24 @@ public class SaveManager : MonoBehaviour
             {
                 Player.position = SaveData.Instance.playerSavePos;
             }
-         
-           
+          
         }
+        pause.pause();
+        pause.help();
+        pause.resume();
+       
+       
         LoadingScreen.SetActive(false);
+    }
+
+    bool CheckIfSceneSwitch()
+    {
+        if (PlayerPrefs.HasKey("IsSceneSwitch"))
+        {
+            return PlayerPrefs.GetInt("IsSceneSwitch") == 0;
+        }
+        else
+            return true;
     }
 
     public void SaveNPCsData()
