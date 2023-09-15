@@ -9,10 +9,12 @@ public class PlayerAnimationAudio : MonoBehaviour
     private bool isFootstepSoundPlaying = false;
     public float footstepCooldown = 0.3f;
     private EventInstance fallingSound;
+    private EventInstance shockSound;
 
     private void Start()
     {
         fallingSound = AudioManager.instance.CreateEventInstance(FMODEvents.instance.playerFalling);
+        shockSound = AudioManager.instance.CreateEventInstance(FMODEvents.instance.playerShockProngMid);
     }
 
     private EventInstance PlayEvent(EventReference eventReference)
@@ -54,17 +56,19 @@ public class PlayerAnimationAudio : MonoBehaviour
 
     private void PlayShockProngStart()
     {
-        PlayEvent(FMODEvents.instance.playerShockProngStart);
+        shockSound.start();
+        Debug.Log("Starting shock sound");
     }
 
     private void PlayShockProngMid()
     {
-        PlayEvent(FMODEvents.instance.playerShockProngMid);
+        // 
     }
 
     private void PlayShockProngEnd()
     {
-        PlayEvent(FMODEvents.instance.playerShockProngEnd);
+        shockSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        Debug.Log("Ending shock sound");
     }
 
     private void PlaySwordAttack()
@@ -105,11 +109,6 @@ public class PlayerAnimationAudio : MonoBehaviour
     private void PlayDashJump()
     {
         PlayEvent(FMODEvents.instance.playerDashJump);
-    }
-
-    private void PlayFalling()
-    {
-        PlayEvent(FMODEvents.instance.playerFalling);
     }
 
     private void PlayJogJumpStart()
