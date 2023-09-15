@@ -315,6 +315,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7d0d2ba76ad77ea41bbcbda17f24dd9e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1997045501741888854}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7d0d2ba76ad77ea41bbcbda17f24dd9e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9015545142056000717}
     - targetCorrespondingSourceObject: {fileID: -516098083770646512, guid: 7d0d2ba76ad77ea41bbcbda17f24dd9e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5070546829329207742}
@@ -398,6 +401,37 @@ MonoBehaviour:
   - {fileID: 4697786404976501805}
   oneWay: 0
   time: 0
+--- !u!114 &9015545142056000717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4697786404976501805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2062914022
+      Data2: 1115302466
+      Data3: -121697137
+      Data4: -1832702072
+    Path: event:/SFX/Emitter/Save Point Emitter
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 10
+  OverrideMaxDistance: 20
 --- !u!4 &5366658483334217367 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7d0d2ba76ad77ea41bbcbda17f24dd9e, type: 3}
