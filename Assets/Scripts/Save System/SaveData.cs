@@ -51,6 +51,7 @@ public class SaveData{
     public Vector3 playerSavePos;
     public int LastSaveScene = 1;
     public bool isSaved = false;
+    
 
     //Scene progress Info
     public bool EnteredWorld1 = false;

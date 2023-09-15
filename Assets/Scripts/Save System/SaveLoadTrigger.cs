@@ -52,6 +52,7 @@ public class SaveLoadTrigger: MonoBehaviour
 	                    stats.comingFromShip = true;
 	                    SaveData.Instance.comingFromShip = true;
                         SaveData.Instance.EnteredWorld2 = true;
+						
                         break;
 
                     case sceneType.Cave:
@@ -65,6 +66,8 @@ public class SaveLoadTrigger: MonoBehaviour
                         sceneName = "Hub Level Design";
                         break;
                 }
+
+				PlayerPrefs.SetInt("IsSceneSwitch", 1);
                 SaveLoad.SaveProgress();
                 SceneManager.LoadScene(sceneName);
             }
