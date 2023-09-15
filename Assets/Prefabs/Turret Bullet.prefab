@@ -280,11 +280,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 150118826
-      Data2: 1127451202
-      Data3: 1526494641
-      Data4: -1821716535
-    Path: event:/SFX/Emitter/Missile Emitter
+      Data1: 4416844
+      Data2: 1206063710
+      Data3: 1548240271
+      Data4: 551968205
+    Path: event:/SFX/Emitter/Laser Explosion Emitter
   Event: 
   PlayEvent: 1
   StopEvent: 2
@@ -294,8 +294,8 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 15
-  OverrideMaxDistance: 30
+  OverrideMinDistance: 20
+  OverrideMaxDistance: 60
 --- !u!114 &48983266417363582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,11 +311,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -51965742
-      Data2: 1248895554
-      Data3: -81252965
-      Data4: -286996924
-    Path: event:/SFX/Emitter/Missile Explosion Emitter
+      Data1: -1567961025
+      Data2: 1277509925
+      Data3: -659312499
+      Data4: 1162745683
+    Path: event:/SFX/Emitter/Laser Tail Emitter
   Event: 
   PlayEvent: 2
   StopEvent: 0
@@ -324,6 +324,6 @@ MonoBehaviour:
   Preload: 0
   AllowNonRigidbodyDoppler: 0
   Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideAttenuation: 1
+  OverrideMinDistance: 20
+  OverrideMaxDistance: 60
