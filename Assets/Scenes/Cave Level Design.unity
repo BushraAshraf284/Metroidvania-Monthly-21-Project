@@ -23264,6 +23264,10 @@ PrefabInstance:
       value: 'SaveManager '
       objectReference: {fileID: 0}
     - target: {fileID: 4377475622642561442, guid: 5238950f42918054eab65ae6f09628fc, type: 3}
+      propertyPath: pause
+      value: 
+      objectReference: {fileID: 2013320975}
+    - target: {fileID: 4377475622642561442, guid: 5238950f42918054eab65ae6f09628fc, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 5206940769439130706}

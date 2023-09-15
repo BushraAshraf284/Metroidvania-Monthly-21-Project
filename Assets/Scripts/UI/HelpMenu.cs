@@ -31,9 +31,8 @@ public class HelpMenu : MonoBehaviour
 
     private static IEnumerator err;
 
-    private void Start()
+    private void Awake()
     {
-        
         //Assign components
         controls = GameObject.Find("Data").GetComponentInChildren<Controls>();
         //aim = GameObject.Find("Aim").GetComponent<Image>();
@@ -46,19 +45,32 @@ public class HelpMenu : MonoBehaviour
         interact = GameObject.Find("Interact").GetComponent<Image>();
         attack = GameObject.Find("Attack").GetComponent<Image>();
         leftweaponmenu = GameObject.Find("LeftWeaponMenu").GetComponent<Image>();
-	    rightweaponmenu = GameObject.Find("RightWeaponMenu").GetComponent<Image>();
-	    switchcam = GameObject.Find("SwitchCam").GetComponent<Image>();
+        rightweaponmenu = GameObject.Find("RightWeaponMenu").GetComponent<Image>();
+        switchcam = GameObject.Find("SwitchCam").GetComponent<Image>();
         zoom = GameObject.Find("Zoom").GetComponent<Image>();
         errTxt = GameObject.Find("ErrorText");
         promptTxt = GameObject.Find("PromptText");
         rebindTxt = GameObject.Find("RebindText");
+        Init();
+    }
+  
 
+    public void Init()
+    {
 
         //Update controls
         if (controls)
         {
+            Debug.Log("Bindig loaded");
             draw();
         }
+       // StartCoroutine(DelayLoad());
+    }
+    
+    IEnumerator DelayLoad()
+    {
+        yield return new WaitForSeconds(2f);
+       
     }
 
     //Update controls when menu is opened

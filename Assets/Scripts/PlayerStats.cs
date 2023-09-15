@@ -211,6 +211,7 @@ public class PlayerStats : MonoBehaviour
 	                Cursor.lockState = CursorLockMode.None;//makes cursor moveable
                     AudioManager.instance.PlayOneShot(FMODEvents.instance.playerDeath, this.transform.position);
                     hp = 0;
+                    PlayerPrefs.SetInt("IsSceneSwitch", 0);
                     SaveData.Instance.playerHP = hp;
                 }
                 else {
