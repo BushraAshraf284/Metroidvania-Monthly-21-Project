@@ -91,6 +91,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 99a0506eeb6b7c545add968743f07cf1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 599748726143225170}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 99a0506eeb6b7c545add968743f07cf1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 48983266417363582}
   m_SourcePrefab: {fileID: 100100000, guid: 99a0506eeb6b7c545add968743f07cf1, type: 3}
 --- !u!1 &7078151848023102289 stripped
 GameObject:
@@ -293,3 +296,34 @@ MonoBehaviour:
   OverrideAttenuation: 1
   OverrideMinDistance: 15
   OverrideMaxDistance: 30
+--- !u!114 &48983266417363582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078151848023102289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -51965742
+      Data2: 1248895554
+      Data3: -81252965
+      Data4: -286996924
+    Path: event:/SFX/Emitter/Missile Explosion Emitter
+  Event: 
+  PlayEvent: 2
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
