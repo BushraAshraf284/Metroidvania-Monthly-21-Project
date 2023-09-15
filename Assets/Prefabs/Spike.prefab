@@ -92,6 +92,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 52c1e04f24fe1b64f8d198aa765e7581, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9082413665874285973}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 52c1e04f24fe1b64f8d198aa765e7581, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1007641335272366926}
   m_SourcePrefab: {fileID: 100100000, guid: 52c1e04f24fe1b64f8d198aa765e7581, type: 3}
 --- !u!1 &5681393610491258448 stripped
 GameObject:
@@ -110,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e44d5acc396661b42b7ea1129492b54e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boomEffect: {fileID: 0}
   isSpike: 1
   stuckSpikePrefab: {fileID: 5681393610491258448, guid: b80911acbe4bcbd469d8553fd83b3e4a, type: 3}
   isMissile: 0
@@ -271,3 +275,34 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &1007641335272366926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5681393610491258448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1892829458
+      Data2: 1292576088
+      Data3: 1625101208
+      Data4: -1955064251
+    Path: event:/SFX/Emitter/Spike Traveling Emitter
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 20
+  OverrideMaxDistance: 60

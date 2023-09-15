@@ -54,21 +54,19 @@ public class PlayerAnimationAudio : MonoBehaviour
         PlayEvent(FMODEvents.instance.playerShootMissle);
     }
 
+    private void PlayShootSpike()
+    {
+        PlayEvent(FMODEvents.instance.playerShootSpike);
+    }
+
     private void PlayShockProngStart()
     {
         shockSound.start();
-        Debug.Log("Starting shock sound");
-    }
-
-    private void PlayShockProngMid()
-    {
-        // 
     }
 
     private void PlayShockProngEnd()
     {
-        shockSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-        Debug.Log("Ending shock sound");
+        shockSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     private void PlaySwordAttack()
