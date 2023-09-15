@@ -21,7 +21,9 @@ public class Controls : MonoBehaviour
         if (!exists)
         {
             GameObject.DontDestroyOnLoad(this);
+
             if(SaveData.Instance.controlData == null || SaveData.Instance.controlData.keys.Count == 0)
+
             {
                 
                 //A dictionary containing game actions and associated keys
