@@ -88,6 +88,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 99a0506eeb6b7c545add968743f07cf1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4763354047886440903}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 99a0506eeb6b7c545add968743f07cf1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7361704127654319854}
   m_SourcePrefab: {fileID: 100100000, guid: 99a0506eeb6b7c545add968743f07cf1, type: 3}
 --- !u!1 &7078151848023102289 stripped
 GameObject:
@@ -267,3 +270,34 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &7361704127654319854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078151848023102289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 150118826
+      Data2: 1127451202
+      Data3: 1526494641
+      Data4: -1821716535
+    Path: event:/SFX/Emitter/Missile Emitter
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 15
+  OverrideMaxDistance: 30
