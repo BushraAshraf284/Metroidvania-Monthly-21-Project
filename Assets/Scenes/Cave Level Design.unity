@@ -3839,53 +3839,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &209654584
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 209654586}
-  - component: {fileID: 209654585}
-  m_Layer: 0
-  m_Name: Audio Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &209654585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 209654584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0228e621e12955f4ba569af5836ad74f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  masterVolume: 1
-  testVolume: 1
---- !u!4 &209654586
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 209654584}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.025354, y: 89.05828, z: -956.1986}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 406932597}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &218802046
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6918,393 +6871,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 218051986967626941, guid: e750f13f4aef4a44ba04479da93ee8a8, type: 3}
   m_PrefabInstance: {fileID: 7719738197245362623}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &406932596
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 406932597}
-  - component: {fileID: 406932598}
-  m_Layer: 0
-  m_Name: FMOD Events
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &406932597
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 406932596}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 209654586}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &406932598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 406932596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da52051ebc4925e48a80740561a89cbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <windAudio>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <playerFootsteps>k__BackingField:
-    Guid:
-      Data1: -852300991
-      Data2: 1254064486
-      Data3: -1403031165
-      Data4: 1107767734
-    Path: event:/Player/Animation/Footsteps
-  <playerJump>k__BackingField:
-    Guid:
-      Data1: 178556373
-      Data2: 1337466776
-      Data3: -717115243
-      Data4: 199102957
-    Path: event:/Player/Animation/Jump
-  <playerJumpLand>k__BackingField:
-    Guid:
-      Data1: 1106595935
-      Data2: 1224382332
-      Data3: -1816544353
-      Data4: 12573969
-    Path: event:/Test/Test OneShot
-  <playerFalling>k__BackingField:
-    Guid:
-      Data1: 1106595935
-      Data2: 1224382332
-      Data3: -1816544353
-      Data4: 12573969
-    Path: event:/Test/Test OneShot
-  <playerDash>k__BackingField:
-    Guid:
-      Data1: 1995504347
-      Data2: 1161065982
-      Data3: -453089873
-      Data4: 787810020
-    Path: event:/Player/Animation/Dash
-  <playerDashStart>k__BackingField:
-    Guid:
-      Data1: 1106595935
-      Data2: 1224382332
-      Data3: -1816544353
-      Data4: 12573969
-    Path: event:/Test/Test OneShot
-  <playerDashStop>k__BackingField:
-    Guid:
-      Data1: 1106595935
-      Data2: 1224382332
-      Data3: -1816544353
-      Data4: 12573969
-    Path: event:/Test/Test OneShot
-  <playerDashJump>k__BackingField:
-    Guid:
-      Data1: 1608297932
-      Data2: 1201341102
-      Data3: -1594266998
-      Data4: 1164131239
-    Path: event:/Player/Animation/Dash Jump
-  <playerJogJumpStart>k__BackingField:
-    Guid:
-      Data1: 1106595935
-      Data2: 1224382332
-      Data3: -1816544353
-      Data4: 12573969
-    Path: event:/Test/Test OneShot
-  <playerJogJumpStop>k__BackingField:
-    Guid:
-      Data1: 1106595935
-      Data2: 1224382332
-      Data3: -1816544353
-      Data4: 12573969
-    Path: event:/Test/Test OneShot
-  <playerJogJumpLand>k__BackingField:
-    Guid:
-      Data1: 1106595935
-      Data2: 1224382332
-      Data3: -1816544353
-      Data4: 12573969
-    Path: event:/Test/Test OneShot
-  <playerVerticalBoost>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <playerShootMissle>k__BackingField:
-    Guid:
-      Data1: 1106595935
-      Data2: 1224382332
-      Data3: -1816544353
-      Data4: 12573969
-    Path: event:/Test/Test OneShot
-  <playerShockProngStart>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <playerShockProngMid>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <playerShockProngEnd>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <playerSwordAttack>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <playerSwordAttackTwo>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <playerSwordAttackThree>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <playerSwordAttackHit>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <playerServoSmall>k__BackingField:
-    Guid:
-      Data1: 39386371
-      Data2: 1269078385
-      Data3: 788680608
-      Data4: -588604327
-    Path: event:/Player/Animation/SFX/Servo Small
-  <playerServoMedium>k__BackingField:
-    Guid:
-      Data1: -1700164907
-      Data2: 1164678797
-      Data3: 250177710
-      Data4: 1996938217
-    Path: event:/Player/Animation/SFX/Servo Medium
-  <playerServoHeavy>k__BackingField:
-    Guid:
-      Data1: -733134744
-      Data2: 1194108086
-      Data3: 419979142
-      Data4: 877388291
-    Path: event:/Player/Animation/SFX/Servo Heavy
-  <playerServoCranking>k__BackingField:
-    Guid:
-      Data1: -1366649725
-      Data2: 1277975093
-      Data3: 1769521822
-      Data4: 1073615969
-    Path: event:/Player/Animation/SFX/Servo Cranking
-  <playerDeath>k__BackingField:
-    Guid:
-      Data1: 1404766741
-      Data2: 1194272795
-      Data3: -1663001440
-      Data4: 105857384
-    Path: event:/Player/SFX/Death
-  <playerHeal>k__BackingField:
-    Guid:
-      Data1: 1106595935
-      Data2: 1224382332
-      Data3: -1816544353
-      Data4: 12573969
-    Path: event:/Test/Test OneShot
-  <playerHurt>k__BackingField:
-    Guid:
-      Data1: 781239999
-      Data2: 1141844176
-      Data3: -1174203478
-      Data4: -436473985
-    Path: event:/Player/SFX/Damage
-  <playerBatteryCharge>k__BackingField:
-    Guid:
-      Data1: 1330247820
-      Data2: 1269606553
-      Data3: 1885233339
-      Data4: 1166428398
-    Path: event:/Player/SFX/Battery Charging
-  <upgradeCollectedSound>k__BackingField:
-    Guid:
-      Data1: 1106595935
-      Data2: 1224382332
-      Data3: -1816544353
-      Data4: 12573969
-    Path: event:/Test/Test OneShot
-  <batteryEmitterSound>k__BackingField:
-    Guid:
-      Data1: -1376320317
-      Data2: 1112105558
-      Data3: 756147620
-      Data4: 1632129926
-    Path: event:/SFX/Emitter/Battery Emitter
-  <npcSFX>k__BackingField:
-    Guid:
-      Data1: 1106595935
-      Data2: 1224382332
-      Data3: -1816544353
-      Data4: 12573969
-    Path: event:/Test/Test OneShot
-  <npcPreChatSFX>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <npcRepairFailSFX>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <npcRepairSuccessSFX>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <turrentShoot>k__BackingField:
-    Guid:
-      Data1: 110407210
-      Data2: 1198896079
-      Data3: 502038661
-      Data4: 2106587084
-    Path: event:/Test/Test OneShot 3D
-  <doorSFX>k__BackingField:
-    Guid:
-      Data1: 373049924
-      Data2: 1265855317
-      Data3: -6871935
-      Data4: 64307235
-    Path: event:/Test/Test Looping 3D
-  <objectBreakingSound>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <objectDestorySound>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <gravitySwitchSound>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <platformMovingSound>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <interactSFX>k__BackingField:
-    Guid:
-      Data1: 1106595935
-      Data2: 1224382332
-      Data3: -1816544353
-      Data4: 12573969
-    Path: event:/Test/Test OneShot
-  <pauseGameAudio>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <resumeGameAudio>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <startGameAudio>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <testOneShot>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <testOneShotWorld>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <testLooping>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <testLoopingWorld>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
 --- !u!1 &410336421 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2338570328145104723, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
@@ -18078,6 +17644,69 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1142134671
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1142134672}
+  - component: {fileID: 1142134673}
+  m_Layer: 0
+  m_Name: Cave Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1142134672
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142134671}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1488938805}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1142134673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142134671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1613842196
+      Data2: 1205106284
+      Data3: 1647650435
+      Data4: 1124476517
+    Path: event:/Music/Cave Music
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1143552300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22269,6 +21898,71 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7175207904595269970, guid: e8d2b0fc65fcad74293b470b16c266ad, type: 3}
   m_PrefabInstance: {fileID: 1483308335}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1488938804
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6113672597100727410, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
+      propertyPath: m_Name
+      value: Audio Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8384032269744895725, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -25.025354
+      objectReference: {fileID: 0}
+    - target: {fileID: 8384032269744895725, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 89.05828
+      objectReference: {fileID: 0}
+    - target: {fileID: 8384032269744895725, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -956.1986
+      objectReference: {fileID: 0}
+    - target: {fileID: 8384032269744895725, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8384032269744895725, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8384032269744895725, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8384032269744895725, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8384032269744895725, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8384032269744895725, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8384032269744895725, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1182362231318822047, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1142134672}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
+--- !u!4 &1488938805 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1182362231318822047, guid: 85bfc30ae432fe3478fd4f688c0be3f4, type: 3}
+  m_PrefabInstance: {fileID: 1488938804}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1498927813
 PrefabInstance:
@@ -30824,8 +30518,8 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 209654586}
   - {fileID: 1913858647}
+  - {fileID: 1488938804}
   - {fileID: 7075655931675118451}
   - {fileID: 5206940769439130705}
   - {fileID: 256901407}
