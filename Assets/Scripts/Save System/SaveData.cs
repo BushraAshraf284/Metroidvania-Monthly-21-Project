@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 
 [System.Serializable]
 public class SaveData{
@@ -74,12 +75,15 @@ public class SaveData{
 	//NPC
 	public bool doneWorld1;
 	public bool doneWorld2;
-	
+
+    //Control Data
+    public ControlData controlData;
+
 
 	//Constructor to check any tampering with the SaveData
     public SaveData(float hp, bool hasShield, float shieldCharge, bool hasShockProng, bool hasMissiles, bool hasSword, bool hasHomingMissiles, bool hasJetBoost, bool hasVertBoost, bool hasShockSpike,
         int leftweapon, int rightWeapon, bool hasShieldUpgrade, int hpPhase, int batteryPhase, int heartPieceCount, int shieldPieceCount, int batteryPieceCount, SceneData hubData, SceneData caveData, SceneData shipData, NPCsData nPCsData,
-        Vector3 playerSavePos, int lastSaveScene, bool isDead, bool enteredWorld1, bool enteredWorld2)
+        Vector3 playerSavePos, int lastSaveScene, bool isDead, bool enteredWorld1, bool enteredWorld2, ControlData controlData)
     {
         playerHP = hp;
         hasSheild = hasShield;
@@ -108,6 +112,7 @@ public class SaveData{
         this.isSaved = isDead;
         EnteredWorld1 = enteredWorld1;
         EnteredWorld2 = enteredWorld2;
+        this.controlData = controlData;
     }
 
 
@@ -151,3 +156,41 @@ public class NPC
 }
 
 public enum sceneType { Cave, Hub, Ship };
+
+[System.Serializable]
+
+public class Keys
+{
+    public string key;
+    public int keyCode;
+    public Keys(string key, int keyCode)
+    {
+        this.key = key;
+        this.keyCode = keyCode;
+    }
+}
+
+[System.Serializable]
+public class InUse
+{
+    public int keyCode;
+    public bool inUse;
+
+    public InUse(int keyCode, bool inUse)
+    {
+        this.keyCode = keyCode;
+        this.inUse = inUse;
+    }
+}
+
+[System.Serializable]
+public class ControlData
+{
+    public List<Keys> keys;
+    public List<InUse> inUse;
+    public ControlData()
+    {
+        keys = new List<Keys>();
+        inUse = new List<InUse>();
+    }
+}
