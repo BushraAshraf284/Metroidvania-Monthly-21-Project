@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
@@ -51,7 +51,7 @@ public class SaveManager : MonoBehaviour
     }
     IEnumerator LoadPlayerWithDelay()
     {
-        yield return new WaitForSeconds(1f);
+	    yield return new WaitForSeconds(2f);
         if (SaveData.Instance.isSaved)
         {
            

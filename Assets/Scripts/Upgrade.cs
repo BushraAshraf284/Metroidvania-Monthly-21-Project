@@ -51,7 +51,8 @@ public class Upgrade : MonoBehaviour
             }
             else
             {
-                Destroy(this.gameObject);
+	            GetComponent<BoxCollider>().enabled = false;
+	            GetComponent<MeshRenderer>().enabled = false;
             }
 
         }
@@ -149,7 +150,8 @@ public class Upgrade : MonoBehaviour
                     }
                 }
                 else{
-                    Destroy(this.gameObject);
+	                GetComponent<BoxCollider>().enabled = false;
+	                GetComponent<MeshRenderer>().enabled = false;
                 }
                 
             }
