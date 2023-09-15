@@ -470,11 +470,11 @@ MonoBehaviour:
     Path: event:/Test/Test OneShot
   <playerFalling>k__BackingField:
     Guid:
-      Data1: 1106595935
-      Data2: 1224382332
-      Data3: -1816544353
-      Data4: 12573969
-    Path: event:/Test/Test OneShot
+      Data1: 1643826804
+      Data2: 1290429539
+      Data3: -1842477151
+      Data4: 386896912
+    Path: event:/Player/Animation/Falling
   <playerDash>k__BackingField:
     Guid:
       Data1: 1995504347
@@ -540,18 +540,18 @@ MonoBehaviour:
     Path: event:/Player/Animation/Shoot Missile
   <playerShockProngStart>k__BackingField:
     Guid:
-      Data1: 1106595935
-      Data2: 1224382332
-      Data3: -1816544353
-      Data4: 12573969
-    Path: event:/Test/Test OneShot
+      Data1: 694278991
+      Data2: 1160219506
+      Data3: -767579221
+      Data4: -298126296
+    Path: event:/Player/Animation/Shock Prog
   <playerShockProngMid>k__BackingField:
     Guid:
-      Data1: 1106595935
-      Data2: 1224382332
-      Data3: -1816544353
-      Data4: 12573969
-    Path: event:/Test/Test OneShot
+      Data1: 694278991
+      Data2: 1160219506
+      Data3: -767579221
+      Data4: -298126296
+    Path: event:/Player/Animation/Shock Prog
   <playerShockProngEnd>k__BackingField:
     Guid:
       Data1: 1106595935
@@ -559,6 +559,13 @@ MonoBehaviour:
       Data3: -1816544353
       Data4: 12573969
     Path: event:/Test/Test OneShot
+  <playerShootSpike>k__BackingField:
+    Guid:
+      Data1: -315703109
+      Data2: 1227403279
+      Data3: -1143559234
+      Data4: -587745876
+    Path: event:/Player/Animation/Shoot Spike
   <playerSwordAttack>k__BackingField:
     Guid:
       Data1: -2073313339

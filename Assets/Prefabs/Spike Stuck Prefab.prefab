@@ -516,6 +516,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 52c1e04f24fe1b64f8d198aa765e7581, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6403163716293300550}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 52c1e04f24fe1b64f8d198aa765e7581, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8838632922840888181}
   m_SourcePrefab: {fileID: 100100000, guid: 52c1e04f24fe1b64f8d198aa765e7581, type: 3}
 --- !u!4 &5013506733414366442 stripped
 Transform:
@@ -563,6 +566,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeMin: 10
   lifeMax: 10
+--- !u!114 &8838632922840888181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5681393610491258448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 183670310
+      Data2: 1181660903
+      Data3: -1590342213
+      Data4: 1804556046
+    Path: event:/SFX/Emitter/Spike Stuck Emitter
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 10
+  OverrideMaxDistance: 20
 --- !u!1001 &5235621554318296064
 PrefabInstance:
   m_ObjectHideFlags: 0

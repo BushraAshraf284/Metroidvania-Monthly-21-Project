@@ -42720,7 +42720,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: PlayFalling
+    functionName: PlayFallingSound
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
