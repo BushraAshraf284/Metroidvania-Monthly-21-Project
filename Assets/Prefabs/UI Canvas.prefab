@@ -10728,7 +10728,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Would you like to repair this robot in a hut?
+  m_Text: 'This Robot''s internal systems seem surprisingly intact...
+
+    Would
+    you like to repair it?'
 --- !u!114 &4589183099786464278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15699,7 +15702,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -99, y: 60}
+  m_AnchoredPosition: {x: -99, y: 51.7}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1134506906805469893
@@ -28441,7 +28444,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Would you like to repair this robot in a hole?
+  m_Text: 'This Robot''s internal systems seem surprisingly intact...
+
+    Would
+    you like to repair it?'
 --- !u!114 &2106735909383298827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29541,7 +29547,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Would you like to repair this especially decrepid looking Robot?
+  m_Text: 'This Robot''s internal systems seem surprisingly intact...
+
+    Would
+    you like to repair it?'
 --- !u!114 &3111045667044912015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30153,6 +30162,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -598.7
       objectReference: {fileID: 0}
+    - target: {fileID: 2557687750581099906, guid: e7fffc6231b84df41ac0c8e859eeef97, type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3143449160415139665, guid: e7fffc6231b84df41ac0c8e859eeef97, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -30246,8 +30259,20 @@ PrefabInstance:
       value: -198
       objectReference: {fileID: 0}
     - target: {fileID: 8733088481700212125, guid: e7fffc6231b84df41ac0c8e859eeef97, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1660.9011
+      objectReference: {fileID: 0}
+    - target: {fileID: 8733088481700212125, guid: e7fffc6231b84df41ac0c8e859eeef97, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 117.9111
+      objectReference: {fileID: 0}
+    - target: {fileID: 8733088481700212125, guid: e7fffc6231b84df41ac0c8e859eeef97, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.6354
+      objectReference: {fileID: 0}
+    - target: {fileID: 8733088481700212125, guid: e7fffc6231b84df41ac0c8e859eeef97, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -594
+      value: -601.4451
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

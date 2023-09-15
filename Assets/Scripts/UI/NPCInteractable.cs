@@ -16,6 +16,10 @@ public class NPCInteractables : MonoBehaviour
 	public bool repaired = false;
 	[SerializeField]
 	public bool doneIntro;
+	[SerializeField]
+	public bool doneWorld1;
+	[SerializeField]
+	public bool doneWorld2;
 	GameObject player;
 	OrbitCamera cameraMovement;
 	public bool hasEvent;
@@ -24,6 +28,12 @@ public class NPCInteractables : MonoBehaviour
 	
 	[SerializeField]
 	public bool nonDiagPopUp = false;
+	
+	protected void Awake()
+	{
+		doneWorld1 = SaveData.Instance.doneWorld1;
+		doneWorld2 = SaveData.Instance.doneWorld2;
+	}
 	
 	public void DismissUI(){
 		UIPrompt.SetActive(false);
@@ -90,26 +100,25 @@ public class NPCInteractables : MonoBehaviour
                 SaveManager.Instance.SaveNPCsData();
             }
 			else{
-				if(player.GetComponent<UpgradeTracker>().enteredWorld1 && !player.GetComponent<UpgradeTracker>().enteredWorld2){
-					diag.StartDialogue(npcDiag.enteredWorld1Dialgue);
-					player.GetComponent<UpgradeTracker>().enteredWorld1 = false;
-					SaveData.Instance.EnteredWorld1 = false;
-				}
-				else if(player.GetComponent<UpgradeTracker>().enteredWorld2 && !player.GetComponent<UpgradeTracker>().enteredWorld1){
-					diag.StartDialogue(npcDiag.enteredWorld2Dialgue);
-					player.GetComponent<UpgradeTracker>().enteredWorld2 = false;
-					SaveData.Instance.EnteredWorld2 = false;
-				}
-				else if(player.GetComponent<UpgradeTracker>().enteredWorld1 && player.GetComponent<UpgradeTracker>().enteredWorld2){
+				
+				if((player.GetComponent<UpgradeTracker>().enteredWorld1 && player.GetComponent<UpgradeTracker>().enteredWorld2) && (!doneWorld2 && !doneWorld1)){
 					diag.StartDialogue(npcDiag.enteredWorld1and2Dialgue);
-					player.GetComponent<UpgradeTracker>().enteredWorld1 = false;
-					SaveData.Instance.EnteredWorld1 = false;
-					player.GetComponent<UpgradeTracker>().enteredWorld2 = false;
-					SaveData.Instance.EnteredWorld2 = false;
+					doneWorld2 = true;
+					SaveData.Instance.doneWorld2 = true;
+					doneWorld1 = true;
+					SaveData.Instance.doneWorld1 = true;
 				}
-				else if(player.GetComponent<UpgradeTracker>().enteredBossArea){
-					diag.StartDialogue(npcDiag.preBossFightDialogue);
+				else if((player.GetComponent<UpgradeTracker>().enteredWorld1)&&(!doneWorld1)){
+					diag.StartDialogue(npcDiag.enteredWorld1Dialgue);
+					doneWorld1 = true;
+					SaveData.Instance.doneWorld1 = true;
 				}
+				else if((player.GetComponent<UpgradeTracker>().enteredWorld2) && (!doneWorld2)){
+					diag.StartDialogue(npcDiag.enteredWorld2Dialgue);
+					doneWorld2 = true;
+					SaveData.Instance.doneWorld2 = true;
+				}
+
 				else{
 					diag.StartDialogue(npcDiag.hubWorldDialogue);
 				}

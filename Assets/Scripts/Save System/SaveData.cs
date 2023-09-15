@@ -70,6 +70,10 @@ public class SaveData{
 	public float baseFOV = 90f;
 	public float mouseSens = 360f;
 	
+	//NPC
+	public bool doneWorld1;
+	public bool doneWorld2;
+	
 
 	//Constructor to check any tampering with the SaveData
     public SaveData(float hp, bool hasShield, float shieldCharge, bool hasShockProng, bool hasMissiles, bool hasSword, bool hasHomingMissiles, bool hasJetBoost, bool hasVertBoost, bool hasShockSpike,
