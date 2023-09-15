@@ -8,6 +8,12 @@ public class PlayerAnimationAudio : MonoBehaviour
 {
     private bool isFootstepSoundPlaying = false;
     public float footstepCooldown = 0.3f;
+    private EventInstance fallingSound;
+
+    private void Start()
+    {
+        fallingSound = AudioManager.instance.CreateEventInstance(FMODEvents.instance.playerFalling);
+    }
 
     private EventInstance PlayEvent(EventReference eventReference)
     {
@@ -29,6 +35,16 @@ public class PlayerAnimationAudio : MonoBehaviour
     private void ResetFootstepSound()
     {
         isFootstepSoundPlaying = false;
+    }
+
+    private void PlayFallingSound()
+    {
+        fallingSound.start();
+    }
+
+    private void StopFallingSound()
+    {
+        fallingSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     private void PlayShootMissle()
