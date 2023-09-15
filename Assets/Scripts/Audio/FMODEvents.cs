@@ -25,6 +25,7 @@ public class FMODEvents : MonoBehaviour
 	[field: SerializeField] public EventReference playerShockProngStart { get; private set; }
 	[field: SerializeField] public EventReference playerShockProngMid { get; private set; }
 	[field: SerializeField] public EventReference playerShockProngEnd { get; private set; }
+	[field: SerializeField] public EventReference playerShootSpike { get; private set; }
 	[field: SerializeField] public EventReference playerSwordAttack { get; private set; }
 	[field: SerializeField] public EventReference playerSwordAttackTwo { get; private set; }
 	[field: SerializeField] public EventReference playerSwordAttackThree { get; private set; }
