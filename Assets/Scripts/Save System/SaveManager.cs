@@ -346,14 +346,13 @@ public class SaveManager : MonoBehaviour
     {
         SaveData.Instance.LastSaveScene =(int) sceneType;
         SaveData.Instance.playerSavePos = Player.position;
+        SaveData.Instance.isSaved = true;
     }
 
     public void LoadGameAfterDeath()
     {
         Debug.Log("Load i being called");
         SaveLoad.LoadProgress();
-        SaveData.Instance.isSaved = true;
-        SaveLoad.SaveProgress();
         sceneType scene = (sceneType) SaveData.Instance.LastSaveScene;
         switch (scene)
         {
