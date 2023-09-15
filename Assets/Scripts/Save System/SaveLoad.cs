@@ -14,7 +14,7 @@ public class SaveLoad {
 			SaveData.Instance.HasHomingMissiles, SaveData.Instance.HasJetBoost, SaveData.Instance.HasVertBoost, SaveData.Instance.HasShockSpike, SaveData.Instance.LeftWeaponEquipped, SaveData.Instance.RightWeaponEquipped,
 			SaveData.Instance.HasShieldUpgrade, SaveData.Instance.HPPhase, SaveData.Instance.BatteryPhase, SaveData.Instance.HeartPieceCount, SaveData.Instance.ShieldPieceCount, SaveData.Instance.BatteryPieceCount,
 			SaveData.Instance.HubData, SaveData.Instance.CaveData, SaveData.Instance.ShipData, SaveData.Instance.NPCsData, SaveData.Instance.playerSavePos, SaveData.Instance.LastSaveScene, SaveData.Instance.isSaved,
-            SaveData.Instance.EnteredWorld1, SaveData.Instance.EnteredWorld2);
+            SaveData.Instance.EnteredWorld1, SaveData.Instance.EnteredWorld2, SaveData.Instance.controlData);
 		return CheckSave;
 	}
 
