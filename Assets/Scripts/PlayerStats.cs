@@ -130,7 +130,7 @@ public class PlayerStats : MonoBehaviour
 			    }
 		    }
 	    }
-		Invoke("LateAwake", .5f);
+		Invoke("LateAwake", 1.5f);
 
     }
 
