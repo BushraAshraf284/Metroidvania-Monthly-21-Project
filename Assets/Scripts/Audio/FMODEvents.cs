@@ -53,6 +53,7 @@ public class FMODEvents : MonoBehaviour
 	[field: SerializeField] public EventReference npcRepairFailSFX { get; private set; }
 	[field: SerializeField] public EventReference npcRepairSuccessSFX { get; private set; }
 	[field: SerializeField] public EventReference turrentShoot { get; private set; }
+	[field: SerializeField] public EventReference reloadMissile { get; private set; }
 	// [field: SerializeField] public EventReference turrentRotationSound { get; private set; }
 
 	[field: Header("World SFX")]

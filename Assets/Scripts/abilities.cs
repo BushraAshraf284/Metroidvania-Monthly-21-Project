@@ -141,6 +141,7 @@ public class abilities : MonoBehaviour
 			missilePrefab.GetComponent<Thruster>().StartForce(aimCast.transform);
 			reloadingMissileIcon.SetActive(true);
 			missileReloading = true;
+			AudioManager.instance.PlayOneShot(FMODEvents.instance.reloadMissile, this.transform.position);
 			missileReloadCount = 0f;
 			worldMissile.SetActive(false);
 		}
@@ -155,6 +156,7 @@ public class abilities : MonoBehaviour
 			}
 			reloadingSpikeIcon.SetActive(true);
 			spikeReloading = true;
+			AudioManager.instance.PlayOneShot(FMODEvents.instance.reloadMissile, this.transform.position);
 			SpikeReloadCount = 0f;
 			worldSpike.SetActive(false);
 		}
@@ -231,6 +233,7 @@ public class abilities : MonoBehaviour
 			missile6.SetActive(false);
 		}
 		homingMissileReloading = true;
+		AudioManager.instance.PlayOneShot(FMODEvents.instance.reloadMissile, this.transform.position);
 		reloadingHomingMissileIcon.SetActive(true);
 		homingMissileReloadCount = 0f;
 	}
@@ -391,6 +394,7 @@ public class abilities : MonoBehaviour
 							if(homingMissileVolume.GetComponent<HomingMissileTracking>().target3 != null){
 								//all three targets locked
 								homingMissileReloading = true;
+								AudioManager.instance.PlayOneShot(FMODEvents.instance.reloadMissile, this.transform.position);
 								homingMissileTarget1 = homingMissileVolume.GetComponent<HomingMissileTracking>().target1.transform;
 								homingMissileTarget2 = homingMissileVolume.GetComponent<HomingMissileTracking>().target2.transform;
 								homingMissileTarget3 = homingMissileVolume.GetComponent<HomingMissileTracking>().target3.transform;
@@ -403,6 +407,7 @@ public class abilities : MonoBehaviour
 							else{
 								//only two tracked targets
 								homingMissileReloading = true;
+								AudioManager.instance.PlayOneShot(FMODEvents.instance.reloadMissile, this.transform.position);
 								homingMissileTarget1 = homingMissileVolume.GetComponent<HomingMissileTracking>().target1.transform;
 								homingMissileTarget2 = homingMissileVolume.GetComponent<HomingMissileTracking>().target2.transform;
 								homingMissileTarget3 = homingMissileVolume.GetComponent<HomingMissileTracking>().target2.transform;
@@ -414,6 +419,7 @@ public class abilities : MonoBehaviour
 						}
 						else{
 							homingMissileReloading = true;
+							AudioManager.instance.PlayOneShot(FMODEvents.instance.reloadMissile, this.transform.position);
 							homingMissileTarget1 = homingMissileVolume.GetComponent<HomingMissileTracking>().target1.transform;
 							homingMissileTarget2 = homingMissileVolume.GetComponent<HomingMissileTracking>().target1.transform;
 							homingMissileTarget3 = homingMissileVolume.GetComponent<HomingMissileTracking>().target1.transform;
