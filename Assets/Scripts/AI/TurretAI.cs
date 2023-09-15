@@ -130,6 +130,7 @@ public class TurretAI : MonoBehaviour
                 {
 	                //Debug.Log("Shooting");
                     Shoot();
+                    AudioManager.instance.PlayOneShot(FMODEvents.instance.turrentShoot, this.transform.position);
 	                //playerStats.TakeDamage(Damage);
                     currentShootInterval = ShootInterval;
                 }
