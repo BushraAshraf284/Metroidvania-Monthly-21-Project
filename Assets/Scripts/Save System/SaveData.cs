@@ -66,9 +66,9 @@ public class SaveData{
 	public bool comingFromShip;
 	
 	//settings	
-	public float aimFOV; 
-	public float baseFOV;
-	public float mouseSens;
+	public float aimFOV = 50f; 
+	public float baseFOV = 90f;
+	public float mouseSens = 360f;
 	
 
 	//Constructor to check any tampering with the SaveData
