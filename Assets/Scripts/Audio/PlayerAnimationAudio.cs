@@ -57,7 +57,6 @@ public class PlayerAnimationAudio : MonoBehaviour
     private void PlayShockProngStart()
     {
         shockSound.start();
-        Debug.Log("Starting shock sound");
     }
 
     private void PlayShockProngMid()
@@ -67,8 +66,7 @@ public class PlayerAnimationAudio : MonoBehaviour
 
     private void PlayShockProngEnd()
     {
-        shockSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-        Debug.Log("Ending shock sound");
+        shockSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     private void PlaySwordAttack()
