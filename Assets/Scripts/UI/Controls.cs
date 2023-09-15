@@ -21,8 +21,13 @@ public class Controls : MonoBehaviour
         if (!exists)
         {
             GameObject.DontDestroyOnLoad(this);
-            //A dictionary containing game actions and associated keys
-            keys = new Dictionary<string, KeyCode>()
+
+            if(SaveData.Instance.controlData == null || SaveData.Instance.controlData.keys.Count == 0)
+
+            {
+                
+                //A dictionary containing game actions and associated keys
+                keys = new Dictionary<string, KeyCode>()
             {
                 {"walkUp",KeyCode.W},
                 {"walkDown",KeyCode.S},
@@ -39,33 +44,72 @@ public class Controls : MonoBehaviour
                 {"switchCam", KeyCode.Mouse2}
             };
 
-            //Dictionary for what keys on the keyboard are in use
-            inUse = new Dictionary<KeyCode, bool>();
+                //Dictionary for what keys on the keyboard are in use
+                inUse = new Dictionary<KeyCode, bool>();
 
-            //FOR all possible keys, set to not in use
-            foreach (KeyCode key in System.Enum.GetValues(typeof(KeyCode)))
-            {
-                try
+                //FOR all possible keys, set to not in use
+                foreach (KeyCode key in System.Enum.GetValues(typeof(KeyCode)))
                 {
-                    inUse.Add(key, false);
-                }
-                catch
-                {
+                    try
+                    {
+                        inUse.Add(key, false);
+
+                        
+                    }
+                    catch
+                    {
+
+                    }
 
                 }
+
+                //FOR each key being used, set in use to true
+                foreach (KeyCode key in keys.Values)
+                {
+                    inUse[key] = true;
+                }
+              
+                SaveKeyBindings();
+                SaveLoad.SaveProgress();
+
 
             }
-
-            //FOR each key being used, set in use to true
-            foreach (KeyCode key in keys.Values)
+            else
             {
-                inUse[key] = true;
+                keys = new Dictionary<string, KeyCode>();
+                inUse = new Dictionary<KeyCode, bool>();
+
+                foreach (var key in SaveData.Instance.controlData.keys)
+                {
+                    keys.Add(key.key, (KeyCode)key.keyCode);
+                }
+
+                foreach(var val in SaveData.Instance.controlData.inUse)
+                {
+                    inUse.Add((KeyCode)val.keyCode, val.inUse);
+                }
             }
+          
 
         }
         else
         {
             Destroy(this);
+        }
+    }
+
+    public void SaveKeyBindings()
+    {
+        Debug.Log(" Saving keybinds");
+        SaveData.Instance.controlData = new ControlData();
+        foreach (var kvp in inUse)
+        {
+            
+            SaveData.Instance.controlData.inUse.Add(new InUse((int)kvp.Key, kvp.Value));
+        }
+        foreach (var kvp in keys)
+        {
+            SaveData.Instance.controlData.keys.Add(new Keys(kvp.Key, (int)kvp.Value));
         }
     }
 }

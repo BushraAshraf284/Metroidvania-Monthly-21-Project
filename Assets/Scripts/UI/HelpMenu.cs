@@ -116,6 +116,7 @@ public class HelpMenu : MonoBehaviour
                 StartCoroutine(err);
             }
         }
+        controls.SaveKeyBindings();
 
     }
 
