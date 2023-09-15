@@ -8,8 +8,8 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: fdc8f50f743118f47bd3d162afac7098
-  m_OcclusionCullingData: {fileID: 36300000, guid: e376178d9a9ba3b4691b4f6cd82324fb, type: 2}
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -7616,13 +7616,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 480250503045872170, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1641981114}
-    - target: {fileID: 480250503045872170, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LOAD
+    - target: {fileID: 261177855664281740, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 701897801822589638, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
       propertyPath: m_Pivot.x
@@ -7732,6 +7728,10 @@ PrefabInstance:
       propertyPath: orbitCamera
       value: 
       objectReference: {fileID: 236561298891365342}
+    - target: {fileID: 5519040427411582964, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ce2e577f13af1094496e419bd3a2d909, type: 3}
     - target: {fileID: 6197620026164973331, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
       propertyPath: upgradeTracker
       value: 
@@ -24067,17 +24067,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7175207904595269970, guid: e8d2b0fc65fcad74293b470b16c266ad, type: 3}
   m_PrefabInstance: {fileID: 1641319829}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1641981114 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7753728701185214135, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
-  m_PrefabInstance: {fileID: 458049919}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 458049924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db2595fccccb2204e8e4363882744ca5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1644577350 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2646993511650516677, guid: e750f13f4aef4a44ba04479da93ee8a8, type: 3}

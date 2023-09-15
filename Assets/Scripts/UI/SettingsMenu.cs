@@ -90,17 +90,20 @@ public class SettingsMenu : MonoBehaviour
 
     public void SetDefaultMouseSens()
     {
-        orbitCamera.rotationSpeed = 100f;
+	    orbitCamera.rotationSpeed = 100f;
+	    SaveData.Instance.mouseSens = 100f;
     }
 
     public void SetDefaultBaseFOV()
     {
-        orbitCamera.baseFOV = 90f;
+	    orbitCamera.baseFOV = 90f;
+	    SaveData.Instance.baseFOV = 90f;
     }
 
     public void SetDefaultAimFOV()
     {
-        orbitCamera.aimFOV = 50f;
+	    orbitCamera.aimFOV = 50f;
+	    SaveData.Instance.aimFOV = 50f;
     }
 
     //Get available, current resolutions for resolutions dropdown

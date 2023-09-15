@@ -36,6 +36,7 @@ public class SaveData{
 	public int HeartPieceCount;
 	public int ShieldPieceCount;
 	public int BatteryPieceCount;
+	public int RepairKitCount;
 
     // Each Scene Data (Doors and Upgrades)
     public SceneData HubData;

@@ -51,6 +51,7 @@ public class NPCInteractables : MonoBehaviour
 			Debug.Log("repaired NPC!");
 			AudioManager.instance.PlayOneShot(FMODEvents.instance.npcRepairSuccessSFX, this.transform.position);
 			player.GetComponent<UpgradeTracker>().repairKitCount--;
+			SaveData.Instance.RepairKitCount--;
 			repaired = true;
 			DismissUI();
 			if(hasWakeAnim){

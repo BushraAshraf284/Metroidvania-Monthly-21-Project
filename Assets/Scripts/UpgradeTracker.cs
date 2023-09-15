@@ -71,7 +71,8 @@ public class UpgradeTracker : MonoBehaviour
         hasVertBoost = SaveData.Instance.HasVertBoost;
 	    hasShockSpike = SaveData.Instance.HasShockSpike;
         enteredWorld1 = SaveData.Instance.EnteredWorld1;
-        enteredWorld2 = SaveData.Instance.EnteredWorld2;
+		enteredWorld2 = SaveData.Instance.EnteredWorld2;
+		repairKitCount = SaveData.Instance.RepairKitCount;
 
         if (!SaveData.Instance.unlockedLeftWeapon.Contains("None")){
 		    SaveData.Instance.unlockedLeftWeapon.Add("None");
@@ -140,6 +141,7 @@ public class UpgradeTracker : MonoBehaviour
 	// Start is called before the first frame update
 	public void GetRepairKit(){
 		repairKitCount++;
+		SaveData.Instance.RepairKitCount++;
 	}
     public void GetShieldUpgrade()
     {
