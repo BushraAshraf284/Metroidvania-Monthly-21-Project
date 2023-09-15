@@ -88,6 +88,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5e5327d01d2290848b98e038ee28ffd5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1491840646023309773}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5e5327d01d2290848b98e038ee28ffd5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1034626492169508371}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5e5327d01d2290848b98e038ee28ffd5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4756895829701718356}
   m_SourcePrefab: {fileID: 100100000, guid: 5e5327d01d2290848b98e038ee28ffd5, type: 3}
 --- !u!1 &3972586148567535030 stripped
 GameObject:
@@ -130,6 +136,7 @@ MonoBehaviour:
   speed: 1
   height: 0.5
   rotation: 15
+  boostAmount: 200
 --- !u!108 &7966943824030581485
 Light:
   m_ObjectHideFlags: 0
@@ -209,3 +216,65 @@ MonoBehaviour:
   dissapear: 1
   reappear: 0
   reappearTimer: 5
+--- !u!114 &-1034626492169508371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3972586148567535030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -833742595
+      Data2: 1243896948
+      Data3: -1979617353
+      Data4: -1189958999
+    Path: event:/SFX/Emitter/Health Upgrade Emitter
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 10
+  OverrideMaxDistance: 20
+--- !u!114 &4756895829701718356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3972586148567535030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1421407051
+      Data2: 1274647249
+      Data3: 1559615622
+      Data4: -1452653660
+    Path: event:/SFX/Health Upgrade
+  Event: 
+  PlayEvent: 2
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

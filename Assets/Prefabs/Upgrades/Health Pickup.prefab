@@ -82,6 +82,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3256ab873dff20746883dcc834eaf3dd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2400957040590000542}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3256ab873dff20746883dcc834eaf3dd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6872642353297524411}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3256ab873dff20746883dcc834eaf3dd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 336695032499927966}
   m_SourcePrefab: {fileID: 100100000, guid: 3256ab873dff20746883dcc834eaf3dd, type: 3}
 --- !u!1 &3124966323296668431 stripped
 GameObject:
@@ -128,3 +134,65 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.034380205, y: 0.036149424, z: 0.076692425}
   m_Center: {x: -5.502969e-16, y: -1.1005938e-15, z: 0.038723696}
+--- !u!114 &6872642353297524411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3124966323296668431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -797297774
+      Data2: 1224832534
+      Data3: -1867985787
+      Data4: -2142273511
+    Path: event:/SFX/Emitter/Health Emitter
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &336695032499927966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3124966323296668431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1595083966
+      Data2: 1291978521
+      Data3: 627790780
+      Data4: 646708752
+    Path: event:/Player/SFX/Health
+  Event: 
+  PlayEvent: 2
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
