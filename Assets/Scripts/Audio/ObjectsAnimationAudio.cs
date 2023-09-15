@@ -7,14 +7,14 @@ using FMOD.Studio;
 public class ObjectsAnimationAudio : MonoBehaviour
 {
 
-    private StudioEventEmitter audioEmitter;
+    private StudioEventEmitter[] audioEmitters;
 
     private void Start()
     {
-        audioEmitter = GetComponentInChildren<FMODUnity.StudioEventEmitter>();
+        audioEmitters = GetComponentsInChildren<FMODUnity.StudioEventEmitter>();
 
 
-        if (audioEmitter == null)
+        if (audioEmitters == null || audioEmitters.Length == 0)
         {
             Debug.LogWarning("Audio Emitter not found on child GameObject.");
         }
@@ -22,17 +22,23 @@ public class ObjectsAnimationAudio : MonoBehaviour
 
     public void PlaySound()
     {
-        if (audioEmitter != null && !audioEmitter.IsPlaying())
+        foreach (var emitter in audioEmitters)
         {
-            audioEmitter.Play();
+            if (emitter != null && !emitter.IsPlaying())
+            {
+                emitter.Play();
+            }
         }
     }
 
     public void StopSound()
     {
-        if (audioEmitter != null && audioEmitter.IsPlaying())
+        foreach (var emitter in audioEmitters)
         {
-            audioEmitter.Stop();
+            if (emitter != null && emitter.IsPlaying())
+            {
+                emitter.Stop();
+            }
         }
     }
 }
