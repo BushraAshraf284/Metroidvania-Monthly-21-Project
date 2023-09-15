@@ -21789,6 +21789,85 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cf3aaa89d1987541b57a67c48b6edec, type: 3}
+--- !u!1001 &665916651
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5116518293949665987, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: hubWorldDialogue.name
+      value: User Abilities
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116518293949665987, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: hubWorldDialogue.sentences.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116518293949665987, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: hubWorldDialogue.sentences.Array.data[0]
+      value: Users can wield multiple weapons at once
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116518293949665987, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: hubWorldDialogue.sentences.Array.data[1]
+      value: Users can use the weapon swap keys to toggle between these abilites
+        at will
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116518293949665987, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: hubWorldDialogue.sentences.Array.data[2]
+      value: These keys are set in the settings menu, but by default they are Q and
+        E
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147088908952187530, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_Name
+      value: datapad (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -87.53096
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 94.068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1004.3605
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.38417116
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.38417122
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5936435
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.59364337
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522242635152156720, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -114.183
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1be373944b5ec224081fbf1d4ccf85b8, type: 3}
 --- !u!1 &674852850
 GameObject:
   m_ObjectHideFlags: 0
@@ -78054,3 +78133,4 @@ SceneRoots:
   - {fileID: 1052591538}
   - {fileID: 2075379825}
   - {fileID: 213691235}
+  - {fileID: 665916651}
