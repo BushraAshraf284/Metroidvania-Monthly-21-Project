@@ -33,6 +33,12 @@ public class NPCInteractables : MonoBehaviour
 	{
 		doneWorld1 = SaveData.Instance.doneWorld1;
 		doneWorld2 = SaveData.Instance.doneWorld2;
+		if(repaired){
+			if(hasWakeAnim){
+				GetComponent<Animator>().SetBool("Activated", true);
+			}
+			
+		}
 	}
 	
 	public void DismissUI(){
