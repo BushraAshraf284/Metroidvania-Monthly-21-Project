@@ -15580,6 +15580,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8464236316490528552, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1961852781}
+    - target: {fileID: 8464236316490528552, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DismissUI
+      objectReference: {fileID: 0}
     - target: {fileID: 9079286482830225233, guid: 3f2d2b9863cab444598292657c3f0322, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
