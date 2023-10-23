@@ -82,7 +82,7 @@ public class platformAnimController : MonoBehaviour
         }
         
     }
-     public bool AnimatorIsPlaying(){
+    public bool AnimatorIsPlaying(){
     return anim.GetCurrentAnimatorStateInfo(0).length >
            anim.GetCurrentAnimatorStateInfo(0).normalizedTime;
     }
