@@ -40,7 +40,7 @@ public class Rotator : MonoBehaviour
 		transform.Rotate(new Vector3(0, 0, rotation) * Time.deltaTime);
 	} 
 	public void RampRotation(){
-		Debug.Log("Ramping Rotation");
+		//Debug.Log("Ramping Rotation");
 		accelleratedRotation = boostAmount;
 		Invoke("resetAccellertedRotation", .2f);
 	}

@@ -27,8 +27,8 @@ public class SaveData{
 	public bool HasJetBoost;
 	public bool HasVertBoost;
 	public bool HasShockSpike;
-    public int LeftWeaponEquipped;
-	public int RightWeaponEquipped;
+	public int LeftWeapon;
+	public int RightWeapon;
 
 	//Player Upgrades
 	public bool HasShieldUpgrade;
@@ -96,8 +96,8 @@ public class SaveData{
         HasJetBoost = hasJetBoost;
         HasVertBoost = hasVertBoost;
         HasShockSpike = hasShockSpike;
-        LeftWeaponEquipped = leftweapon;
-        RightWeaponEquipped = rightWeapon;
+        LeftWeapon = leftweapon;
+        RightWeapon = rightWeapon;
         HasShieldUpgrade = hasShieldUpgrade;
         HPPhase = hpPhase;
         BatteryPhase = batteryPhase;

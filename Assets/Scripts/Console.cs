@@ -16,7 +16,7 @@ public class Console : MonoBehaviour
 
     public void Interact()
     {
-        Debug.Log("made it into console");
+	    //Debug.Log("made it into console");
         if (type == consoleType.DoorsAndPlatforms)
         {
             if (platforms.Count > 0)

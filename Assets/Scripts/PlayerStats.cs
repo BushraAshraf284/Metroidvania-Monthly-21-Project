@@ -566,7 +566,7 @@ public class PlayerStats : MonoBehaviour
         ChargeBattery();
     }
 	public void ForceIFramesStart(){
-		Debug.Log("Iframes On");
+		//Debug.Log("Iframes On");
 		hasIFrames = true;
 		iFrameCount = 0f;
 		iFrameCooldownBlock = true;
@@ -574,7 +574,7 @@ public class PlayerStats : MonoBehaviour
 	}
 	public void ForceIFramesStop(){
 		hasIFrames = false;
-		Debug.Log("Iframes Off");
+		//Debug.Log("Iframes Off");
 		iFrameCount = 0f;
 		iFrameCooldownBlock = false;
 	}

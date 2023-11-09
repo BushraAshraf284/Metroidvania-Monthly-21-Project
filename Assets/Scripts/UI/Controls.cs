@@ -25,7 +25,7 @@ public class Controls : MonoBehaviour
             if (SaveData.Instance.controlData == null || SaveData.Instance.controlData.keys.Count == 0)
 
             {
-                Debug.Log("No Save data found for bindings");
+	            //Debug.Log("No Save data found for bindings");
                 //A dictionary containing game actions and associated keys
                 keys = new Dictionary<string, KeyCode>()
             {
@@ -76,7 +76,7 @@ public class Controls : MonoBehaviour
             }
             else
             {
-                Debug.Log("Save data found for bindings");
+	            //Debug.Log("Save data found for bindings");
                 keys = new Dictionary<string, KeyCode>();
                 inUse = new Dictionary<KeyCode, bool>();
 
@@ -103,7 +103,7 @@ public class Controls : MonoBehaviour
 
     public void SaveKeyBindings()
     {
-        Debug.Log(" Saving keybinds");
+	    //Debug.Log(" Saving keybinds");
         SaveData.Instance.controlData = new ControlData();
         foreach (var kvp in inUse)
         {

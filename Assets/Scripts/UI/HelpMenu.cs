@@ -61,7 +61,7 @@ public class HelpMenu : MonoBehaviour
         //Update controls
         if (controls)
         {
-            Debug.Log("Bindig loaded");
+	        //Debug.Log("Bindig loaded");
             draw();
         }
        // StartCoroutine(DelayLoad());

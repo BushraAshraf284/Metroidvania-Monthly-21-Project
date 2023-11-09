@@ -30,28 +30,28 @@ public class UpgradeTracker : MonoBehaviour
 	
 	void LateAwake(){
 		foreach (string s in wepMan.unlockedLeftWeapon){
-			Debug.Log(s);
+			//Debug.Log(s);
 			if(s == "Sword"){
-				//Debug.Log("AAAAAAAAAAAAAAAAAAAUnlocking Sword!");
+				//Debug.Log("Unlocking Sword!");
 				upgradeMenu.ShowUpgrade("Sword");
 			}
 			if(s == "ShockProng"){
-				//Debug.Log("AAAAAAAAAAAAAAAAAAAUnlocking Shock prong!");
+				//Debug.Log("Unlocking Shock prong!");
 				upgradeMenu.ShowUpgrade("Shock Prong");
 			}
 		}
 		foreach (string s in wepMan.unlockedRightWeapon){
-			Debug.Log(s);
+			//Debug.Log(s);
 			if(s == "Missiles"){
-				//Debug.Log("AAAAAAAAAAAAAAAAAAAUnlocking Missiles!");
+				//Debug.Log("Unlocking Missiles!");
 				upgradeMenu.ShowUpgrade("Missiles");
 			}
 			if(s== "HomingMissiles"){
-				//Debug.Log("AAAAAAAAAAAAAAAAAAAUnlocking Homing Missiles!");
+				//Debug.Log("Unlocking Homing Missiles!");
 				upgradeMenu.ShowUpgrade("Homing Missiles");
 			}
 			if(s == "ShockSpike"){
-				//Debug.Log("AAAAAAAAAAAAAAAAAAAUnlocking Shock Spike!");
+				//Debug.Log("Unlocking Shock Spike!");
 				upgradeMenu.ShowUpgrade("Shock Spike");
 			}
 		}
@@ -271,50 +271,49 @@ public class UpgradeTracker : MonoBehaviour
 	    wepMan.noneRIcon.SetActive(false);
 	   
     }
+	//call the Unlock methods when you initially pick up an item for the first time
     public void UnlockSword()
-    {
-        Debug.Log("Equipping Sword!");
-        DisableAllLeftHandWeapons();
-        upgradeMenu.ShowUpgrade("Sword");
-        sword.SetActive(true); ;
-        swordBlade.SetActive(true);
-	    hasSword = true;
-        SaveData.Instance.HasSword = hasSword;
-        wepMan.EquipSword();
-	    wepMan.totalLeftWeapons++;
-	    SaveData.Instance.totalLeftWeapons = wepMan.totalLeftWeapons;
+	{
+		//Debug.Log("Unlocking Sword!");
+		// Unequip All Weapons in left hand
+	    DisableAllLeftHandWeapons();
+	    // Pause Menu HUD
+		upgradeMenu.ShowUpgrade("Sword");
+		// bool keeps track of what weapons you have equipped 
+		hasSword = true;
+		// update .json save file
+		SaveData.Instance.HasSword = hasSword;
+		// update world model 
+		wepMan.EquipSword();
+		// update count of currently unlocked weapons
+		wepMan.totalLeftWeapons++;
+		// Update .json save file
+		SaveData.Instance.totalLeftWeapons = wepMan.totalLeftWeapons;
+		// try to iterate the current left weapon index (still kinda unclear on this)
+		// check if you rolled over the index when you unlocked this weapon, if so reset
 	    if(wepMan.currentLeftWeaponIndex+1 > wepMan.totalLeftWeapons){
 	    	wepMan.currentLeftWeaponIndex = 0;
 	    	SaveData.Instance.currentLeftWeaponIndex = wepMan.currentLeftWeaponIndex;
 	    }
+		// you didnt roll over, switch to next weapon
 	    else{
 	    	wepMan.currentLeftWeaponIndex++;
 	    	SaveData.Instance.currentLeftWeaponIndex = wepMan.currentLeftWeaponIndex;
 	    }
-	    
-	    
+		// if you somehow already have sword unlocked, skip this
 	    if(!wepMan.unlockedLeftWeapon.Contains("Sword")){
 	    	wepMan.unlockedLeftWeapon.Add("Sword");
 	    }
+		// update .json
 	    SaveData.Instance.unlockedRightWeapon = wepMan.unlockedRightWeapon;
-	    SaveData.Instance.unlockedLeftWeapon = wepMan.unlockedLeftWeapon;
-	    
-    }
-    public void EquipSword()
-    {
-        Debug.Log("Equipping Sword!");
-        DisableAllLeftHandWeapons();
-        sword.SetActive(true);
-        swordBlade.SetActive(true);
-    }
+	    SaveData.Instance.unlockedLeftWeapon = wepMan.unlockedLeftWeapon; 
+	}
     public void UnlockShockProng()
     {
-        Debug.Log("Equipping Shock Prong!");
+	    //Debug.Log("Unlocking Shock Prong!");
         upgradeMenu.ShowUpgrade("Shock Prong");
         DisableAllLeftHandWeapons();
-        shockProng.SetActive(true);
 	    hasShockProng = true;
-
         SaveData.Instance.HasShockProng = hasShockProng;
         wepMan.EquipShockProng();
 	    wepMan.totalLeftWeapons++;
@@ -333,18 +332,11 @@ public class UpgradeTracker : MonoBehaviour
 	    SaveData.Instance.unlockedRightWeapon = wepMan.unlockedRightWeapon;
 	    SaveData.Instance.unlockedLeftWeapon = wepMan.unlockedLeftWeapon;
     }
-    public void EquipShockProng()
-    {
-        Debug.Log("Equipping Shock Prong!");
-        DisableAllLeftHandWeapons();
-        shockProng.SetActive(true);
-    }
     public void UnlockShockSpike()
     {
-        Debug.Log("Equipping Shock Spike!");
+	    //Debug.Log("Unlocking Shock Spike!");
         DisableAllRightHandWeapons();
         upgradeMenu.ShowUpgrade("Shock Spike");
-        shockSpike.SetActive(true);
 	    hasShockSpike = true;
         SaveData.Instance.HasShockSpike = hasShockSpike;
 	    wepMan.totalRightWeapons++;
@@ -364,22 +356,13 @@ public class UpgradeTracker : MonoBehaviour
 	    SaveData.Instance.unlockedRightWeapon = wepMan.unlockedRightWeapon;
 	    SaveData.Instance.unlockedLeftWeapon = wepMan.unlockedLeftWeapon;
     }
-    public void EquipShockSpike()
-    {
-        Debug.Log("Equipping Shock Spike!");
-        DisableAllRightHandWeapons();
-        shockSpike.SetActive(true);
-    }
     public void UnlockMissiles()
     {
-        Debug.Log("Equipping Missiles!");
+	    //Debug.Log("Unlocking Missiles!");
         DisableAllRightHandWeapons();
         upgradeMenu.ShowUpgrade("Missiles");
-        missiles.SetActive(true);
 	    hasMissiles = true;
-
         SaveData.Instance.HasMissiles = hasMissiles;
-
 	    wepMan.totalRightWeapons++;
 	    SaveData.Instance.totalRightWeapons = wepMan.totalRightWeapons;
 	    wepMan.EquipMissiles();
@@ -397,22 +380,13 @@ public class UpgradeTracker : MonoBehaviour
 	    SaveData.Instance.unlockedRightWeapon = wepMan.unlockedRightWeapon;
 	    SaveData.Instance.unlockedLeftWeapon = wepMan.unlockedLeftWeapon;
     }
-    public void EquipMissiles()
-    {
-        Debug.Log("Equipping Missiles!");
-        DisableAllRightHandWeapons();
-        missiles.SetActive(true);
-    }
     public void UnlockHomingMissiles()
     {
-        Debug.Log("Unlocking Homing Missiles!");
+	    //Debug.Log("Unlocking Homing Missiles!");
         upgradeMenu.ShowUpgrade("Homing Missiles");
         DisableAllRightHandWeapons();
-        homingMissiles.SetActive(true);
 	    hasHomingMissiles = true;
-
         SaveData.Instance.HasHomingMissiles= homingMissiles;
-
 	    wepMan.totalRightWeapons++;
 	    SaveData.Instance.totalRightWeapons = wepMan.totalRightWeapons;
 	    wepMan.EquipHomingMissiles();
@@ -430,16 +404,9 @@ public class UpgradeTracker : MonoBehaviour
 	    SaveData.Instance.unlockedRightWeapon = wepMan.unlockedRightWeapon;
 	    SaveData.Instance.unlockedLeftWeapon = wepMan.unlockedLeftWeapon;
     }
-    public void EquipHomingMissiles()
-    {
-        Debug.Log("Equipping Homing Missiles!");
-        DisableAllRightHandWeapons();
-	    homingMissiles.SetActive(true);
-        
-    }
     public void UnlockJetBoost()
     {
-        Debug.Log("Equipping Jet Boost!");
+	    // Debug.Log("Equipping Jet Boost!");
         jetBoost.SetActive(true);
         upgradeMenu.ShowUpgrade("Jet Booster");
         hasJetBoost = true;
@@ -447,7 +414,7 @@ public class UpgradeTracker : MonoBehaviour
     }
     public void UnlockVertBoost()
     {
-        Debug.Log("Equipping Vertical Boost!");
+	    //Debug.Log("Equipping Vertical Boost!");
         vertBoost.SetActive(true);
         upgradeMenu.ShowUpgrade("Vertical Booster");
         hasVertBoost = true;

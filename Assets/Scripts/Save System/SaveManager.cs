@@ -113,12 +113,12 @@ public class SaveManager : MonoBehaviour
         {
             if (SaveData.Instance.NPCsData == null)
             {
-                Debug.Log("Save data is null");
+	            //Debug.Log("Save data is null");
                 SaveData.Instance.NPCsData = new NPCsData();
             }
             for (int i = 0; i < interactables.Count; i++)
             {
-                Debug.Log(SaveData.Instance.NPCsData.NPCs.Count);
+	            //Debug.Log(SaveData.Instance.NPCsData.NPCs.Count);
 
                 if (i < SaveData.Instance.NPCsData.NPCs.Count)
                 {
@@ -262,7 +262,7 @@ public class SaveManager : MonoBehaviour
                     else
                     {
                         SaveData.Instance.HubData.UpgradesPickedUp[i] = upgradeManager.Upgrades[i].GetComponent<Upgrade>().isPickedUp;
-                        Debug.Log("i:" + i + "upgrade value" + SaveData.Instance.HubData.UpgradesPickedUp[i]);
+	                    //Debug.Log("i:" + i + "upgrade value" + SaveData.Instance.HubData.UpgradesPickedUp[i]);
                     }
                    
                 }
