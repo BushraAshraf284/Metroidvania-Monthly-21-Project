@@ -4,33 +4,123 @@ using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using static Upgrade;
 
+//This script handles unlocking new abilities and upgrades, as well as enabling their world models and UI elements
+
 public class UpgradeTracker : MonoBehaviour
 {
+	//reference to weapon manager
 	public WeaponManager wepMan;
+	//References to all the world models (WM)
     [SerializeField]
-	public GameObject shockProng, shockSpike, missiles, homingMissiles, jetBoost, vertBoost, sword, swordBlade, shield, hp1, hp11, hp2, bat1, bat2;
-    public bool hasShockProng, hasShockSpike, hasMissiles, hasHomingMissiles, hasJetBoost, hasVertBoost, hasSword;
+	public GameObject shockProngWM, shockSpikeWM, missilesWM, homingMissilesWM, jetBoostWM, vertBoostWM, swordWM, swordBladeWM, shieldWM, hp1WM, hp11WM, hp2WM, bat1WM, bat2WM;
+	//Bools that keep track of what weapon you currently have equipped
+	public bool hasShockProng, hasShockSpike, hasMissiles, hasHomingMissiles, hasJetBoost, hasVertBoost, hasSword;
+	//tracks amount of each type of upgrade piece
     public int heartPieceCount;
     public int shieldPieceCount;
-    public int batteryPieceCount;
+	public int batteryPieceCount;
+	public int repairKitCount;
+	//reference to playerstats
 	PlayerStats stats;
+	//Enums that track which weapon is currently equipped in which hand. 
 	enum LeftWeaponEquipped{Sword, ShockProng, none};
 	LeftWeaponEquipped leftWeapon;
 	enum RightWeaponEquipped{Missiles, HomingMissiles, ShockSpike, none};
 	RightWeaponEquipped rightWeapon;
-
+	//reference to Ui element that pops up to tell you what you unlocked
     [SerializeField]
-    GetItemScreen itemScreen;
+	GetItemScreen itemScreen;
+	//reference to UI element tracking which upgrades you have unlocked
     [SerializeField]
     UpgradeMenu upgradeMenu;
-
+	//Descriptions for each of the 3 piece upgrades
 	string heartDesc = "You have increased your maximum health points!";
 	string batteryDesc = "You have increased your maximum battery charge!";
 	string shieldDesc = "You can now fully block one attack";
+	//bools that track which worlds you have entered so that the NPC's can respond accordingly
+	[SerializeField]
+	public bool enteredWorld1, enteredWorld2, enteredBossArea;
 	
+    private void Awake()
+	{
+		//Load all data from the .json file
+        heartPieceCount = SaveData.Instance.HeartPieceCount;
+        shieldPieceCount = SaveData.Instance.ShieldPieceCount;
+        batteryPieceCount = SaveData.Instance.BatteryPieceCount;
+        hasShockProng = SaveData.Instance.HasShockProng;
+        hasMissiles = SaveData.Instance.HasMissiles;
+        hasSword = SaveData.Instance.HasSword;
+        hasHomingMissiles = SaveData.Instance.HasHomingMissiles;
+        hasJetBoost = SaveData.Instance.HasJetBoost;
+        hasVertBoost = SaveData.Instance.HasVertBoost;
+	    hasShockSpike = SaveData.Instance.HasShockSpike;
+        enteredWorld1 = SaveData.Instance.EnteredWorld1;
+		enteredWorld2 = SaveData.Instance.EnteredWorld2;
+		repairKitCount = SaveData.Instance.RepairKitCount;
+		
+		//Make sure the "None" weapon exists for each hand if it doesnt
+        if (!SaveData.Instance.unlockedLeftWeapon.Contains("None")){
+		    SaveData.Instance.unlockedLeftWeapon.Add("None");
+	    }
+	    if(!SaveData.Instance.unlockedRightWeapon.Contains("None")){
+		    SaveData.Instance.unlockedRightWeapon.Add("None");
+	    }
+		//update the upgrade UI if you have loaded data saying you have these upgrades unlocked already
+		//the upgrade Ui is the menu that shows up on your pause menu showing what upgrades you currently have unlocked. 
+	    if(heartPieceCount == 1){
+	    	upgradeMenu.ShowHeartUpgrade();
+	    }
+	    if(heartPieceCount == 2){
+	    	upgradeMenu.ShowHeartUpgradeTwo();
+	    }
+	    if(heartPieceCount == 3){
+	    	upgradeMenu.UpdateHeartUpgrade();
+	    	//enable world models if you have collected all 3 pieces already 
+		    hp1WM.SetActive(true);
+	    	hp11WM.SetActive(true);
+	    	hp2WM.SetActive(true);
+	    }
+	    if(shieldPieceCount == 1){
+	    	upgradeMenu.ShowShieldUpgrade();
+	    }
+	    if(shieldPieceCount == 2){
+	    	upgradeMenu.ShowShieldUpgradeTwo();
+	    }
+	    if(shieldPieceCount == 3){
+	    	upgradeMenu.UpdateShieldUpgrade();
+	    	//enable world models if you have collected all 3 pieces already 
+	    	shieldWM.SetActive(true);
+	    }
+	    if(batteryPieceCount == 1){
+	    	upgradeMenu.ShowBatteryUpgrade();
+	    }
+	    if(batteryPieceCount == 2){
+	    	upgradeMenu.ShowBatteryUpgradeTwo();
+	    }
+	    if(batteryPieceCount == 3){
+	    	upgradeMenu.UpdateBatteryUpgrade();
+	    	//enable world models if you have collected all 3 pieces already 
+		    bat1WM.SetActive(true);
+		    bat2WM.SetActive(true);
+	    } 
+	    if(hasJetBoost){
+	    	upgradeMenu.ShowUpgrade("Jet Booster");
+	    	jetBoostWM.SetActive(true);
+	    }
+	    if(hasVertBoost){
+	    	upgradeMenu.ShowUpgrade("Vertical Booster");
+	    	vertBoostWM.SetActive(true);
+	    }
+		
+		Invoke("LateAwake", .1f);
+		
+	}
+    
+	//This is fires slightly after the Awake Method
 	void LateAwake(){
+		//ensure the upgrade UI accurately tracks which weapons you have unlocked
+		//we do not need to enable the world models here since the equip methods already to this. 
 		foreach (string s in wepMan.unlockedLeftWeapon){
-			//Debug.Log(s);
 			if(s == "Sword"){
 				//Debug.Log("Unlocking Sword!");
 				upgradeMenu.ShowUpgrade("Sword");
@@ -41,7 +131,6 @@ public class UpgradeTracker : MonoBehaviour
 			}
 		}
 		foreach (string s in wepMan.unlockedRightWeapon){
-			//Debug.Log(s);
 			if(s == "Missiles"){
 				//Debug.Log("Unlocking Missiles!");
 				upgradeMenu.ShowUpgrade("Missiles");
@@ -56,78 +145,7 @@ public class UpgradeTracker : MonoBehaviour
 			}
 		}
 	}
-
-    private void Awake()
-	{
-		//Debug.LogError("UpgradeTrackerAwake");
-        heartPieceCount = SaveData.Instance.HeartPieceCount;
-        shieldPieceCount = SaveData.Instance.ShieldPieceCount;
-        batteryPieceCount = SaveData.Instance.BatteryPieceCount;
-        hasShockProng = SaveData.Instance.HasShockProng;
-        hasMissiles = SaveData.Instance.HasMissiles;
-        hasSword = SaveData.Instance.HasSword;
-        hasHomingMissiles = SaveData.Instance.HasHomingMissiles;
-        hasJetBoost = SaveData.Instance.HasJetBoost;
-        hasVertBoost = SaveData.Instance.HasVertBoost;
-	    hasShockSpike = SaveData.Instance.HasShockSpike;
-        enteredWorld1 = SaveData.Instance.EnteredWorld1;
-		enteredWorld2 = SaveData.Instance.EnteredWorld2;
-		repairKitCount = SaveData.Instance.RepairKitCount;
-
-        if (!SaveData.Instance.unlockedLeftWeapon.Contains("None")){
-		    SaveData.Instance.unlockedLeftWeapon.Add("None");
-	    }
-	    if(!SaveData.Instance.unlockedRightWeapon.Contains("None")){
-		    SaveData.Instance.unlockedRightWeapon.Add("None");
-	    }
-	    
-	    if(heartPieceCount == 1){
-	    	upgradeMenu.ShowHeartUpgrade();
-	    }
-	    if(heartPieceCount == 2){
-	    	upgradeMenu.ShowHeartUpgradeTwo();
-	    }
-	    if(heartPieceCount == 3){
-	    	upgradeMenu.UpdateHeartUpgrade();
-		    hp1.SetActive(true);
-	    	hp11.SetActive(true);
-	    	hp2.SetActive(true);
-	    }
-	    if(shieldPieceCount == 1){
-	    	upgradeMenu.ShowShieldUpgrade();
-	    }
-	    if(shieldPieceCount == 2){
-	    	upgradeMenu.ShowShieldUpgradeTwo();
-	    }
-	    if(shieldPieceCount == 3){
-	    	upgradeMenu.UpdateShieldUpgrade();
-	    	shield.SetActive(true);
-	    }
-	    if(batteryPieceCount == 1){
-	    	upgradeMenu.ShowBatteryUpgrade();
-	    }
-	    if(batteryPieceCount == 2){
-	    	upgradeMenu.ShowBatteryUpgradeTwo();
-	    }
-	    if(batteryPieceCount == 3){
-	    	upgradeMenu.UpdateBatteryUpgrade();
-		    bat1.SetActive(true);
-		    bat2.SetActive(true);
-	    } 
-	    if(hasJetBoost){
-	    	upgradeMenu.ShowUpgrade("Jet Booster");
-	    	jetBoost.SetActive(true);
-	    }
-	    if(hasVertBoost){
-	    	upgradeMenu.ShowUpgrade("Vertical Booster");
-	    	vertBoost.SetActive(true);
-	    }
-		Invoke("LateAwake", .1f);
-		
-    }
-	public int repairKitCount;
-	[SerializeField]
-	public bool enteredWorld1, enteredWorld2, enteredBossArea;
+	//Runs after awake, simply gets a few references
     void Start()
 	{
 		foreach (GameObject g in GameObject.FindGameObjectsWithTag("Managers")){
@@ -137,12 +155,13 @@ public class UpgradeTracker : MonoBehaviour
 		}
 	    stats = GetComponent<PlayerStats>();
 	    
-    }
-	// Start is called before the first frame update
+	}
+	//called when you pick up a repair kit, we do not need any deeped logic here since infinite repair kits can be held and nothing changes
 	public void GetRepairKit(){
 		repairKitCount++;
 		SaveData.Instance.RepairKitCount++;
 	}
+	//called when you pick up a shield upgrade, checks if you are over the threshold of 3 and equips the new upgrade if so. 
     public void GetShieldUpgrade()
     {
         if (shieldPieceCount < 3)
@@ -153,7 +172,7 @@ public class UpgradeTracker : MonoBehaviour
                 itemScreen.ShowItem("ShieldPiece", 5, shieldDesc);
                 stats.GetShieldUpgrade();
 	            shieldPieceCount = 3;
-                shield.SetActive(true);
+                shieldWM.SetActive(true);
                 upgradeMenu.UpdateShieldUpgrade();
             }
             else
@@ -173,6 +192,7 @@ public class UpgradeTracker : MonoBehaviour
             SaveData.Instance.ShieldPieceCount = shieldPieceCount;
         }
     }
+	//called when you pick up a heart upgrade, checks if you are over the threshold of 3 and equips the new upgrade if so. 
     public void GetHeartUpgrade()
     {
         if (heartPieceCount < 3)
@@ -184,9 +204,9 @@ public class UpgradeTracker : MonoBehaviour
                 stats.GetHPUpgrade();
                 stats.hp = stats.MaxHP;
 	            heartPieceCount = 3;
-                hp1.SetActive(true);
-                hp11.SetActive(true);
-                hp2.SetActive(true);
+                hp1WM.SetActive(true);
+                hp11WM.SetActive(true);
+                hp2WM.SetActive(true);
                 upgradeMenu.UpdateHeartUpgrade();
                 SaveData.Instance.playerHP = stats.hp;
             }
@@ -207,6 +227,7 @@ public class UpgradeTracker : MonoBehaviour
             SaveData.Instance.HeartPieceCount = heartPieceCount;
         }
     }
+	//called when you pick up a battery upgrade, checks if you are over the threshold of 3 and equips the new upgrade if so. 
     public void GetBatteryUpgrade()
     {
         if (batteryPieceCount < 3)
@@ -217,8 +238,8 @@ public class UpgradeTracker : MonoBehaviour
                 itemScreen.ShowItem("BatteryPiece", 0, batteryDesc);
                 stats.GetBatteryUpgrade();
 	            batteryPieceCount = 3;
-                bat1.SetActive(true);
-                bat2.SetActive(true);
+                bat1WM.SetActive(true);
+                bat2WM.SetActive(true);
                 upgradeMenu.UpdateBatteryUpgrade();
             }
             else
@@ -238,45 +259,13 @@ public class UpgradeTracker : MonoBehaviour
             SaveData.Instance.BatteryPieceCount = batteryPieceCount;
         }
     }
-	public void DisableAllLeftHandWeapons()
-    {
-        swordBlade.SetActive(false);
-        sword.SetActive(false);
-        shockProng.SetActive(false);
-        hasSword = false;
-	    hasShockProng = false;
-        SaveData.Instance.HasSword = hasSword;
-        SaveData.Instance.HasShockProng = hasShockProng;
-        wepMan.swordIcon.SetActive(false);
-	    wepMan.shockProngIcon.SetActive(false);
-	    wepMan.noneLIcon.SetActive(false);
-    }
-	public void DisableAllRightHandWeapons()
-    {
-        shockSpike.SetActive(false);
-        missiles.SetActive(false);
-        homingMissiles.SetActive(false);
-        hasHomingMissiles = false;
-        hasShockSpike = false;
-	    hasMissiles = false;
-
-        SaveData.Instance.HasShockSpike = hasShockSpike;
-        SaveData.Instance.HasHomingMissiles = hasHomingMissiles;
-        SaveData.Instance.HasMissiles = hasMissiles;
-     
-
-        wepMan.missileLauncherIcon.SetActive(false);
-	    wepMan.homingMissileIcon.SetActive(false);
-	    wepMan.shockSpikeIcon.SetActive(false);
-	    wepMan.noneRIcon.SetActive(false);
-	   
-    }
 	//call the Unlock methods when you initially pick up an item for the first time
+	//This is roughly the same for each unlock method, so i will only comment this one
     public void UnlockSword()
 	{
 		//Debug.Log("Unlocking Sword!");
 		// Unequip All Weapons in left hand
-	    DisableAllLeftHandWeapons();
+		wepMan.DisableAllLeftHandWeapons();
 	    // Pause Menu HUD
 		upgradeMenu.ShowUpgrade("Sword");
 		// bool keeps track of what weapons you have equipped 
@@ -295,7 +284,7 @@ public class UpgradeTracker : MonoBehaviour
 	    	wepMan.currentLeftWeaponIndex = 0;
 	    	SaveData.Instance.currentLeftWeaponIndex = wepMan.currentLeftWeaponIndex;
 	    }
-		// you didnt roll over, switch to next weapon
+		// you didnt roll over, just iterate the value
 	    else{
 	    	wepMan.currentLeftWeaponIndex++;
 	    	SaveData.Instance.currentLeftWeaponIndex = wepMan.currentLeftWeaponIndex;
@@ -312,7 +301,7 @@ public class UpgradeTracker : MonoBehaviour
     {
 	    //Debug.Log("Unlocking Shock Prong!");
         upgradeMenu.ShowUpgrade("Shock Prong");
-        DisableAllLeftHandWeapons();
+	    wepMan.DisableAllLeftHandWeapons();
 	    hasShockProng = true;
         SaveData.Instance.HasShockProng = hasShockProng;
         wepMan.EquipShockProng();
@@ -335,7 +324,7 @@ public class UpgradeTracker : MonoBehaviour
     public void UnlockShockSpike()
     {
 	    //Debug.Log("Unlocking Shock Spike!");
-        DisableAllRightHandWeapons();
+	    wepMan.DisableAllRightHandWeapons();
         upgradeMenu.ShowUpgrade("Shock Spike");
 	    hasShockSpike = true;
         SaveData.Instance.HasShockSpike = hasShockSpike;
@@ -359,7 +348,7 @@ public class UpgradeTracker : MonoBehaviour
     public void UnlockMissiles()
     {
 	    //Debug.Log("Unlocking Missiles!");
-        DisableAllRightHandWeapons();
+	    wepMan.DisableAllRightHandWeapons();
         upgradeMenu.ShowUpgrade("Missiles");
 	    hasMissiles = true;
         SaveData.Instance.HasMissiles = hasMissiles;
@@ -384,9 +373,9 @@ public class UpgradeTracker : MonoBehaviour
     {
 	    //Debug.Log("Unlocking Homing Missiles!");
         upgradeMenu.ShowUpgrade("Homing Missiles");
-        DisableAllRightHandWeapons();
+	    wepMan.DisableAllRightHandWeapons();
 	    hasHomingMissiles = true;
-        SaveData.Instance.HasHomingMissiles= homingMissiles;
+	    SaveData.Instance.HasHomingMissiles= hasHomingMissiles;
 	    wepMan.totalRightWeapons++;
 	    SaveData.Instance.totalRightWeapons = wepMan.totalRightWeapons;
 	    wepMan.EquipHomingMissiles();
@@ -407,7 +396,7 @@ public class UpgradeTracker : MonoBehaviour
     public void UnlockJetBoost()
     {
 	    // Debug.Log("Equipping Jet Boost!");
-        jetBoost.SetActive(true);
+        jetBoostWM.SetActive(true);
         upgradeMenu.ShowUpgrade("Jet Booster");
         hasJetBoost = true;
         SaveData.Instance.HasJetBoost = hasJetBoost;
@@ -415,16 +404,10 @@ public class UpgradeTracker : MonoBehaviour
     public void UnlockVertBoost()
     {
 	    //Debug.Log("Equipping Vertical Boost!");
-        vertBoost.SetActive(true);
+        vertBoostWM.SetActive(true);
         upgradeMenu.ShowUpgrade("Vertical Booster");
         hasVertBoost = true;
         SaveData.Instance.HasVertBoost = hasVertBoost;
     }
 
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

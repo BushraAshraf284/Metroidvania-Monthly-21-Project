@@ -2077,20 +2077,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wepMan: {fileID: 0}
-  shockProng: {fileID: 5648643378000433902}
-  shockSpike: {fileID: 3599275347567283102}
-  missiles: {fileID: 6974466696473862771}
-  homingMissiles: {fileID: 5654647387319381331}
-  jetBoost: {fileID: 6215964951858792208}
-  vertBoost: {fileID: 397310519998402514}
-  sword: {fileID: 6448302417249232996}
-  swordBlade: {fileID: 6175880844464805255}
-  shield: {fileID: 8165101554382137529}
-  hp1: {fileID: 3726327887929117025}
-  hp11: {fileID: 3036557488635985378}
-  hp2: {fileID: 1553305103940364899}
-  bat1: {fileID: 3108933395708226550}
-  bat2: {fileID: 381256726250185524}
+  shockProngWM: {fileID: 5648643378000433902}
+  shockSpikeWM: {fileID: 3599275347567283102}
+  missilesWM: {fileID: 6974466696473862771}
+  homingMissilesWM: {fileID: 5654647387319381331}
+  jetBoostWM: {fileID: 6215964951858792208}
+  vertBoostWM: {fileID: 397310519998402514}
+  swordWM: {fileID: 6448302417249232996}
+  swordBladeWM: {fileID: 6175880844464805255}
+  shieldWM: {fileID: 8165101554382137529}
+  hp1WM: {fileID: 3726327887929117025}
+  hp11WM: {fileID: 3036557488635985378}
+  hp2WM: {fileID: 1553305103940364899}
+  bat1WM: {fileID: 3108933395708226550}
+  bat2WM: {fileID: 381256726250185524}
   hasShockProng: 0
   hasShockSpike: 0
   hasMissiles: 0
@@ -2101,9 +2101,9 @@ MonoBehaviour:
   heartPieceCount: 0
   shieldPieceCount: 0
   batteryPieceCount: 0
+  repairKitCount: 0
   itemScreen: {fileID: 0}
   upgradeMenu: {fileID: 0}
-  repairKitCount: 0
   enteredWorld1: 0
   enteredWorld2: 0
   enteredBossArea: 0
