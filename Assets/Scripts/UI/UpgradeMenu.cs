@@ -53,7 +53,9 @@ public class UpgradeMenu : MonoBehaviour
         {
             upgradeIcons[6].SetActive(true);
         }
-
+        else if (upgradeName == "IC Chip") { 
+            
+        }
         else
         {
             upgradeIcon.enabled = false;
@@ -113,5 +115,9 @@ public class UpgradeMenu : MonoBehaviour
     {
         upgradeIcons[9].SetActive(true);
         upgradeIcons[9].transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "3/3";
+    }
+    public void ShowICChip() {
+        upgradeIcons[10].SetActive(true);
+        upgradeIcons[10].transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text =""+ upgradeTracker.iCChipCount;
     }
 }

@@ -20,6 +20,7 @@ public class UpgradeTracker : MonoBehaviour
     public int shieldPieceCount;
 	public int batteryPieceCount;
 	public int repairKitCount;
+	public int iCChipCount;
 	//reference to playerstats
 	PlayerStats stats;
 	//Enums that track which weapon is currently equipped in which hand. 
@@ -57,6 +58,7 @@ public class UpgradeTracker : MonoBehaviour
         enteredWorld1 = SaveData.Instance.EnteredWorld1;
 		enteredWorld2 = SaveData.Instance.EnteredWorld2;
 		repairKitCount = SaveData.Instance.RepairKitCount;
+		iCChipCount = SaveData.Instance.ICChipCount;
 		
 		//Make sure the "None" weapon exists for each hand if it doesnt
         if (!SaveData.Instance.unlockedLeftWeapon.Contains("None")){
@@ -111,6 +113,9 @@ public class UpgradeTracker : MonoBehaviour
 	    	upgradeMenu.ShowUpgrade("Vertical Booster");
 	    	vertBoostWM.SetActive(true);
 	    }
+		if (iCChipCount > 0) {
+			upgradeMenu.ShowICChip();
+		}
 		
 		Invoke("LateAwake", .1f);
 		
@@ -161,8 +166,14 @@ public class UpgradeTracker : MonoBehaviour
 		repairKitCount++;
 		SaveData.Instance.RepairKitCount++;
 	}
+	public void GetICChip()
+	{
+		iCChipCount++;
+		SaveData.Instance.ICChipCount++;
+		upgradeMenu.ShowICChip();
+	}
 	//called when you pick up a shield upgrade, checks if you are over the threshold of 3 and equips the new upgrade if so. 
-    public void GetShieldUpgrade()
+	public void GetShieldUpgrade()
     {
         if (shieldPieceCount < 3)
         {
