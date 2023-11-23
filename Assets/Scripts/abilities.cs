@@ -99,6 +99,7 @@ public class abilities : MonoBehaviour
 	float homingMissileUpwardForce;
 	[SerializeField]
 	float vertBoostEnergyCost;
+	
 
 	Transform homingMissileTarget1, homingMissileTarget2, homingMissileTarget3;
 
@@ -458,10 +459,18 @@ public class abilities : MonoBehaviour
 				anim.SetBool("Pronging2", false);
 			}
 			if(Input.GetKeyDown(controls.keys["attack"]) && !FindObjectOfType<PauseMenu>().isPaused && !move.moveBlocked && upgrades.hasSword && !move.delayedIsDashing){
-				if(canFollowUpGate){
-					anim.SetBool("CanFollowUp", true);
+				if (move.OnGround)
+				{
+					if (canFollowUpGate)
+					{
+						anim.SetBool("CanFollowUp", true);
+					}
+					anim.SetBool("SwordAttacking", true);
 				}
-				anim.SetBool("SwordAttacking", true);
+				else {
+					anim.SetBool("airDashCancel", true);
+					//anim.Play("AirDashCancelShort");
+				}
 
 			}
 			//Dash

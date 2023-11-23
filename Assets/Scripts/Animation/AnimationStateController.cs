@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
+//using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -199,10 +199,23 @@ public class AnimationStateController : MonoBehaviour
     }
     public void enableSwordHitbox(){
         abilities.swordHitbox.SetActive(true);
+        
+        
     }
     public void disableSwordHitbox(){
         abilities.swordHitbox.SetActive(false);
+        
+
     }
+    public void CancelMomentum() {
+        sphere.CancelMomentum();
+        
+    }
+    public void SetDashCancelFalse()
+    {
+        animator.SetBool("airDashCancel", false);
+    }
+    
 
 	void Update() {
 		

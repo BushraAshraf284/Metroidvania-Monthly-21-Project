@@ -455,5 +455,17 @@ public class Movement : MonoBehaviour {
 	public Vector3 ProjectDirectionOnPlane (Vector3 direction, Vector3 normal) {
 		return (direction - normal * Vector3.Dot(direction, normal)).normalized;
 	}
+	public void CancelMomentum()
+	{
+		
+		body.velocity = Vector3.Scale(new Vector3(.1f, 1f, .1f), body.velocity);
+		body.velocity += new Vector3(0f, 2f*CustomGravity.GetUpAxis(body.position).y, 0f);
+		Debug.Log("momemum");
+	}
+	public void ScaleCurrentVelocity(float x,float y,float z)
+	{
 
+		body.velocity = Vector3.Scale(new Vector3(x, y, z), body.velocity);
+		Debug.Log("momemum");
+	}
 }
