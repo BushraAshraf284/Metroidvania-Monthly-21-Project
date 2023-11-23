@@ -13855,6 +13855,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735cee01572a9704d9ccd37e75ca9a38, type: 3}
+--- !u!1 &365703942 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8936191340930747844, guid: 735cee01572a9704d9ccd37e75ca9a38, type: 3}
+  m_PrefabInstance: {fileID: 365703941}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &372092389
 GameObject:
   m_ObjectHideFlags: 0
@@ -26984,6 +26989,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735cee01572a9704d9ccd37e75ca9a38, type: 3}
+--- !u!1 &814402008 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8936191340930747844, guid: 735cee01572a9704d9ccd37e75ca9a38, type: 3}
+  m_PrefabInstance: {fileID: 814402007}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &815181774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72532,7 +72542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1241240851243652461, guid: dd8d4d526d9ebee498ef364052312c8e, type: 3}
       propertyPath: Upgrades.Array.size
-      value: 25
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 1241240851243652461, guid: dd8d4d526d9ebee498ef364052312c8e, type: 3}
       propertyPath: Upgrades.Array.data[0]
@@ -72637,11 +72647,11 @@ PrefabInstance:
     - target: {fileID: 1241240851243652461, guid: dd8d4d526d9ebee498ef364052312c8e, type: 3}
       propertyPath: Upgrades.Array.data[25]
       value: 
-      objectReference: {fileID: 713416136}
+      objectReference: {fileID: 814402008}
     - target: {fileID: 1241240851243652461, guid: dd8d4d526d9ebee498ef364052312c8e, type: 3}
       propertyPath: Upgrades.Array.data[26]
       value: 
-      objectReference: {fileID: 567666910}
+      objectReference: {fileID: 365703942}
     - target: {fileID: 1241240851243652461, guid: dd8d4d526d9ebee498ef364052312c8e, type: 3}
       propertyPath: Upgrades.Array.data[27]
       value: 
